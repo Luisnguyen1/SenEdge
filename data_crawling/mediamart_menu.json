@@ -1,0 +1,1578 @@
+[
+    {
+        "name": "Tivi",
+        "url": "https://mediamart.vn/tivi"
+    },
+    {
+        "name": "Loa - Dàn Âm Thanh",
+        "url": "https://mediamart.vn/loa-sale"
+    },
+    {
+        "name": "Tivi Coex",
+        "url": "https://mediamart.vn/tivi-coex"
+    },
+    {
+        "name": "Tivi Samsung",
+        "url": "https://mediamart.vn/tivi-samsung"
+    },
+    {
+        "name": "Tivi Sony",
+        "url": "https://mediamart.vn/tivi-sony"
+    },
+    {
+        "name": "Tivi LG",
+        "url": "https://mediamart.vn/tivi-lg"
+    },
+    {
+        "name": "Tivi TCL",
+        "url": "https://mediamart.vn/tivi-tcl"
+    },
+    {
+        "name": "Tivi Sharp",
+        "url": "https://mediamart.vn/tivi-sharp"
+    },
+    {
+        "name": "Tivi Skyworth",
+        "url": "https://mediamart.vn/tivi-skyworth"
+    },
+    {
+        "name": "Tivi Casper",
+        "url": "https://mediamart.vn/tivi-casper"
+    },
+    {
+        "name": "Model Mới",
+        "url": "https://mediamart.vn/tivi?e=model-moi"
+    },
+    {
+        "name": "Tivi dưới 5 Triệu",
+        "url": "https://mediamart.vn/tivi?p=duoi-5-trieu"
+    },
+    {
+        "name": "Tivi từ 5 - 7 Triệu",
+        "url": "https://mediamart.vn/tivi?p=tu-5-7-trieu"
+    },
+    {
+        "name": "Tivi từ 7 - 10 Triệu",
+        "url": "https://mediamart.vn/tivi?p=tu-7-10-trieu"
+    },
+    {
+        "name": "Tivi từ 10 - 15 Triệu",
+        "url": "https://mediamart.vn/tivi?p=tu-10-15-trieu"
+    },
+    {
+        "name": "Tivi từ 15 - 20 Triệu",
+        "url": "https://mediamart.vn/tivi?p=tu-15-20-trieu"
+    },
+    {
+        "name": "Tivi trên 20 Triệu",
+        "url": "https://mediamart.vn/tivi?p=tren-20-trieu"
+    },
+    {
+        "name": "Phụ kiện điện tử",
+        "url": "https://mediamart.vn/phu-kien-dien-tu"
+    },
+    {
+        "name": "Tivi 8K",
+        "url": "https://mediamart.vn/tivi?f=tv-8k"
+    },
+    {
+        "name": "Tivi 4K",
+        "url": "https://mediamart.vn/tivi?f=tv-4k"
+    },
+    {
+        "name": "Samsung QLED TV",
+        "url": "https://mediamart.vn/tivi-samsung?f=qled-tv"
+    },
+    {
+        "name": "Sony OLED TV",
+        "url": "https://mediamart.vn/tivi-sony?f=oled-tv"
+    },
+    {
+        "name": "LG OLED TV",
+        "url": "https://mediamart.vn/tivi-lg?f=oled-tv"
+    },
+    {
+        "name": "Android TV",
+        "url": "https://mediamart.vn/tivi?f=android-tv"
+    },
+    {
+        "name": "Smart TV",
+        "url": "https://mediamart.vn/tivi?f=smart-tv"
+    },
+    {
+        "name": "Loa kéo karaoke",
+        "url": "https://mediamart.vn/loa-keo-karaoke"
+    },
+    {
+        "name": "Loa điện karaoke",
+        "url": "https://mediamart.vn/loa-dien-karaoke"
+    },
+    {
+        "name": "Loa xách tay karaoke",
+        "url": "https://mediamart.vn/loa-xach-tay-karaoke"
+    },
+    {
+        "name": "Loa bluetooth",
+        "url": "https://mediamart.vn/loabluetooth"
+    },
+    {
+        "name": "Loa vi tính",
+        "url": "https://mediamart.vn/loamaytinh"
+    },
+    {
+        "name": "Loa thanh (Soundbar)",
+        "url": "https://mediamart.vn/soundbar"
+    },
+    {
+        "name": "Dàn Karaoke",
+        "url": "https://mediamart.vn/karaoke"
+    },
+    {
+        "name": "Truyền hình số",
+        "url": "https://mediamart.vn/truyen-hinh-so"
+    },
+    {
+        "name": "Đầu phát HD",
+        "url": "https://mediamart.vn/dau-phat-hd"
+    },
+    {
+        "name": "Tủ lạnh",
+        "url": "https://mediamart.vn/tu-lanh"
+    },
+    {
+        "name": "Tủ đông",
+        "url": "https://mediamart.vn/tu-dong"
+    },
+    {
+        "name": "Tủ mát",
+        "url": "https://mediamart.vn/tu-lam-mat"
+    },
+    {
+        "name": "Tủ lạnh Coex",
+        "url": "https://mediamart.vn/tu-lanh-coex"
+    },
+    {
+        "name": "Tủ lạnh Hitachi",
+        "url": "https://mediamart.vn/tu-lanh-hitachi"
+    },
+    {
+        "name": "Tủ lạnh Panasonic",
+        "url": "https://mediamart.vn/tu-lanh-panasonic"
+    },
+    {
+        "name": "Tủ lạnh Electrolux",
+        "url": "https://mediamart.vn/tu-lanh-electrolux"
+    },
+    {
+        "name": "Tủ lạnh LG",
+        "url": "https://mediamart.vn/tu-lanh-lg"
+    },
+    {
+        "name": "Tủ lạnh Sharp",
+        "url": "https://mediamart.vn/tu-lanh-sharp"
+    },
+    {
+        "name": "Tủ lạnh Samsung",
+        "url": "https://mediamart.vn/tu-lanh-samsung"
+    },
+    {
+        "name": "Tủ lạnh Toshiba",
+        "url": "https://mediamart.vn/tu-lanh-toshiba"
+    },
+    {
+        "name": "Tủ lạnh AQUA",
+        "url": "https://mediamart.vn/tu-lanh-aqua"
+    },
+    {
+        "name": "Tủ lạnh Midea",
+        "url": "https://mediamart.vn/tu-lanh-midea"
+    },
+    {
+        "name": "Tủ lạnh Mitsubishi",
+        "url": "https://mediamart.vn/tu-lanh-mitsubishi"
+    },
+    {
+        "name": "Tủ lạnh Casper",
+        "url": "https://mediamart.vn/tu-lanh-casper"
+    },
+    {
+        "name": "Xem tất cả tủ lạnh",
+        "url": "https://mediamart.vn/tu-lanh"
+    },
+    {
+        "name": "Side by side",
+        "url": "https://mediamart.vn/tu-lanh-side-by-side"
+    },
+    {
+        "name": "4 cửa",
+        "url": "https://mediamart.vn/tu-lanh?f=4-cua"
+    },
+    {
+        "name": "6 cửa",
+        "url": "https://mediamart.vn/tu-lanh?f=6-cua"
+    },
+    {
+        "name": "Tủ lạnh Mini",
+        "url": "https://mediamart.vn/tu-lanh?f=mini"
+    },
+    {
+        "name": "Tủ lạnh Bespoke",
+        "url": "https://mediamart.vn/tu-lanh?f=tu-lanh-bespoke&a=20684"
+    },
+    {
+        "name": "Tủ đông Coex",
+        "url": "https://mediamart.vn/tu-dong-coex"
+    },
+    {
+        "name": "Tủ đông Sanaky",
+        "url": "https://mediamart.vn/tu-dong-sanaky"
+    },
+    {
+        "name": "Tủ đông LG",
+        "url": "https://mediamart.vn/tu-dong-lg"
+    },
+    {
+        "name": "Tủ đông Kangaroo",
+        "url": "https://mediamart.vn/tu-dong-kangaroo"
+    },
+    {
+        "name": "Xem tất cả tủ đông",
+        "url": "https://mediamart.vn/tu-dong"
+    },
+    {
+        "name": "Tủ mát Alaska",
+        "url": "https://mediamart.vn/tu-lam-mat-alaska"
+    },
+    {
+        "name": "Tủ mát Sanaky",
+        "url": "https://mediamart.vn/tu-lam-mat-sanaky"
+    },
+    {
+        "name": "Tủ mát Kangaroo",
+        "url": "https://mediamart.vn/tu-lam-mat-kangaroo"
+    },
+    {
+        "name": "Xem tất cả tủ mát",
+        "url": "https://mediamart.vn/tu-lam-mat"
+    },
+    {
+        "name": "Phụ kiện tủ lạnh",
+        "url": "https://mediamart.vn/chan-de-may-giat?f=tu-lanh&a=11249"
+    },
+    {
+        "name": "Tủ rượu Roler",
+        "url": "https://mediamart.vn/tu-ruou-roler"
+    },
+    {
+        "name": "Tủ rượu Alaska",
+        "url": "https://mediamart.vn/tu-ruou-alaska"
+    },
+    {
+        "name": "Tủ rượu Kadeka",
+        "url": "https://mediamart.vn/tu-ruou-kadeka"
+    },
+    {
+        "name": "Máy giặt",
+        "url": "https://mediamart.vn/may-giat"
+    },
+    {
+        "name": "Máy sấy quần áo",
+        "url": "https://mediamart.vn/may-say-quan-ao"
+    },
+    {
+        "name": "Máy giặt Coex",
+        "url": "https://mediamart.vn/may-giat-coex"
+    },
+    {
+        "name": "Máy giặt LG",
+        "url": "https://mediamart.vn/may-giat-lg"
+    },
+    {
+        "name": "Máy giặt Electrolux",
+        "url": "https://mediamart.vn/may-giat-electrolux"
+    },
+    {
+        "name": "Máy giặt Panasonic",
+        "url": "https://mediamart.vn/may-giat-panasonic"
+    },
+    {
+        "name": "Máy giặt Samsung",
+        "url": "https://mediamart.vn/may-giat-samsung"
+    },
+    {
+        "name": "Máy giặt Toshiba",
+        "url": "https://mediamart.vn/may-giat-toshiba"
+    },
+    {
+        "name": "Máy giặt Hitachi",
+        "url": "https://mediamart.vn/may-giat-hitachi"
+    },
+    {
+        "name": "Máy giặt Sharp",
+        "url": "https://mediamart.vn/may-giat-sharp"
+    },
+    {
+        "name": "Máy giặt AQUA",
+        "url": "https://mediamart.vn/may-giat-aqua"
+    },
+    {
+        "name": "Máy giặt Midea",
+        "url": "https://mediamart.vn/may-giat-midea"
+    },
+    {
+        "name": "Máy giặt Galanz",
+        "url": "https://mediamart.vn/may-giat-galanz"
+    },
+    {
+        "name": "Máy sấy quần áo Coex",
+        "url": "https://mediamart.vn/may-say-quan-ao-coex"
+    },
+    {
+        "name": "Máy sấy quần áo Electrolux",
+        "url": "https://mediamart.vn/may-say-quan-ao-electrolux"
+    },
+    {
+        "name": "Máy sấy quần áo LG",
+        "url": "https://mediamart.vn/may-say-quan-ao-lg"
+    },
+    {
+        "name": "Máy sấy quần áo Samsung",
+        "url": "https://mediamart.vn/may-say-quan-ao-samsung"
+    },
+    {
+        "name": "Máy sấy quần áo Panasonic",
+        "url": "https://mediamart.vn/may-say-quan-ao-panasonic"
+    },
+    {
+        "name": "Máy sấy quần áo AQUA",
+        "url": "https://mediamart.vn/may-say-quan-ao-aqua"
+    },
+    {
+        "name": "Máy sấy quần áo Galanz",
+        "url": "https://mediamart.vn/may-say-quan-ao-galanz"
+    },
+    {
+        "name": "Xem tất cả máy sấy",
+        "url": "https://mediamart.vn/may-say-quan-ao"
+    },
+    {
+        "name": "Phụ kiện Máy giặt, máy sấy",
+        "url": "https://mediamart.vn/chan-de-may-giat?f=may-giat&a=11250"
+    },
+    {
+        "name": "TỦ GIẶT SẤY",
+        "url": "https://mediamart.vn/tu-giat-say"
+    },
+    {
+        "name": "Công nghệ sấy thông hơi",
+        "url": "https://mediamart.vn/may-say-quan-ao?f=say-thong-hoi"
+    },
+    {
+        "name": "Công nghệ sấy ngưng tụ",
+        "url": "https://mediamart.vn/may-say-quan-ao?f=say-ngung-tu"
+    },
+    {
+        "name": "Công nghệ sấy bơm nhiệt",
+        "url": "https://mediamart.vn/may-say-quan-ao?f=say-bom-nhiet"
+    },
+    {
+        "name": "Trên 10KG",
+        "url": "https://mediamart.vn/may-say-quan-ao?f=tren-7-nguoi-tren-10-kg"
+    },
+    {
+        "name": "Từ 8 - 10KG",
+        "url": "https://mediamart.vn/may-say-quan-ao?f=tu-3-5-nguoi-8-9-kg"
+    },
+    {
+        "name": "Dưới 8KG",
+        "url": "https://mediamart.vn/may-say-quan-ao?f=tu-2-3-nguoi-duoi-8-kg"
+    },
+    {
+        "name": "Điều hòa nhiệt độ",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do"
+    },
+    {
+        "name": "Điều hòa Panasonic",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-panasonic"
+    },
+    {
+        "name": "Điều hòa Daikin",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-daikin"
+    },
+    {
+        "name": "Điều hòa Casper",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-casper"
+    },
+    {
+        "name": "Điều hòa LG",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-lg"
+    },
+    {
+        "name": "Điều hòa Samsung",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-samsung"
+    },
+    {
+        "name": "Điều hòa Midea",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-midea"
+    },
+    {
+        "name": "Điều hòa Gree",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-gree"
+    },
+    {
+        "name": "Điều hòa Sharp",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-sharp"
+    },
+    {
+        "name": "Điều hòa Funiki",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-funiki"
+    },
+    {
+        "name": "Điều hòa AQUA",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-aqua"
+    },
+    {
+        "name": "Điều hòa Comfee",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-comfee"
+    },
+    {
+        "name": "Điều hòa Toshiba",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do-toshiba"
+    },
+    {
+        "name": "Điều hòa treo tường",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do"
+    },
+    {
+        "name": "Điều hòa tủ đứng",
+        "url": "https://mediamart.vn/dieu-hoa-tu-dung"
+    },
+    {
+        "name": "Điều hòa âm trần",
+        "url": "https://mediamart.vn/dieu-hoa-am-tran"
+    },
+    {
+        "name": "Điều hòa di động",
+        "url": "https://mediamart.vn/dieu-hoa-di-dong"
+    },
+    {
+        "name": "Điều hòa nối ống gió",
+        "url": "https://mediamart.vn/dieu-hoa-ap-tran"
+    },
+    {
+        "name": "Điều hòa Multi",
+        "url": "https://mediamart.vn/dieu-hoa-multi"
+    },
+    {
+        "name": "Trả góp 0 - 0.5%",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do?e=tra-gop-0"
+    },
+    {
+        "name": "Điều hòa 9000BTU",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do?f=%E2%89%A4-9000-btu"
+    },
+    {
+        "name": "Điều hòa 12000BTU",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do?f=%E2%89%A4-12000-btu"
+    },
+    {
+        "name": "Điều hòa 1 chiều Inverter",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do?f=1-chieu-inverter&a=9975"
+    },
+    {
+        "name": "Điều hòa 2 chiều Inverter",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do?f=2-chieu-inverter"
+    },
+    {
+        "name": "Điều hòa dưới 7 triệu",
+        "url": "https://mediamart.vn/dieu-hoa-nhiet-do?p=duoi-7-trieu"
+    },
+    {
+        "name": "Phụ kiện điều hòa",
+        "url": "https://mediamart.vn/tin-tuc/ho-tro-mua-hang/bang-bao-gia-vat-tu-cong-lap-dat-dieu-hoa.htm"
+    },
+    {
+        "name": "Quạt mát",
+        "url": "https://mediamart.vn/quat-cac-loai"
+    },
+    {
+        "name": "Sưởi các loại",
+        "url": "https://mediamart.vn/quatsuoi"
+    },
+    {
+        "name": "Quạt cây",
+        "url": "https://mediamart.vn/quat-cay"
+    },
+    {
+        "name": "Quạt bàn, quạt lửng",
+        "url": "https://mediamart.vn/quat-ban"
+    },
+    {
+        "name": "Quạt tản",
+        "url": "https://mediamart.vn/quat-hop-quat-tan"
+    },
+    {
+        "name": "Quạt tháp",
+        "url": "https://mediamart.vn/quat-thap"
+    },
+    {
+        "name": "Quạt điều hòa",
+        "url": "https://mediamart.vn/quat-dieu-hoa"
+    },
+    {
+        "name": "Quạt tích điện",
+        "url": "https://mediamart.vn/quat-sac"
+    },
+    {
+        "name": "Quạt công nghiệp",
+        "url": "https://mediamart.vn/quat-cong-nghiep"
+    },
+    {
+        "name": "Quạt treo tường",
+        "url": "https://mediamart.vn/quat-treo-tuong"
+    },
+    {
+        "name": "Quạt trần",
+        "url": "https://mediamart.vn/quat-tran"
+    },
+    {
+        "name": "Quạt thông gió",
+        "url": "https://mediamart.vn/quat-thong-gio-hut"
+    },
+    {
+        "name": "Quạt đảo trần",
+        "url": "https://mediamart.vn/quat-dao-tran"
+    },
+    {
+        "name": "Quạt sàn",
+        "url": "https://mediamart.vn/quat-quy-quat-san"
+    },
+    {
+        "name": "Sưởi nhà tắm",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-nha-tam"
+    },
+    {
+        "name": "Sưởi Halogen",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-halogen&a=5588"
+    },
+    {
+        "name": "Sưởi Gốm, Sưởi tháp",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-gom-suoi-thap"
+    },
+    {
+        "name": "Sưởi hồng ngoại",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-hong-ngoai&a=5593"
+    },
+    {
+        "name": "Máy sưởi dầu",
+        "url": "https://mediamart.vn/quatsuoi?f=may-suoi-dau&a=5590"
+    },
+    {
+        "name": "Sưởi 2 chiều",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-2-chieu&a=5592"
+    },
+    {
+        "name": "Sưởi Carbon",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-carbon&a=5594"
+    },
+    {
+        "name": "Sưởi Đối Lưu",
+        "url": "https://mediamart.vn/quatsuoi?f=suoi-doi-luu&a=5595"
+    },
+    {
+        "name": "Chăn sưởi",
+        "url": "https://mediamart.vn/quatsuoi?f=chan-suoi"
+    },
+    {
+        "name": "Máy ép nhanh",
+        "url": "https://mediamart.vn/may-ep-vat-trai-cay?f=may-ep-nhanh"
+    },
+    {
+        "name": "Máy ép chậm",
+        "url": "https://mediamart.vn/may-ep-vat-trai-cay?f=may-ep-cham"
+    },
+    {
+        "name": "Máy vắt cam",
+        "url": "https://mediamart.vn/may-vat-cam"
+    },
+    {
+        "name": "Máy xay sinh tố",
+        "url": "https://mediamart.vn/may-xay-sinh-to"
+    },
+    {
+        "name": "May xay đa năng",
+        "url": "https://mediamart.vn/may-xay-sinh-to?f=xay-da-nang"
+    },
+    {
+        "name": "Máy xay cầm tay",
+        "url": "https://mediamart.vn/may-xay-sinh-to?f=xay-sinh-to-cam-tay"
+    },
+    {
+        "name": "Máy làm sữa hạt",
+        "url": "https://mediamart.vn/may-xay-nau"
+    },
+    {
+        "name": "Máy pha café",
+        "url": "https://mediamart.vn/may-pha-ca-phe"
+    },
+    {
+        "name": "Máy đánh trứng",
+        "url": "https://mediamart.vn/may-danh-trung"
+    },
+    {
+        "name": "Máy xay thịt",
+        "url": "https://mediamart.vn/may-xay-thit"
+    },
+    {
+        "name": "Máy lọc nước",
+        "url": "https://mediamart.vn/may-loc-nuoc"
+    },
+    {
+        "name": "Máy rửa bát",
+        "url": "https://mediamart.vn/may-rua-bat"
+    },
+    {
+        "name": "Máy lọc nước RO tủ đứng",
+        "url": "https://mediamart.vn/may-loc-nuoc?f=tu-dung"
+    },
+    {
+        "name": "Máy lọc nước RO âm tủ",
+        "url": "https://mediamart.vn/may-loc-nuoc?f=lap-am"
+    },
+    {
+        "name": "Máy lọc nước để bàn",
+        "url": "https://mediamart.vn/may-loc-nuoc?f=de-ban"
+    },
+    {
+        "name": "Máy lọc nước ion kiềm",
+        "url": "https://mediamart.vn/may-loc-nuoc?f=may-loc-nuoc-ion-kiem"
+    },
+    {
+        "name": "Máy lọc nước tại vòi",
+        "url": "https://mediamart.vn/may-loc-nuoc?f=gan-truc-tiep-vao-voi-nuoc-may"
+    },
+    {
+        "name": "Lõi lọc nước",
+        "url": "https://mediamart.vn/may-loc-nuoc?f=loi-loc-nuoc&a=20188"
+    },
+    {
+        "name": "Cây nước nóng lạnh bình hút",
+        "url": "https://mediamart.vn/cay-nuoc-nong-lanh?f=binh-hut"
+    },
+    {
+        "name": "Cây nước nóng lạnh bình úp",
+        "url": "https://mediamart.vn/cay-nuoc-nong-lanh?f=binh-up"
+    },
+    {
+        "name": "Cây nước nóng lạnh có lọc nước",
+        "url": "https://mediamart.vn/cay-nuoc-nong-lanh?f=loc-nuoc"
+    },
+    {
+        "name": "Máy rửa bát để bàn",
+        "url": "https://mediamart.vn/may-rua-bat?f=may-de-ban"
+    },
+    {
+        "name": "Máy rửa bát độc lập",
+        "url": "https://mediamart.vn/may-rua-bat?f=doc-lap"
+    },
+    {
+        "name": "Máy rửa bát âm tủ",
+        "url": "https://mediamart.vn/may-rua-bat?f=am-tu"
+    },
+    {
+        "name": "Máy rửa bát bán âm",
+        "url": "https://mediamart.vn/may-rua-bat?f=ban-am"
+    },
+    {
+        "name": "Chế phẩm tẩy rửa, viên rửa bát",
+        "url": "https://mediamart.vn/may-rua-bat?f=che-pham&a=21176"
+    },
+    {
+        "name": "Máy sấy bát Roler",
+        "url": "https://mediamart.vn/may-say-bat-dia-roler"
+    },
+    {
+        "name": "Máy sấy bát Cuckoo",
+        "url": "https://mediamart.vn/may-say-bat-dia-cuckoo"
+    },
+    {
+        "name": "Máy sấy bát Hawonkoo",
+        "url": "https://mediamart.vn/may-say-bat-dia-hawonkoo"
+    },
+    {
+        "name": "Lọc không khí",
+        "url": "https://mediamart.vn/may-loc-khong-khi"
+    },
+    {
+        "name": "Hút ẩm",
+        "url": "https://mediamart.vn/may-hut-am"
+    },
+    {
+        "name": "Lọc không khí thường",
+        "url": "https://mediamart.vn/may-loc-khong-khi?f=loc-bui-min&a=5585"
+    },
+    {
+        "name": "Lọc không khí kết hợp bắt muỗi",
+        "url": "https://mediamart.vn/may-loc-khong-khi?f=bat-muoi"
+    },
+    {
+        "name": "Lọc không khí kết hợp tạo ẩm",
+        "url": "https://mediamart.vn/may-loc-khong-khi?f=tao-am"
+    },
+    {
+        "name": "Hút bụi cầm tay",
+        "url": "https://mediamart.vn/may-hut-bui?f=kieu-cam-tay"
+    },
+    {
+        "name": "Hút bụi công nghiệp",
+        "url": "https://mediamart.vn/may-hut-bui?f=cong-nghiep"
+    },
+    {
+        "name": "Robot hút bụi tự động",
+        "url": "https://mediamart.vn/robot-hut-bui"
+    },
+    {
+        "name": "Hút bụi hộc chứa",
+        "url": "https://mediamart.vn/may-hut-bui?f=kieu-nam-ngang"
+    },
+    {
+        "name": "Máy hút ẩm Roler",
+        "url": "https://mediamart.vn/may-hut-am-roler"
+    },
+    {
+        "name": "Máy hút ẩm Electrolux",
+        "url": "https://mediamart.vn/may-hut-am-electrolux"
+    },
+    {
+        "name": "Máy hút ẩm Fujie",
+        "url": "https://mediamart.vn/may-hut-am-fujie"
+    },
+    {
+        "name": "Máy hút ẩm Kangaroo",
+        "url": "https://mediamart.vn/may-hut-am-kangaroo"
+    },
+    {
+        "name": "Máy hút ẩm Sharp",
+        "url": "https://mediamart.vn/may-hut-am-sharp"
+    },
+    {
+        "name": "Máy hút ẩm LG",
+        "url": "https://mediamart.vn/may-hut-am-lg"
+    },
+    {
+        "name": "Máy hút ẩm Tiross",
+        "url": "https://mediamart.vn/may-hut-am-tiross"
+    },
+    {
+        "name": "Máy hút ẩm Panasonic",
+        "url": "https://mediamart.vn/may-hut-am-panasonic"
+    },
+    {
+        "name": "Máy hút ẩm Kosmen",
+        "url": "https://mediamart.vn/may-hut-am-kosmen"
+    },
+    {
+        "name": "Nồi cơm điện cơ",
+        "url": "https://mediamart.vn/noi-com-dien?f=co"
+    },
+    {
+        "name": "Nồi cơm điện điện tử",
+        "url": "https://mediamart.vn/noi-com-dien?f=dien-tu"
+    },
+    {
+        "name": "Nồi cơm điện cao tần",
+        "url": "https://mediamart.vn/noi-com-dien?f=cao-tan&a=5075"
+    },
+    {
+        "name": "Nồi cơm điện công nghiệp",
+        "url": "https://mediamart.vn/noi-com-dien?f=cong-nghiep&a=21449"
+    },
+    {
+        "name": "Nồi áp suất",
+        "url": "https://mediamart.vn/noi-ap-suat"
+    },
+    {
+        "name": "Nồi lẩu",
+        "url": "https://mediamart.vn/noi-lau-dien"
+    },
+    {
+        "name": "Nồi hầm",
+        "url": "https://mediamart.vn/noi-ham"
+    },
+    {
+        "name": "Bếp từ đơn",
+        "url": "https://mediamart.vn/bep-tu-dien-nuong?f=bep-tu#a=1799,1803"
+    },
+    {
+        "name": "Bếp hồng ngoại đơn",
+        "url": "https://mediamart.vn/bep-tu-dien-nuong?f=bep-hong-ngoai&a=1800,1803"
+    },
+    {
+        "name": "Bếp gas du lịch",
+        "url": "https://mediamart.vn/bep-ga?f=bep-gas-du-lich"
+    },
+    {
+        "name": "Bếp gas",
+        "url": "https://mediamart.vn/bep-ga"
+    },
+    {
+        "name": "Bếp đôi - ba",
+        "url": "https://mediamart.vn/bep-tu-dien-nuong?f=bep-doi&a=1804,1805"
+    },
+    {
+        "name": "Bếp nướng, vỉ nướng",
+        "url": "https://mediamart.vn/bep-nuong"
+    },
+    {
+        "name": "Chảo",
+        "url": "https://mediamart.vn/chao"
+    },
+    {
+        "name": "Bộ nồi",
+        "url": "https://mediamart.vn/bo-noi?f=bo-noi"
+    },
+    {
+        "name": "Xoong, nồi lẻ",
+        "url": "https://mediamart.vn/bo-noi?f=noi-le"
+    },
+    {
+        "name": "Hộp bảo quản",
+        "url": "https://mediamart.vn/hop-bao-quan?f=hop-dung-thuc-pham"
+    },
+    {
+        "name": "Hộp cơm điện",
+        "url": "https://mediamart.vn/hop-bao-quan?f=hop-com-dien"
+    },
+    {
+        "name": "Hút mùi",
+        "url": "https://mediamart.vn/may-hut-khoi-hut-mui"
+    },
+    {
+        "name": "Máy nướng bánh mỳ",
+        "url": "https://mediamart.vn/lo-nuong-banh-mi"
+    },
+    {
+        "name": "Máy làm tỏi đen",
+        "url": "https://mediamart.vn/may-lam-toi-den"
+    },
+    {
+        "name": "Lò vi sóng",
+        "url": "https://mediamart.vn/lo-vi-song"
+    },
+    {
+        "name": "Nồi chiên",
+        "url": "https://mediamart.vn/noi-chien-khong-dau"
+    },
+    {
+        "name": "Nồi chiên không dầu cơ",
+        "url": "https://mediamart.vn/noi-chien-khong-dau?f=co"
+    },
+    {
+        "name": "Nồi chiên không dầu điện tử",
+        "url": "https://mediamart.vn/noi-chien-khong-dau?f=dien-tu"
+    },
+    {
+        "name": "Nồi chiên cơ kết hợp điện tử",
+        "url": "https://mediamart.vn/noi-chien-khong-dau?f=co-ket-hop-dien-tu"
+    },
+    {
+        "name": "Nồi chiên không dầu dưới 6L",
+        "url": "https://mediamart.vn/noi-chien-khong-dau?f=nho-hon-6l"
+    },
+    {
+        "name": "Nồi chiên không dầu 6L-10L",
+        "url": "https://mediamart.vn/noi-chien-khong-dau?f=tu-6l-10-lit"
+    },
+    {
+        "name": "Nồi chiên không dầu trên 10L",
+        "url": "https://mediamart.vn/noi-chien-khong-dau?f=tu-10l-tro-len"
+    },
+    {
+        "name": "Lò vi sóng cơ",
+        "url": "https://mediamart.vn/lo-vi-song?f=nut-van&a=9687"
+    },
+    {
+        "name": "Lò vi sóng điện tử",
+        "url": "https://mediamart.vn/lo-vi-song?f=nut-nhan#a=20280,9688"
+    },
+    {
+        "name": "Lò vi sóng có nướng",
+        "url": "https://mediamart.vn/lo-vi-song?f=co-nuong"
+    },
+    {
+        "name": "Lò vi sóng không nướng",
+        "url": "https://mediamart.vn/lo-vi-song?f=khong-nuong"
+    },
+    {
+        "name": "Lò nướng âm",
+        "url": "https://mediamart.vn/lo-nuong?f=lo-nuong-am"
+    },
+    {
+        "name": "Lò nướng thùng",
+        "url": "https://mediamart.vn/lo-nuong?f=lo-nuong-thung"
+    },
+    {
+        "name": "Lò nướng thủy tinh",
+        "url": "https://mediamart.vn/lo-nuong?f=lo-nuong-thuy-tinh"
+    },
+    {
+        "name": "Gia dụng, dụng cụ",
+        "url": "https://mediamart.vn/gia-dung"
+    },
+    {
+        "name": "Bình nóng lạnh gián tiếp",
+        "url": "https://mediamart.vn/binh-tam-nong-lanh?f=gian-tiep"
+    },
+    {
+        "name": "Bình nóng lạnh trực tiếp",
+        "url": "https://mediamart.vn/binh-tam-nong-lanh?f=truc-tiep"
+    },
+    {
+        "name": "Bàn là",
+        "url": "https://mediamart.vn/ban-la"
+    },
+    {
+        "name": "Tủ sấy quần áo",
+        "url": "https://mediamart.vn/may-say-kho-quan-ao"
+    },
+    {
+        "name": "Máy phát điện",
+        "url": "https://mediamart.vn/may-phat-dien"
+    },
+    {
+        "name": "Ổn áp",
+        "url": "https://mediamart.vn/on-ap"
+    },
+    {
+        "name": "Bình thủy điện",
+        "url": "https://mediamart.vn/binh-thuy-dien"
+    },
+    {
+        "name": "Bình siêu tốc",
+        "url": "https://mediamart.vn/am-dun-binh-sieu-toc"
+    },
+    {
+        "name": "Bình giữ nhiệt",
+        "url": "https://mediamart.vn/binh-giu-nhiet"
+    },
+    {
+        "name": "Cân sức khỏe",
+        "url": "https://mediamart.vn/can-suc-khoe"
+    },
+    {
+        "name": "Ấm sắc thuốc",
+        "url": "https://mediamart.vn/am-sac-thuoc"
+    },
+    {
+        "name": "Máy sấy tóc",
+        "url": "https://mediamart.vn/may-say-toc"
+    },
+    {
+        "name": "Máy cạo râu",
+        "url": "https://mediamart.vn/may-cao-rau"
+    },
+    {
+        "name": "Tăm nước",
+        "url": "https://mediamart.vn/tam-nuoc"
+    },
+    {
+        "name": "Bàn chải điện",
+        "url": "https://mediamart.vn/ban-chai-dien"
+    },
+    {
+        "name": "Chổi lau nhà đa năng",
+        "url": "https://mediamart.vn/choi-lau-nha"
+    },
+    {
+        "name": "Két sắt",
+        "url": "https://mediamart.vn/giadung-khac?f=ket-sat"
+    },
+    {
+        "name": "Máy bơm nước",
+        "url": "https://mediamart.vn/may-bom-nuoc"
+    },
+    {
+        "name": "Thiết bị bắt muỗi",
+        "url": "https://mediamart.vn/anti-mosquito"
+    },
+    {
+        "name": "Đèn bàn, đèn pin",
+        "url": "https://mediamart.vn/pk-denban"
+    },
+    {
+        "name": "Laptop",
+        "url": "https://mediamart.vn/laptop"
+    },
+    {
+        "name": "Laptop AI",
+        "url": "https://mediamart.vn/laptop-ai-sale"
+    },
+    {
+        "name": "Apple",
+        "url": "https://mediamart.vn/laptop-macbook"
+    },
+    {
+        "name": "Asus",
+        "url": "https://mediamart.vn/laptop-asus"
+    },
+    {
+        "name": "Dell",
+        "url": "https://mediamart.vn/laptop-dell"
+    },
+    {
+        "name": "Lenovo",
+        "url": "https://mediamart.vn/laptop-lenovo"
+    },
+    {
+        "name": "Acer",
+        "url": "https://mediamart.vn/laptop-acer"
+    },
+    {
+        "name": "HP",
+        "url": "https://mediamart.vn/laptop-hp"
+    },
+    {
+        "name": "MSI",
+        "url": "https://mediamart.vn/laptop-msi"
+    },
+    {
+        "name": "Gigabyte",
+        "url": "https://mediamart.vn/laptop-gigabyte"
+    },
+    {
+        "name": "LG",
+        "url": "https://mediamart.vn/laptop-lg"
+    },
+    {
+        "name": "Laptop AI",
+        "url": "https://mediamart.vn/laptop?f=laptop-tich-hop-ai&a=22338"
+    },
+    {
+        "name": "Macbook",
+        "url": "https://mediamart.vn/laptop-macbook"
+    },
+    {
+        "name": "Laptop Windows 11",
+        "url": "https://mediamart.vn/laptop?f=windows-11"
+    },
+    {
+        "name": "Laptop Gaming",
+        "url": "https://mediamart.vn/laptop?f=laptop-gaming"
+    },
+    {
+        "name": "Laptop đồ họa",
+        "url": "https://mediamart.vn/laptop?f=laptop-do-hoa"
+    },
+    {
+        "name": "Laptop mỏng nhẹ",
+        "url": "https://mediamart.vn/laptop?f=laptop-mong-nhe"
+    },
+    {
+        "name": "Laptop Sinh Viên - Văn phòng",
+        "url": "https://mediamart.vn/laptop?f=laptop-sinh-vien--van-phong"
+    },
+    {
+        "name": "Laptop màn hình cảm ứng",
+        "url": "https://mediamart.vn/laptop?f=laptop-man-hinh-cam-ung"
+    },
+    {
+        "name": "Laptop 2 trong 1",
+        "url": "https://mediamart.vn/laptop?f=laptop-2-trong-1"
+    },
+    {
+        "name": "Intel Core i7",
+        "url": "https://mediamart.vn/laptop?f=core-i7"
+    },
+    {
+        "name": "Intel Core i5",
+        "url": "https://mediamart.vn/laptop?f=core-i5"
+    },
+    {
+        "name": "Intel Core i3",
+        "url": "https://mediamart.vn/laptop?f=core-i3"
+    },
+    {
+        "name": "Intel Pentium",
+        "url": "https://mediamart.vn/laptop?f=pentium"
+    },
+    {
+        "name": "AMD Ryzen 7",
+        "url": "https://mediamart.vn/laptop?f=ryzen-7"
+    },
+    {
+        "name": "AMD Ryzen 5",
+        "url": "https://mediamart.vn/laptop?f=ryzen-5"
+    },
+    {
+        "name": "AMD Ryzen 3",
+        "url": "https://mediamart.vn/laptop?f=ryzen-3"
+    },
+    {
+        "name": "Intel Celeron",
+        "url": "https://mediamart.vn/laptop?f=celeron"
+    },
+    {
+        "name": "Điện thoại",
+        "url": "https://mediamart.vn/smartphones"
+    },
+    {
+        "name": "Tablet",
+        "url": "https://mediamart.vn/may-tinh-bang"
+    },
+    {
+        "name": "Apple Iphone 16 Series",
+        "url": "https://mediamart.vn/apple-iphone-16-series"
+    },
+    {
+        "name": "Apple Iphone 15 Series",
+        "url": "https://mediamart.vn/apple-iphone-15-series"
+    },
+    {
+        "name": "Iphone chính hãng",
+        "url": "https://mediamart.vn/smartphones-apple"
+    },
+    {
+        "name": "Samsung",
+        "url": "https://mediamart.vn/smartphones-Samsung"
+    },
+    {
+        "name": "Oppo",
+        "url": "https://mediamart.vn/smartphones-oppo"
+    },
+    {
+        "name": "Xiaomi",
+        "url": "https://mediamart.vn/smartphones-xiaomi"
+    },
+    {
+        "name": "Realme",
+        "url": "https://mediamart.vn/smartphones-realme"
+    },
+    {
+        "name": "Vivo",
+        "url": "https://mediamart.vn/smartphones-vivo"
+    },
+    {
+        "name": "Itel",
+        "url": "https://mediamart.vn/smartphones-itel"
+    },
+    {
+        "name": "Masstel",
+        "url": "https://mediamart.vn/smartphones-masstel"
+    },
+    {
+        "name": "Xem tất cả Điện thoại",
+        "url": "https://mediamart.vn/smartphones"
+    },
+    {
+        "name": "Ipad chính hãng",
+        "url": "https://mediamart.vn/may-tinh-bang-apple"
+    },
+    {
+        "name": "Samsung",
+        "url": "https://mediamart.vn/may-tinh-bang-samsung"
+    },
+    {
+        "name": "Lenovo",
+        "url": "https://mediamart.vn/may-tinh-bang-lenovo"
+    },
+    {
+        "name": "Masstel",
+        "url": "https://mediamart.vn/may-tinh-bang-masstel"
+    },
+    {
+        "name": "Máy tính bảng dưới 4 Triệu",
+        "url": "https://mediamart.vn/may-tinh-bang?p=duoi-4-trieu"
+    },
+    {
+        "name": "Máy tính bảng dưới 4 - 6 Triệu",
+        "url": "https://mediamart.vn/may-tinh-bang?p=tu-4-6-trieu"
+    },
+    {
+        "name": "Máy tính bảng dưới 6 - 10 Triệu",
+        "url": "https://mediamart.vn/may-tinh-bang?p=tu-6-10-trieu"
+    },
+    {
+        "name": "Trả góp 0.5%",
+        "url": "https://mediamart.vn/may-tinh-bang?e=tra-gop-0.5"
+    },
+    {
+        "name": "Model Mới",
+        "url": "https://mediamart.vn/may-tinh-bang?e=model-moi"
+    },
+    {
+        "name": "Tất cả Tablet",
+        "url": "https://mediamart.vn/may-tinh-bang"
+    },
+    {
+        "name": "Smartphones từ 1 - 3 Triệu",
+        "url": "https://mediamart.vn/smartphones?p=tu-1-3-trieu"
+    },
+    {
+        "name": "Smartphones từ 3 - 6 Triệu",
+        "url": "https://mediamart.vn/smartphones?p=tu-3-6-trieu"
+    },
+    {
+        "name": "Smartphones từ 6 - 10 Triệu",
+        "url": "https://mediamart.vn/smartphones?p=tu-6-10-trieu"
+    },
+    {
+        "name": "Trả góp 0%",
+        "url": "https://mediamart.vn/smartphones?e=tra-gop-0"
+    },
+    {
+        "name": "Model Mới",
+        "url": "https://mediamart.vn/smartphones?e=model-moi"
+    },
+    {
+        "name": "Kết nối NFC",
+        "url": "https://mediamart.vn/smartphones-samsung?f=nfc&a=2744"
+    },
+    {
+        "name": "Apple Ipad",
+        "url": "https://mediamart.vn/may-tinh-bang-apple"
+    },
+    {
+        "name": "Nokia",
+        "url": "https://mediamart.vn/dien-thoai-di-dong-thuong-nokia"
+    },
+    {
+        "name": "Masstel",
+        "url": "https://mediamart.vn/dien-thoai-di-dong-thuong-masstel"
+    },
+    {
+        "name": "Itel",
+        "url": "https://mediamart.vn/dien-thoai-di-dong-thuong-itel"
+    },
+    {
+        "name": "PC",
+        "url": "https://mediamart.vn/may-tinh-de-ban"
+    },
+    {
+        "name": "Màn hình",
+        "url": "https://mediamart.vn/man-hinh-may-tinh"
+    },
+    {
+        "name": "Máy in",
+        "url": "https://mediamart.vn/may-in"
+    },
+    {
+        "name": "Máy tính để bàn Dell",
+        "url": "https://mediamart.vn/may-tinh-de-ban-dell"
+    },
+    {
+        "name": "Máy tính để bàn HP",
+        "url": "https://mediamart.vn/may-tinh-de-ban-hp"
+    },
+    {
+        "name": "Máy tính để bàn Asus",
+        "url": "https://mediamart.vn/may-tinh-de-ban-asus"
+    },
+    {
+        "name": "Máy tính để bàn Lenovo",
+        "url": "https://mediamart.vn/may-tinh-de-ban-lenovo"
+    },
+    {
+        "name": "Máy tính để bàn Acer",
+        "url": "https://mediamart.vn/may-tinh-de-ban-acer"
+    },
+    {
+        "name": "Máy tính đề bàn SingPC",
+        "url": "https://mediamart.vn/may-tinh-de-ban-singpc"
+    },
+    {
+        "name": "PC All in one",
+        "url": "https://mediamart.vn/pc-dongbo"
+    },
+    {
+        "name": "Màn hình Dell",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-dell"
+    },
+    {
+        "name": "Màn hình HP",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-hp"
+    },
+    {
+        "name": "Màn hình Asus",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-asus"
+    },
+    {
+        "name": "Màn hình Samsung",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-samsung"
+    },
+    {
+        "name": "Màn hình LG",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-lg"
+    },
+    {
+        "name": "Màn hình Acer",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-acer"
+    },
+    {
+        "name": "Màn hình MSI",
+        "url": "https://mediamart.vn/man-hinh-may-tinh-msi"
+    },
+    {
+        "name": "Máy in Canon",
+        "url": "https://mediamart.vn/may-in-canon"
+    },
+    {
+        "name": "Máy in HP",
+        "url": "https://mediamart.vn/may-in-hp"
+    },
+    {
+        "name": "Máy in Brother",
+        "url": "https://mediamart.vn/may-in-brother"
+    },
+    {
+        "name": "Máy in Epson",
+        "url": "https://mediamart.vn/may-in-epson"
+    },
+    {
+        "name": "Máy in Pantum",
+        "url": "https://mediamart.vn/may-in-pantum"
+    },
+    {
+        "name": "Mực và phụ kiện máy in",
+        "url": "https://mediamart.vn/phu-kien-may-in"
+    },
+    {
+        "name": "Máy in hóa đơn siêu thị",
+        "url": "https://mediamart.vn/may-in-hoa-don-sieu-thi"
+    },
+    {
+        "name": "Máy chiếu",
+        "url": "https://mediamart.vn/may-chieu"
+    },
+    {
+        "name": "Màn chiếu",
+        "url": "https://mediamart.vn/man-chieu"
+    },
+    {
+        "name": "Phần mềm Windows & Office",
+        "url": "https://mediamart.vn/phan-mem?f=ung-dung-van-phong&a=11561"
+    },
+    {
+        "name": "Phần mềm diệt Virus",
+        "url": "https://mediamart.vn/phan-mem?f=diet-virus&a=11563"
+    },
+    {
+        "name": "Dùng cho Marketing-Thiết kế",
+        "url": "https://mediamart.vn/may-tinh-de-ban?f=dung-cho-marketing-thiet-ke"
+    },
+    {
+        "name": "Dùng cho Kế toán-Văn Phòng",
+        "url": "https://mediamart.vn/may-tinh-de-ban?f=dung-cho-ke-toan-van-phong"
+    },
+    {
+        "name": "Dùng cho chơi Game",
+        "url": "https://mediamart.vn/may-tinh-de-ban?f=dung-cho-choi-game"
+    },
+    {
+        "name": "Máy chủ/Server",
+        "url": "https://mediamart.vn/server"
+    },
+    {
+        "name": "Máy Photocopy",
+        "url": "https://mediamart.vn/may-photocopy"
+    },
+    {
+        "name": "Máy hủy tài liệu công nghiệp",
+        "url": "https://mediamart.vn/may-huy-tai-lieu?f=huy-cong-nghiep&a=1821"
+    },
+    {
+        "name": "Máy hủy tài liệu Silicon",
+        "url": "https://mediamart.vn/may-huy-tai-lieu-silicon"
+    },
+    {
+        "name": "Máy hủy tài liệu Nikatei",
+        "url": "https://mediamart.vn/may-huy-tai-lieu-nikatei"
+    },
+    {
+        "name": "Máy hủy tài liệu Ziba",
+        "url": "https://mediamart.vn/may-huy-tai-lieu-ziba"
+    },
+    {
+        "name": "Máy đếm tiền",
+        "url": "https://mediamart.vn/may-dem-tien"
+    },
+    {
+        "name": "Máy đếm tiền-Kiểm tra tiền giả",
+        "url": "https://mediamart.vn/may-dem-tien?f=phat-hien-tien-gia&a=11240"
+    },
+    {
+        "name": "Thiết bị đọc mã vạch",
+        "url": "https://mediamart.vn/may-quet-ma-vach"
+    },
+    {
+        "name": "Máy in tem nhãnNEW",
+        "url": "https://mediamart.vn/may-in?f=may-in-tem-nhan&a=20567"
+    },
+    {
+        "name": "Máy chấm công",
+        "url": "https://mediamart.vn/may-cham-cong"
+    },
+    {
+        "name": "Phụ kiện - SP Thông Minh",
+        "url": "https://mediamart.vn/nhom-phu-kien"
+    },
+    {
+        "name": "Loa máy tính",
+        "url": "https://mediamart.vn/loamaytinh"
+    },
+    {
+        "name": "Loa Bluetooth",
+        "url": "https://mediamart.vn/loabluetooth"
+    },
+    {
+        "name": "Loa Karaoke xách tay",
+        "url": "https://mediamart.vn/karaoke"
+    },
+    {
+        "name": "Âm ly karaoke",
+        "url": "https://mediamart.vn/amply"
+    },
+    {
+        "name": "Loa kéo",
+        "url": "https://mediamart.vn/loa-keo-loa-one-box"
+    },
+    {
+        "name": "Mic Karaoke",
+        "url": "https://mediamart.vn/mic-karaoke"
+    },
+    {
+        "name": "Bộ thu phát Wifi",
+        "url": "https://mediamart.vn/thiet-bi-mang?f=bo-thu-phat-wifi&a=11567"
+    },
+    {
+        "name": "Switch",
+        "url": "https://mediamart.vn/thiet-bi-mang?f=switch&a=11568"
+    },
+    {
+        "name": "Card mạng, USB Wifi",
+        "url": "https://mediamart.vn/thiet-bi-mang?f=card-mang-usb-wifi&a=11569"
+    },
+    {
+        "name": "Bộ mở rộng sóng",
+        "url": "https://mediamart.vn/thiet-bi-mang?f=bo-tiep-song&a=11570"
+    },
+    {
+        "name": "Thiết bị mạng khác",
+        "url": "https://mediamart.vn/thiet-bi-mang?f=thiet-bi-mang-khac&a=11572"
+    },
+    {
+        "name": "Camera Wifi",
+        "url": "https://mediamart.vn/ip-camera"
+    },
+    {
+        "name": "Đồng hồ thông minh",
+        "url": "https://mediamart.vn/smartwatch"
+    },
+    {
+        "name": "Đồng hồ Apple Watch",
+        "url": "https://mediamart.vn/dong-ho-apple-watch"
+    },
+    {
+        "name": "Đồng hồ trẻ em",
+        "url": "https://mediamart.vn/dong-ho-tre-em"
+    },
+    {
+        "name": "Công tắc thông minh",
+        "url": "https://mediamart.vn/cong-tac-thong-minh"
+    },
+    {
+        "name": "Bóng đèn thông minh",
+        "url": "https://mediamart.vn/bong-den-thong-minh"
+    },
+    {
+        "name": "Ổ cắm điện thông minh",
+        "url": "https://mediamart.vn/o-cam-thong-minh"
+    },
+    {
+        "name": "Khóa cửa điện tử",
+        "url": "https://mediamart.vn/khoa-cua-thong-minh"
+    },
+    {
+        "name": "Máy chơi game",
+        "url": "https://mediamart.vn/thiet-bi-choi-game"
+    },
+    {
+        "name": "Ghế ô tô trẻ em",
+        "url": "https://mediamart.vn/ghe-o-to-tre-em"
+    },
+    {
+        "name": "Pin dự phòng",
+        "url": "https://mediamart.vn/pin-sacduphong"
+    },
+    {
+        "name": "Cáp sạc điện thoại",
+        "url": "https://mediamart.vn/sac-capnoi?f=cap-noi&a=11243"
+    },
+    {
+        "name": "Thẻ nhớ điện thoại",
+        "url": "https://mediamart.vn/thenho-dienthoai"
+    },
+    {
+        "name": "Pin tiểu",
+        "url": "https://mediamart.vn/pin-sac"
+    },
+    {
+        "name": "Củ sạc điện thoại",
+        "url": "https://mediamart.vn/sac-capnoi?f=cu-sac&a=11244"
+    },
+    {
+        "name": "Tai nghe HeadPhone",
+        "url": "https://mediamart.vn/tai-nghe-headphone"
+    },
+    {
+        "name": "Tai nghe Bluetooth",
+        "url": "https://mediamart.vn/tai-nghe-bluetooth"
+    },
+    {
+        "name": "Tai nghe Apple (AirPods)",
+        "url": "https://mediamart.vn/tai-nghe-bluetooth-apple"
+    },
+    {
+        "name": "Tai nghe nhét tai",
+        "url": "https://mediamart.vn/tai-nghe-earphone"
+    },
+    {
+        "name": "Máy ảnh, máy quay",
+        "url": "https://mediamart.vn/may-anh-may-quay"
+    },
+    {
+        "name": "Chuột không dây, có dây",
+        "url": "https://mediamart.vn/chuot"
+    },
+    {
+        "name": "Bàn phím, Bộ bàn phím",
+        "url": "https://mediamart.vn/ban-phim"
+    },
+    {
+        "name": "USB,Thẻ nhớ",
+        "url": "https://mediamart.vn/usb-flash"
+    },
+    {
+        "name": "Phần mềm",
+        "url": "https://mediamart.vn/phan-mem"
+    },
+    {
+        "name": "Webcam",
+        "url": "https://mediamart.vn/webcam"
+    },
+    {
+        "name": "Bút cảm ứng",
+        "url": "https://mediamart.vn/vo-bao-dung"
+    },
+    {
+        "name": "Điện thoại cố định",
+        "url": "https://mediamart.vn/dien-thoai-ban-keo-dai"
+    },
+    {
+        "name": "Máy trợ giảng",
+        "url": "https://mediamart.vn/am-thanh-tro-giang"
+    },
+    {
+        "name": "Cáp nối chuyển đổi",
+        "url": "https://mediamart.vn/cap-noi"
+    }
+]
