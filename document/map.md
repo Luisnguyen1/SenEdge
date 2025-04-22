@@ -7,12 +7,12 @@ Xây dựng ứng dụng web (PWA/SPA) cho phép người dùng định vị và
 
 ```mermaid
 flowchart LR
-  subgraph Browser (Client)
+  subgraph Browser_Client
     A[BLE Scanner Module] --> B[Positioning Engine]
     B --> C[Map UI Module]
   end
 
-  subgraph Backend (tuỳ chọn)
+  subgraph Backend_optional
     D[API & WebSocket Server]
     E[PostGIS / Radio Map DB]
   end
