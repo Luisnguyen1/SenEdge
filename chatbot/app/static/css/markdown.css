@@ -1,0 +1,171 @@
+/* filepath: d:\IoTChallenge2025\backend\app\static\css\markdown.css */
+/* Markdown Styling */
+
+/* Đảm bảo các thẻ block trong Markdown hiển thị đúng */
+.message-text {
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* Định dạng cho tiêu đề */
+.message-text h1, .message-text h2, .message-text h3, 
+.message-text h4, .message-text h5, .message-text h6 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-color);
+}
+
+.message-text h1 { font-size: 1.8em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; }
+.message-text h2 { font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; }
+.message-text h3 { font-size: 1.3em; }
+.message-text h4 { font-size: 1.1em; }
+.message-text h5 { font-size: 1em; }
+.message-text h6 { font-size: 0.9em; }
+
+/* Định dạng đoạn văn */
+.message-text p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+/* Định dạng cho đường gạch ngang */
+.message-text hr {
+    height: 2px;
+    margin: 16px 0;
+    background-color: var(--border-color);
+    border: 0;
+}
+
+/* Định dạng cho danh sách */
+.message-text ul, .message-text ol {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-left: 2em;
+}
+
+.message-text li+li {
+    margin-top: 4px;
+}
+
+.message-text li > p {
+    margin-top: 10px;
+}
+
+.message-text ul ul, .message-text ol ol, 
+.message-text ul ol, .message-text ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Định dạng cho bảng */
+.message-text table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.message-text table th,
+.message-text table td {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+}
+
+.message-text table tr {
+    background-color: var(--chat-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+.message-text table tr:nth-child(2n) {
+    background-color: var(--hover-color);
+}
+
+.message-text table th {
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Định dạng cho khối mã */
+.message-text pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 0.9em;
+    border-radius: 6px;
+    background-color: #f3f4f6;
+}
+
+.dark-theme .message-text pre {
+    background-color: #2d3748;
+}
+
+.message-text pre code {
+    display: block;
+    word-wrap: normal;
+    font-family: monospace;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Định dạng cho mã inline */
+.message-text code:not(pre code) {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 0.9em;
+    background-color: rgba(175, 184, 193, 0.2);
+    border-radius: 6px;
+    font-family: monospace;
+}
+
+.dark-theme .message-text code:not(pre code) {
+    background-color: rgba(110, 118, 129, 0.4);
+}
+
+/* Định dạng cho trích dẫn */
+.message-text blockquote {
+    margin: 0 0 16px;
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 4px solid var(--border-color);
+}
+
+.dark-theme .message-text blockquote {
+    color: #9b9b9b;
+}
+
+/* Định dạng cho liên kết */
+.message-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.message-text a:hover {
+    text-decoration: underline;
+}
+
+/* Định dạng cho hình ảnh */
+.message-text img {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0;
+    border-radius: 6px;
+}
+
+/* Định dạng cho chữ nghiêng, đậm */
+.message-text em {
+    font-style: italic;
+}
+
+.message-text strong {
+    font-weight: 600;
+}
+
+/* Định dạng cho checkbox */
+.message-text input[type="checkbox"] {
+    margin-right: 0.5em;
+}
