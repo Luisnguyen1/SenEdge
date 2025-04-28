@@ -1,22 +1,81 @@
-# IoT Challenge 2025
+# IoT-AI Retail Assistant
 
-This repository contains resources for the IoT Challenge 2025.
+Hệ thống hỗ trợ mua sắm thông minh tích hợp IoT và AI.
 
-## Documentation
+## Cấu trúc dự án
 
-Please refer to the following documentation:
+```
+.
+├── backend/           # Backend chính của hệ thống
+├── chatbot/          # Module RAG Chatbot
+├── data_crawling/    # Scripts thu thập dữ liệu
+├── map/              # Module định vị và dẫn đường
+├── sensor_report/    # Module phân tích dữ liệu IoT
+└── document/         # Tài liệu hệ thống
+```
 
+## Tài liệu
 
-- [Map](./document/map.md)
+- [Chi tiết hệ thống](document.md)
+- [Sequence Diagram](sequencsDiagram.md)
+- [Sơ đồ bản đồ](map/map.md)
 
+## Yêu cầu
 
+### Cài đặt
 
-- [Getting Started](./document/getting-started.md)
-- [API Reference](./document/api-reference.md)
-- [Hardware Setup](./document/hardware-setup.md)
-- [Troubleshooting Guide](./document/troubleshooting.md)
-- [FAQ](./document/faq.md)
+1. Python 3.9+
+2. Node.js 16+
+3. MongoDB
+4. Docker & Docker Compose
 
-## License
+### Các gói phụ thuộc
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+Cài đặt các gói Python:
+```powershell
+pip install -r requirements.txt
+```
+
+## Khởi động
+
+### Sử dụng Docker
+
+```powershell
+docker-compose up --build
+```
+
+### Khởi động từng module
+
+1. Backend:
+```powershell
+cd backend
+python main.py
+```
+
+2. Chatbot:
+```powershell
+cd chatbot
+python app.py
+```
+
+3. Map:
+```powershell
+cd map
+python run.py
+```
+
+4. Sensor Report:
+```powershell
+cd sensor_report
+python main.py
+```
+
+## Lưu ý
+
+- Đảm bảo MongoDB đang chạy trước khi khởi động hệ thống
+- Cấu hình các biến môi trường trong file `.env`
+- Kiểm tra các cổng 5000, 5001, 5002 không bị sử dụng
+
+## Đóng góp
+
+Tham khảo [CONTRIBUTING.md](CONTRIBUTING.md) cho chi tiết về quy trình đóng góp.
