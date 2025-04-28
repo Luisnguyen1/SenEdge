@@ -190,9 +190,9 @@ erDiagram
 ```mermaid
 flowchart LR
     Gateway[API Gateway]
-    Chat[/chat]
-    Products[/products]
-    Analytics[/analytics]
+    Chat["/chat"]
+    Products["/products"]
+    Analytics["/analytics"]
     RAG[RAG Service]
     PS[Product Service]
     AS[Analytics Service]
