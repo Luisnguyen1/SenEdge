@@ -188,14 +188,22 @@ erDiagram
 ### 4.1 Endpoints
 
 ```mermaid
-graph LR
-    A[API Gateway] --> B[/chat]
-    A --> C[/products]
-    A --> D[/analytics]
+flowchart LR
+    Gateway[API Gateway]
+    Chat[/chat]
+    Products[/products]
+    Analytics[/analytics]
+    RAG[RAG Service]
+    PS[Product Service]
+    AS[Analytics Service]
+
+    Gateway --> Chat
+    Gateway --> Products
+    Gateway --> Analytics
     
-    B --> E[RAG Service]
-    C --> F[Product Service]
-    D --> G[Analytics Service]
+    Chat --> RAG
+    Products --> PS
+    Analytics --> AS
 ```
 
 ### 4.2 API Schema
