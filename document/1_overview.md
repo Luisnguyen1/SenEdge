@@ -236,6 +236,38 @@ sequenceDiagram
 ## 3. Phân bố Thiết bị
 
 ### 3.1 Sơ đồ Phân bố Vật lý
+1. Giới thiệu về sơ đồ
+Sơ đồ "3.1 Sơ đồ Phân bố Vật lý" là một sequence diagram hoặc sơ đồ phân bố vật lý, minh họa cách các thiết bị IoT được triển khai trong một môi trường được giám sát, có thể là không gian bán lẻ, thương mại, hoặc một khu vực cần quản lý. Sơ đồ được thiết kế với cấu trúc phân cấp, thể hiện mối quan hệ giữa các khu vực chính (Entrance, Main Area, Checkout Area) và các thiết bị được bố trí trong chúng. Đây là một tài liệu quan trọng cho việc thiết kế hệ thống, lập kế hoạch triển khai, và quản lý vận hành, đảm bảo rằng các thành phần được bố trí hợp lý để tối ưu hóa chức năng.
+
+2. Phân tích các thành phần chính
+Dưới đây là mô tả chi tiết về các khu vực và thiết bị, cùng với vai trò và mối quan hệ của chúng trong sơ đồ:
+
+2.1. Khu vực Entrance (Cửa vào)
+Mô tả: Đây là điểm khởi đầu của sơ đồ, đại diện cho cửa vào chính của không gian được giám sát. Đây là nơi đầu tiên mà người hoặc tài sản đi vào, do đó cần các thiết bị để phát hiện và ghi nhận.
+Thiết bị liên quan:
+BG220-EK Beacon #1: Một thiết bị beacon dựa trên Bluetooth Low Energy (BLE), thường được sử dụng cho theo dõi vị trí, tiếp thị dựa trên vị trí, hoặc kiểm soát quyền truy cập. Beacon này có thể phát tín hiệu để xác định vị trí của người hoặc thiết bị gần cửa vào.
+XG26-DK2608A #1: Có thể là một cảm biến hoặc mô-đun giao tiếp, đóng vai trò trong việc phát hiện môi trường (như nhiệt độ, độ ẩm) hoặc truyền dữ liệu tại cửa vào. Thiết bị này có thể hỗ trợ beacon trong việc ghi nhận dữ liệu bổ sung.
+Mối quan hệ: Khu vực Entrance là điểm tiếp xúc đầu tiên, nơi các thiết bị beacon và cảm biến làm việc cùng nhau để phát hiện và ghi nhận sự xuất hiện của người hoặc tài sản, tạo nền tảng cho các hoạt động giám sát tiếp theo.
+2.2. Khu vực Main Area (Khu vực chính)
+Mô tả: Đây là khu vực trung tâm, kết nối trực tiếp với Entrance, đại diện cho không gian hoạt động chính trong môi trường. Đây là nơi diễn ra các hoạt động chính, như di chuyển khách hàng, trưng bày sản phẩm, hoặc quản lý tài sản.
+Thiết bị liên quan:
+BG220-EK Beacon #2: Một thiết bị beacon khác, được triển khai để mở rộng phạm vi giám sát hoặc cung cấp dữ liệu bổ sung cho việc theo dõi trong khu vực rộng lớn hơn. Beacon này có thể hỗ trợ theo dõi luồng khách hàng hoặc xác định vị trí tài sản trong không gian chính.
+EFR32MG21 #1: Một bộ vi xử lý hoặc mô-đun giao tiếp không dây, có thể từ dòng EFR32 của Silicon Labs. Thiết bị này có thể được sử dụng cho xử lý dữ liệu địa phương, giao tiếp không dây với các thiết bị khác, hoặc tích hợp với hệ thống đám mây.
+XG24-EK2703A: Một thiết bị khác, có thể là cảm biến hoặc bộ kit phát triển, hỗ trợ chức năng giám sát môi trường, thu thập dữ liệu, hoặc giao tiếp trong khu vực chính.
+Mối quan hệ: Main Area là một node phụ thuộc của Entrance, cho thấy người hoặc tài sản đi qua cửa vào sẽ di chuyển vào khu vực này. Các thiết bị ở đây giúp mở rộng khả năng giám sát và thu thập dữ liệu, hỗ trợ các hoạt động chính trong không gian.
+2.3. Khu vực Checkout Area (Khu vực thanh toán)
+Mô tả: Đây là một khu vực phụ thuộc của Main Area, được thiết kế đặc biệt cho quy trình thanh toán hoặc thoát khỏi không gian. Đây là khu vực quan trọng, nơi các giao dịch được thực hiện, đòi hỏi sự giám sát và xử lý dữ liệu chính xác.
+Thiết bị liên quan:
+BG220-EK Beacon #3: Một thiết bị beacon thứ ba, được đặt tại khu vực thanh toán để theo dõi hoạt động cụ thể như di chuyển khách hàng, hỗ trợ thanh toán không tiếp xúc, hoặc xác định vị trí tại quầy thanh toán.
+XG26-DK2608A #2: Một thiết bị cảm biến hoặc mô-đun giao tiếp khác, hỗ trợ các hoạt động thanh toán, có thể ghi nhận dữ liệu môi trường hoặc truyền thông tin giao dịch.
+EFR32MG21 #1 và #2: Hai đơn vị của bộ vi xử lý này, gợi ý rằng khu vực này cần nhiều khả năng xử lý hơn hoặc có cấu hình dự phòng để đảm bảo độ tin cậy. Thiết bị này có thể xử lý giao tiếp không dây hoặc xử lý dữ liệu giao dịch.
+Raspberry Pi 4: Một máy tính bảng đơn, có thể được sử dụng cho xử lý dữ liệu địa phương, điều khiển, hoặc tích hợp với các hệ thống bên ngoài như hệ thống điểm bán hàng (POS), nền tảng IoT, hoặc đám mây. Raspberry Pi 4 thường được sử dụng trong các dự án IoT nhờ khả năng tính toán mạnh mẽ và hỗ trợ nhiều giao thức.
+Mối quan hệ: Checkout Area là một phần nhỏ của Main Area, nơi các giao dịch được thực hiện. Sự hiện diện của nhiều thiết bị (beacon, cảm biến, bộ vi xử lý và Raspberry Pi) cho thấy một hệ thống phức tạp được thiết kế cho giám sát thời gian thực, thu thập dữ liệu, và tự động hóa quy trình thanh toán.
+3. Cấu trúc phân cấp và luồng dữ liệu
+Sơ đồ thể hiện một luồng dữ liệu phân cấp, với các mối quan hệ rõ ràng:
+Entrance là điểm khởi đầu, kết nối với Main Area, đại diện cho luồng tự nhiên của người hoặc tài sản từ cửa vào đến khu vực chính.
+Main Area chia nhánh thành Checkout Area, cho thấy khu vực thanh toán là một chức năng chuyên biệt trong không gian chính.
+Các mũi tên trong sơ đồ chỉ ra hướng luồng dữ liệu hoặc sự phụ thuộc, với Entrance dẫn đến Main Area, và Main Area dẫn đến Checkout Area. Điều này phản ánh quy trình logic của việc di chuyển hoặc xử lý dữ liệu trong môi trường, từ phát hiện ban đầu đến xử lý giao dịch cuối cùng.
 
 ```mermaid
 graph TD
