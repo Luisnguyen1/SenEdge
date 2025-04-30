@@ -150,21 +150,21 @@ sequenceDiagram
 ```mermaid
 flowchart LR
     subgraph "TFLite Model Architecture"
-        A["Input\n96x96x3"] --> B["MobileNet\nFeature Extractor"]
-        B --> C["SSD Detection\nHead"]
+        A["Input 96x96x3"] --> B["TFlite Persion Detection"]
+        B --> C["Analytics"]
         C --> D["Output\nDetections"]
     end
     
     subgraph "Optimization Techniques"
-        E["Quantization\n(int8)"]
-        F["Pruning\n(30% sparse)"]
+        E["Quantization (int8)"]
+        F["Pruning (30% sparse)"]
         G["Layer Fusion"]
     end
     
     subgraph "Performance Metrics"
-        H["Inference:\n35ms on RPi4"]
-        I["Memory:\n15MB"]
-        J["Accuracy:\n89% mAP"]
+        H["Inference: 35ms on RPi4"]
+        I["Memory: 15MB"]
+        J["Accuracy:89% mAP"]
     end
     
     A --> E
