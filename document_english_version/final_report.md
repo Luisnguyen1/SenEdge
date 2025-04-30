@@ -10,39 +10,39 @@ This report presents a comprehensive study on the IoT-AI Retail Assistant system
 
 ## Table of Contents 
 1. [Introduction and Overview](#1-introduction-and-overview)
-2. [Research Methodology](#2-phương-pháp-nghiên-cứu)
-3. [Kiến trúc Hệ thống](#3-kiến-trúc-hệ-thống)
-4. [Thiết kế và Triển khai](#4-thiết-kế-và-triển-khai)
-5. [Kết quả Thực nghiệm](#5-kết-quả-thực-nghiệm)
-6. [Thảo luận](#6-thảo-luận)
-7. [Kết luận và Hướng Phát triển](#7-kết-luận-và-hướng-phát-triển)
+2. [Research Methodology](#2-research-methodology)
+3. [System Architecture](#3-system-architecture)
+4. [Design and Implementation](#4-design-and-implementation)
+5. [Experimental Results](#5-experimental-results)
+6. [Discussion](#6-discussion)
+7. [Conclusion and Future Development](#7-conclusion-and-future-development)
 
 ## 1. Introduction and Overview
 
-### 1.1. Bối cảnh Dự án
-Trong khuôn khổ cuộc thi IoT Challenge 2025, nhóm SGTeam đề xuất một giải pháp tích hợp IoT-AI nhằm giải quyết các thách thức trong lĩnh vực bán lẻ. Dự án tập trung vào việc xây dựng một hệ thống thông minh có khả năng tối ưu hóa trải nghiệm mua sắm và nâng cao hiệu quả vận hành cửa hàng thông qua việc ứng dụng các công nghệ tiên tiến như IoT, AI, và edge computing.
+### 1.1. Project Background
+As part of the IoT Challenge 2025 competition, the SGTeam proposes an integrated AIoT solution to address challenges in the retail sector. The project focuses on building an intelligent system capable of optimizing the shopping experience and enhancing store operational efficiency by applying advanced technologies such as IoT, AI, and edge computing..
 
-### 1.2. Mục tiêu Nghiên cứu
-Nghiên cứu này đặt ra ba mục tiêu chính:
-1. Phát triển một hệ thống tích hợp toàn diện kết hợp IoT và AI cho môi trường bán lẻ
-2. Tối ưu hóa trải nghiệm mua sắm thông qua công nghệ trợ lý ảo và định vị trong nhà
-3. Nâng cao hiệu quả vận hành cửa hàng qua phân tích dữ liệu thời gian thực
+### 1.2. Research Objec
+This study sets out 3 primary objectives:
+1. Develop a comprehensive integrated system combining IoT and AI for retail environments.
+2. Optimize the shopping experience through virtual assistant technology and indoor positioning.
+3. Enhance store operational efficiency through real-time data analytics.
 
-### 1.3. Phạm vi Nghiên cứu
-Nghiên cứu tập trung vào việc thiết kế và triển khai một hệ sinh thái bán lẻ thông minh tích hợp:
-- Hệ thống trợ lý ảo dựa trên RAG (Retrieval Augmented Generation)
-- Hệ thống định vị trong nhà sử dụng BLE Positioning
-- Hệ thống phân tích đám đông và quản lý hàng đợi qua Computer Vision
-- Mạng lưới cảm biến IoT cho giám sát môi trường và theo dõi hoạt động
+### 1.3. Scope of Research
+The research focuses on the design and deployment of a smart retail ecosystem integrating:
+- A virtual assistant system based on RAG (Retrieval Augmented Generation)
+- An indoor positioning system using BLE (Bluetooth Low Energy)
+- A crowd analytics and queue management system powered by Computer Vision
+- An IoT sensor network for environmental monitoring and activity tracking
 
-### 1.4. Các Module Chính
-- Chatbot Tư vấn Thông minh (RAG-based)
-- Hệ thống Định vị và Dẫn đường Trong nhà
-- Hệ thống Phân tích Đám đông
-- Quản lý Hàng đợi Thông minh
-- Mạng lưới Cảm biến IoT
+### 1.4. Core Modules
+- Intelligent Consultation Chatbot (RAG-based)
+- Indoor Positioning and Navigation System
+- Crowd Analytics System
+- Smart Queue Management
+- IoT Sensor Network
 
-### 1.5. Luồng Dữ liệu Tổng thể
+### 1.5. Overrall Data Flow
 
 ```mermaid
 sequenceDiagram
