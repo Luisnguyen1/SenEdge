@@ -11,6 +11,7 @@ Dự án IoT-AI Retail Assistant kết hợp 3 module chính để cung cấp gi
 5. [Kế hoạch Thực hiện](document/5_implementation_plan.md)
 6. [Kiến trúc Module](document/6_module_architecture.md)
 7. [Crowd Density Detection](document/7_crowd_detection.md)
+8. [Cashier Queue Counting](document/8_cashier_queue.md)
 
 ## Kiến trúc Tổng thể
 
