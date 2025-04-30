@@ -99,7 +99,7 @@ flowchart TB
     D3 --> E{"Density Classification"}
     E -->|"< 3 people"| F["LOW"]
     E -->|"3-7 people"| G["MEDIUM"]
-    E -->|">= 8 people"| H["HIGH"]
+    E -->|"> 7 people"| H["HIGH"]
     
     F & G & H --> I["Zone Status"]
     
