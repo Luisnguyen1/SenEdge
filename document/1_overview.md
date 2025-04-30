@@ -521,6 +521,27 @@ stateDiagram-v2
 
 ## 5. Security Architecture
 
+1. Giới thiệu về sơ đồ
+Sơ đồ "4.2 Error Handling" là một state diagram minh họa quy trình xử lý lỗi trong một hệ thống kỹ thuật, có thể là hệ thống IoT, hệ thống tự động hóa, hoặc hệ thống IT. Sơ đồ thể hiện cách hệ thống chuyển đổi giữa các trạng thái khác nhau khi gặp sự cố, từ trạng thái Normal đến Warning, Error, Recovery, và cuối cùng là Fallback nếu cần. Sơ đồ được thiết kế với nền tối, chữ trắng và xám, các trạng thái được biểu thị bằng hộp chữ nhật, và các mũi tên chỉ rõ luồng chuyển đổi trạng thái, phù hợp để phân tích và trình bày trong báo cáo kỹ thuật.
+
+2. Phân tích các trạng thái và vai trò
+Dưới đây là mô tả chi tiết về từng trạng thái, ý nghĩa, và vai trò của chúng trong quy trình xử lý lỗi:
+
+Normal: Đây là trạng thái khởi đầu của hệ thống, nơi mọi thứ hoạt động ổn định, không có vấn đề gì được phát hiện. Hệ thống ở trạng thái này được coi là đang vận hành bình thường, đáp ứng đầy đủ các yêu cầu hoạt động. Trạng thái này nằm ở trên cùng của sơ đồ, với một vòng tròn nhỏ phía trên biểu thị điểm bắt đầu của quy trình.
+Warning: Trạng thái này xảy ra khi hệ thống phát hiện một vấn đề tiềm ẩn, được mô tả bằng hai nhãn: Performance Issue và Deteriorate. Performance Issue có thể ám chỉ hiệu suất giảm, ví dụ như thời gian phản hồi chậm, trong khi Deteriorate cho thấy thiết bị bắt đầu hoạt động không ổn định, như tín hiệu yếu hoặc dữ liệu không chính xác. Trạng thái này đóng vai trò như một cảnh báo sớm, cho phép hệ thống thực hiện các biện pháp phòng ngừa trước khi vấn đề trở nên nghiêm trọng.
+Error: Trạng thái này biểu thị một vấn đề nghiêm trọng hơn, được nhãn là Device Failure. Khi hệ thống chuyển sang trạng thái này, nó đã gặp lỗi đủ nghiêm trọng để ảnh hưởng đến hoạt động bình thường, ví dụ như thiết bị không phản hồi, mất kết nối, hoặc dữ liệu không chính xác. Trạng thái này yêu cầu can thiệp tự động để khắc phục, thường thông qua cơ chế Auto-retry.
+Recovery: Đây là trạng thái mà hệ thống chuyển sang sau khi phát hiện lỗi, với nhãn Auto-retry. Ở trạng thái này, hệ thống thực hiện các biện pháp tự động để khắc phục lỗi, chẳng hạn như khởi động lại thiết bị, thiết lập lại kết nối, hoặc chạy các quy trình kiểm tra và sửa chữa. Mục tiêu là đưa hệ thống trở lại trạng thái Normal.
+Fallback: Đây là trạng thái cuối cùng trong quy trình, xảy ra khi quá trình khôi phục thất bại, được nhãn là Failure. Ở trạng thái này, hệ thống chuyển sang chế độ dự phòng, có thể là sử dụng thiết bị thay thế, giảm tải chức năng, hoặc chuyển sang chế độ hoạt động tối thiểu để duy trì hoạt động cơ bản. Trạng thái này đảm bảo hệ thống không ngừng hoạt động hoàn toàn ngay cả khi gặp sự cố nghiêm trọng.
+3. Luồng chuyển đổi trạng thái và tương tác chi tiết
+Sơ đồ minh họa một quy trình rõ ràng, với các luồng chuyển đổi trạng thái được xác định như sau:
+
+Từ Normal đến Warning: Hệ thống chuyển từ trạng thái Normal sang Warning khi phát hiện Performance Issue hoặc Deteriorate. Điều này cho thấy hệ thống có cơ chế giám sát tích cực, có thể phát hiện các vấn đề tiềm ẩn trước khi chúng trở thành lỗi nghiêm trọng. Ví dụ, một thiết bị IoT có thể ghi nhận dữ liệu không chính xác hoặc thời gian phản hồi chậm hơn bình thường.
+Từ Warning đến Normal: Hệ thống có thể Self-heal từ trạng thái Warning trở lại Normal. Điều này cho thấy hệ thống được thiết kế với khả năng tự khắc phục các vấn đề nhỏ, chẳng hạn như tự động điều chỉnh cấu hình, làm mới kết nối, hoặc giảm tải để cải thiện hiệu suất.
+Từ Warning đến Error: Nếu vấn đề không được giải quyết ở trạng thái Warning, hệ thống sẽ chuyển sang trạng thái Error với nhãn Device Failure. Điều này cho thấy sự suy giảm hoặc vấn đề hiệu suất đã trở nên nghiêm trọng, ảnh hưởng trực tiếp đến hoạt động của hệ thống, ví dụ như thiết bị ngừng hoạt động hoặc không thể giao tiếp với các thành phần khác.
+Từ Error đến Recovery: Khi ở trạng thái Error, hệ thống tự động chuyển sang Recovery với nhãn Auto-retry. Ở đây, hệ thống thực hiện các biện pháp tự động để khắc phục lỗi, chẳng hạn như khởi động lại thiết bị, kiểm tra kết nối, hoặc chạy các quy trình chẩn đoán. Điều này phản ánh một cơ chế xử lý lỗi mạnh mẽ, giảm thiểu sự can thiệp của con người.
+Từ Recovery đến Normal: Nếu quá trình Auto-retry thành công, hệ thống sẽ chuyển trở lại trạng thái Normal, được nhãn là Device Restored. Điều này cho thấy hệ thống đã khắc phục được lỗi và trở lại trạng thái hoạt động bình thường, đảm bảo tính liên tục của dịch vụ.
+Từ Recovery đến Fallback: Nếu quá trình Auto-retry thất bại, được nhãn là Failure, hệ thống sẽ chuyển sang trạng thái Fallback. Ở trạng thái này, hệ thống chuyển sang chế độ dự phòng, có thể là sử dụng thiết bị thay thế, giảm tải chức năng, hoặc chuyển sang chế độ hoạt động tối thiểu để duy trì hoạt động cơ bản.
+
 ```mermaid
 graph TD
     subgraph "Security Layers"
