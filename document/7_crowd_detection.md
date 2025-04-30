@@ -106,14 +106,15 @@ flowchart TB
     classDef input fill:#ffccbc,stroke:#333,stroke-width:1px
     classDef model fill:#bbdefb,stroke:#333,stroke-width:1px
     classDef grid fill:#dcedc8,stroke:#333,stroke-width:1px
-    classDef class fill:#f3e5f5,stroke:#333,stroke-width:1px
+    classDef densityClass fill:#f3e5f5,stroke:#333,stroke-width:1px
     classDef output fill:#e8f5e9,stroke:#333,stroke-width:1px
     
     class A input
     class B model
     class C,D1,D2,D3 grid
-    class E,F,G,H class
+    class E,F,G,H densityClass
     class I output
+
 ```
 
 ## 4. Sequence Diagram: Luồng Xử lý Đầy đủ
