@@ -392,6 +392,93 @@ graph TD
 ## 4. Tích hợp Module
 
 ### 4.1 Communication Flow
+Sơ đồ được cung cấp là một biểu đồ luồng dữ liệu (flowchart) minh họa quy trình tương tác và luồng dữ liệu trong một hệ sinh thái IoT (Internet of Things), nhấn mạnh vào việc sử dụng Edge Computing để xử lý dữ liệu gần nguồn và hỗ trợ cập nhật thời gian thực.
+
+Sơ đồ mô tả sự phối hợp giữa bốn thành phần chính:
+
+IoT Devices
+
+Edge Computing
+
+Services
+
+User Interface
+
+Phân tích thành phần và vai trò
+1. IoT Devices
+Mô tả:
+Là nguồn tạo ra Raw Data, bao gồm cảm biến, thiết bị kết nối và các nguồn dữ liệu khác.
+
+Vị trí:
+Nằm bên trái sơ đồ, xuất hiện cả trên và dưới, biểu thị tính liên tục của quá trình thu thập dữ liệu.
+
+Vai trò:
+Gửi Raw Data đến Edge Computing để xử lý sơ bộ.
+
+2. Edge Computing
+Mô tả:
+Là lớp trung gian xử lý, thực hiện Pre-processing dữ liệu để giảm độ trễ, tối ưu tài nguyên mạng và hỗ trợ xử lý thời gian thực.
+
+Vị trí:
+Nằm ngay bên phải của IoT Devices, cả trên và dưới sơ đồ.
+
+Vai trò:
+Nhận Raw Data, thực hiện Pre-processing → tạo Processed Data → chuyển đến Services.
+
+3. Services
+Mô tả:
+Là trung tâm xử lý dữ liệu, bao gồm hai chức năng chính:
+
+📡 [Real-time Updates]
+
+💾 [Database Storage]
+
+Vị trí:
+Bên phải Edge Computing, cả trên và dưới.
+
+Vai trò:
+
+[Real-time Updates]:
+Tạo ra Real-time Updates và WebSocket Updates gửi đến User Interface.
+
+[Database Storage]:
+Lưu Processed Data để phục vụ User Requests sau này.
+
+4. User Interface
+Mô tả:
+Giao diện mà người dùng trực tiếp tương tác để theo dõi và truy xuất dữ liệu.
+
+Vị trí:
+Ở bên phải cuối cùng của sơ đồ.
+
+Vai trò:
+
+Nhận Real-time Updates và WebSocket Updates để hiển thị dữ liệu thời gian thực.
+
+Gửi User Requests đến Services và nhận lại Responses từ dữ liệu lưu trữ.
+
+Luồng dữ liệu và tương tác
+IoT Devices → Edge Computing:
+
+Sinh ra Raw Data → gửi đến Edge Computing.
+
+Edge Computing:
+
+Thực hiện Pre-processing → tạo ra Processed Data.
+
+Edge Computing → Services:
+
+Processed Data được:
+
+Gửi đến [Real-time Updates] → tạo WebSocket Updates đến User Interface.
+
+Gửi đến [Database Storage] để lưu trữ.
+
+Services ↔ User Interface:
+
+User Interface nhận dữ liệu thời gian thực từ Services.
+
+Người dùng gửi User Requests → hệ thống trả về Responses từ Database Storage.
 
 ```mermaid
 sequenceDiagram
