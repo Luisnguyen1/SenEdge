@@ -7,8 +7,6 @@
 ## Tóm tắt (Abstract)
 Báo cáo này trình bày một nghiên cứu toàn diện về việc thiết kế, phát triển và triển khai hệ thống IoT-AI Retail Assistant - một giải pháp tích hợp công nghệ tiên tiến nhằm tối ưu hóa trải nghiệm mua sắm và vận hành cửa hàng. Nghiên cứu tập trung vào việc kết hợp các công nghệ IoT, AI, và điện toán biên để tạo ra một hệ sinh thái mua sắm thông minh hoàn chỉnh. Kết quả thực nghiệm cho thấy hệ thống có khả năng cải thiện đáng kể hiệu suất vận hành (15-28%) và trải nghiệm khách hàng.
 
-## Từ khóa
-IoT, Artificial Intelligence, Retail Technology, Indoor Navigation, Computer Vision, RAG, Edge Computing
 
 ## Mục lục
 1. [Giới thiệu và Tổng quan](#1-giới-thiệu-và-tổng-quan)
