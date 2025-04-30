@@ -114,9 +114,8 @@ graph TB
 #### 2.3.1 Kiến trúc
 
 - **Sensors**: IoT Cameras + Computer Vision
-- **Edge Computing**: NVIDIA Jetson Nano
+- **Edge Computing**: Raspberry Pi 4
 - **Analytics**: Real-time Stream Processing
-- **Visualization**: Grafana Dashboards
 
 #### 2.3.2 Tính năng
 
