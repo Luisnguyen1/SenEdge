@@ -541,7 +541,7 @@ graph TB
 | Khả năng Mở rộng | Cao | Trung bình | Trung bình |
 | Chi phí Triển khai | Trung bình | Thấp | Cao |
 | Tích hợp IoT | Đầy đủ | Một phần | Một phần |
-```
+
 
 ## 6. Thảo luận
 
