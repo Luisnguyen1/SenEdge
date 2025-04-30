@@ -595,6 +595,66 @@ stateDiagram-v2
 
 ## 5. Security Architecture
 
+1. Tổng thể sơ đồ
+Sơ đồ được chia thành 2 phần:
+
+Phần 1: mô tả các lĩnh vực bảo mật chính (Data, Application, Network, Device).
+
+Phần : thể hiện Security Layers (các tầng bảo mật), cho thấy mối quan hệ tuần tự từ phần cứng đến dữ liệu.
+
+Các khối bảo mật chính
+a. Data Security
+Encryption at Rest: Mã hóa dữ liệu khi lưu trữ, đảm bảo dữ liệu không bị truy cập trái phép nếu thiết bị bị đánh cắp.
+
+Access Control: Quản lý quyền truy cập, đảm bảo chỉ người/phần mềm được phép mới truy cập tài nguyên.
+
+Audit Logging: Ghi lại các hành vi truy cập hệ thống nhằm kiểm tra và phát hiện bất thường.
+
+b. Application Security
+Authentication: Xác thực người dùng (đăng nhập, xác minh).
+
+Authorization: Phân quyền – xác định người dùng được làm gì sau khi đăng nhập.
+
+Input Validation: Kiểm tra dữ liệu đầu vào nhằm tránh tấn công như SQL injection, XSS.
+
+c. Network Security
+Encrypted Comms: Mã hóa các giao tiếp mạng (ví dụ: TLS/SSL).
+
+Firewall: Tường lửa – kiểm soát lưu lượng ra/vào hệ thống.
+
+IDS/IPS: Hệ thống phát hiện và phòng ngừa xâm nhập (Intrusion Detection/Prevention Systems).
+
+d. Device Security
+Secure Elements: Phần cứng chuyên biệt lưu trữ khóa/bảo mật (ví dụ: TPM, HSM).
+
+Encrypted Storage: Mã hóa dữ liệu lưu trên thiết bị.
+
+Secure Updates: Cập nhật phần mềm bảo mật, xác minh nguồn gốc cập nhật.
+
+3. Security Layers (Tầng bảo mật - cột dọc bên phải)
+Đây là cấu trúc phân tầng bảo mật, thể hiện sự phụ thuộc lẫn nhau:
+
+Device Security
+Cung cấp nền tảng phần cứng an toàn.
+
+Secure Boot
+Đảm bảo hệ thống khởi động chỉ với mã đã được xác thực.
+
+Network Security
+Bảo vệ dữ liệu truyền tải.
+
+TLS/SSL
+Mã hóa lớp truyền tải, tăng tính bảo mật mạng.
+
+Application Security
+Kiểm soát truy cập và dữ liệu ứng dụng.
+
+JWT/OAuth
+Các giao thức xác thực và phân quyền hiện đại.
+
+Data Security
+Bảo vệ dữ liệu cuối cùng – nơi hệ thống xử lý và lưu trữ.
+
 
 
 ```mermaid
@@ -639,6 +699,85 @@ graph TD
 
 ### 6.1 System Health Monitoring
 
+1. Mục đích
+Sơ đồ mô tả quy trình giám sát và phản hồi tình trạng hệ thống trong thời gian thực, thường được áp dụng trong các hệ thống đám mây, hệ thống phân tán, hoặc nền tảng dịch vụ có yêu cầu cao về tính sẵn sàng.
+Quy trình này giúp hệ thống tự động phân loại mức độ ổn định và đưa ra các phản ứng phù hợp nhằm đảm bảo tính liên tục của dịch vụ và ngăn ngừa gián đoạn.
+
+2. Các thành phần chính của sơ đồ
+2.1. System Metrics – Các chỉ số hệ thống
+Là dữ liệu đo lường định kỳ từ hệ thống.
+
+Bao gồm:
+
+Sử dụng CPU, bộ nhớ (RAM)
+
+Dung lượng đĩa, tốc độ đọc/ghi
+
+Tốc độ phản hồi API hoặc giao tiếp mạng
+
+Tỷ lệ lỗi (error rate), số lượng request, độ trễ (latency)
+
+Mục đích: Cung cấp thông tin để đánh giá tình trạng hiện tại.
+
+2.2. Health Check – Kiểm tra tình trạng hệ thống
+Là bước đánh giá tập trung, dựa trên các system metrics.
+
+So sánh với các ngưỡng định sẵn (thresholds) để phân loại trạng thái.
+
+Kết quả phân loại thành 3 trạng thái:
+
+Healthy: Hệ thống hoạt động tốt, không có dấu hiệu bất thường.
+
+Warning: Một số chỉ số vượt ngưỡng cảnh báo, nhưng chưa ảnh hưởng nghiêm trọng đến toàn bộ hệ thống.
+
+Critical: Một hoặc nhiều chỉ số vượt ngưỡng nghiêm trọng, có khả năng gây gián đoạn hệ thống.
+
+3. Phản ứng tương ứng với từng trạng thái
+3.1. Trạng thái Healthy
+Hành động: Duy trì hoạt động bình thường (Normal Operation).
+
+Không cần thay đổi cấu hình hoặc can thiệp.
+
+Hệ thống tiếp tục chạy như hiện tại, không phát sinh log cảnh báo.
+
+3.2. Trạng thái Warning
+Hành động đầu tiên: Sinh cảnh báo (Alert Generation).
+
+Gửi thông báo qua email, tin nhắn, dashboard giám sát hoặc hệ thống cảnh báo (Alertmanager, Prometheus, v.v.).
+
+Các hành động tiếp theo để giảm tải:
+
+Auto-scaling (Tự động mở rộng):
+
+Tăng số lượng tài nguyên (ví dụ: container, VM) để xử lý tải cao hơn.
+
+Thường áp dụng trong môi trường cloud hoặc containerized (như Kubernetes).
+
+Load Balancing (Cân bằng tải):
+
+Phân phối lại lưu lượng truy cập giữa các node hoặc instance để tránh quá tải cục bộ.
+
+Cải thiện hiệu suất và tránh tạo điểm nghẽn (bottleneck).
+
+3.3. Trạng thái Critical
+Hành động đầu tiên: Kích hoạt cơ chế ứng phó khẩn cấp (Emergency Response).
+
+Các hành động sau để duy trì dịch vụ:
+
+Failover:
+
+Tự động chuyển hoạt động sang node/instance khác đã được cấu hình sẵn.
+
+Áp dụng với các hệ thống có thiết lập dự phòng (redundancy).
+
+System Recovery (Phục hồi hệ thống):
+
+Có thể bao gồm khởi động lại dịch vụ, rollback phiên bản, hoặc khởi tạo lại môi trường.
+
+Mục tiêu là đưa hệ thống trở lại trạng thái hoạt động ổn định.
+
+
+
 ```mermaid
 graph TD
     A[System Metrics] --> B{Health Check}
@@ -654,6 +793,87 @@ graph TD
 ```
 
 ### 6.2 Maintenance Workflow
+
+Đây là một Maintenance Workflow Diagram (sơ đồ quy trình bảo trì), thể hiện các bước tuần tự để phát hiện, phân tích, lên kế hoạch và thực hiện hoạt động bảo trì, sau đó quay lại giám sát để tiếp tục vòng lặp.
+
+1. Monitor (Giám sát)
+Mục tiêu: Thu thập dữ liệu và giám sát tình trạng hệ thống/máy móc/thiết bị theo thời gian thực.
+
+Hoạt động:
+
+Dùng cảm biến, hệ thống SCADA, hoặc phần mềm giám sát.
+
+Theo dõi các thông số như nhiệt độ, độ rung, áp suất, lỗi hệ thống, thời gian hoạt động, v.v.
+
+Kết quả: Dữ liệu thô hoặc cảnh báo được ghi nhận để phát hiện bất thường.
+
+2. Detect (Phát hiện)
+Mục tiêu: Xác định dấu hiệu hỏng hóc hoặc tình trạng bất thường từ dữ liệu thu thập.
+
+Hoạt động:
+
+So sánh dữ liệu với ngưỡng an toàn.
+
+Sử dụng thuật toán phát hiện bất thường (AI/ML hoặc rule-based).
+
+Kích hoạt cảnh báo nếu có dấu hiệu hỏng hóc.
+
+Kết quả: Một vấn đề cụ thể được xác định để phân tích tiếp theo.
+
+3. Analyze (Phân tích)
+Mục tiêu: Hiểu nguyên nhân gốc rễ và mức độ nghiêm trọng của vấn đề.
+
+Hoạt động:
+
+Phân tích dữ liệu lịch sử.
+
+Áp dụng kỹ thuật như RCA (Root Cause Analysis), FMEA (Failure Mode and Effects Analysis).
+
+Ước lượng tác động, chi phí và thời gian cần để xử lý.
+
+Kết quả: Một đánh giá đầy đủ về vấn đề và đề xuất hướng xử lý.
+
+4. Plan (Lập kế hoạch)
+Mục tiêu: Xây dựng kế hoạch bảo trì cụ thể dựa trên phân tích.
+
+Hoạt động:
+
+Quyết định loại bảo trì (dự phòng, khắc phục, thay thế...).
+
+Phân bổ nguồn lực: nhân sự, thiết bị, linh kiện.
+
+Lập lịch trình bảo trì.
+
+Kết quả: Kế hoạch hành động chi tiết để xử lý vấn đề.
+
+5. Execute (Thực hiện)
+Mục tiêu: Triển khai các hành động đã được lên kế hoạch.
+
+Hoạt động:
+
+Thực hiện sửa chữa, thay thế hoặc điều chỉnh hệ thống.
+
+Cập nhật trạng thái thực hiện vào hệ thống quản lý.
+
+Kết quả: Vấn đề được xử lý; hệ thống hoạt động trở lại bình thường.
+
+Vòng lặp (Feedback Loop)
+Sau khi Execute, hệ thống quay lại bước Monitor.
+
+Đảm bảo kết quả thực hiện đúng kỳ vọng.
+
+Bắt đầu chu kỳ giám sát mới để phát hiện lỗi tiếp theo.
+
+Vòng lặp này đảm bảo bảo trì liên tục và cải tiến không ngừng.
+
+Ý nghĩa tổng thể
+Sơ đồ này đại diện cho quy trình bảo trì dựa trên dữ liệu hoặc bảo trì tiên đoán (Predictive Maintenance). Nó hỗ trợ tổ chức:
+
+Giảm thiểu thời gian chết (downtime).
+
+Tối ưu hóa chi phí vận hành.
+
+Nâng cao hiệu suất thiết bị và tuổi thọ máy móc.
 
 ```mermaid
 graph LR
