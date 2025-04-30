@@ -176,10 +176,13 @@ graph TB
 Sơ đồ là một sequence diagram minh họa quy trình tương tác và luồng dữ liệu trong một hệ sinh thái IoT (Internet of Things). Nó trình bày cách các thành phần chính, bao gồm Người dùng (User), Giao diện Mobile/Web, IoT Gateway, Dịch vụ Đám mây (Cloud Services), và Cơ sở Dữ liệu (Databases), hoạt động và trao đổi dữ liệu. Sơ đồ được thiết kế với nền tối, chữ trắng và xám, đảm bảo tính dễ đọc và chuyên nghiệp, phù hợp để phân tích trong các báo cáo kỹ thuật.
 2. Luồng Dữ liệu
 Sơ đồ được chia thành hai giai đoạn chính, được minh họa qua các mũi tên và nhãn chi tiết. Dưới đây là phân tích từng giai đoạn:
+
 2.1. Giai đoạn Thu thập Dữ liệu IoT ([IoT Data Collection])
+
 Luồng "Stream sensor data": Một mũi tên được nhãn "Stream sensor data" bắt đầu từ IoT Gateway và chỉ sang Cloud Services, biểu thị việc truyền dữ liệu cảm biến liên tục từ các thiết bị IoT đến dịch vụ đám mây.
 Luồng "Store analytics": Một mũi tên khác được nhãn "Store analytics" bắt đầu từ Cloud Services và chỉ sang Databases, thể hiện việc lưu trữ dữ liệu phân tích đã xử lý vào cơ sở dữ liệu.
 Giai đoạn này được đánh dấu bằng nhãn bổ sung [IoT Data Collection], đặt dọc theo tương tác từ IoT Gateway đến Cloud Services, nhấn mạnh tính liên tục của quy trình thu thập dữ liệu.
+
 2.2. Giai đoạn Tương tác Người dùng ([User Interaction])
 Giai đoạn này bắt đầu từ hành động của người dùng và bao gồm các bước sau:
 Luồng "Truy cập ứng dụng": Mũi tên được nhãn "Truy cập ứng dụng" (bằng tiếng Việt, nghĩa là "Access Application") bắt đầu từ User và chỉ sang Mobile/Web, thể hiện người dùng khởi động giao diện.
@@ -189,7 +192,8 @@ Luồng "Return results": Mũi tên được nhãn "Return results" bắt đầu
 Luồng "Response": Mũi tên được nhãn "Response" bắt đầu từ Cloud Services, đi qua IoT Gateway, và chỉ sang Mobile/Web, thể hiện phản hồi được gửi lại giao diện người dùng.
 Luồng "Display results": Cuối cùng, mũi tên được nhãn "Display results" bắt đầu từ Mobile/Web và chỉ sang User, thể hiện kết quả cuối cùng được hiển thị cho người dùng.
 Giai đoạn này được đánh dấu bằng nhãn bổ sung [User Interaction], đặt dọc theo tương tác từ Mobile/Web đến Cloud Services, nhấn mạnh quy trình tương tác do người dùng khởi xướng.
-3. Thiết kế Hình ảnh và Ghi chú
+
+4. Thiết kế Hình ảnh và Ghi chú
 Màu sắc và bố cục: Sơ đồ sử dụng nền tối với chữ trắng và xám cho các nhãn và ghi chú, đảm bảo tính dễ đọc, đặc biệt trong môi trường trình bày chuyên nghiệp.
 Biểu thị luồng dữ liệu: Các mũi tên được sử dụng để chỉ hướng luồng dữ liệu, với đường thẳng cho các tương tác chính và đường gạch đứt cho các ghi chú phụ, giúp phân biệt rõ ràng.
 Bố cục đối xứng: IoT Gateway được đặt ở trung tâm, đóng vai trò hub kết nối giao diện người dùng (Mobile/Web) với hậu cảnh (Cloud Services và Databases), tạo cảm giác cân đối và logic.
