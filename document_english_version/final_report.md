@@ -1,23 +1,23 @@
-# Nghiên cứu và Phát triển Hệ thống IoT-AI Retail Assistant: 
-# Giải pháp Tối ưu hóa Trải nghiệm Mua sắm và Vận hành Cửa hàng Thông minh
+# Research and Development of the IoT-AI Retail Assistant System:
+# A Solution for Optimizing Smart Store Operations and Shopping Experience
 
 **SGTeam - IoT Challenge 2025**  
-*Báo cáo Nghiên cứu và Triển khai*
+*Research and Development Report*
 
-## Tóm tắt (Abstract)
-Báo cáo này trình bày một nghiên cứu toàn diện về việc thiết kế, phát triển và triển khai hệ thống IoT-AI Retail Assistant - một giải pháp tích hợp công nghệ tiên tiến nhằm tối ưu hóa trải nghiệm mua sắm và vận hành cửa hàng. Nghiên cứu tập trung vào việc kết hợp các công nghệ IoT, AI, và điện toán biên để tạo ra một hệ sinh thái mua sắm thông minh hoàn chỉnh. Kết quả thực nghiệm cho thấy hệ thống có khả năng cải thiện đáng kể hiệu suất vận hành (15-28%) và trải nghiệm khách hàng.
+## Abstract
+This report presents a comprehensive study on the IoT-AI Retail Assistant system's design, development, and deployment — an integrated solution leveraging advanced technologies to optimize the shopping experience and store operations. The research focuses on combining IoT, AI, and edge computing technologies to create a complete smart retail ecosystem. Experimental results demonstrate the system's potential to significantly enhance operational efficiency (by 15–28%) and improve customer experience.
 
 
-## Mục lục
-1. [Giới thiệu và Tổng quan](#1-giới-thiệu-và-tổng-quan)
-2. [Phương pháp Nghiên cứu](#2-phương-pháp-nghiên-cứu)
+## Table of Contents 
+1. [Introduction and Overview](#1-introduction-and-overview)
+2. [Research Methodology](#2-phương-pháp-nghiên-cứu)
 3. [Kiến trúc Hệ thống](#3-kiến-trúc-hệ-thống)
 4. [Thiết kế và Triển khai](#4-thiết-kế-và-triển-khai)
 5. [Kết quả Thực nghiệm](#5-kết-quả-thực-nghiệm)
 6. [Thảo luận](#6-thảo-luận)
 7. [Kết luận và Hướng Phát triển](#7-kết-luận-và-hướng-phát-triển)
 
-## 1. Giới thiệu và Tổng quan
+## 1. Introduction and Overview
 
 ### 1.1. Bối cảnh Dự án
 Trong khuôn khổ cuộc thi IoT Challenge 2025, nhóm SGTeam đề xuất một giải pháp tích hợp IoT-AI nhằm giải quyết các thách thức trong lĩnh vực bán lẻ. Dự án tập trung vào việc xây dựng một hệ thống thông minh có khả năng tối ưu hóa trải nghiệm mua sắm và nâng cao hiệu quả vận hành cửa hàng thông qua việc ứng dụng các công nghệ tiên tiến như IoT, AI, và edge computing.
