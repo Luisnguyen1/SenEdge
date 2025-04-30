@@ -176,7 +176,7 @@ graph TB
 
 Sơ đồ là một sequence diagram minh họa quy trình tương tác và luồng dữ liệu trong một hệ sinh thái IoT (Internet of Things). Nó trình bày cách các thành phần chính, bao gồm Người dùng (User), Giao diện Mobile/Web, IoT Gateway, Dịch vụ Đám mây (Cloud Services), và Cơ sở Dữ liệu (Databases), hoạt động và trao đổi dữ liệu. Sơ đồ được thiết kế với nền tối, chữ trắng và xám, đảm bảo tính dễ đọc và chuyên nghiệp, phù hợp để phân tích trong các báo cáo kỹ thuật.
 
-3. Luồng Dữ liệu
+2. Luồng Dữ liệu
 Sơ đồ được chia thành hai giai đoạn chính, được minh họa qua các mũi tên và nhãn chi tiết. Dưới đây là phân tích từng giai đoạn:
 
 2.1. Giai đoạn Thu thập Dữ liệu IoT ([IoT Data Collection])
