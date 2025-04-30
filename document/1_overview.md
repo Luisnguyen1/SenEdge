@@ -277,15 +277,18 @@ sequenceDiagram
 
 ### 3.1 Sơ đồ Phân bố Vật lý
 1. Giới thiệu về sơ đồ
-Sơ đồ "3.1 Sơ đồ Phân bố Vật lý" là một sequence diagram hoặc sơ đồ phân bố vật lý, minh họa cách các thiết bị IoT được triển khai trong một môi trường được giám sát, có thể là không gian bán lẻ, thương mại, hoặc một khu vực cần quản lý. Sơ đồ được thiết kế với cấu trúc phân cấp, thể hiện mối quan hệ giữa các khu vực chính (Entrance, Main Area, Checkout Area) và các thiết bị được bố trí trong chúng. Đây là một tài liệu quan trọng cho việc thiết kế hệ thống, lập kế hoạch triển khai, và quản lý vận hành, đảm bảo rằng các thành phần được bố trí hợp lý để tối ưu hóa chức năng.
+Sơ đồ  là một sequence diagram hoặc sơ đồ phân bố vật lý, minh họa cách các thiết bị IoT được triển khai trong một môi trường được giám sát, có thể là không gian bán lẻ, thương mại, hoặc một khu vực cần quản lý. Sơ đồ được thiết kế với cấu trúc phân cấp, thể hiện mối quan hệ giữa các khu vực chính (Entrance, Main Area, Checkout Area) và các thiết bị được bố trí trong chúng. Đây là một tài liệu quan trọng cho việc thiết kế hệ thống, lập kế hoạch triển khai, và quản lý vận hành, đảm bảo rằng các thành phần được bố trí hợp lý để tối ưu hóa chức năng.
 
 2. Phân tích các thành phần chính
-Dưới đây là mô tả chi tiết về các khu vực và thiết bị, cùng với vai trò và mối quan hệ của chúng trong sơ đồ:
 
 2.1. Khu vực Entrance (Cửa vào)
+
 Mô tả: Đây là điểm khởi đầu của sơ đồ, đại diện cho cửa vào chính của không gian được giám sát. Đây là nơi đầu tiên mà người hoặc tài sản đi vào, do đó cần các thiết bị để phát hiện và ghi nhận.
+
 Thiết bị liên quan:
+
 BG220-EK Beacon #1: Một thiết bị beacon dựa trên Bluetooth Low Energy (BLE), thường được sử dụng cho theo dõi vị trí, tiếp thị dựa trên vị trí, hoặc kiểm soát quyền truy cập. Beacon này có thể phát tín hiệu để xác định vị trí của người hoặc thiết bị gần cửa vào.
+
 XG26-DK2608A #1: Có thể là một cảm biến hoặc mô-đun giao tiếp, đóng vai trò trong việc phát hiện môi trường (như nhiệt độ, độ ẩm) hoặc truyền dữ liệu tại cửa vào. Thiết bị này có thể hỗ trợ beacon trong việc ghi nhận dữ liệu bổ sung.
 Mối quan hệ: Khu vực Entrance là điểm tiếp xúc đầu tiên, nơi các thiết bị beacon và cảm biến làm việc cùng nhau để phát hiện và ghi nhận sự xuất hiện của người hoặc tài sản, tạo nền tảng cho các hoạt động giám sát tiếp theo.
 2.2. Khu vực Main Area (Khu vực chính)
