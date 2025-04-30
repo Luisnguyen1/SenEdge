@@ -327,26 +327,26 @@ flowchart TD
 ```mermaid
 flowchart TB
     subgraph "Hardware Layer"
-        H1[BG220-EK\n(BLE Beacons)]
-        H2[XG26-DK2608A\n(Environmental)]
-        H3[XG24-EK2703A\n(Motion)]
-        H4[EFR32MG21\n(Mesh Network)]
-        H5[Raspberry Pi 4\n(Edge Computing)]
-        H6[Pi Camera Modules]
+        H1["BG220-EK\n(BLE Beacons)"]
+        H2["XG26-DK2608A\n(Environmental)"]
+        H3["XG24-EK2703A\n(Motion)"]
+        H4["EFR32MG21\n(Mesh Network)"]
+        H5["Raspberry Pi 4\n(Edge Computing)"]
+        H6["Pi Camera Modules"]
     end
     
     subgraph "Software Layer" 
-        S1[Firmware]
-        S2[Edge Software]
-        S3[Computer Vision]
-        S4[Analytics Engine]
+        S1["Firmware"]
+        S2["Edge Software"]
+        S3["Computer Vision"]
+        S4["Analytics Engine"]
     end
     
     subgraph "Communication Layer"
-        C1[BLE]
-        C2[Mesh Network]
-        C3[WiFi]
-        C4[MQTT]
+        C1["BLE"]
+        C2["Mesh Network"]
+        C3["WiFi"]
+        C4["MQTT"]
     end
     
     H1 -->|Beacon Data| C1
@@ -370,4 +370,5 @@ flowchart TB
     class H1,H2,H3,H4,H5,H6 hardware
     class S1,S2,S3,S4 software
     class C1,C2,C3,C4 communication
+
 ```
