@@ -114,32 +114,56 @@ Mạng lưới (mesh network) sử dụng chip EFR32MG21 của Silicon Labs.
 Chức năng: Kết nối nhiều thiết bị IoT trong một mạng lưới, đảm bảo độ tin cậy và mở rộng phạm vi kết nối.
 
 Ví dụ: Các cảm biến môi trường và chuyển động kết nối với nhau qua mesh network, gửi dữ liệu đến Gateway.
+
 Computing (Raspberry Pi):
+
 Raspberry Pi là thiết bị tính toán tại chỗ (edge computing).
+
 Chức năng: Xử lý dữ liệu cục bộ từ các cảm biến để giảm tải cho hệ thống trung tâm, gửi dữ liệu đã xử lý lên Gateway.
+
 Gateway:
+
 Cổng kết nối giữa tầng IoT và tầng dịch vụ.
+
 Chức năng: Thu thập dữ liệu từ các thiết bị IoT (qua BLE hoặc mesh network) và gửi lên tầng dịch vụ qua giao thức như MQTT hoặc HTTP.
+
 Cũng nhận lệnh từ tầng dịch vụ để điều khiển thiết bị IoT.
+
 Environmental (X026-DK2608A):
-Cảm biến môi trường, mã sản phẩm X026-DK2608A.
+
+
 Chức năng: Đo các thông số như nhiệt độ, độ ẩm, ánh sáng, hoặc chất lượng không khí.
+
 Dữ liệu từ cảm biến này được gửi qua mesh network hoặc Raspberry Pi đến Gateway.
+
 Motion:
-Cảm biến chuyển động.
+
 Chức năng: Phát hiện chuyển động trong khu vực được giám sát.
+
 Ứng dụng: Kích hoạt cảnh báo (qua Admin Dashboard) hoặc ghi lại dữ liệu chuyển động để phân tích.
+
 5. Luồng dữ liệu
+
 Thu thập dữ liệu:
+
 Các cảm biến (Environmental, Motion) và BLE Beacons thu thập dữ liệu.
+
 Dữ liệu được gửi qua Mesh Network (EFR32MG21) hoặc xử lý cục bộ bởi Raspberry Pi, sau đó chuyển đến Gateway.
+
 Xử lý và lưu trữ:
+
 Gateway gửi dữ liệu lên tầng dịch vụ.
+
 Analytics Service xử lý dữ liệu và lưu vào Analytics DB.
+
 RAG Chatbot Service sử dụng Vector DB để trả lời truy vấn.
+
 Navigation Service dùng dữ liệu từ BLE Beacons để hỗ trợ điều hướng.
+
 Hiển thị và tương tác:
+
 Tầng ứng dụng (Mobile App, Web App, Admin Dashboard) lấy dữ liệu từ tầng dịch vụ để hiển thị cho người dùng.
+
 Người dùng gửi yêu cầu (như hỏi chatbot hoặc xem báo cáo) ngược lại qua tầng ứng dụng.
 
 ```mermaid
