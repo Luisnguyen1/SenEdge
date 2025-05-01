@@ -355,6 +355,32 @@ class RAGEngine:
 
 ### 3.3 Mô hình Dữ liệu
 
+Hệ thống bao gồm 5 phần chính: PRODUCT, CONVERSATION, MESSAGE, ANALYTICS
+
+1. PRODUCT
+Đại diện cho dữ liệu của sản phẩm trong hệ thống. Mỗi sản phẩm có một id duy nhất (khóa chính), cùng với các thuộc tính như name (tên sản phẩm), description (mô tả chi tiết), price (giá tiền), và category (loại sản phẩm).
+
+Điểm đặc biệt là trường embedding, một vector nhúng thể hiện đặc trưng ngữ nghĩa của sản phẩm. Trường này được tạo từ mô hình NLP và dùng trong việc tìm kiếm ngữ nghĩa – ví dụ: tìm các sản phẩm "tương tự về ý nghĩa" thay vì chỉ khớp từ khóa.
+
+2. CONVERSATION
+Lưu trữ thông tin về từng phiên hội thoại giữa người dùng và hệ thống. Mỗi cuộc trò chuyện có một id riêng và liên kết với người dùng qua trường user_id. Thời điểm bắt đầu cuộc trò chuyện được lưu bằng trường created_at, và toàn bộ bối cảnh hoặc chủ đề cuộc trò chuyện được tóm tắt trong trường context.
+
+3. MESSAGE
+Chứa các tin nhắn riêng lẻ trong mỗi cuộc trò chuyện. Mỗi tin nhắn có id, thuộc về một cuộc trò chuyện thông qua conv_id (liên kết với bảng CONVERSATION). Nội dung của tin nhắn được lưu trong trường content.
+
+Trường role chỉ định người gửi tin nhắn là ai – ví dụ như "user" (người dùng), "assistant" (AI), hoặc "system". Thời điểm gửi tin nhắn được lưu trong timestamp.
+
+Mối quan hệ giữa CONVERSATION và MESSAGE là một-nhiều: một cuộc trò chuyện có thể chứa nhiều tin nhắn.
+
+4. ANALYTICS
+Dùng để lưu trữ các bản ghi phân tích liên quan đến truy vấn và phản hồi của hệ thống. Mỗi bản ghi gồm có query (truy vấn từ người dùng), response (phản hồi được hệ thống tạo ra), cùng với relevance_score – một điểm số thể hiện mức độ liên quan giữa query và response. Dữ liệu này rất quan trọng cho việc huấn luyện lại mô hình hoặc đánh giá chất lượng hệ thống.
+
+Mỗi bản ghi trong này có id riêng và được đánh dấu thời gian thông qua timestamp.
+
+ANALYTICS có mối liên hệ một-nhiều với CONVERSATION: một cuộc trò chuyện có thể sinh ra nhiều bản ghi phân tích.
+
+
+
 ```mermaid
 erDiagram
     PRODUCT {
