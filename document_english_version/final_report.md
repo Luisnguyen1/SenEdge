@@ -22,7 +22,7 @@ This report presents a comprehensive study on the IoT-AI Retail Assistant system
 ### 1.1. Project Background
 As part of the IoT Challenge 2025 competition, the SGTeam proposes an integrated AIoT solution to address challenges in the retail sector. The project focuses on building an intelligent system capable of optimizing the shopping experience and enhancing store operational efficiency by applying advanced technologies such as IoT, AI, and edge computing..
 
-### 1.2. Research Objec
+### 1.2. Research Object
 This study sets out 3 primary objectives:
 1. Develop a comprehensive integrated system combining IoT and AI for retail environments.
 2. Optimize the shopping experience through virtual assistant technology and indoor positioning.
@@ -42,7 +42,7 @@ The research focuses on the design and deployment of a smart retail ecosystem in
 - Smart Queue Management
 - IoT Sensor Network
 
-### 1.5. Overrall Data Flow
+### 1.5. Overall Data Flow
 
 ```mermaid
 sequenceDiagram
@@ -68,10 +68,11 @@ sequenceDiagram
     App->>U: Display results
     deactivate App
 ```
+## 2. Research Methodology
 
-## 2. Kiến trúc Hệ thống
+## 3. System Architecture
 
-### 2.1. Kiến trúc Tổng thể 4 Tầng
+### 3.1. Four-Layer Overall Architecture
 
 ```mermaid
 graph TB
@@ -118,7 +119,7 @@ graph TB
     L --> G
 ```
 
-### 2.2. Phân bố Thiết bị
+### 3.2. Device Distribution
 
 ```mermaid
 graph TD
@@ -146,16 +147,15 @@ graph TD
     end
 ```
 
-## 4. Thiết kế và Triển khai
+## 4. Design and Implementation
 
-### 4.1. Kiến trúc Tổng thể
-Hệ thống được thiết kế theo kiến trúc microservices 4 tầng, đảm bảo tính module hóa và khả năng mở rộng cao. Mỗi tầng có chức năng và trách nhiệm riêng biệt, giao tiếp thông qua các API được định nghĩa rõ ràng.
-
-### 4.2. Chi tiết Module
+### 4.1. Overall Architecture
+The system is designed based on a four-layer microservices architecture, ensuring high modularity and scalability. Each layer has distinct roles and responsibilities and communicates through clearly defined APIs.
+### 4.2. Module Details
 
 #### 4.2.1. RAG Chatbot Module
 
-#### 4.2.1.1. Kiến trúc RAG
+#### 4.2.1.1. RAG Architecture
 
 ```mermaid
 graph TB
@@ -190,16 +190,16 @@ graph TB
     G --> J
 ```
 
-#### 4.2.1.2. Quy trình RAG
-1. Query Analysis: Phân tích ý định người dùng
-2. Context Retrieval: Tìm kiếm thông tin liên quan
-3. Response Generation: Tạo câu trả lời
-4. Post-processing: Định dạng và kiểm tra
-5. Delivery: Gửi kết quả cho người dùng
+#### 4.2.1.2. RAG Workflow
+1. Query Analysis: Analyze user intent 
+2. Context Retrieval: Retrieve relevant information
+3. Response Generation: Generate the response
+4. Post-processing: Format and validate
+5. Delivery: Return the result to the user
 
-### 4.2.2. Hệ thống Định vị Trong nhà
+### 4.2.2. Indoor Positioning System
 
-#### 4.2.2.1. Định vị BLE
+#### 4.2.2.1. BLE Positioning
 
 ```mermaid
 sequenceDiagram
@@ -221,37 +221,37 @@ sequenceDiagram
     R->>M: Navigation Instructions
 ```
 
-#### 4.2.2.2. Thuật toán Tìm đường
+#### 4.2.2.2. Routing Algorithm
 - Modified A* với weighted edges
 - Dynamic obstacle avoidance
 - Real-time route recalculation
 
 ### 4.2.3. Computer Vision System
 
-#### 4.2.3.1. Phát hiện Đám đông
-- Model: MobileNet SSD
+#### 4.2.3.1. Crowd Density Detection
+- Model: TFLite person detection
 - Input: Camera feed (5fps)
 - Preprocessing: Resize (96x96), normalization
 - Output: Density classification (LOW/MEDIUM/HIGH)
 
-#### 4.2.3.2. Quản lý Hàng đợi
+#### 4.2.3.2. Cashier Queue Estimation 
 - Cashier camera feed (3fps)
 - Person detection và counting
 - Wait time prediction (Random Forest)
 - Multi-cashier optimization
 
-## 4. Kế hoạch Triển khai
+## 4. Deployment Plan
 
-### 4.1. Thành viên và Phân công
+### 4.1. Team Members and Assignments
 
-#### 4.1.1. Cơ cấu Team
-- **IoT Engineer 1**: Phát triển phần cứng và firmware
-- **IoT Engineer 2**: Tích hợp sensor và xử lý dữ liệu
-- **AI/IoT Engineer 1**: ML/DL và xử lý dữ liệu IoT
-- **AI/IoT Engineer 2**: Computer Vision và tích hợp hệ thống
-- **Web Developer**: Frontend và Backend development
+#### 4.1.1. Team Structure 
+- **IoT Engineer 1**: Hardware and firmware development
+- **IoT Engineer 2**: Sensor integration and data handling
+- **AI/IoT Engineer 1**: ML/DL and IoT data processing
+- **AI/IoT Engineer 2**: Computer Vision and system integration
+- **Web Developer**: Frontend and backend development
 
-#### 4.1.2. Phân chia Module
+#### 4.1.2. Module Assignment
 ```mermaid
 graph LR
     subgraph "IoT Team"
@@ -276,7 +276,7 @@ graph LR
 
 ### 4.2. Timeline và Milestones
 
-#### 4.2.1. Sprint 1-2: Setup và Planning (Tuần 1-2)
+#### 4.2.1. Sprint 1-2: Setup và Planning (Week 1-2)
 ```mermaid
 gantt
     title Sprint 1-2: Setup & Planning
@@ -292,7 +292,7 @@ gantt
     Team Training          :2025-05-06, 5d
 ```
 
-#### 4.2.2. Sprint 3-4: Core Development (Tuần 3-4)
+#### 4.2.2. Sprint 3-4: Core Development (Week 3-4)
 ```mermaid
 gantt
     title Sprint 3-4: Core Development
@@ -308,7 +308,7 @@ gantt
     Basic Frontend         :2025-05-20, 10d
 ```
 
-#### 4.2.3. Sprint 5-6: Integration (Tuần 5-6)
+#### 4.2.3. Sprint 5-6: Integration (Week 5-6)
 ```mermaid
 gantt
     title Sprint 5-6: Integration
@@ -323,7 +323,7 @@ gantt
     Frontend Features      :2025-06-01, 14d
 ```
 
-#### 4.2.4. Sprint 7-8: Testing và Optimization (Tuần 7-8)
+#### 4.2.4. Sprint 7-8: Testing và Optimization (Week 7-8)
 ```mermaid
 gantt
     title Sprint 7-8: Testing & Optimization
@@ -428,195 +428,204 @@ graph TD
 - Plan adjustments
 - Documentation update
 
-## 5. Kết quả Thực nghiệm
+## ## 5. Experimental Results
 
-### 5.1. Thiết lập Thử nghiệm
-Hệ thống được triển khai thử nghiệm trong môi trường mô phỏng cửa hàng bán lẻ với diện tích 500m² trong thời gian 3 tháng. Môi trường thử nghiệm bao gồm:
-- 3 khu vực chính: lối vào, khu trưng bày, khu thanh toán
-- 12 beacon định vị
-- 6 cảm biến môi trường
-- 4 camera theo dõi đám đông
-- 2 camera quản lý hàng đợi
+### 5.1. Experimental Setup  
+The system was deployed in a simulated retail store environment with an area of 500m² over a period of 3 months. The test environment included:  
+- 3 main zones: entrance, display area, checkout area  
+- 12 positioning beacons  
+- 6 environmental sensors  
+- 4 crowd monitoring cameras  
+- 2 queue management cameras
 
-### 5.2. Kết quả Đánh giá
+### 5.2. Evaluation Results
 
-#### 5.2.1. Hiệu suất RAG Chatbot
-- **Thời gian phản hồi**: 
-  - Trung bình: 450ms
-  - 90th percentile: 750ms
-  - 99th percentile: 1200ms
+#### 5.2.1. RAG Chatbot Performance  
+- **Response Time**:  
+  - Average: 450ms  
+  - 90th percentile: 750ms  
+  - 99th percentile: 1200ms  
 
-- **Độ chính xác trả lời**: 
-  - Tổng thể: 92%
-  - Thông tin sản phẩm: 95%
-  - Hướng dẫn định vị: 88%
-  - Tư vấn mua sắm: 85%
+- **Answer Accuracy**:  
+  - Overall: 92%  
+  - Product information: 95%  
+  - Navigation guidance: 88%  
+  - Shopping consultation: 85%
 
 ```mermaid
 graph LR
-    A[Độ chính xác] --> B[Thông tin SP: 95%]
-    A --> C[Định vị: 88%]
-    A --> D[Tư vấn: 85%]
+    A[Accuracy] --> B[Items Information: 95%]
+    A --> C[Positioning: 88%]
+    A --> D[Consulting: 85%]
     
     style B fill:#90EE90
     style C fill:#FFB6C1
     style D fill:#FFB6C1
 ```
 
-#### 5.2.2. Hệ thống Định vị
-- **Độ chính xác định vị**:
-  - Trung bình: ±1.8m
-  - Trong điều kiện tốt: ±1.2m
-  - Khu vực đông người: ±2.5m
+#### 5.2.2. Positioning System  
+- **Positioning Accuracy**:  
+  - Average: ±1.8m  
+  - Under optimal conditions: ±1.2m  
+  - In crowded areas: ±2.5m  
 
-- **Thời gian cập nhật**:
-  - Tần suất cập nhật: 1Hz
-  - Độ trễ xử lý: <100ms
+- **Update Rate**:  
+  - Update frequency: 1Hz  
+  - Processing latency: <100ms
 
-#### 5.2.3. Phân tích Đám đông
-- **Độ chính xác phát hiện**:
-  - Đếm người: 94%
-  - Phát hiện tụ tập: 90%
-  - Dự đoán hướng di chuyển: 85%
+#### 5.2.3. Crowd Analytics  
+- **Detection Accuracy**:  
+  - Person counting: 94%  
+  - Crowd gathering detection: 90%  
+  - Movement direction prediction: 85%
 
-- **Hiệu suất xử lý**:
-  - FPS: 5 frames/second
-  - Độ trễ xử lý: 150-200ms
-  - CPU Usage: 45-55%
+- **Processing Performance**:  
+  - FPS: 5 frames/second  
+  - Processing latency: 150–200ms  
+  - CPU usage: 45–55%
 
-#### 5.2.4. Quản lý Hàng đợi
-- **Độ chính xác dự đoán**:
-  - RMSE thời gian chờ: 45 giây
-  - Accuracy phân loại tình trạng: 88%
+#### 5.2.4. Cashier Queue Estimation
+- **Prediction Accuracy**:  
+  - Wait time RMSE: 45 seconds  
+  - Condition classification accuracy: 88%
 
-- **Tối ưu hóa phân bổ**:
-  - Giảm thời gian chờ trung bình: 22%
-  - Tăng throughput: 18%
+- **Optimization Results**:  
+  - Average wait time reduction: 22%  
+  - Throughput increase: 18%
 
-### 5.3. Phân tích Hiệu quả Kinh doanh
+### 5.3. Business Efficiency Analysis
 
-#### 5.3.1. Metrics Hoạt động
-1. **Hiệu quả Tìm kiếm Sản phẩm**
-   - Giảm 28% thời gian tìm kiếm
-   - Tăng 15% tỷ lệ conversion
-   - Giảm 35% số lần hỏi nhân viên
+#### 5.3.1. Operational Metrics  
 
-2. **Hiệu suất Nhân viên**
-   - Tăng 15% số khách hàng phục vụ/giờ
-   - Giảm 25% thời gian trả lời câu hỏi lặp
-   - Tăng 20% thời gian tư vấn chuyên sâu
+1. **Product Search Efficiency**  
+   - 28% reduction in product search time  
+   - 15% increase in conversion rate  
+   - 35% decrease in staff queries
 
-3. **Quản lý Hàng đợi**
-   - Giảm 22% thời gian chờ trung bình
-   - Giảm 30% số lượng than phiền
-   - Tăng 12% throughput tại quầy
+2. **Employee Performance**  
+   - 15% increase in customers served per hour  
+   - 25% reduction in time spent answering repetitive questions  
+   - 20% increase in time spent on personalized consultation
 
-#### 5.3.2. Đánh giá Chi phí-Lợi ích
+3. **Queue Management**  
+   - 22% reduction in average wait time  
+   - 30% decrease in complaint volume  
+   - 12% increase in counter throughput
+
+#### 5.3.2. Cost-Benefit Evaluation
 ```mermaid
 graph TB
-    subgraph "Chi phí Triển khai"
+    subgraph "Deployment Costs"
         A[Hardware: 35%]
         B[Software: 25%]
         C[Integration: 20%]
         D[Training: 15%]
         E[Others: 5%]
     end
-    
-    subgraph "Lợi ích Kinh tế"
-        F[Giảm Chi phí Vận hành: 40%]
-        G[Tăng Doanh số: 35%]
-        H[Giảm Chi phí Nhân sự: 25%]
+
+    subgraph "Economic Benefits"
+        F[Reduced Operational Costs: 40%]
+        G[Increased Sales: 35%]
+        H[Reduced Personnel Costs: 25%]
     end
 ```
 
-### 5.4. So sánh với Các Giải pháp Hiện có
+### Comparison with Existing Solutions
 
-| Tiêu chí | Giải pháp Đề xuất | Giải pháp A | Giải pháp B |
+| Criteria | Proposed Solution | Solution A | Solution B |
 |----------|-------------------|-------------|-------------|
-| Độ chính xác Chatbot | 92% | 85% | 88% |
-| Độ chính xác Định vị | ±1.8m | ±2.5m | ±2.0m |
-| Thời gian Phản hồi | <500ms | <800ms | <650ms |
-| Khả năng Mở rộng | Cao | Trung bình | Trung bình |
-| Chi phí Triển khai | Trung bình | Thấp | Cao |
-| Tích hợp IoT | Đầy đủ | Một phần | Một phần |
+| Chatbot Accuracy | 92% | 85% | 88% |
+| Positioning Accuracy | ±1.8m | ±2.5m | ±2.0m |
+| Response Time | <500ms | <800ms | <650ms |
+| Scalability | High | Medium | Medium |
+| Deployment Cost | Medium | Low | High |
+| IoT Integration | Full | Partial | Partial |
 
 
-## 6. Thảo luận
+## 6. Discussion
 
-### 6.1. Ưu điểm của Giải pháp
-1. **Tính Tích hợp Cao**
-   - Kết hợp seamless giữa các công nghệ IoT và AI
-   - Tích hợp đầy đủ các khía cạnh vận hành cửa hàng
-   - Giao diện thống nhất cho người dùng và quản trị
+### 6.1. Strengths of the Solution
+1. **High Integration**
+   - Seamless combination of IoT and AI technologies
+   - Full integration across store operations
+   - Unified interface for both users and administrators
 
-2. **Khả năng Mở rộng**
-   - Kiến trúc microservices linh hoạt
-   - Khả năng thêm module mới dễ dàng
-   - Hỗ trợ horizontal scaling
+2. **Scalability**
+   - Flexible microservices architecture
+   - Easy addition of new modules
+   - Supports horizontal scaling
+3. **High Performance**
+   - Edge computing Optimization
+   - Minimized network latency  
+   - Efficient real-time processing  
 
-3. **Hiệu suất Cao**
-   - Tối ưu hóa edge computing
-   - Giảm thiểu độ trễ mạng
-   - Xử lý real-time hiệu quả
+### 6.2. Limitations and Challenges
+1. **Technical**
+   - Accuracy of positioning in crowded areas  
+   - Dependence on network quality  
+   - Need to balance performance and resource usage  
 
-### 6.2. Hạn chế và Thách thức
-1. **Kỹ thuật**
-   - Độ chính xác định vị trong khu vực đông đúc
-   - Phụ thuộc vào chất lượng kết nối mạng
-   - Yêu cầu cân bằng giữa hiệu suất và tài nguyên
+2. **Deployment**
+   - High initial hardware costs  
+   - Requires staff training  
+   - Integration time with existing systems  
 
-2. **Triển khai**
-   - Chi phí hardware ban đầu cao
-   - Yêu cầu đào tạo nhân viên
-   - Thời gian tích hợp với hệ thống hiện có
+3. **Security**
+   - Protection of user data  
+   - IoT network safety  
+   - Compliance with GDPR  
+---
 
-3. **Bảo mật**
-   - Bảo vệ dữ liệu người dùng
-   - An toàn mạng IoT
-   - Tuân thủ quy định GDPR
+### 6.3. Suggested Improvements
 
-### 6.3. Đề xuất Cải tiến
-1. **Kỹ thuật**
-   - Cải thiện thuật toán định vị fusion
-   - Tối ưu hóa mô hình AI nhẹ hơn
-   - Tăng cường cơ chế cache
+1. **Technical**
+   - Enhance fusion-based positioning algorithms  
+   - Optimize for lighter-weight AI models  
+   - Strengthen caching mechanisms  
 
-2. **Kinh doanh**
-   - Mở rộng tính năng analytics
-   - Tích hợp thêm kênh thanh toán
-   - Phát triển loyalty program
+2. **Business**
+   - Expand analytics features  
+   - Integrate additional payment channels  
+   - Develop a loyalty program  
 
-## 7. Kết luận và Hướng Phát triển
+---
 
-### 7.1. Kết luận
-Nghiên cứu đã thành công trong việc phát triển và triển khai một hệ thống bán lẻ thông minh tích hợp, đạt được các mục tiêu đề ra:
-- Cải thiện đáng kể trải nghiệm mua sắm
-- Tối ưu hóa vận hành cửa hàng
-- Tạo nền tảng cho phát triển tương lai
+## 7. Conclusion and Future Directions
 
-### 7.2. Đóng góp Chính
-1. **Đóng góp Học thuật**
-   - Kiến trúc tích hợp IoT-AI mới
-   - Cải tiến thuật toán định vị trong nhà
-   - Framework đánh giá hiệu suất retail tech
+### 7.1. Conclusion
+The research has successfully developed and implemented an integrated smart retail system, achieving the following key objectives:
+- Significantly enhanced shopping experience  
+- Optimized store operations  
+- Established a foundation for future innovations  
 
-2. **Đóng góp Thực tiễn**
-   - Giải pháp end-to-end khả thi
-   - Metrics và KPIs cụ thể
-   - Best practices triển khai
+### 7.2. Key Contributions
 
-### 7.3. Hướng Phát triển
-1. **Nghiên cứu Tiếp theo**
-   - Cải thiện độ chính xác định vị
-   - Phát triển AI tự học liên tục
-   - Tối ưu hóa năng lượng IoT
+1. **Academic Contributions**
+   - Novel integrated IoT-AI architecture  
+   - Improved indoor positioning algorithms  
+   - Performance evaluation framework for retail technologies  
 
-2. **Mở rộng Ứng dụng**
-   - Tích hợp AR/VR experiences
-   - Phát triển cross-platform
-   - Mở rộng sang các vertical khác
+2. **Practical Contributions**
+   - Feasible end-to-end solution  
+   - Defined metrics and KPIs  
+   - Deployment best practices  
 
-### Tài liệu Tham khảo
+---
+
+### 7.3. Future Directions
+
+1. **Further Research**
+   - Improve positioning accuracy  
+   - Develop continuously learning AI  
+   - Optimize IoT energy efficiency  
+
+2. **Application Expansion**
+   - Integrate AR/VR experiences  
+   - Develop cross-platform support  
+   - Expand to other industry verticals  
+
+
+### References
 
 1. Smith, J., et al. (2024). "Advanced Retail Technologies: A Comprehensive Review." IEEE Internet of Things Journal.
 
@@ -628,25 +637,25 @@ Nghiên cứu đã thành công trong việc phát triển và triển khai mộ
 
 5. Zhang, L., et al. (2024). "RAG Systems for Customer Service: A Comparative Study." Conference on Natural Language Processing.
 
-## 4.7. Phân tích Kiến trúc và Quy trình Hoạt động
+## 4.7. Architecture and Operational Workflow Analysis
 
-### 4.7.1. Kiến trúc Tổng thể 4 Tầng
+### 4.7.1. Four-Layer Overall Architecture
 ```mermaid
 graph TB
-    subgraph "Tầng Ứng dụng"
+    subgraph "Application Layer"
         A[Mobile App]
         B[Web App]
         C[Admin Dashboard]
     end
 
-    subgraph "Tầng Service"
+    subgraph "Service Layer"
         D[RAG Chatbot Service]
         E[Navigation Service]
         F[Analytics Service]
         G[Gateway Service]
     end
 
-    subgraph "Tầng IoT"
+    subgraph "IoT Layer"
         H[BLE Beacons]
         I[Environmental Sensors]
         J[Motion Sensors]
@@ -654,7 +663,7 @@ graph TB
         L[Edge Computing]
     end
 
-    subgraph "Tầng Dữ liệu"
+    subgraph "Data Layer"
         M[(Product DB)]
         N[(Analytics DB)]
         O[(Vector DB)]
@@ -665,7 +674,7 @@ graph TB
     C --> F & G
 ```
 
-**Giải thích:**
+**Expalain:**
 1. **Tầng Ứng dụng**: 
    - Giao diện người dùng đa nền tảng
    - Tích hợp real-time updates qua WebSocket
@@ -686,7 +695,7 @@ graph TB
    - Vector DB cho tìm kiếm ngữ nghĩa
    - Time-series DB cho phân tích
 
-3. **Response Generation**
+5. **Response Generation**
    ```python
    class ResponseGenerator:
        def generate(self, query, contexts):
