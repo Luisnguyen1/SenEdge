@@ -16,6 +16,7 @@ This report presents a comprehensive study on the AIoT Retail Assistant system's
 5. [Experimental Results](#5-experimental-results)
 6. [Discussion](#6-discussion)
 7. [Conclusion and Future Development](#7-conclusion-and-future-development)
+8. [References](#7-references-)
 
 ## 1. Introduction and Overview
 
