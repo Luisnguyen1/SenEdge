@@ -6,6 +6,67 @@ RAG (Retrieval Augmented Generation) Chatbot là module tư vấn thông minh, k
 
 ### 1.1 Kiến trúc Module
 
+Tổng quan kiến trúc hệ thống
+
+Kiến trúc hệ thống được chia thành ba lớp chính: Frontend Layer, Backend Layer, và Data Layer. Mỗi lớp đảm nhận vai trò riêng biệt, giúp hệ thống có tính mô-đun, dễ bảo trì và mở rộng. Kiến trúc này đặc biệt phù hợp với các ứng dụng sử dụng mô hình Retrieval-Augmented Generation (RAG).
+
+1. Frontend Layer
+2. 
+Đây là lớp giao diện người dùng, nơi diễn ra các tương tác trực tiếp:
+
+Product Display: Giao diện hiển thị thông tin chi tiết về sản phẩm cho người dùng.
+
+Chat Interface: Nơi người dùng nhập câu hỏi hoặc yêu cầu, và nhận lại phản hồi từ hệ thống.
+
+Analytics View: Giao diện trực quan hóa dữ liệu phân tích, như hành vi người dùng hoặc xu hướng sản phẩm.
+
+2. Backend Layer
+
+Lớp này chịu trách nhiệm xử lý logic nghiệp vụ và liên kết giữa frontend với cơ sở dữ liệu:
+
+RAG Engine: Là thành phần trung tâm, kết hợp khả năng retrieval (truy xuất tài liệu) với generation (tạo văn bản) để tạo ra phản hồi phù hợp. Nó nhận câu hỏi từ Chat Interface và chuyển tiếp truy vấn đến Vector Search.
+
+Vector Search: Thực hiện tìm kiếm ngữ nghĩa dựa trên các vector embedding được lưu trong Vector DB. Khi cần, nó cũng truy xuất thông tin từ Product DB để bổ sung ngữ cảnh.
+
+Response Generator: Nhận thông tin đã được truy xuất từ RAG Engine, sau đó tổng hợp thành phản hồi hoàn chỉnh gửi lại người dùng.
+
+Analytics Engine: Thu thập và xử lý dữ liệu liên quan đến tương tác người dùng và hiệu suất hệ thống, lưu trữ trong Analytics DB để phục vụ phân tích.
+
+3. Data Layer
+
+Lớp dữ liệu gồm các kho lưu trữ chính:
+
+Product DB: Lưu thông tin chi tiết về sản phẩm như mô tả, giá, thông số kỹ thuật...
+
+Vector DB: Lưu trữ các vector embedding dùng cho tìm kiếm ngữ nghĩa trong Vector Search.
+
+Analytics DB: Lưu các chỉ số, log hệ thống và hành vi người dùng để phục vụ việc phân tích và hiển thị qua Analytics View.
+
+Luồng xử lý dữ liệu
+
+Người dùng đặt câu hỏi tại Chat Interface.
+
+RAG Engine nhận câu hỏi và chuyển đến Vector Search.
+
+Vector Search truy vấn trong Vector DB và/hoặc Product DB để lấy thông tin liên quan.
+
+RAG Engine xử lý thông tin truy xuất và gửi đến Response Generator để tạo phản hồi.
+
+Phản hồi được trả lại người dùng qua Chat Interface.
+
+Đồng thời, Analytics Engine ghi nhận tương tác và cập nhật dữ liệu vào Analytics DB để phục vụ Analytics View.
+
+Ưu điểm kiến trúc
+Phân tầng rõ ràng giúp dễ bảo trì, mở rộng và tối ưu hóa.
+
+Ứng dụng semantic search qua Vector DB nâng cao độ chính xác của truy xuất.
+
+RAG Engine cho phép phản hồi chính xác và có ngữ cảnh tốt hơn.
+
+Hệ thống có thể theo dõi và phân tích hiệu quả qua Analytics Engine và Analytics DB.
+
+
+
 ```mermaid
 graph TB
     subgraph "Frontend Layer"
