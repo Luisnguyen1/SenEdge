@@ -1,5 +1,5 @@
-# Research and Development of the IoT-AI Retail Assistant System:
-# A Solution for Optimizing Smart Store Operations and Shopping Experience
+# Research and Development of the IoT-AI Retail Assistant System
+## A Solution for Optimizing Smart Store Operations and Shopping Experience
 
 **SGTeam - IoT Challenge 2025**  
 *Research and Development Report*
@@ -71,6 +71,8 @@ sequenceDiagram
 ## 2. Research Methodology
 
 ## 3. System Architecture
+
+The system is designed based on a four-layer microservices architecture, ensuring high modularity and scalability. Each layer has distinct roles and responsibilities and communicates through clearly defined APIs.
 
 ### 3.1. Four-Layer Overall Architecture
 
@@ -146,16 +148,11 @@ graph TD
         end
     end
 ```
+### 3.3. Module Details
 
-## 4. Design and Implementation
+#### 3.3.1. RAG Chatbot Module
 
-### 4.1. Overall Architecture
-The system is designed based on a four-layer microservices architecture, ensuring high modularity and scalability. Each layer has distinct roles and responsibilities and communicates through clearly defined APIs.
-### 4.2. Module Details
-
-#### 4.2.1. RAG Chatbot Module
-
-#### 4.2.1.1. RAG Architecture
+**RAG Architecture**
 
 ```mermaid
 graph TB
@@ -190,16 +187,16 @@ graph TB
     G --> J
 ```
 
-#### 4.2.1.2. RAG Workflow
+**RAG Workflow**
 1. Query Analysis: Analyze user intent 
 2. Context Retrieval: Retrieve relevant information
 3. Response Generation: Generate the response
 4. Post-processing: Format and validate
 5. Delivery: Return the result to the user
 
-### 4.2.2. Indoor Positioning System
+### 3.3.2. Indoor Positioning System
 
-#### 4.2.2.1. BLE Positioning
+**BLE Positioning**
 
 ```mermaid
 sequenceDiagram
@@ -221,26 +218,247 @@ sequenceDiagram
     R->>M: Navigation Instructions
 ```
 
-#### 4.2.2.2. Routing Algorithm
+**Routing Algorithm**
 - Modified A* với weighted edges
 - Dynamic obstacle avoidance
 - Real-time route recalculation
 
-### 4.2.3. Computer Vision System
+### 3.3.3. Computer Vision System
 
-#### 4.2.3.1. Crowd Density Detection
+#### 3.3.3.1. Crowd Density Detection
 - Model: TFLite person detection
 - Input: Camera feed (5fps)
 - Preprocessing: Resize (96x96), normalization
 - Output: Density classification (LOW/MEDIUM/HIGH)
 
-#### 4.2.3.2. Cashier Queue Estimation 
+#### 3.3.3.2. Cashier Queue Estimation 
 - Cashier camera feed (3fps)
 - Person detection và counting
 - Wait time prediction (Random Forest)
 - Multi-cashier optimization
 
-## 4. Deployment Plan
+### 3.4. Architecture and Operational Workflow Analysis
+
+### 3.4.1. Four-Layer Overall Architecture
+```mermaid
+graph TB
+    subgraph "Application Layer"
+        A[Mobile App]
+        B[Web App]
+        C[Admin Dashboard]
+    end
+
+    subgraph "Service Layer"
+        D[RAG Chatbot Service]
+        E[Navigation Service]
+        F[Analytics Service]
+        G[Gateway Service]
+    end
+
+    subgraph "IoT Layer"
+        H[BLE Beacons]
+        I[Environmental Sensors]
+        J[Motion Sensors]
+        K[Mesh Network]
+        L[Edge Computing]
+    end
+
+    subgraph "Data Layer"
+        M[(Product DB)]
+        N[(Analytics DB)]
+        O[(Vector DB)]
+    end
+
+    A --> D & E & F
+    B --> D & E & F
+    C --> F & G
+```
+
+**Explanation:**
+1. **Application Layer**:  
+   - Multi-platform user interface  
+   - Integration of real-time updates via WebSocket  
+   - Dashboard for management and monitoring  
+
+2. **Service Layer**:  
+   - Microservices architecture for scalability  
+   - Load balancing and service discovery  
+   - API Gateway for security and routing  
+
+3. **IoT Layer**:  
+   - Distributed sensor network  
+   - Edge computing to reduce latency  
+   - Mesh networking for high reliability  
+
+4. **Data Layer**:  
+   - Functional data segmentation  
+   - Vector DB for semantic search  
+   - Time-series DB for analysis  
+
+5. **Response Generation**  
+   ```python
+   class ResponseGenerator:
+       def generate(self, query, contexts):
+           # Combine query and contexts
+           # Generate response using LLM
+           # Post-process response
+   ```
+
+#### 3.4.2. Data Flow and Processing
+
+```mermaid
+sequenceDiagram
+    participant IoT as IoT Devices
+    participant Edge as Edge Computing
+    participant Cloud as Cloud Services
+    participant DB as Databases
+    participant App as Applications
+
+    IoT->>Edge: Raw Sensor Data
+    Edge->>Edge: Pre-processing
+    Edge->>Cloud: Filtered Data
+    
+    par Real-time Processing
+        Cloud->>App: WebSocket Updates
+        Cloud->>DB: Store Data
+    end
+    
+    App->>Cloud: User Requests
+    Cloud->>DB: Query Data
+    DB->>Cloud: Results
+    Cloud->>App: Response
+
+    loop Analytics
+        Cloud->>DB: Fetch Data
+        DB->>Cloud: Historical Data
+        Cloud->>Cloud: Generate Insights
+    end
+```
+
+**Process Explanation:**
+
+1. **Data Collection**:  
+   - IoT sensors send raw data  
+   - Edge devices perform preprocessing  
+   - Filter and compress data before transmission  
+
+2. **Real-time Processing**:  
+   - WebSocket for instant updates  
+   - Stream processing for analytics  
+   - Event-driven architecture  
+
+3. **Storage and Analysis**:  
+   - Time-series data for sensor logs  
+   - Batch processing for insights  
+   - Machine learning pipeline  
+
+### 3.4.3. Security Architecture
+
+```mermaid
+graph TB
+    subgraph "Security Layers"
+        A[Device Security]
+        B[Network Security]
+        C[Application Security]
+        D[Data Security]
+    end
+    
+    A -->|Secure Boot| B
+    B -->|TLS/SSL| C
+    C -->|JWT/OAuth| D
+    
+    subgraph "Device Security"
+        A1[Secure Elements]
+        A2[Encrypted Storage]
+        A3[Secure Updates]
+    end
+    
+    subgraph "Network Security"
+        B1[TLS/SSL]
+        B2[VPN]
+        B3[Firewalls]
+    end
+    
+    subgraph "Application Security"
+        C1[Authentication]
+        C2[Authorization]
+        C3[Input Validation]
+    end
+    
+    subgraph "Data Security"
+        D1[Encryption]
+        D2[Access Control]
+        D3[Audit Logs]
+    end
+```
+
+**Explanation of Security Layers:**
+
+1. **Device Security**:  
+   - Secure boot ensures firmware integrity  
+   - Hardware security module for key storage  
+   - OTA updates with signature verification  
+
+2. **Network Security**:  
+   - End-to-end encryption  
+   - Segmented networks  
+   - Intrusion detection  
+
+3. **Application Security**:  
+   - Role-based access control  
+   - API authentication  
+   - Input sanitization  
+
+4. **Data Security**:  
+   - Encryption at rest  
+   - Encryption in transit  
+   - Regular security audits
+   
+### 3.5. Tools and Resources
+
+#### Development Tools
+- Git for version control
+- JIRA for task tracking
+- Slack for communication
+- VS Code for development
+
+#### Testing Tools
+- PyTest for Python testing
+- Jest for JavaScript testing
+- JMeter for load testing
+- Postman for API testing
+
+#### Monitoring Tools
+- Prometheus for metrics
+- Grafana for dashboards
+- ELK Stack for logs
+
+### 3.6. Dependencies and Risk Management
+
+#### 3.6.1. Dependencies
+```mermaid
+graph TD
+    A[Hardware Setup] --> B[Firmware Development]
+    B --> C[Data Processing]
+    C --> D[System Integration]
+    
+    E[ML Models] --> F[Analytics Engine]
+    F --> D
+    
+    G[Backend APIs] --> H[Frontend Development]
+    H --> D
+```
+
+#### 3.6.2. Risk Management
+
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| Hardware Delays | High | Early ordering, backup suppliers |
+| Integration Issues | Medium | Regular integration tests, modular design |
+| Performance Problems | Medium | Continuous monitoring, early optimization |
+| Technical Debt | Low | Code review, documentation |
+
+## 4. Implementation
 
 ### 4.1. Team Members and Assignments
 
@@ -364,51 +582,7 @@ gantt
 - [ ] Documentation complete
 - [ ] System deployed
 
-### 4.4. Tools and Resources
-
-#### Development Tools
-- Git for version control
-- JIRA for task tracking
-- Slack for communication
-- VS Code for development
-
-#### Testing Tools
-- PyTest for Python testing
-- Jest for JavaScript testing
-- JMeter for load testing
-- Postman for API testing
-
-#### Monitoring Tools
-- Prometheus for metrics
-- Grafana for dashboards
-- ELK Stack for logs
-
-### 4.5. Dependencies and Risk Management
-
-#### 4.5.1. Dependencies
-```mermaid
-graph TD
-    A[Hardware Setup] --> B[Firmware Development]
-    B --> C[Data Processing]
-    C --> D[System Integration]
-    
-    E[ML Models] --> F[Analytics Engine]
-    F --> D
-    
-    G[Backend APIs] --> H[Frontend Development]
-    H --> D
-```
-
-#### 4.5.2. Risk Management
-
-| Risk | Impact | Mitigation |
-|------|--------|------------|
-| Hardware Delays | High | Early ordering, backup suppliers |
-| Integration Issues | Medium | Regular integration tests, modular design |
-| Performance Problems | Medium | Continuous monitoring, early optimization |
-| Technical Debt | Low | Code review, documentation |
-
-### 4.6. Meeting Schedule
+### 4.4. Meeting Schedule
 
 #### Sprint Planning (Monday)
 - Review last week's progress
@@ -637,179 +811,3 @@ The research has successfully developed and implemented an integrated smart reta
 
 5. Zhang, L., et al. (2024). "RAG Systems for Customer Service: A Comparative Study." Conference on Natural Language Processing.
 
-## 4.7. Architecture and Operational Workflow Analysis
-
-### 4.7.1. Four-Layer Overall Architecture
-```mermaid
-graph TB
-    subgraph "Application Layer"
-        A[Mobile App]
-        B[Web App]
-        C[Admin Dashboard]
-    end
-
-    subgraph "Service Layer"
-        D[RAG Chatbot Service]
-        E[Navigation Service]
-        F[Analytics Service]
-        G[Gateway Service]
-    end
-
-    subgraph "IoT Layer"
-        H[BLE Beacons]
-        I[Environmental Sensors]
-        J[Motion Sensors]
-        K[Mesh Network]
-        L[Edge Computing]
-    end
-
-    subgraph "Data Layer"
-        M[(Product DB)]
-        N[(Analytics DB)]
-        O[(Vector DB)]
-    end
-
-    A --> D & E & F
-    B --> D & E & F
-    C --> F & G
-```
-
-**Explanation:**
-1. **Application Layer**:  
-   - Multi-platform user interface  
-   - Integration of real-time updates via WebSocket  
-   - Dashboard for management and monitoring  
-
-2. **Service Layer**:  
-   - Microservices architecture for scalability  
-   - Load balancing and service discovery  
-   - API Gateway for security and routing  
-
-3. **IoT Layer**:  
-   - Distributed sensor network  
-   - Edge computing to reduce latency  
-   - Mesh networking for high reliability  
-
-4. **Data Layer**:  
-   - Functional data segmentation  
-   - Vector DB for semantic search  
-   - Time-series DB for analysis  
-
-5. **Response Generation**  
-   ```python
-   class ResponseGenerator:
-       def generate(self, query, contexts):
-           # Combine query and contexts
-           # Generate response using LLM
-           # Post-process response
-   ```
-
-#### 4.7.2. Data Flow and Processing
-
-```mermaid
-sequenceDiagram
-    participant IoT as IoT Devices
-    participant Edge as Edge Computing
-    participant Cloud as Cloud Services
-    participant DB as Databases
-    participant App as Applications
-
-    IoT->>Edge: Raw Sensor Data
-    Edge->>Edge: Pre-processing
-    Edge->>Cloud: Filtered Data
-    
-    par Real-time Processing
-        Cloud->>App: WebSocket Updates
-        Cloud->>DB: Store Data
-    end
-    
-    App->>Cloud: User Requests
-    Cloud->>DB: Query Data
-    DB->>Cloud: Results
-    Cloud->>App: Response
-
-    loop Analytics
-        Cloud->>DB: Fetch Data
-        DB->>Cloud: Historical Data
-        Cloud->>Cloud: Generate Insights
-    end
-```
-
-**Process Explanation:**
-
-1. **Data Collection**:  
-   - IoT sensors send raw data  
-   - Edge devices perform preprocessing  
-   - Filter and compress data before transmission  
-
-2. **Real-time Processing**:  
-   - WebSocket for instant updates  
-   - Stream processing for analytics  
-   - Event-driven architecture  
-
-3. **Storage and Analysis**:  
-   - Time-series data for sensor logs  
-   - Batch processing for insights  
-   - Machine learning pipeline  
-
-### 4.7.3. Security Architecture
-
-```mermaid
-graph TB
-    subgraph "Security Layers"
-        A[Device Security]
-        B[Network Security]
-        C[Application Security]
-        D[Data Security]
-    end
-    
-    A -->|Secure Boot| B
-    B -->|TLS/SSL| C
-    C -->|JWT/OAuth| D
-    
-    subgraph "Device Security"
-        A1[Secure Elements]
-        A2[Encrypted Storage]
-        A3[Secure Updates]
-    end
-    
-    subgraph "Network Security"
-        B1[TLS/SSL]
-        B2[VPN]
-        B3[Firewalls]
-    end
-    
-    subgraph "Application Security"
-        C1[Authentication]
-        C2[Authorization]
-        C3[Input Validation]
-    end
-    
-    subgraph "Data Security"
-        D1[Encryption]
-        D2[Access Control]
-        D3[Audit Logs]
-    end
-```
-
-**Explanation of Security Layers:**
-
-1. **Device Security**:  
-   - Secure boot ensures firmware integrity  
-   - Hardware security module for key storage  
-   - OTA updates with signature verification  
-
-2. **Network Security**:  
-   - End-to-end encryption  
-   - Segmented networks  
-   - Intrusion detection  
-
-3. **Application Security**:  
-   - Role-based access control  
-   - API authentication  
-   - Input sanitization  
-
-4. **Data Security**:  
-   - Encryption at rest  
-   - Encryption in transit  
-   - Regular security audits  
