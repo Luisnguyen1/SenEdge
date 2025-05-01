@@ -69,7 +69,7 @@ The research focuses on the design and deployment of a smart retail ecosystem in
 - An indoor positioning system using BLE (Bluetooth Low Energy)
 - A crowd analytics and queue management system powered by Computer Vision
 - An IoT sensor network for environmental monitoring and activity tracking
-- 
+
 ## 3. System Architecture
 
 The system is designed based on a four-layer microservices architecture, ensuring high modularity and scalability. Each layer has distinct roles and responsibilities and communicates through clearly defined APIs.
