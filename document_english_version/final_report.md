@@ -1,11 +1,11 @@
-# Research and Development of the IoT-AI Retail Assistant System
+# Research and Development of the AIoT Retail Assistant System
 ## A Solution for Optimizing Smart Store Operations and Shopping Experience
 
 **SGTeam - IoT Challenge 2025**  
 *Research and Development Report*
 
 ## Abstract
-This report presents a comprehensive study on the IoT-AI Retail Assistant system's design, development, and deployment — an integrated solution leveraging advanced technologies to optimize the shopping experience and store operations. The research focuses on combining IoT, AI, and edge computing technologies to create a complete smart retail ecosystem. Experimental results demonstrate the system's potential to significantly enhance operational efficiency (by 15–28%) and improve customer experience.
+This report presents a comprehensive study on the AIoT Retail Assistant system's design, development, and deployment — an integrated solution leveraging advanced technologies to optimize the shopping experience and store operations. The research focuses on combining IoT, AI, and edge computing technologies to create a complete smart retail ecosystem. Experimental results demonstrate the system's potential to significantly enhance operational efficiency (by 15–28%) and improve customer experience.
 
 
 ## Table of Contents 
