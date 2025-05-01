@@ -15,6 +15,53 @@ Dự án IoT-AI Retail Assistant kết hợp 3 module chính để cung cấp gi
 
 ## Kiến trúc Tổng thể
 
+Giới thiệu
+
+Việc tối ưu trải nghiệm người dùng trong các trung tâm thương mại, sân bay hoặc nhà máy hiện đại đòi hỏi sự tích hợp giữa hệ thống định vị, dữ liệu thời gian thực và tương tác thông minh. Đề tài này trình bày kiến trúc một hệ thống đa lớp bao gồm chatbot AI RAG, điều hướng trong nhà, và cảm biến IoT nhằm mang lại khả năng tương tác, hỗ trợ và giám sát thông minh cho người dùng và nhà quản lý.
+
+ Phương pháp nghiên cứu
+ Cấu trúc hệ thống tổng thể
+Hệ thống chia thành 4 lớp chính:
+
+a. Frontend Layer
+Web UI/Mobile App: Giao diện chính để người dùng truy cập hệ thống
+
+Indoor Navigation UI: Giao diện điều hướng trong nhà
+
+Chatbot Interface: Giao diện tương tác với chatbot
+
+b. IoT Layer
+BLE Beacons: Thiết bị định vị giúp xác định vị trí người dùng trong nhà
+
+IoT Cameras: Camera giám sát gửi dữ liệu phân tích
+
+Environmental Sensors: Cảm biến môi trường cung cấp dữ liệu nhiệt độ, độ ẩm...
+
+c. Backend Services
+RAG Chatbot Service: Hệ thống truy hồi kết hợp mô hình sinh (Retrieval-Augmented Generation) để trả lời truy vấn người dùng
+
+Navigation Service: Xử lý điều hướng trong nhà từ dữ liệu vị trí và beacons
+
+IoT Analytics Service: Thu thập và phân tích dữ liệu từ camera và cảm biến
+
+Product Management: Quản lý thông tin sản phẩm, trạng thái...
+
+d. Data Layer
+Product Database: Lưu trữ thông tin sản phẩm
+
+Vector Database: Lưu embedding của tài liệu dùng cho RAG
+
+Analytics Database: Lưu dữ liệu phân tích từ hệ thống IoT
+
+Luồng hoạt động chính
+Người dùng tương tác qua ứng dụng hoặc chatbot → Chatbot gọi dữ liệu từ vector database và product database
+
+Dữ liệu định vị từ BLE beacons gửi đến Navigation Service
+
+Dữ liệu từ camera và cảm biến được xử lý bởi IoT Analytics Service → Lưu xuống Analytics Database
+
+Product Management đồng bộ dữ liệu IoT với dữ liệu sản phẩm
+
 ```mermaid
 graph TB
     subgraph "Frontend Layer"
