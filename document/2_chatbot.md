@@ -423,6 +423,100 @@ erDiagram
 
 ### 4.1 Endpoints
 
+1. Tổng quan kiến trúc
+Sơ đồ mô tả một kiến trúc microservices cơ bản, trong đó API Gateway đóng vai trò là điểm nhập trung tâm, định tuyến các yêu cầu từ client đến ba dịch vụ backend độc lập: RAG Service, Product Service, và Analytics Service. Kiến trúc này được thiết kế để đảm bảo tính module hóa, khả năng mở rộng (scalability), và tính dễ bảo trì (maintainability).
+
+2. Thành phần và chức năng
+2.1. API Gateway
+Vai trò: API Gateway là một reverse proxy chịu trách nhiệm nhận tất cả các yêu cầu HTTP/HTTPS từ client, phân tích và định tuyến chúng đến các dịch vụ backend phù hợp dựa trên các endpoint được cấu hình (ví dụ: /chat, /products, /analytics).
+Chức năng chính:
+Định tuyến (Routing): Dựa trên URL path, API Gateway ánh xạ yêu cầu đến dịch vụ tương ứng:
+/chat → RAG Service
+/products → Product Service
+/analytics → Analytics Service
+Xác thực và ủy quyền (Authentication/Authorization): API Gateway có thể tích hợp các cơ chế xác thực (như OAuth 2.0, JWT) để kiểm tra tính hợp lệ của yêu cầu trước khi chuyển tiếp.
+Giới hạn tốc độ (Rate Limiting): Ngăn chặn lạm dụng bằng cách giới hạn số lượng yêu cầu từ một client trong một khoảng thời gian nhất định.
+Ghi log và giám sát (Logging & Monitoring): Ghi lại thông tin về các yêu cầu (như thời gian, trạng thái, lỗi) để hỗ trợ phân tích và debug.
+Chuyển đổi giao thức (Protocol Transformation): Có thể chuyển đổi yêu cầu từ giao thức HTTP sang các giao thức nội bộ (như gRPC) nếu các dịch vụ backend sử dụng giao thức khác.
+Công nghệ khả thi: Các công cụ phổ biến để triển khai API Gateway bao gồm NGINX, Kong, Amazon API Gateway, hoặc Traefik. Nếu hệ thống yêu cầu hiệu suất cao, có thể sử dụng Envoy với hỗ trợ gRPC.
+2.2. RAG Service (Retrieval-Augmented Generation Service)
+Chức năng: Xử lý các yêu cầu liên quan đến endpoint /chat. RAG Service thường được sử dụng trong các ứng dụng xử lý ngôn ngữ tự nhiên (NLP), kết hợp hai giai đoạn:
+Retrieval: Tìm kiếm thông tin liên quan từ một kho dữ liệu (ví dụ: cơ sở dữ liệu tri thức hoặc vector store như Pinecone, Weaviate).
+Generation: Sử dụng mô hình ngôn ngữ lớn (LLM) như LLaMA, GPT để tạo phản hồi dựa trên thông tin đã truy xuất.
+Ứng dụng: Phù hợp cho chatbot, hệ thống hỏi đáp (Q&A), hoặc các ứng dụng cần truy xuất thông tin động và tạo câu trả lời tự nhiên.
+Kỹ thuật triển khai:
+Kho dữ liệu: Sử dụng cơ sở dữ liệu vector (vector database) để lưu trữ và truy vấn dữ liệu dưới dạng embedding, thường được tạo từ các mô hình như BERT hoặc Sentence Transformers.
+Mô hình AI: Tích hợp với các mô hình LLM (có thể sử dụng API từ Hugging Face, hoặc tự triển khai trên GPU cluster với framework như PyTorch/TensorFlow).
+Hiệu suất: Để tối ưu độ trễ, RAG Service có thể sử dụng caching (Redis) cho các truy vấn phổ biến và triển khai trên các máy chủ GPU để tăng tốc quá trình suy luận (inference).
+Thách thức:
+Độ trễ: Việc truy xuất và sinh câu trả lời có thể chậm nếu kho dữ liệu lớn hoặc mô hình LLM phức tạp.
+Độ chính xác: Cần tối ưu hóa pipeline retrieval để đảm bảo dữ liệu truy xuất có liên quan, tránh tạo câu trả lời sai lệch.
+2.3. Product Service
+Chức năng: Xử lý các yêu cầu liên quan đến endpoint /products. Dịch vụ này chịu trách nhiệm quản lý và cung cấp thông tin về sản phẩm, như danh sách sản phẩm, chi tiết sản phẩm, giá cả, hoặc tồn kho.
+Kỹ thuật triển khai:
+Cơ sở dữ liệu: Sử dụng cơ sở dữ liệu quan hệ (RDBMS) như PostgreSQL hoặc MySQL để lưu trữ thông tin sản phẩm có cấu trúc (ID, tên, giá, mô tả, v.v.). Nếu cần tìm kiếm nhanh, có thể tích hợp Elasticsearch.
+API: Triển khai RESTful API hoặc GraphQL để trả về dữ liệu sản phẩm. Ví dụ:
+GET /products → Trả về danh sách sản phẩm.
+GET /products/{id} → Trả về chi tiết sản phẩm.
+Hiệu suất: Sử dụng caching (Redis, Memcached) để giảm tải cơ sở dữ liệu cho các truy vấn phổ biến.
+Tích hợp: Product Service có thể cần giao tiếp với các hệ thống khác (như hệ thống quản lý kho hoặc thanh toán) thông qua message queue (RabbitMQ, Kafka) để đảm bảo tính nhất quán dữ liệu.
+Thách thức:
+Đồng bộ dữ liệu: Nếu dữ liệu sản phẩm được cập nhật từ nhiều nguồn (ví dụ: kho, nhà cung cấp), cần cơ chế đồng bộ hóa hiệu quả.
+Tải cao: Trong các sự kiện như flash sale, Product Service có thể gặp tải lớn, cần triển khai autoscaling trên Kubernetes hoặc sử dụng CDN để phân phối nội dung tĩnh.
+2.4. Analytics Service
+Chức năng: Xử lý các yêu cầu liên quan đến endpoint /analytics. Dịch vụ này chịu trách nhiệm phân tích dữ liệu, tạo báo cáo, hoặc cung cấp số liệu thống kê (ví dụ: số lượng truy cập, doanh thu, hành vi người dùng).
+Kỹ thuật triển khai:
+Nguồn dữ liệu: Thu thập dữ liệu từ các nguồn như log của API Gateway, cơ sở dữ liệu giao dịch, hoặc các sự kiện từ client (qua SDK như Google Analytics).
+Lưu trữ dữ liệu: Sử dụng kho dữ liệu (data warehouse) như Snowflake, Google BigQuery, hoặc cơ sở dữ liệu thời gian thực như Apache Druid để lưu trữ và phân tích dữ liệu lớn.
+Xử lý dữ liệu: Sử dụng các công cụ như Apache Spark hoặc Flink để xử lý dữ liệu theo lô (batch) hoặc thời gian thực (real-time).
+API: Triển khai RESTful API để trả về các báo cáo phân tích. Ví dụ:
+GET /analytics/users → Số lượng người dùng hoạt động.
+GET /analytics/revenue → Doanh thu theo thời gian.
+Hiệu suất: Analytics Service thường xử lý dữ liệu lớn, cần tối ưu hóa truy vấn (indexing, partitioning) và sử dụng cơ chế caching cho các báo cáo tĩnh.
+Thách thức:
+Thời gian thực: Nếu cần phân tích thời gian thực, hệ thống phải xử lý luồng dữ liệu lớn với độ trễ thấp.
+Tính chính xác: Dữ liệu phân tích phải được làm sạch (data cleaning) để tránh sai lệch.
+3. Luồng hoạt động
+Client gửi yêu cầu đến API Gateway qua một trong các endpoint (/chat, /products, /analytics).
+API Gateway xử lý:
+Xác thực yêu cầu (nếu có).
+Ánh xạ endpoint đến dịch vụ backend tương ứng.
+Chuyển tiếp yêu cầu đến RAG Service, Product Service, hoặc Analytics Service.
+Dịch vụ backend xử lý:
+RAG Service: Truy xuất dữ liệu → Sinh phản hồi → Trả về kết quả.
+Product Service: Truy vấn cơ sở dữ liệu → Trả về dữ liệu sản phẩm.
+Analytics Service: Phân tích dữ liệu → Trả về báo cáo.
+API Gateway nhận kết quả từ dịch vụ backend và gửi lại cho client.
+4. Cân nhắc kỹ thuật
+4.1. Hiệu suất và khả năng mở rộng
+API Gateway:
+Sử dụng load balancer (như AWS ALB/ELB) để phân phối tải nếu có nhiều instance API Gateway.
+Triển khai autoscaling để xử lý tải cao.
+Backend Services:
+Triển khai trên Kubernetes để hỗ trợ scaling ngang (horizontal scaling).
+Sử dụng message queue (Kafka, RabbitMQ) để xử lý các tác vụ bất đồng bộ (như phân tích dữ liệu trong Analytics Service).
+Caching:
+Sử dụng Redis hoặc Memcached để lưu trữ dữ liệu truy cập thường xuyên (danh sách sản phẩm, báo cáo phân tích tĩnh).
+Triển khai CDN (Cloudflare, Akamai) cho các tài nguyên tĩnh (hình ảnh sản phẩm).
+4.2. Bảo mật
+API Gateway:
+Tích hợp xác thực (OAuth 2.0, JWT) và mã hóa (TLS/SSL) để bảo vệ dữ liệu truyền tải.
+Triển khai WAF (Web Application Firewall) để chống lại các cuộc tấn công như DDoS, SQL Injection.
+Backend Services:
+Áp dụng nguyên tắc least privilege: Mỗi dịch vụ chỉ có quyền truy cập vào tài nguyên cần thiết.
+Sử dụng API key hoặc service-to-service authentication (như mutual TLS) giữa API Gateway và backend.
+4.3. Giám sát và ghi log
+Công cụ: Sử dụng Prometheus và Grafana để giám sát hiệu suất (latency, error rate, throughput) của API Gateway và các dịch vụ.
+Logging: Triển khai ELK Stack (Elasticsearch, Logstash, Kibana) để thu thập và phân tích log từ tất cả các thành phần.
+Tracing: Sử dụng Jaeger hoặc Zipkin để theo dõi luồng yêu cầu (request tracing) qua các dịch vụ, giúp xác định bottleneck.
+4.4. Xử lý lỗi
+API Gateway:
+Triển khai circuit breaker (sử dụng Hystrix hoặc Resilience4j) để ngăn chặn lỗi lan truyền nếu một dịch vụ backend không phản hồi.
+Trả về mã lỗi HTTP phù hợp (429 cho rate limiting, 503 cho dịch vụ không khả dụng).
+Backend Services:
+Xử lý lỗi graceful: Nếu RAG Service không thể truy xuất dữ liệu, trả về phản hồi mặc định thay vì lỗi 500.
+Tái thử (retry) với backoff cho các yêu cầu thất bại tạm thời (như lỗi mạng).
+
 ```mermaid
 flowchart LR
     Gateway[API Gateway]
