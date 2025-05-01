@@ -11,7 +11,7 @@ Tổng quan kiến trúc hệ thống
 Kiến trúc hệ thống được chia thành ba lớp chính: Frontend Layer, Backend Layer, và Data Layer. Mỗi lớp đảm nhận vai trò riêng biệt, giúp hệ thống có tính mô-đun, dễ bảo trì và mở rộng. Kiến trúc này đặc biệt phù hợp với các ứng dụng sử dụng mô hình Retrieval-Augmented Generation (RAG).
 
 1. Frontend Layer
-2. 
+
 Đây là lớp giao diện người dùng, nơi diễn ra các tương tác trực tiếp:
 
 Product Display: Giao diện hiển thị thông tin chi tiết về sản phẩm cho người dùng.
