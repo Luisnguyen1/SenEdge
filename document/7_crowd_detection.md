@@ -2,7 +2,7 @@
 
 ## 1. Tổng quan Tính năng
 
-Tính năng Crowd Density Detection sử dụng xử lý hình ảnh và mô hình AI để phát hiện mật độ đám đông trong các khu vực của siêu thị, cung cấp thông tin để điều phối nhân viên và tối ưu trải nghiệm khách hàng.
+Tính năng **Crowd Density Detection** khai thác sức mạnh của xử lý hình ảnh tiên tiến và các mô hình AI để phân tích tức thì mật độ đám đông tại mọi khu vực trong siêu thị, mang đến cái nhìn toàn diện chưa từng có. Với dữ liệu thời gian thực sắc bén, hệ thống mở ra khả năng điều phối nhân viên một cách tối ưu, định hình lại luồng khách hàng với độ chính xác tuyệt đối, và biến trải nghiệm mua sắm của khách hàng thành một hành trình liền mạch, đẳng cấp vượt trội.
 
 ## 2. Kiến trúc Tổng thể
 
