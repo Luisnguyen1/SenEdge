@@ -603,6 +603,60 @@ Response:
 
 ### 5.1 Metrics Collection
 
+1. Tổng quan quy trình
+Sơ đồ mô tả quy trình thu thập và giám sát chỉ số (metrics) cho hệ thống phần mềm, nhằm phục vụ mục tiêu theo dõi hiệu suất, chất lượng và hành vi sử dụng. Quy trình bắt đầu từ việc thu thập dữ liệu thô (metrics collection), sau đó phân loại theo loại chỉ số (metric type), tiếp theo là xử lý và lưu trữ trong Prometheus, và cuối cùng được trực quan hóa thông qua Grafana Dashboard.
+
+Toàn bộ hệ thống giúp đội ngũ kỹ thuật phát hiện sớm các vấn đề, cải thiện độ tin cậy và hiệu suất hệ thống, đồng thời hỗ trợ ra quyết định dựa trên dữ liệu thực tế.
+
+2. Các thành phần chính trong sơ đồ
+Metrics Collection
+Đây là bước đầu tiên, nơi hệ thống thu thập dữ liệu về hoạt động và hành vi của các thành phần trong kiến trúc như service backend, API gateway, hệ thống machine learning hoặc các máy chủ cơ sở hạ tầng. Các công cụ phổ biến thường được sử dụng để thực hiện bước này bao gồm:
+
+Node Exporter cho hệ thống Linux
+
+Blackbox Exporter để đo độ trễ HTTP
+
+Custom Exporter viết bằng Go hoặc Python để expose các ứng dụng metrics dạng HTTP endpoint
+
+Dữ liệu thu thập được có thể ở dạng số liệu đơn giản (counter, gauge) hoặc phức tạp (histogram, summary).
+
+Metric Type
+Sau khi metrics được thu thập, hệ thống phân loại chúng thành ba nhóm theo mục đích đo lường:
+
+Performance
+
+Quality
+
+Usage
+
+Việc phân loại giúp tổ chức hệ thống dễ dàng theo dõi và thiết lập cảnh báo phù hợp cho từng nhóm chỉ số khác nhau.
+
+Performance → Response Time
+Nhóm chỉ số Performance tập trung vào việc đo lường hiệu năng hệ thống, cụ thể là Response Time – thời gian từ lúc hệ thống nhận yêu cầu đến khi phản hồi hoàn tất. Đây là một chỉ số cốt lõi trong việc đảm bảo hệ thống đáp ứng nhanh và ổn định.
+
+Response time thường được đo bằng cách instrument các route hoặc middleware trong ứng dụng, sau đó expose thành metrics để Prometheus scrape định kỳ. Giá trị này có thể được phân tích theo trung bình, phần trăm thứ 95 (95th percentile) hoặc độ lệch chuẩn để đánh giá mức độ ổn định dưới các điều kiện tải khác nhau.
+
+Quality → Relevance Score
+Nhóm Quality thể hiện mức độ chính xác hoặc liên quan giữa đầu ra của hệ thống và kỳ vọng của người dùng. Trong sơ đồ này, đại diện là Relevance Score, một chỉ số thường dùng trong hệ thống gợi ý, tìm kiếm hoặc machine learning.
+
+Ví dụ, trong hệ thống tìm kiếm, relevance score có thể đo lường mức độ liên quan của kết quả trả về so với truy vấn đầu vào. Chỉ số này thường được xây dựng từ mô hình đánh giá offline hoặc từ phản hồi trực tiếp của người dùng (như click-through rate). Việc theo dõi liên tục relevance score giúp phát hiện sớm sự suy giảm chất lượng mô hình hoặc thay đổi dữ liệu đầu vào.
+
+Usage → Query Volume
+Nhóm Usage tập trung vào hành vi sử dụng hệ thống, được thể hiện qua Query Volume – tổng số lượng truy vấn được gửi đến hệ thống trong một khoảng thời gian nhất định. Đây là chỉ số quan trọng để đo quy mô hoạt động và theo dõi xu hướng người dùng.
+
+Query volume tăng đột biến có thể là dấu hiệu tích cực (do tăng lưu lượng truy cập) hoặc tiêu cực (như bị tấn công DDoS). Do đó, chỉ số này thường được kết hợp với các cảnh báo tự động để phản ứng kịp thời với các sự kiện bất thường.
+
+Prometheus
+Sau khi phân loại, tất cả chỉ số sẽ được thu thập và lưu trữ trong Prometheus – một hệ thống time-series database tối ưu cho việc giám sát. Prometheus hoạt động theo mô hình pull: định kỳ truy cập các endpoints được expose và ghi nhận dữ liệu dưới dạng chuỗi thời gian (time series). Người dùng có thể truy vấn bằng ngôn ngữ PromQL để phân tích dữ liệu hoặc thiết lập cảnh báo dựa trên ngưỡng.
+
+Prometheus cũng hỗ trợ aggregation, histogram bucketing, rate calculation và retention policies, giúp tối ưu hiệu năng và lưu trữ.
+
+Grafana Dashboard
+Cuối cùng, các chỉ số từ Prometheus được hiển thị trên Grafana Dashboard – một nền tảng trực quan hóa mạnh mẽ. Grafana cho phép xây dựng dashboard tương tác với biểu đồ, bảng dữ liệu, bản đồ nhiệt, cùng với khả năng cấu hình cảnh báo gửi qua email, Slack hoặc webhook khi giá trị vượt quá ngưỡng định sẵn.
+
+Điểm mạnh của Grafana là khả năng đồng bộ real-time, hỗ trợ nhiều loại dữ liệu và khả năng cá nhân hóa dashboard cho từng nhóm chức năng khác nhau (DevOps, Data Science, Product...).
+
+
 ```mermaid
 graph TD
     A[Metrics Collection] --> B{Metric Type}
@@ -639,6 +693,71 @@ rules:
 
 ### 6.1 Caching Strategy
 
+1. Query
+Truy vấn được gửi đến hệ thống. Đây có thể là:
+
+Truy vấn dữ liệu từ người dùng
+
+API request từ dịch vụ khác
+
+Hoặc bất kỳ lệnh truy xuất dữ liệu nào
+
+Truy vấn này sẽ được hệ thống kiểm tra cache trước khi xử lý.
+
+2. Cache Hit?
+Hệ thống kiểm tra xem kết quả tương ứng với truy vấn đã tồn tại trong cache hay chưa. Cache thường được tra cứu bằng cache key, được tạo ra từ nội dung truy vấn hoặc các tham số đi kèm.
+
+Nếu cache hit: hệ thống tìm thấy dữ liệu phù hợp trong cache.
+
+Nếu cache miss: không có dữ liệu tương ứng trong cache, truy vấn cần được xử lý từ đầu.
+
+Việc kiểm tra này thường được thực hiện với tốc độ rất nhanh (sub-millisecond), đặc biệt khi sử dụng bộ nhớ cache như Redis hoặc Memcached.
+
+3. Return Cached (khi cache hit)
+Nếu dữ liệu đã tồn tại trong cache, hệ thống trả kết quả trực tiếp từ cache về cho người dùng hoặc client.
+
+Lợi ích:
+
+Thời gian phản hồi gần như tức thời
+
+Không cần truy cập database hoặc gọi backend services
+
+Giảm tiêu thụ CPU và I/O
+
+Cache sẽ được sử dụng nhiều lần cho cùng một truy vấn cho đến khi hết thời gian sống (TTL) hoặc bị xóa thủ công/invalidation.
+
+4. Process Query (khi cache miss)
+Nếu không có kết quả trong cache, hệ thống phải xử lý truy vấn theo luồng chuẩn:
+
+Gọi cơ sở dữ liệu
+
+Thực hiện tính toán logic
+
+Gọi các API nội bộ hoặc bên thứ ba
+
+Đây là bước có chi phí cao nhất về thời gian và tài nguyên.
+
+5. Cache Result
+Sau khi có kết quả từ truy vấn, hệ thống sẽ lưu lại kết quả này vào cache, gắn với cache key tương ứng.
+
+Cache có thể được cấu hình thời gian sống (TTL – time to live)
+
+Tùy loại dữ liệu mà TTL có thể là vài giây, vài phút hoặc dài hơn
+
+Việc cache được thực hiện ngay sau xử lý, để đảm bảo các truy vấn giống nhau tiếp theo sẽ được phục vụ nhanh hơn
+
+6. Return Result
+Kết quả sau xử lý (và đã cache lại) được trả về cho phía gọi. Với client, kết quả này không khác gì kết quả từ cache.
+
+Mục tiêu và lợi ích của chiến lược
+Hiệu năng cao: Giảm độ trễ phản hồi cho truy vấn lặp lại
+
+Tiết kiệm tài nguyên hệ thống: Hạn chế truy cập CSDL, giảm số lần tính toán lại
+
+Tăng khả năng mở rộng: Dễ dàng phục vụ số lượng lớn truy vấn
+
+Tối ưu chi phí vận hành: Giảm tải backend, đặc biệt trong môi trường cloud trả theo tài nguyên
+
 ```mermaid
 graph TD
     A[Query] --> B{Cache Hit?}
@@ -649,6 +768,60 @@ graph TD
 ```
 
 ### 6.2 Vector Search Optimization
+
+1. Index Parameters
+Ba tham số chính cấu hình quá trình xây dựng và tìm kiếm chỉ mục vector. Các giá trị này ảnh hưởng trực tiếp đến tốc độ tìm kiếm và độ chính xác:
+
+M = 16: Số lượng cạnh kết nối trong đồ thị HNSW (Hierarchical Navigable Small World). M càng cao thì độ chính xác càng tốt nhưng tốn nhiều bộ nhớ hơn.
+
+efConstruction = 200: Tham số kiểm soát độ chính xác khi xây dựng chỉ mục. Giá trị lớn hơn tạo đồ thị tốt hơn, chính xác hơn, nhưng mất nhiều thời gian build hơn.
+
+efSearch = 50: Số lượng node được duyệt trong quá trình tìm kiếm. Giá trị cao → độ chính xác cao nhưng tốc độ chậm hơn.
+
+2. Query Vector
+Đây là vector đầu vào cần truy vấn. Có thể là vector nhúng của văn bản, hình ảnh hoặc bất kỳ loại dữ liệu nào đã qua embedding.
+
+3. Index Type
+Hệ thống sẽ quyết định loại chỉ mục được sử dụng để thực hiện truy vấn vector. Có hai hướng chính:
+
+a. HNSW (Hierarchical Navigable Small World)
+Dẫn đến Approximate Search
+
+Đây là phương pháp tìm kiếm xấp xỉ, không đảm bảo trả về kết quả chính xác tuyệt đối, nhưng cực kỳ nhanh
+
+Thường dùng trong các hệ thống real-time hoặc hệ thống có yêu cầu truy vấn lớn
+
+b. Exact
+Dẫn đến Exhaustive Search
+
+Là tìm kiếm toàn bộ (brute-force), đảm bảo chính xác 100% nhưng chậm hơn nhiều
+
+Phù hợp khi độ chính xác tuyệt đối quan trọng, hoặc dataset nhỏ
+
+4. Approximate Search
+Sử dụng chỉ mục HNSW để tìm các vector gần nhất với vector truy vấn
+
+Ưu điểm: nhanh, hiệu quả trên dataset lớn
+
+Nhược điểm: có thể bỏ sót một số kết quả gần nhất thực sự (false negatives)
+
+5. Exhaustive Search
+So sánh query vector với tất cả vector trong dataset bằng khoảng cách (thường là cosine similarity hoặc Euclidean)
+
+Ưu điểm: kết quả chính xác tuyệt đối
+
+Nhược điểm: tốc độ chậm, tốn tài nguyên
+
+6. Results
+Dù là tìm kiếm xấp xỉ hay toàn diện, kết quả cuối cùng là tập các vector gần nhất (nearest neighbors) được trả về để phục vụ downstream tasks như:
+
+Recommendation
+
+Semantic search
+
+Similarity analysis
+
+Sơ đồ này minh họa rõ sự khác biệt giữa hai phương pháp tìm kiếm vector: approximate vs exact, đồng thời thể hiện cách tối ưu hóa bằng cách điều chỉnh Index Parameters. Việc lựa chọn loại chỉ mục và thông số phù hợp giúp đạt được hiệu năng tốt nhất mà không đánh đổi quá nhiều độ chính xác.
 
 ```mermaid
 graph LR
