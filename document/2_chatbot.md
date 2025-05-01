@@ -542,56 +542,6 @@ Analytics Service: Phân tích dữ liệu.
 
 API Gateway nhận kết quả và gửi lại cho client.
 
-4. Cân nhắc kỹ thuật
-4.1. Hiệu suất và khả năng mở rộng
-API Gateway:
-
-Load balancer (AWS ALB/ELB) để phân phối tải.
-
-Autoscaling để xử lý tải cao.
-
-Backend Services:
-
-Triển khai trên Kubernetes cho scaling ngang.
-
-Message queue (Kafka, RabbitMQ) cho tác vụ bất đồng bộ.
-
-Caching:
-
-Redis/Memcached cho dữ liệu truy cập thường xuyên.
-
-CDN (Cloudflare, Akamai) cho tài nguyên tĩnh.
-
-4.2. Bảo mật
-API Gateway:
-
-Xác thực (OAuth 2.0, JWT), mã hóa (TLS/SSL).
-
-WAF để chống tấn công (DDoS, SQL Injection).
-
-Backend Services:
-
-Nguyên tắc least privilege.
-
-Service-to-service authentication (mutual TLS).
-
-4.3. Giám sát và ghi log
-Công cụ: Prometheus, Grafana để giám sát hiệu suất.
-
-Logging: ELK Stack (Elasticsearch, Logstash, Kibana).
-
-Tracing: Jaeger/Zipkin để theo dõi luồng yêu cầu.
-
-4.4. Xử lý lỗi
-API Gateway:
-
-Circuit breaker (Hystrix, Resilience4j) để ngăn lỗi lan truyền.
-
-Trả về mã lỗi HTTP phù hợp (429, 503).
-
-Backend Services:
-
-Xử lý lỗi graceful: Phản hồi mặc định thay vì lỗi 500.
 
 Retry với backoff cho lỗi tạm thời.
 
