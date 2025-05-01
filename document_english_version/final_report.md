@@ -799,7 +799,7 @@ The research has successfully developed and implemented an integrated smart reta
    - Expand to other industry verticals  
 
 
-### References
+## 8. References
 
 1. Smith, J., et al. (2024). "Advanced Retail Technologies: A Comprehensive Review." IEEE Internet of Things Journal.
 
