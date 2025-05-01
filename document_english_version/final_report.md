@@ -52,7 +52,7 @@ sequenceDiagram
     participant Cloud as Cloud Services
     participant DB as Databases
 
-    U->>App: Truy cập ứng dụng
+    U->>App: Access the application
     activate App
     
     par IoT Data Collection
@@ -76,20 +76,20 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Tầng Ứng dụng"
+    subgraph "Application Layer"
         A[Mobile App]
         B[Web App]
         C[Admin Dashboard]
     end
 
-    subgraph "Tầng Service"
+    subgraph "Service Layer"
         D[RAG Chatbot Service]
         E[Navigation Service]
         F[Analytics Service]
         G[Gateway Service]
     end
 
-    subgraph "Tầng IoT"
+    subgraph "IoT Layer"
         H[BLE Beacons/BG220-EK]
         I[Environmental/XG26-DK2608A]
         J[Motion/XG24-EK2703A]
@@ -97,7 +97,7 @@ graph TB
         L[Edge Computing/Raspberry Pi]
     end
 
-    subgraph "Tầng Dữ liệu"
+    subgraph "Data Layer"
         M[(Product DB)]
         N[(Analytics DB)]
         O[(Vector DB)]
@@ -123,7 +123,7 @@ graph TB
 
 ```mermaid
 graph TD
-    subgraph "Khu vực Siêu thị"
+    subgraph "Supermarket"
         A[Entrance] --> B[Main Area]
         B --> C[Checkout Area]
         
@@ -364,7 +364,7 @@ gantt
 - [ ] Documentation complete
 - [ ] System deployed
 
-### 4.4. Tools và Resources
+### 4.4. Tools and Resources
 
 #### Development Tools
 - Git for version control
@@ -383,7 +383,7 @@ gantt
 - Grafana for dashboards
 - ELK Stack for logs
 
-### 4.5. Dependencies và Risk Management
+### 4.5. Dependencies and Risk Management
 
 #### 4.5.1. Dependencies
 ```mermaid
@@ -412,7 +412,7 @@ graph TD
 
 #### Sprint Planning (Monday)
 - Review last week's progress
-- Set goals for current week
+- Set goals for the current week
 - Discuss blockers
 - Assign tasks
 
@@ -555,7 +555,7 @@ graph TB
    - Easy addition of new modules
    - Supports horizontal scaling
 3. **High Performance**
-   - Edge computing Optimization
+   - Edge Computing Optimization
    - Minimized network latency  
    - Efficient real-time processing  
 
@@ -616,7 +616,7 @@ The research has successfully developed and implemented an integrated smart reta
 
 1. **Further Research**
    - Improve positioning accuracy  
-   - Develop continuously learning AI  
+   - Develop continuously by learning AI  
    - Optimize IoT energy efficiency  
 
 2. **Application Expansion**
@@ -674,7 +674,7 @@ graph TB
     C --> F & G
 ```
 
-**Explaination:**
+**Explanation:**
 1. **Application Layer**:  
    - Multi-platform user interface  
    - Integration of real-time updates via WebSocket  
