@@ -674,37 +674,37 @@ graph TB
     C --> F & G
 ```
 
-**Expalain:**
-1. **Tầng Ứng dụng**: 
-   - Giao diện người dùng đa nền tảng
-   - Tích hợp real-time updates qua WebSocket
-   - Dashboard cho quản lý và giám sát
+**Explaination:**
+1. **Application Layer**:  
+   - Multi-platform user interface  
+   - Integration of real-time updates via WebSocket  
+   - Dashboard for management and monitoring  
 
-2. **Tầng Service**:
-   - Microservices architecture cho khả năng mở rộng
-   - Load balancing và service discovery
-   - API Gateway cho bảo mật và routing
+2. **Service Layer**:  
+   - Microservices architecture for scalability  
+   - Load balancing and service discovery  
+   - API Gateway for security and routing  
 
-3. **Tầng IoT**:
-   - Mạng lưới cảm biến phân tán
-   - Edge computing giảm độ trễ
-   - Mesh networking cho độ tin cậy cao
+3. **IoT Layer**:  
+   - Distributed sensor network  
+   - Edge computing to reduce latency  
+   - Mesh networking for high reliability  
 
-4. **Tầng Dữ liệu**:
-   - Phân tách dữ liệu theo chức năng
-   - Vector DB cho tìm kiếm ngữ nghĩa
-   - Time-series DB cho phân tích
+4. **Data Layer**:  
+   - Functional data segmentation  
+   - Vector DB for semantic search  
+   - Time-series DB for analysis  
 
-5. **Response Generation**
+5. **Response Generation**  
    ```python
    class ResponseGenerator:
        def generate(self, query, contexts):
-           # Combine query và contexts
+           # Combine query and contexts
            # Generate response using LLM
            # Post-process response
    ```
 
-#### 4.7.2. Luồng Dữ liệu và Xử lý
+#### 4.7.2. Data Flow and Processing
 
 ```mermaid
 sequenceDiagram
@@ -735,24 +735,24 @@ sequenceDiagram
     end
 ```
 
-**Giải thích Quy trình:**
+**Process Explanation:**
 
-1. **Thu thập Dữ liệu**:
-   - Cảm biến IoT gửi dữ liệu thô
-   - Edge devices thực hiện tiền xử lý
-   - Lọc và nén dữ liệu trước khi gửi
+1. **Data Collection**:  
+   - IoT sensors send raw data  
+   - Edge devices perform preprocessing  
+   - Filter and compress data before transmission  
 
-2. **Xử lý Real-time**:
-   - WebSocket cho cập nhật tức thì
-   - Stream processing cho analytics
-   - Event-driven architecture
+2. **Real-time Processing**:  
+   - WebSocket for instant updates  
+   - Stream processing for analytics  
+   - Event-driven architecture  
 
-3. **Lưu trữ và Phân tích**:
-   - Time-series data cho sensor logs
-   - Batch processing cho insights
-   - Machine learning pipeline
+3. **Storage and Analysis**:  
+   - Time-series data for sensor logs  
+   - Batch processing for insights  
+   - Machine learning pipeline  
 
-### 4.7.3. Kiến trúc Bảo mật
+### 4.7.3. Security Architecture
 
 ```mermaid
 graph TB
@@ -792,24 +792,24 @@ graph TB
     end
 ```
 
-**Giải thích Các Lớp Bảo mật:**
+**Explanation of Security Layers:**
 
-1. **Device Security**:
-   - Secure boot đảm bảo firmware integrity
-   - Hardware security module cho key storage
-   - OTA updates với signature verification
+1. **Device Security**:  
+   - Secure boot ensures firmware integrity  
+   - Hardware security module for key storage  
+   - OTA updates with signature verification  
 
-2. **Network Security**:
-   - End-to-end encryption
-   - Segmented networks
-   - Intrusion detection
+2. **Network Security**:  
+   - End-to-end encryption  
+   - Segmented networks  
+   - Intrusion detection  
 
-3. **Application Security**:
-   - Role-based access control
-   - API authentication
-   - Input sanitization
+3. **Application Security**:  
+   - Role-based access control  
+   - API authentication  
+   - Input sanitization  
 
-4. **Data Security**:
-   - Encryption at rest
-   - Encryption in transit
-   - Regular security audits
+4. **Data Security**:  
+   - Encryption at rest  
+   - Encryption in transit  
+   - Regular security audits  
