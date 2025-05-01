@@ -55,6 +55,55 @@ graph TB
 
 ## Hệ thống Phân tích Mật độ Đám đông
 
+Giới thiệu
+
+Trong bối cảnh cần tối ưu hóa an ninh và quản lý nguồn lực tại các khu vực công cộng hoặc cửa hàng bán lẻ, việc giám sát mật độ đám đông trở nên cần thiết. Đề tài này trình bày một giải pháp sử dụng camera Raspberry Pi tích hợp mô hình học sâu để phát hiện người và phân loại mật độ theo vùng. Hệ thống được thiết kế nhẹ, chạy trên thiết bị nhúng với tốc độ xử lý theo thời gian thực (~5fps).
+
+Dữ liệu đầu vào
+   
+Nguồn: Camera Raspberry Pi
+
+Tốc độ trích xuất khung hình: 5fps (khung hình mỗi giây)
+
+3.2. Quy trình xử lý
+
+Hệ thống xử lý đầu vào theo chuỗi các bước:
+
+Trích xuất khung hình (Frame Extractor)
+Lấy ảnh từ camera với tần suất 5fps.
+
+Tiền xử lý ảnh (Image Preprocessing)
+
+Thay đổi kích thước ảnh thành 96×96 pixel
+
+Chuẩn hóa ảnh về khoảng giá trị [0, 1]
+
+Phát hiện người (Person Detection)
+
+Sử dụng mô hình TFLite MobileNet SSD để phát hiện người trong ảnh.
+
+SSD (Single Shot Detector) là một kiến trúc CNN cho phép phát hiện vật thể nhanh chóng và hiệu quả trên thiết bị giới hạn tài nguyên.
+
+Tính toán điểm tin cậy (Confidence Score)
+
+Mỗi đối tượng được phát hiện đi kèm với xác suất tin cậy.
+
+Các vùng lưới (grid cell) trong ảnh sẽ nhận tổng điểm tin cậy của các phát hiện nằm trong vùng đó.
+
+Phân loại mật độ đám đông (Crowd Density Classification)
+
+Dựa trên tổng số người và vị trí trong vùng, hệ thống phân loại mật độ theo 3 mức:
+LOW, MEDIUM, HIGH
+
+Đầu ra
+Thông tin đầu ra được tích hợp vào các hệ thống khác:
+
+Zone Status Dashboard: Bảng điều khiển thể hiện tình trạng vùng theo thời gian thực
+
+Salesman/HR Coordination: Điều phối nhân sự đến vùng đông người
+
+Alert System: Gửi cảnh báo khi mật độ vượt ngưỡng
+
 ```mermaid
 flowchart TB
     subgraph "Input"
