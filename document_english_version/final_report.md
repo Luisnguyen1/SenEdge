@@ -12,7 +12,7 @@ This report presents a comprehensive study on the AIoT Retail Assistant system's
 1. [Introduction and Overview](#1-introduction-and-overview)
 2. [Research Methodology](#2-research-methodology)
 3. [System Architecture](#3-system-architecture)
-4. [Design and Implementation](#4-design-and-implementation)
+4. [Implementation](#4-implementation)
 5. [Experimental Results](#5-experimental-results)
 6. [Discussion](#6-discussion)
 7. [Conclusion and Future Development](#7-conclusion-and-future-development)
@@ -22,27 +22,14 @@ This report presents a comprehensive study on the AIoT Retail Assistant system's
 ### 1.1. Project Background
 As part of the IoT Challenge 2025 competition, the SGTeam proposes an integrated AIoT solution to address challenges in the retail sector. The project focuses on building an intelligent system capable of optimizing the shopping experience and enhancing store operational efficiency by applying advanced technologies such as IoT, AI, and edge computing..
 
-### 1.2. Research Object
-This study sets out 3 primary objectives:
-1. Develop a comprehensive integrated system combining IoT and AI for retail environments.
-2. Optimize the shopping experience through virtual assistant technology and indoor positioning.
-3. Enhance store operational efficiency through real-time data analytics.
-
-### 1.3. Scope of Research
-The research focuses on the design and deployment of a smart retail ecosystem integrating:
-- A virtual assistant system based on RAG (Retrieval Augmented Generation)
-- An indoor positioning system using BLE (Bluetooth Low Energy)
-- A crowd analytics and queue management system powered by Computer Vision
-- An IoT sensor network for environmental monitoring and activity tracking
-
-### 1.4. Core Modules
+### 1.2. Core Modules
 - Intelligent Consultation Chatbot (RAG-based)
 - Indoor Positioning and Navigation System
 - Crowd Analytics System
 - Smart Queue Management
 - IoT Sensor Network
 
-### 1.5. Overall Data Flow
+### 1.3. Overall Data Flow
 
 ```mermaid
 sequenceDiagram
@@ -70,6 +57,19 @@ sequenceDiagram
 ```
 ## 2. Research Methodology
 
+### 2.1. Research Object
+This study sets out 3 primary objectives:
+1. Develop a comprehensive integrated system combining IoT and AI for retail environments.
+2. Optimize the shopping experience through virtual assistant technology and indoor positioning.
+3. Enhance store operational efficiency through real-time data analytics.
+
+### 2.2. Scope of Research
+The research focuses on the design and deployment of a smart retail ecosystem integrating:
+- A virtual assistant system based on RAG (Retrieval Augmented Generation)
+- An indoor positioning system using BLE (Bluetooth Low Energy)
+- A crowd analytics and queue management system powered by Computer Vision
+- An IoT sensor network for environmental monitoring and activity tracking
+- 
 ## 3. System Architecture
 
 The system is designed based on a four-layer microservices architecture, ensuring high modularity and scalability. Each layer has distinct roles and responsibilities and communicates through clearly defined APIs.
