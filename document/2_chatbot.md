@@ -169,6 +169,48 @@ sequenceDiagram
 
 ### 2.2 Vector Search Process
 
+1. Các thành phần chính
+Query: Truy vấn đầu vào của người dùng, có thể là một câu hỏi hoặc từ khóa tìm kiếm.
+
+Embedding: Giai đoạn chuyển truy vấn sang biểu diễn vector (embedding) bằng một mô hình ngôn ngữ (thường là transformer hoặc encoder).
+
+Vector Search: Quá trình so khớp vector của truy vấn với các vector đã lưu trữ trong cơ sở dữ liệu để tìm ra các nội dung gần nhất.
+
+Vector DB: Cơ sở dữ liệu lưu trữ các vector đã được mã hóa từ trước. Trong sơ đồ này có hai loại:
+
+Product Vectors: Vector biểu diễn các sản phẩm.
+
+Description Vectors: Vector biểu diễn phần mô tả sản phẩm hoặc nội dung liên quan.
+
+Top-K Results: Tập hợp K kết quả gần nhất (theo khoảng cách cosine hoặc độ tương đồng khác).
+
+Re-ranking: Sắp xếp lại các kết quả tìm được theo tiêu chí cụ thể (ví dụ: mức độ liên quan theo ngữ cảnh, trọng số ưu tiên,...).
+
+Context Selection: Lựa chọn kết quả cuối cùng để sử dụng làm context (ngữ cảnh đầu vào cho LLM hoặc công cụ downstream).
+
+2. Diễn giải luồng xử lý
+Query → Embedding
+Truy vấn văn bản được mã hóa thành vector nhờ một mô hình embedding (thường là sentence-transformer hoặc encoder như BERT, MiniLM...).
+
+Embedding → Vector Search
+Vector của truy vấn được so sánh với các vector đã lưu trữ trong Vector DB để tìm ra các vector gần nhất (khoảng cách nhỏ nhất hoặc tương đồng cao nhất).
+
+Vector DB
+Có hai tập vector chính:
+
+Product Vectors: Biểu diễn các thuộc tính định danh hoặc định lượng của sản phẩm.
+
+Description Vectors: Biểu diễn các nội dung mô tả, chi tiết kỹ thuật, đánh giá, v.v.
+
+Vector Search → Top-K Results
+Lấy ra Top-K kết quả gần nhất, ví dụ K = 5 hoặc 10, nhằm giới hạn số lượng dữ liệu được xử lý tiếp theo.
+
+Top-K Results → Re-ranking
+Giai đoạn tái sắp xếp các kết quả dựa trên tiêu chí nâng cao (có thể kết hợp điểm vector similarity với yếu tố thời gian, độ phổ biến, v.v.).
+
+Re-ranking → Context Selection
+Từ các kết quả đã được tái sắp xếp, lựa chọn một hoặc vài nội dung phù hợp nhất để đưa vào LLM sinh phản hồi.
+
 ```mermaid
 graph LR
     A[Query] --> B[Embedding]
@@ -187,6 +229,69 @@ graph LR
 ```
 
 ### 2.3 Response Generation
+
+Sơ đồ mô tả quy trình tạo phản hồi trong hệ thống sử dụng mô hình ngôn ngữ lớn (LLM - Large Language Model). Quy trình bao gồm năm bước chính, từ việc tiếp nhận truy vấn của người dùng cho đến khi phản hồi hoàn chỉnh được trả về giao diện.
+
+Bước 1: Parse and understand query
+Khi người dùng gửi một truy vấn (query), hệ thống đầu tiên thực hiện phân tích cú pháp và ngữ nghĩa để hiểu nội dung, mục đích và ngữ cảnh của truy vấn đó. Việc hiểu đúng ý định người dùng là điều kiện tiên quyết để đảm bảo phản hồi sau cùng chính xác.
+
+Các tác vụ có thể bao gồm:
+
+Chuẩn hóa văn bản (normalization)
+
+Loại bỏ nhiễu hoặc ký tự không cần thiết
+
+Phân loại truy vấn (ví dụ: truy vấn so sánh, mô tả, yêu cầu thông tin,…)
+
+Trích xuất thực thể liên quan (entity extraction)
+
+Bước 2: Get relevant information
+Sau khi truy vấn được hiểu, hệ thống tiến hành truy xuất thông tin có liên quan. Giai đoạn này có thể được hỗ trợ bởi Vector Search – một cơ chế tìm kiếm theo vector trong Vector Database (Vector DB).
+
+Tùy thuộc vào ứng dụng, thông tin truy xuất có thể đến từ:
+
+Vector DB (chứa vector embedding của sản phẩm, mô tả, tài liệu…)
+
+Structured database (chứa dữ liệu định dạng như tên sản phẩm, giá, tồn kho,…)
+
+Knowledge Base (với các quy tắc, chính sách, thông tin chi tiết về doanh nghiệp,…)
+
+Mục tiêu của bước này là cung cấp bối cảnh (context) cần thiết để hỗ trợ LLM tạo ra phản hồi phù hợp và giàu thông tin.
+
+Bước 3: Build LLM prompt
+Thông tin thu thập được từ bước trước sẽ được dùng để xây dựng prompt đầu vào cho mô hình ngôn ngữ LLM. Một prompt tốt sẽ hướng dẫn LLM sinh ra nội dung đúng mục đích, đúng định dạng và đúng ngữ cảnh mong muốn.
+
+Prompt có thể bao gồm:
+
+Truy vấn gốc từ người dùng
+
+Bối cảnh liên quan được tìm thấy
+
+Hướng dẫn cụ thể về định dạng câu trả lời (ví dụ: “Trả lời dưới dạng danh sách sản phẩm kèm mô tả ngắn”)
+
+Bước 4: Generate response
+LLM sẽ nhận prompt và sinh ra phản hồi dạng văn bản. Đây là quá trình inference từ mô hình, nơi nó sử dụng kiến thức được huấn luyện kết hợp với bối cảnh được cung cấp để đưa ra câu trả lời tự nhiên, hợp lý và thuyết phục.
+
+Đầu ra ở bước này có thể là:
+
+Văn bản thuần (plain text)
+
+Đoạn mô tả sản phẩm
+
+Gợi ý sản phẩm phù hợp với truy vấn
+
+So sánh sản phẩm hoặc giải thích chi tiết
+
+Bước 5: Format and validate
+Sau khi phản hồi được sinh ra, hệ thống tiến hành định dạng (format) lại kết quả theo yêu cầu của frontend hoặc API trung gian. Đồng thời, phản hồi có thể được kiểm tra (validate) về mặt:
+
+Cấu trúc nội dung (theo schema JSON, HTML,…)
+
+Ngữ nghĩa (có đúng chủ đề không)
+
+Tính chính xác hoặc mức độ an toàn nội dung (nếu cần kiểm duyệt)
+
+Cuối cùng, kết quả đã được xử lý sẽ được gửi trở lại người dùng dưới dạng phản hồi hoàn chỉnh.
 
 ```mermaid
 stateDiagram-v2
