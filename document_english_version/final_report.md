@@ -15,9 +15,8 @@ This report presents a comprehensive study on the AIoT Retail Assistant system's
 4. [Implementation](#4-implementation)
 5. [Experimental Results](#5-experimental-results)
 6. [Discussion](#6-discussion)
-7. [Conclusion and Future Development](#7-conclusion-and-future-development)
-8. [References](#7-references-)
-
+7. [Conclusion and Future Directions](#7-conclusion-and-future-directions)
+8. [References](#8-references)
 ## 1. Introduction and Overview
 
 ### 1.1. Project Background
@@ -603,7 +602,7 @@ gantt
 - Plan adjustments
 - Documentation update
 
-## ## 5. Experimental Results
+## 5. Experimental Results
 
 ### 5.1. Experimental Setup  
 The system was deployed in a simulated retail store environment with an area of 500m² over a period of 3 months. The test environment included:  
