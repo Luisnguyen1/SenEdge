@@ -104,6 +104,50 @@ graph TB
 
 ### 2.1 RAG Engine Flow
 
+Sơ đồ "RAG Engine Flow" mô tả luồng xử lý của hệ thống khi một truy vấn được người dùng gửi đến. Đây là quy trình kết hợp giữa việc truy xuất thông tin liên quan từ cơ sở dữ liệu (retrieval) và sinh phản hồi (generation) bằng mô hình ngôn ngữ lớn (LLM). Hệ thống RAG (Retrieval-Augmented Generation) giúp cải thiện độ chính xác và tính cập nhật của câu trả lời so với việc chỉ dùng LLM đơn thuần.
+
+1. Các thành phần chính trong hệ thống
+   
+User: Người dùng gửi truy vấn đầu vào.
+
+RAG Engine: Thành phần trung tâm chịu trách nhiệm điều phối toàn bộ quy trình từ tiền xử lý truy vấn đến sinh phản hồi cuối cùng.
+
+Vector Search: Công cụ tìm kiếm ngữ nghĩa dựa trên vector embedding, nhằm truy xuất các tài liệu liên quan.
+
+LLM (Large Language Model): Mô hình ngôn ngữ lớn sử dụng để sinh văn bản phản hồi dựa trên truy vấn và ngữ cảnh.
+
+Database: Nơi lưu trữ các tài liệu, dữ liệu văn bản hoặc nội dung cần tìm kiếm.
+
+2. Mô tả chi tiết luồng xử lý
+   
+Người dùng gửi truy vấn đến RAG Engine. Đây có thể là một câu hỏi tự nhiên hoặc một yêu cầu cụ thể.
+
+RAG Engine thực hiện tiền xử lý truy vấn. Việc này có thể bao gồm chuẩn hóa ngôn ngữ, chuyển sang vector embedding, hoặc tách cụm từ chính.
+
+RAG Engine gửi yêu cầu tìm kiếm đến Vector Search. Vector Search sử dụng truy vấn đã được xử lý để tìm ra các nội dung tương tự nhất trong cơ sở dữ liệu.
+
+Vector Search gửi yêu cầu đến Database để truy xuất các vector. Các đoạn văn bản trong cơ sở dữ liệu đã được mã hóa thành vector trước đó.
+
+Database trả về các vector phù hợp, tương ứng với những tài liệu hoặc đoạn nội dung gần nhất với truy vấn.
+
+Vector Search trả lại tập hợp các nội dung liên quan (context) cho RAG Engine.
+
+RAG Engine kết hợp context với truy vấn gốc và gửi đến LLM để sinh phản hồi.
+
+LLM sinh phản hồi hoàn chỉnh dưới dạng văn bản, dựa trên ngữ cảnh đã truy xuất.
+
+RAG Engine nhận phản hồi từ LLM và gửi lại cho người dùng.
+
+3. Ưu điểm của kiến trúc RAG Engine
+   
+Giảm phụ thuộc vào trí nhớ của mô hình LLM bằng cách bổ sung thông tin theo thời gian thực từ cơ sở dữ liệu.
+
+Đảm bảo tính cập nhật và tính đúng đắn của phản hồi vì thông tin được lấy trực tiếp từ nguồn dữ liệu đáng tin cậy.
+
+Tăng tính minh bạch vì có thể kiểm tra các nguồn thông tin được sử dụng trong quá trình sinh phản hồi.
+
+Dễ dàng mở rộng và tùy biến cho các ứng dụng khác nhau như chatbot, hệ thống tìm kiếm thông minh, trợ lý ảo doanh nghiệp,...
+
 ```mermaid
 sequenceDiagram
     participant U as User
