@@ -455,20 +455,17 @@ Chân debug: SWDIO, SWCLK
 
 ## 6. Bảo mật & Quyền riêng tư
 
-### 6.1 Data Security
+### 6.1 Bảo mật Dữ liệu
 
-- End-to-end encryption
-- Secure WebSocket connections
-- Token-based authentication
-  
+- Mã hóa đầu-cuối (End-to-end encryption)  
+- Kết nối WebSocket an toàn (Secure WebSocket connections)  
+- Xác thực dựa trên token (Token-based authentication)  
 
+### 6.2 Biện pháp Bảo vệ Quyền riêng tư
 
-
-### 6.2 Privacy Measures
-
-- Anonymized analytics
-- GDPR compliance
-- Data retention policies
+- Phân tích dữ liệu ẩn danh (Anonymized analytics)  
+- Tuân thủ GDPR (GDPR compliance)  
+- Chính sách lưu trữ dữ liệu (Data retention policies)  
 
 ## 7. Kế hoạch Mở rộng
 
