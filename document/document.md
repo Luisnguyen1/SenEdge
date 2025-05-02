@@ -245,7 +245,7 @@ graph LR
 ### XG24-EK2703A (EFR32xG24 Explorer Kit)
 SoC sử dụng: EFR32MG24
 
-Tính năng nổi bật:
+- Tính năng nổi bật
 
 mikroBUS socket và Qwiic connector cho phép mở rộng phần cứng
 Debugger J-Link tích hợp
@@ -269,7 +269,7 @@ Silicon Labs
 +1
 Silicon Labs
 
-Chức năng chân (pin):
+- Chức năng chân (pin):
 
 mikroBUS Socket:
 
@@ -302,7 +302,7 @@ Silicon Labs
 ### XG26-DK2608A (EFR32xG26 Dev Kit)
 SoC sử dụng: EFR32MG26
 
-Tính năng nổi bật:
+- Tính năng nổi bật:
 
 5 cảm biến môi trường tích hợp
 
@@ -330,7 +330,7 @@ Manuals+
 Silicon Labs
 +22
 
-Chức năng chân (pin):
+- Chức năng chân (pin):
 
 Qwiic Connector:
 
@@ -365,7 +365,7 @@ Cung cấp truy cập đến các giao diện như I²C, SPI, UART, GPIO từ EF
 ### BG220-EK (BGM220 Explorer Kit)
 SoC sử dụng: EFR32BG22
 
-Tính năng nổi bật:
+- Tính năng nổi bật:
 
 Hỗ trợ Bluetooth 5.2
 
@@ -380,7 +380,7 @@ Mouser Electronics
 +12
 radiolocman.com
 
-Chức năng chân (pin):
+- Chức năng chân (pin):
 
 GPIO: Có thể cấu hình cho các chức năng như UART, SPI, I²C, PWM
 
@@ -395,7 +395,7 @@ Vi điều khiển: ARM Cortex-M33 @ 80 MHz
 
 Bộ nhớ: Lên đến 1 MB Flash và 96 KB RAM
 
-Tính năng nổi bật:
+- Tính năng nổi bật:
 
 Hỗ trợ đa giao thức: Zigbee, Thread, Bluetooth Low Energy (BLE)
 
@@ -409,7 +409,7 @@ Farnell
 GitHub
 +3
 
-Chức năng chân (pin):
+- Chức năng chân (pin):
 
 GPIO: Đa chức năng, có thể cấu hình cho các giao thức như UART, SPI, I²C
 
@@ -419,6 +419,40 @@ Chân RF: TX/RX cho ăng-ten
 
 Chân debug: SWDIO, SWCLK
 
+### SƠ ĐỒ KHỐI HỆ THỐNG
+```mermaid
+  graph TB
+    subgraph "data storeage"
+        A[raspberry pi4]
+
+    end
+    
+    subgraph "Navigation"
+        B[BG220-EK]
+        C[EFR32MG21]
+    end
+    
+    subgraph "Environmental Monitoring"
+        D[XG26-DK2608A]
+        E[XG-EK2703A]
+    end
+    
+    subgraph "Thông số"
+        F[(Nhiệt độ)]
+        G[(Độ ẩm)]
+        H[(chuyển động)]
+    end
+    
+    B --> A
+    C --> A
+    D--> A
+    E --> A
+    H--> E
+    G--> D
+    F-->D
+```
+
+
 ## 6. Bảo mật & Quyền riêng tư
 
 ### 6.1 Data Security
@@ -426,6 +460,9 @@ Chân debug: SWDIO, SWCLK
 - End-to-end encryption
 - Secure WebSocket connections
 - Token-based authentication
+  
+
+
 
 ### 6.2 Privacy Measures
 
@@ -452,7 +489,7 @@ Chân debug: SWDIO, SWCLK
    - Personalized shopping lists
    - Social features
 
-### 77.2 Scaling Strategy
+### 7.2 Scaling Strategy
 
 - Microservices architecture
 - Containerization (Docker/K8s)
