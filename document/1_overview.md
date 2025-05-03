@@ -3,100 +3,70 @@
 ## 1. Kiến trúc Tổng thể
 Diagram này mô tả một kiến trúc hệ thống IoT với ba tầng chính: Tầng ứng dụng, Tầng dịch vụ, và Tầng IoT. Dưới đây là phân tích kỹ thuật chi tiết từng tầng và cách chúng tương tác.
 
-### 1. Tầng ứng dụng (User Interface Layer)
+### 1.1. Tầng ứng dụng (User Interface Layer)
 
 Tầng này là giao diện người dùng cuối, nơi người dùng tương tác với hệ thống. Nó bao gồm:
 
+**Mobile App:**
+- Ứng dụng di động, có thể được phát triển trên iOS hoặc Android.
+- Chức năng: Hiển thị dữ liệu IoT (như thông tin môi trường, vị trí), gửi yêu cầu (ví dụ: hỏi chatbot), và nhận thông báo.
+- Kết nối: Giao tiếp với tầng dịch vụ qua API (REST hoặc WebSocket).
 
-Mobile App:
+**Web App:**
+- Ứng dụng web, chạy trên trình duyệt.
+- Chức năng: Tương tự Mobile App nhưng tối ưu cho màn hình lớn hơn, phù hợp với người dùng trên máy tính.
+- Kết nối: Cũng sử dụng API để giao tiếp với tầng dịch vụ.
 
-Ứng dụng di động, có thể được phát triển trên iOS hoặc Android.
+**Admin Dashboard:**
+- Chức năng: Quản lý hệ thống (xem dữ liệu IoT, cấu hình thiết bị, phân tích hiệu suất), giám sát trạng thái thiết bị IoT, và truy cập báo cáo phân tích.
+- Kết nối: Truy cập tầng dịch vụ để lấy dữ liệu và gửi lệnh quản trị.
+- Luồng dữ liệu: Tầng ứng dụng gửi yêu cầu đến tầng dịch vụ (ví dụ: truy vấn chatbot, yêu cầu phân tích dữ liệu) và nhận kết quả trả về để hiển thị.
 
-Chức năng: Hiển thị dữ liệu IoT (như thông tin môi trường, vị trí), gửi yêu cầu (ví dụ: hỏi chatbot), và nhận thông báo.
-
-Kết nối: Giao tiếp với tầng dịch vụ qua API (REST hoặc WebSocket).
-
-Web App:
-
-Ứng dụng web, chạy trên trình duyệt.
-
-Chức năng: Tương tự Mobile App nhưng tối ưu cho màn hình lớn hơn, phù hợp với người dùng trên máy tính.
-
-Kết nối: Cũng sử dụng API để giao tiếp với tầng dịch vụ.
-
-Admin Dashboard:
-
-Bảng điều khiển dành cho quản trị viên.
-Chức năng: Quản lý hệ thống (xem dữ liệu IoT, cấu hình thiết bị, phân tích hiệu suất), giám sát trạng thái thiết bị IoT, và truy cập báo cáo phân tích.
-
-Kết nối: Truy cập tầng dịch vụ để lấy dữ liệu và gửi lệnh quản trị.
-
-Luồng dữ liệu: Tầng ứng dụng gửi yêu cầu đến tầng dịch vụ (ví dụ: truy vấn chatbot, yêu cầu phân tích dữ liệu) và nhận kết quả trả về để hiển thị.
-
-### 2. Service Layer
-
+### 1.2. Service Layer
 Đây là tầng trung gian, xử lý logic nghiệp vụ và kết nối các tầng khác. Nó bao gồm các dịch vụ:
-RAG Chatbot Service:
-Dịch vụ chatbot sử dụng mô hình Retrieval-Augmented Generation (RAG).
-Chức năng: Trả lời câu hỏi người dùng bằng cách truy xuất thông tin từ Vector DB (dữ liệu dạng vector, thường dùng cho tìm kiếm ngữ nghĩa) và kết hợp với mô hình ngôn ngữ để sinh câu trả lời tự nhiên.
 
-Ví dụ: Người dùng hỏi "Món hàng này còn không", chatbot lấy dữ liệu từ Vector DB và trả lời dựa trên thông tin trong kho.
+**RAG Chatbot Service:**
+- Dịch vụ chatbot sử dụng mô hình Retrieval-Augmented Generation (RAG).
+- Chức năng: Trả lời câu hỏi người dùng bằng cách truy xuất thông tin từ Vector DB (dữ liệu dạng vector, thường dùng cho tìm kiếm ngữ nghĩa) và kết hợp với mô hình ngôn ngữ để sinh câu trả lời tự nhiên.
+- Ví dụ: Người dùng hỏi "Món hàng này còn không", chatbot lấy dữ liệu từ Vector DB và trả lời dựa trên thông tin trong kho.
 
-Analytics Service:
+**Analytics Service:**
+- Chức năng: Xử lý dữ liệu từ Analytics DB và dữ liệu thời gian thực từ tầng IoT để tạo báo cáo, biểu đồ, hoặc dự đoán.
+- Ví dụ: Phân tích xu hướng mua hàng trong khoảng thời gian 2 tháng gần nhất để biết mặt hàng nào bán chạy.
 
-Chức năng: Xử lý dữ liệu từ Analytics DB và dữ liệu thời gian thực từ tầng IoT để tạo báo cáo, biểu đồ, hoặc dự đoán.
+**Navigation Service:**
+- Dịch vụ điều hướng, có thể hỗ trợ định vị (indoor navigation).
+ Chức năng: Sử dụng dữ liệu từ BLE Beacons (ở tầng IoT) để xác định vị trí người dùng và cung cấp hướng dẫn di chuyển.
+- Ví dụ: Hỗ trợ người dùng tìm đường trong một tòa nhà lớn dựa trên tín hiệu BLE.
 
-Ví dụ: Phân tích xu hướng mua hàng trong khoảng thời gian 2 tháng gần nhất để biết mặt hàng nào bán chạy.
+**Kết nối với tầng dữ liệu:**
+- Các dịch vụ này truy xuất dữ liệu từ Product DB (thông tin sản phẩm), Analytics DB (dữ liệu phân tích), và Vector DB (dữ liệu vector cho AI).
+- Chúng cũng gửi dữ liệu đã xử lý (như kết quả phân tích) trở lại các cơ sở dữ liệu này.
 
-Navigation Service:
+**Kết nối với tầng IoT:**
+- Tầng dịch vụ nhận dữ liệu thời gian thực từ tầng IoT qua Gateway và gửi lệnh điều khiển (nếu cần) đến các thiết bị IoT.
 
-Dịch vụ điều hướng, có thể hỗ trợ định vị (indoor navigation).
-
-Chức năng: Sử dụng dữ liệu từ BLE Beacons (ở tầng IoT) để xác định vị trí người dùng và cung cấp hướng dẫn di chuyển.
-Ví dụ: Hỗ trợ người dùng tìm đường trong một tòa nhà lớn dựa trên tín hiệu BLE.
-
-Kết nối với tầng dữ liệu:
-
-Các dịch vụ này truy xuất dữ liệu từ Product DB (thông tin sản phẩm), Analytics DB (dữ liệu phân tích), và Vector DB (dữ liệu vector cho AI).
-
-Chúng cũng gửi dữ liệu đã xử lý (như kết quả phân tích) trở lại các cơ sở dữ liệu này.
-
-Kết nối với tầng IoT:
-
-Tầng dịch vụ nhận dữ liệu thời gian thực từ tầng IoT qua Gateway và gửi lệnh điều khiển (nếu cần) đến các thiết bị IoT.
-
-### 3. Tầng dữ liệu (Data Layer)
-
+### 1.3. Tầng dữ liệu (Data Layer)
 Tầng này lưu trữ dữ liệu cần thiết cho hệ thống, bao gồm:
 
-Product DB:
+**Product DB:**
+- Cơ sở dữ liệu quan hệ (SQL), lưu thông tin sản phẩm.
+- Ví dụ: Danh sách thiết bị IoT, thông số kỹ thuật, hoặc thông tin cấu hình.
 
-Cơ sở dữ liệu quan hệ (SQL), lưu thông tin sản phẩm.
+**Analytics DB:**
+- Cơ sở dữ liệu phân tích, có thể là SQL hoặc NoSQL (như MongoDB).
+- Lưu trữ dữ liệu lịch sử từ tầng IoT (như nhiệt độ, chuyển động) và kết quả phân tích từ Analytics Service.
 
-Ví dụ: Danh sách thiết bị IoT, thông số kỹ thuật, hoặc thông tin cấu hình.
+**Vector DataBase:**
+- Cơ sở dữ liệu vector (như Pinecone, Weaviate), lưu trữ dữ liệu dạng vector.
+- Dùng cho các tác vụ AI như tìm kiếm ngữ nghĩa hoặc hỗ trợ chatbot (RAG Chatbot Service).
+- Ví dụ: Lưu trữ embedding của dữ liệu IoT để chatbot truy vấn nhanh.
 
-Analytics DB:
+**Quản lý dữ liệu:**
+- Dữ liệu từ tầng IoT được gửi lên qua Gateway, sau đó được xử lý bởi tầng dịch vụ và lưu vào các cơ sở dữ liệu này.
+- Tầng dịch vụ truy xuất dữ liệu từ đây để phục vụ tầng ứng dụng.
 
-Cơ sở dữ liệu phân tích, có thể là SQL hoặc NoSQL (như MongoDB).
-
-Lưu trữ dữ liệu lịch sử từ tầng IoT (như nhiệt độ, chuyển động) và kết quả phân tích từ Analytics Service.
-
-Vector DB:
-
-Cơ sở dữ liệu vector (như Pinecone, Weaviate), lưu trữ dữ liệu dạng vector.
-
-Dùng cho các tác vụ AI như tìm kiếm ngữ nghĩa hoặc hỗ trợ chatbot (RAG Chatbot Service).
-
-Ví dụ: Lưu trữ embedding của dữ liệu IoT để chatbot truy vấn nhanh.
-
-Quản lý dữ liệu:
-
-Dữ liệu từ tầng IoT được gửi lên qua Gateway, sau đó được xử lý bởi tầng dịch vụ và lưu vào các cơ sở dữ liệu này.
-
-Tầng dịch vụ truy xuất dữ liệu từ đây để phục vụ tầng ứng dụng.
-
-### 4. Tầng IoT (IoT Layer)
-
+### 1.4. Tầng IoT (IoT Layer)
 Tầng này bao gồm các thiết bị IoT, giao thức kết nối, và thiết bị tính toán tại chỗ. Cụ thể:
 
 **BLE Beacons (BGG220-EK):**
@@ -126,7 +96,7 @@ Tầng này bao gồm các thiết bị IoT, giao thức kết nối, và thiế
 - Chức năng: Phát hiện chuyển động trong khu vực được giám sát.
 - Ứng dụng: Kích hoạt cảnh báo (qua Admin Dashboard) hoặc ghi lại dữ liệu chuyển động để phân tích.
 
-### 5. Luồng dữ liệu
+### 1.5. Luồng dữ liệu
 
 **Thu thập dữ liệu:**
 - Các cảm biến (Environmental, Motion) và BLE Beacons thu thập dữ liệu.
@@ -240,41 +210,43 @@ sequenceDiagram
 ## 3. Phân bố Thiết bị
 
 ### 3.1 Sơ đồ Phân bố Vật lý
-1. Giới thiệu về sơ đồ
+
+**Giới thiệu về sơ đồ:**
+
 Sơ đồ  là một sequence diagram hoặc sơ đồ phân bố vật lý, minh họa cách các thiết bị IoT được triển khai trong một môi trường được giám sát, có thể là không gian bán lẻ, thương mại, hoặc một khu vực cần quản lý. Sơ đồ được thiết kế với cấu trúc phân cấp, thể hiện mối quan hệ giữa các khu vực chính (Entrance, Main Area, Checkout Area) và các thiết bị được bố trí trong chúng. Đây là một tài liệu quan trọng cho việc thiết kế hệ thống, lập kế hoạch triển khai, và quản lý vận hành, đảm bảo rằng các thành phần được bố trí hợp lý để tối ưu hóa chức năng.
 
 ### 3.2. Phân tích các thành phần chính
 
 #### 3.2.1. Khu vực Entrance (Cửa vào)
+**Mô tả:**
+Đây là điểm khởi đầu của sơ đồ, đại diện cho cửa vào chính của không gian được giám sát. Đây là nơi đầu tiên mà người hoặc tài sản đi vào, do đó cần các thiết bị để phát hiện và ghi nhận.
 
-Mô tả: Đây là điểm khởi đầu của sơ đồ, đại diện cho cửa vào chính của không gian được giám sát. Đây là nơi đầu tiên mà người hoặc tài sản đi vào, do đó cần các thiết bị để phát hiện và ghi nhận.
+**Thiết bị liên quan:**
+- BG220-EK Beacon 
+- XG26-DK2608A #1
 
-Thiết bị liên quan:
-
-BG220-EK Beacon 
-
-XG26-DK2608A #1
-
-Mối quan hệ: Khu vực Entrance là điểm tiếp xúc đầu tiên, nơi các thiết bị beacon và cảm biến làm việc cùng nhau để phát hiện và ghi nhận sự xuất hiện của người hoặc tài sản, tạo nền tảng cho các hoạt động giám sát tiếp theo.
+**Mối quan hệ:** 
+Khu vực Entrance là điểm tiếp xúc đầu tiên, nơi các thiết bị beacon và cảm biến làm việc cùng nhau để phát hiện và ghi nhận sự xuất hiện của người hoặc tài sản, tạo nền tảng cho các hoạt động giám sát tiếp theo.
 
 #### 3.2.2. Khu vực chính
-Mô tả: Đây là khu vực trung tâm, kết nối trực tiếp với Entrance, đại diện cho không gian hoạt động chính trong môi trường. Đây là nơi diễn ra các hoạt động chính, như di chuyển khách hàng, trưng bày sản phẩm, hoặc quản lý tài sản.
+**Mô tả:**
+Đây là khu vực trung tâm, kết nối trực tiếp với Entrance, đại diện cho không gian hoạt động chính trong môi trường. Đây là nơi diễn ra các hoạt động chính, như di chuyển khách hàng, trưng bày sản phẩm, hoặc quản lý tài sản.
 
-Thiết bị liên quan:
+**Thiết bị liên quan:**
 - BG220-EK Beacon
 - EFR32MG21
 - XG24-EK2703A
   
 #### 3.2.3. Checkout Area (Khu vực thanh toán)
-Mô tả: Đây là một khu vực phụ thuộc của Main Area, được thiết kế đặc biệt cho quy trình thanh toán hoặc thoát khỏi không gian. Đây là khu vực quan trọng, nơi các giao dịch được thực hiện, đòi hỏi sự giám sát và xử lý dữ liệu chính xác.
+**Mô tả:** Đây là một khu vực phụ thuộc của Main Area, được thiết kế đặc biệt cho quy trình thanh toán hoặc thoát khỏi không gian. Đây là khu vực quan trọng, nơi các giao dịch được thực hiện, đòi hỏi sự giám sát và xử lý dữ liệu chính xác.
 
-Thiết bị liên quan:
+**Thiết bị liên quan:**
 - BG220-EK Beacon : Một thiết bị beacon thứ ba, được đặt tại khu vực thanh toán để theo dõi hoạt động cụ thể như di chuyển khách hàng, hỗ trợ thanh toán không tiếp xúc, hoặc xác định vị trí tại quầy thanh toán.
 - XG26-DK2608A : Một thiết bị cảm biến hoặc mô-đun giao tiếp khác, hỗ trợ các hoạt động thanh toán, có thể ghi nhận dữ liệu môi trường hoặc truyền thông tin giao dịch.
 - EFR32MG21 : Hai đơn vị của bộ vi xử lý này, gợi ý rằng khu vực này cần nhiều khả năng xử lý hơn hoặc có cấu hình dự phòng để đảm bảo độ tin cậy. Thiết bị này có thể xử lý giao tiếp không dây hoặc xử lý dữ liệu giao dịch.
 - Raspberry Pi 4: Một máy tính bảng đơn, có thể được sử dụng cho xử lý dữ liệu địa phương, điều khiển, hoặc tích hợp với các hệ thống bên ngoài như hệ thống điểm bán hàng (POS), nền tảng IoT, hoặc đám mây. Raspberry Pi 4 thường được sử dụng trong các dự án IoT nhờ khả năng tính toán mạnh mẽ và hỗ trợ nhiều giao thức.
 
-Mối quan hệ: Checkout Area là một phần nhỏ của Main Area, nơi các giao dịch được thực hiện. Sự hiện diện của nhiều thiết bị (beacon, cảm biến, bộ vi xử lý và Raspberry Pi) cho thấy một hệ thống phức tạp được thiết kế cho giám sát thời gian thực, thu thập dữ liệu, và tự động hóa quy trình thanh toán.
+**Mối quan hệ:** Checkout Area là một phần nhỏ của Main Area, nơi các giao dịch được thực hiện. Sự hiện diện của nhiều thiết bị (beacon, cảm biến, bộ vi xử lý và Raspberry Pi) cho thấy một hệ thống phức tạp được thiết kế cho giám sát thời gian thực, thu thập dữ liệu, và tự động hóa quy trình thanh toán.
 
 ### 3.3. Cấu trúc phân cấp và luồng dữ liệu
 Sơ đồ thể hiện một luồng dữ liệu phân cấp, với các mối quan hệ rõ ràng:
@@ -349,39 +321,41 @@ Sơ đồ mô tả sự phối hợp giữa bốn thành phần chính:
 - Services
 - User Interface
 
-Phân tích thành phần và vai trò
-**1. IoT Devices**
-Mô tả:
+**Phân tích thành phần và vai trò**
+
+**1. IoT Devices:**
+
+- Mô tả:
 Là nguồn tạo ra Raw Data, bao gồm cảm biến, thiết bị kết nối và các nguồn dữ liệu khác.
 
-Vị trí:
+- Vị trí:
 Nằm bên trái sơ đồ, xuất hiện cả trên và dưới, biểu thị tính liên tục của quá trình thu thập dữ liệu.
 
-Vai trò:
+- Vai trò:
 Gửi Raw Data đến Edge Computing để xử lý sơ bộ.
 
-**2. Edge Computing**
-Mô tả:
+**2. Edge Computing:**
+
+- Mô tả:
 Là lớp trung gian xử lý, thực hiện Pre-processing dữ liệu để giảm độ trễ, tối ưu tài nguyên mạng và hỗ trợ xử lý thời gian thực.
 
-Vị trí:
+- Vị trí:
 Nằm ngay bên phải của IoT Devices, cả trên và dưới sơ đồ.
 
-Vai trò:
+- Vai trò:
 Nhận Raw Data, thực hiện Pre-processing → tạo Processed Data → chuyển đến Services.
 
-**3. Services**
-Mô tả:
+**3. Services:**
+
+- Mô tả:
 Là trung tâm xử lý dữ liệu, bao gồm hai chức năng chính:
+-- Real-Time Update
+-- Database Storage
 
-📡 [Real-time Updates]
-
-💾 [Database Storage]
-
-Vị trí:
+- Vị trí:
 Bên phải Edge Computing, cả trên và dưới.
 
-Vai trò:
+- Vai trò:
 
 [Real-time Updates]:
 Tạo ra Real-time Updates và WebSocket Updates gửi đến User Interface.
