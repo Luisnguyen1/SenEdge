@@ -218,32 +218,6 @@ If ≥6 persons are detected in Zone A1 for more than 10 consecutive seconds, �
 
 Rules are configurable per zone and time range, enabling granular control over alert frequency and action thresholds. This logic ensures that transient detections do not cause false alarms, while persistent crowding conditions reliably generate actionable alerts.
 
-**Heatmap Visualization**
-```mermaid
-flowchart TB
-    A["Zone Density Data"] --> B["Heatmap Generator"]
-    
-    subgraph "Heatmap Visualization"
-        B --> C["Color Coding"]
-        C --> D["Overlay on Store Map"]
-        D --> E["Real-time Updates"]
-    end
-    
-    subgraph "Dashboard Display"
-        E --> F["Management View"]
-        E --> G["Operations View"]
-        E --> H["Mobile Staff View"]
-    end
-    
-    classDef data fill:#bbdefb,stroke:#333,stroke-width:1px
-    classDef vis fill:#dcedc8,stroke:#333,stroke-width:1px
-    classDef dash fill:#f3e5f5,stroke:#333,stroke-width:1px
-    
-    class A data
-    class B,C,D,E vis
-    class F,G,H dash
-```
-
 ## 5. Alert and Visualization System
 ### 5.1. Alert Channels
 To ensure effective response coordination and incident awareness, the system supports multiple alert delivery channels tailored to operational roles:
@@ -306,240 +280,34 @@ stateDiagram-v2
     
     ResponseState --> MonitoringState : Situation Resolved
 ```
-
+### 5.3. API Format for Alert Dispatch
+The system exposes a RESTful API endpoint for real-time alert dispatch to ensure interoperability and centralized staff coordination. This allows backend systems like the HR platform or operational management tools to receive structured alert data and take predefined actions.
    
-
-
-
-
-
-
-### 3.1. Frame Extraction và Preprocessing
-
-```mermaid
-flowchart LR
-    A["Video Stream\n(RTSP)"] --> B["Frame Extractor"]
-    B --> C["Frame Buffer\n(Last 5 frames)"]
-    C --> D["Preprocessing"]
-    
-    subgraph "Preprocessing Steps"
-        D1["Resize\n(96x96)"]
-        D2["Normalize\n(0-1)"]
-        D3["Color Correction"]
-        D4["Noise Reduction"]
-    end
-    
-    D --> D1
-    D1 --> D2
-    D2 --> D3
-    D3 --> D4
-    D4 --> E["Processed Frame"]
-    
-    classDef video fill:#ffccbc,stroke:#333,stroke-width:1px
-    classDef process fill:#bbdefb,stroke:#333,stroke-width:1px
-    classDef buffer fill:#dcedc8,stroke:#333,stroke-width:1px
-    classDef steps fill:#f3e5f5,stroke:#333,stroke-width:1px
-    
-    class A video
-    class B,D,D1,D2,D3,D4 process
-    class C buffer
-    class E steps
+**Payload Format:**
+```json
+{
+  "zone_id": "A1",
+  "density": "High",
+  "timestamp": "2025-04-29T14:33:21Z",
+  "action": "dispatch_staff"
+}
 ```
+**Description:**
 
+- zone_id: Spatial reference indicating the location within the monitored area.
+- density: Classified crowding level based on real-time inference (e.g., Low, Medium, High).
+- timestamp: ISO 8601 UTC timestamp for traceability.
+- action: Recommended system response (e.g., notify staff, restrict access, log-only).
 
-### 3.2. Person Detection & Density Classification
+This API allows seamless integration with third-party systems for logging, visualization, or automatic personnel routing.
 
-```mermaid
-flowchart TB
-    A["Processed Frame"] --> B["TFLite Model\n(MobileNet SSD)"]
-    B --> C["Bounding Boxes"]
-    
-    subgraph "Grid Analysis"
-        D1["Divide Frame into 3x3 Grid"]
-        D2["Count People per Grid Cell"]
-        D3["Calculate Density Heatmap"]
-    end
-    
-    C --> D1
-    D1 --> D2
-    D2 --> D3
-    
-    D3 --> E{"Density Classification"}
-    E -->|"< 3 people"| F["LOW"]
-    E -->|"3-7 people"| G["MEDIUM"]
-    E -->|"> 7 people"| H["HIGH"]
-    
-    F & G & H --> I["Zone Status"]
-    
-    classDef input fill:#ffccbc,stroke:#333,stroke-width:1px
-    classDef model fill:#bbdefb,stroke:#333,stroke-width:1px
-    classDef grid fill:#dcedc8,stroke:#333,stroke-width:1px
-    classDef densityClass fill:#f3e5f5,stroke:#333,stroke-width:1px
-    classDef output fill:#e8f5e9,stroke:#333,stroke-width:1px
-    
-    class A input
-    class B model
-    class C,D1,D2,D3 grid
-    class E,F,G,H densityClass
-    class I output
+### 5.4. Visualization Dashboard
+The visualization dashboard serves as the centralized interface for monitoring real-time crowd conditions, reviewing historical alerts, and supporting rapid situational awareness by security or HR personnel.
 
-```
+**Key Components:**
 
-## 4. Sequence Diagram: Luồng Xử lý Đầy đủ
-
-```mermaid
-sequenceDiagram
-    participant Camera as Pi Camera
-    participant Extractor as Frame Extractor
-    participant Processor as Image Processor
-    participant Model as TFLite Model
-    participant Analyzer as Density Analyzer
-    participant Dashboard as Zone Dashboard
-    participant Staff as Staff Coordination
-    
-    loop Every 200ms
-        Camera->>Extractor: Video Stream
-        Extractor->>Processor: Extract Frame (5fps)
-        Processor->>Processor: Preprocess (96x96)
-        Processor->>Model: Processed Frame
-        Model->>Analyzer: Person Detections
-        Analyzer->>Analyzer: Grid Analysis
-        Analyzer->>Analyzer: Classify Density
-        
-        alt Density Changed
-            Analyzer->>Dashboard: Update Zone Status
-            Analyzer->>Staff: Send Alert (if HIGH)
-        end
-    end
-```
-
-## 5. Mô hình TFLite Optimized
-
-```mermaid
-flowchart LR
-    subgraph "TFLite Model Architecture"
-        A["Input 96x96x3"] --> B["TFlite Persion Detection"]
-        B --> C["Analytics"]
-        C --> D["Output\nDetections"]
-    end
-    
-    subgraph "Optimization Techniques"
-        E["Quantization (int8)"]
-        F["Pruning (30% sparse)"]
-        G["Layer Fusion"]
-    end
-    
-    subgraph "Performance Metrics"
-        H["Inference: 35ms on RPi4"]
-        I["Memory: 15MB"]
-        J["Accuracy:89% mAP"]
-    end
-    
-    A --> E
-    E --> B
-    B --> F
-    F --> C
-    C --> G
-    G --> D
-    
-    classDef arch fill:#bbdefb,stroke:#333,stroke-width:1px
-    classDef opt fill:#dcedc8,stroke:#333,stroke-width:1px
-    classDef metrics fill:#f3e5f5,stroke:#333,stroke-width:1px
-    
-    class A,B,C,D arch
-    class E,F,G opt
-    class H,I,J metrics
-```
-
-## 6. Grid-based Zone Analysis
-
-```mermaid
-flowchart TB
-    subgraph "Store Floor Plan"
-        A["Entrance Zone"] 
-        B["Main Shopping Area"]
-        C["Checkout Zone"]
-    end
-    
-    subgraph "Grid Overlay"
-        D["3x3 Grid System"]
-        
-        D1["Grid 1"] 
-        D2["Grid 2"]
-        D3["Grid 3"]
-        D4["Grid 4"] 
-        D5["Grid 5"]
-        D6["Grid 6"]
-        D7["Grid 7"] 
-        D8["Grid 8"]
-        D9["Grid 9"]
-    end
-    
-    subgraph "Zone Assignment"
-        E["Entrance = Grids 1,2,4"]
-        F["Shopping = Grids 3,5,6,7"]
-        G["Checkout = Grids 8,9"]
-    end
-    
-    D --> D1 & D2 & D3 & D4 & D5 & D6 & D7 & D8 & D9
-    
-    D1 & D2 & D4 --> E
-    D3 & D5 & D6 & D7 --> F
-    D8 & D9 --> G
-    
-    E --> A
-    F --> B
-    G --> C
-    
-    classDef floor fill:#bbdefb,stroke:#333,stroke-width:1px
-    classDef grid fill:#dcedc8,stroke:#333,stroke-width:1px
-    classDef zone fill:#f3e5f5,stroke:#333,stroke-width:1px
-    classDef cell fill:#e8f5e9,stroke:#333,stroke-width:1px
-    
-    class A,B,C floor
-    class D grid
-    class E,F,G zone
-    class D1,D2,D3,D4,D5,D6,D7,D8,D9 cell
-```
-
-## 7. Staff Coordination System
-
-```mermaid
-stateDiagram-v2
-    [*] --> MonitoringState
-    
-    state MonitoringState {
-        [*] --> NormalState
-        NormalState --> MediumState : Medium Density
-        MediumState --> HighState : High Density
-        HighState --> MediumState : Density Decreases
-        MediumState --> NormalState : Density Decreases
-    }
-    
-    MonitoringState --> AlertState : Threshold Exceeded
-    
-    state AlertState {
-        [*] --> EvaluateZone
-        EvaluateZone --> AssignPriority
-        AssignPriority --> NotifyStaff
-    }
-    
-    AlertState --> ResponseState : Staff Notified
-    
-    state ResponseState {
-        [*] --> StaffEnRoute
-        StaffEnRoute --> OnSite
-        OnSite --> ResolutionCheck
-        ResolutionCheck --> Resolved : Problem Fixed
-        ResolutionCheck --> Escalation : Not Resolved
-        Escalation --> [*]
-        Resolved --> [*]
-    }
-    
-    ResponseState --> MonitoringState : Situation Resolved
-```
-
-## 8. Heatmap Visualization
+- Heatmap Visualization:
+Displays dynamic color-coded overlays on the floor plan or video feed, representing crowd density in predefined zones. Color gradations (e.g., green/yellow/red) correspond to Low, Medium, and High density levels, respectively.
 
 ```mermaid
 flowchart TB
@@ -566,117 +334,60 @@ flowchart TB
     class F,G,H dash
 ```
 
-## 9. Implementation Details
+- Real-time Video Overlay:
+Live camera feeds are enhanced with detection bounding boxes, providing transparency into the AI inference process and enabling human validation if required.
 
-### 9.1 TFLite Model Configuration
+- Alert Log History:
+Chronological record of triggered alerts with metadata including zone_id, density, timestamp, and action taken. Supports filtering by time, zone, or severity level.
 
-```python
-# Load optimized TFLite model
-interpreter = tf.lite.Interpreter(model_path="crowd_detection_model.tflite")
-interpreter.allocate_tensors()
+## 6. Deployment Architecture and System Integration
+### 6.1. Hardware & Edge AI Stack
+The system is deployed in a modular Edge-AI pipeline optimized for real-time inference:
 
-# Define input and output tensors
-input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_details()
+- Cameras capture live video streams positioned strategically across high-traffic zones.
+- Video is streamed to edge compute units such as Raspberry Pi 4 or NVIDIA Jetson Nano/Xavier NX, which run the TensorFlow Lite person detection model locally.
+- Detection results (bounding boxes, zone density status) are transmitted over LAN or Wi-Fi to a central server or cloud backend for aggregation, storage, visualization, and alert coordination.
 
-def detect_crowd(image):
-    # Preprocess image
-    input_image = cv2.resize(image, (96, 96))
-    input_image = input_image / 255.0
-    input_image = np.expand_dims(input_image, axis=0).astype(np.float32)
-    
-    # Set input tensor
-    interpreter.set_tensor(input_details[0]['index'], input_image)
-    
-    # Run inference
-    interpreter.invoke()
-    
-    # Get detection results
-    boxes = interpreter.get_tensor(output_details[0]['index'])
-    classes = interpreter.get_tensor(output_details[1]['index'])
-    scores = interpreter.get_tensor(output_details[2]['index'])
-    
-    # Process detections
-    valid_detections = [i for i in range(len(scores[0])) if scores[0][i] > 0.5]
-    person_count = len([i for i in valid_detections if classes[0][i] == 0])
-    
-    return person_count, boxes[0]
-```
+This architecture minimizes network load and ensures privacy-preserving local inference.
 
-### 9.2 Grid Analysis
+### 6.2. Integration with HR System
+The alert and dispatch loop integrates directly with enterprise human resources and floor staff systems:
 
-```python
-def analyze_grid(image, detections):
-    # Define grid
-    h, w, _ = image.shape
-    grid_size = 3
-    cell_h, cell_w = h // grid_size, w // grid_size
-    
-    # Create grid
-    grid = np.zeros((grid_size, grid_size), dtype=int)
-    
-    # Count people in each cell
-    for box in detections:
-        y1, x1, y2, x2 = box
-        center_x, center_y = (x1 + x2) / 2, (y1 + y2) / 2
-        
-        grid_x = min(int(center_x * grid_size), grid_size - 1)
-        grid_y = min(int(center_y * grid_size), grid_size - 1)
-        
-        grid[grid_y, grid_x] += 1
-    
-    # Determine density levels
-    density_levels = np.zeros((grid_size, grid_size), dtype=str)
-    for i in range(grid_size):
-        for j in range(grid_size):
-            count = grid[i, j]
-            if count < 3:
-                density_levels[i, j] = "LOW"
-            elif count < 8:
-                density_levels[i, j] = "MEDIUM"
-            else:
-                density_levels[i, j] = "HIGH"
-    
-    return grid, density_levels
-```
+- RESTful APIs are used to send alert events (location, timestamp, severity) to the HR task coordination system.
+- Staff accounts are managed via role-based access control (RBAC).
+- Each alert event includes acknowledgment tracking, ensuring that tasks are confirmed and closed in the backend system.
 
-### 9.3 Staff Alert Generation
+This creates a responsive and auditable loop for handling real-time crowding incidents.
 
-```python
-def generate_staff_alerts(density_grid):
-    # Define zones
-    zones = {
-        "entrance": [(0, 0), (0, 1), (1, 0)],
-        "shopping": [(0, 2), (1, 1), (1, 2), (2, 0)],
-        "checkout": [(2, 1), (2, 2)]
-    }
-    
-    alerts = []
-    
-    # Check each zone
-    for zone_name, cells in zones.items():
-        high_count = 0
-        medium_count = 0
-        
-        for i, j in cells:
-            if density_grid[i, j] == "HIGH":
-                high_count += 1
-            elif density_grid[i, j] == "MEDIUM":
-                medium_count += 1
-        
-        # Generate alerts based on threshold
-        if high_count >= len(cells) / 2:
-            alerts.append({
-                "zone": zone_name,
-                "level": "HIGH",
-                "message": f"Critical crowd density in {zone_name} zone! Immediate staff assistance required."
-            })
-        elif high_count > 0 or medium_count >= len(cells) / 2:
-            alerts.append({
-                "zone": zone_name,
-                "level": "MEDIUM",
-                "message": f"Increasing crowd density in {zone_name} zone. Additional staff may be needed."
-            })
-    
-    return alerts
+### 6.3. Scalability & Reliability
+- The system supports multiple camera streams, each assigned to a dedicated or shared edge processor depending on compute availability.
+- Alert thresholds, zone definitions, and sensitivity levels are managed through a central configuration service, allowing dynamic reconfiguration without downtime.
+- Modular services (inference, alerting, visualization) communicate via lightweight APIs or message queues, ensuring fault-tolerant scaling and easy maintainability.
+
+```mermaid
+graph TD
+  subgraph Cameras
+    CAM1[Camera 1]
+    CAM2[Camera 2]
+    CAMn[Camera N]
+  end
+
+  subgraph Edge Devices
+    EDGE1[Raspberry Pi / Jetson<br>Edge AI Inference]
+  end
+
+  subgraph Backend
+    CLOUD[Cloud / Local Server]
+    DB[(Alert Logs DB)]
+    DASHBOARD[Web Dashboard]
+    HR[HR System]
+  end
+
+  CAM1 --> EDGE1
+  CAM2 --> EDGE1
+  CAMn --> EDGE1
+  EDGE1 --> CLOUD
+  CLOUD --> DB
+  CLOUD --> DASHBOARD
+  CLOUD --> HR
 ```
