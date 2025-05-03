@@ -142,7 +142,7 @@ def run_inference(interpreter, input_tensor, threshold=0.5):
             scores = interpreter.get_tensor(output['index'])[0]
 
     if boxes is None or classes is None or scores is None:
-        print("Lỗi: Không tìm thấy các tensor đầu ra cần thiết.")
+        print("Error: The required output tensors were not found!")
         return []
 
     results = []
@@ -161,6 +161,7 @@ Detected bounding boxes are projected onto a predefined zone grid that spatially
 
 This zonal scoring mechanism provides localized crowding estimates that support both visualization and decision-making logic.
 
+**Grid-based Zone Analysis**
 ```mermaid
 flowchart TB
     subgraph "Store Floor Plan"
@@ -209,6 +210,109 @@ flowchart TB
     class E,F,G zone
     class D1,D2,D3,D4,D5,D6,D7,D8,D9 cell
 ```
+### 4.4. Rule-Based Trigger System
+To initiate operational responses, a rule engine continuously monitors zonal density scores and applies temporal logic conditions. For example:
+
+**Rule Format:**
+If ≥6 persons are detected in Zone A1 for more than 10 consecutive seconds, → Trigger staff dispatch alert.
+
+Rules are configurable per zone and time range, enabling granular control over alert frequency and action thresholds. This logic ensures that transient detections do not cause false alarms, while persistent crowding conditions reliably generate actionable alerts.
+
+**Heatmap Visualization**
+```mermaid
+flowchart TB
+    A["Zone Density Data"] --> B["Heatmap Generator"]
+    
+    subgraph "Heatmap Visualization"
+        B --> C["Color Coding"]
+        C --> D["Overlay on Store Map"]
+        D --> E["Real-time Updates"]
+    end
+    
+    subgraph "Dashboard Display"
+        E --> F["Management View"]
+        E --> G["Operations View"]
+        E --> H["Mobile Staff View"]
+    end
+    
+    classDef data fill:#bbdefb,stroke:#333,stroke-width:1px
+    classDef vis fill:#dcedc8,stroke:#333,stroke-width:1px
+    classDef dash fill:#f3e5f5,stroke:#333,stroke-width:1px
+    
+    class A data
+    class B,C,D,E vis
+    class F,G,H dash
+```
+
+## 5. Alert and Visualization System
+### 5.1. Alert Channels
+To ensure effective response coordination and incident awareness, the system supports multiple alert delivery channels tailored to operational roles:
+
+**Push Notifications to HR System:**
+Alerts are directly transmitted via secured internal APIs to the human resources department’s task coordination platform. These notifications can initiate workflows such as dispatching floor staff to high-density zones.
+
+### 5.2. Alert Triggers and Conditions
+The alert system is governed by a set of rule-based triggers that analyze model outputs in real-time. These rules are configurable to align with operational and safety policies.
+
+- Basic Density Rule: 
+Alerts are triggered when the number of persons detected in a specific grid zone exceeds a predefined threshold within a time window.
+```python
+if (zone A detections >= 10) in last 15 seconds → TRIGGER alert_level: high
+```
+
+- Custom Rule Sets: Administrators may configure alert sensitivity based on contextual factors:
+
+   - Time of Day: Higher thresholds during peak hours.
+   - Day of Week: Weekend configurations for higher traffic.
+   - Specific Zone Configurations: Different trigger rules for the entrance, food court, and electronics area.
+
+```python
+if zone B detections >= 15 between 5PM–8PM → alert_level: normal
+```
+
+**Staff Coordination System**
+
+```mermaid
+stateDiagram-v2
+    [*] --> MonitoringState
+    
+    state MonitoringState {
+        [*] --> NormalState
+        NormalState --> MediumState : Medium Density
+        MediumState --> HighState : High Density
+        HighState --> MediumState : Density Decreases
+        MediumState --> NormalState : Density Decreases
+    }
+    
+    MonitoringState --> AlertState : Threshold Exceeded
+    
+    state AlertState {
+        [*] --> EvaluateZone
+        EvaluateZone --> AssignPriority
+        AssignPriority --> NotifyStaff
+    }
+    
+    AlertState --> ResponseState : Staff Notified
+    
+    state ResponseState {
+        [*] --> StaffEnRoute
+        StaffEnRoute --> OnSite
+        OnSite --> ResolutionCheck
+        ResolutionCheck --> Resolved : Problem Fixed
+        ResolutionCheck --> Escalation : Not Resolved
+        Escalation --> [*]
+        Resolved --> [*]
+    }
+    
+    ResponseState --> MonitoringState : Situation Resolved
+```
+
+   
+
+
+
+
+
 
 ### 3.1. Frame Extraction và Preprocessing
 
@@ -241,6 +345,7 @@ flowchart LR
     class C buffer
     class E steps
 ```
+
 
 ### 3.2. Person Detection & Density Classification
 
