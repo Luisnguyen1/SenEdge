@@ -158,3 +158,241 @@ h2 {
     color: #888;
     padding: 2rem;
 }
+
+/* Image modal styles */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.close-modal, .fullscreen-btn {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.close-modal:hover, .fullscreen-btn:hover {
+    color: #000;
+    background-color: #f5f5f5;
+}
+
+#modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    color: #2196f3;
+    font-weight: bold;
+}
+
+.loading-indicator.error {
+    color: #f44336;
+}
+
+.image-info {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.log-entry.has-image {
+    border-left-color: #ff9800;
+    position: relative;
+}
+
+.log-entry.has-image:hover {
+    background-color: #fff8e1;
+}
+
+.log-entry.has-image::after {
+    content: "📷";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+}
+
+.image-indicator {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 0.85rem;
+}
+
+.detections-panel {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    grid-column: span 2;
+}
+
+.detections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.detection-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.detection-card:hover {
+    transform: translateY(-2px);
+}
+
+.detection-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.detection-info {
+    padding: 1rem;
+}
+
+.detection-time {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.detection-location {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.device-panel {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.device-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.device-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.device-card:hover {
+    transform: translateY(-2px);
+}
+
+.device-icon {
+    font-size: 2rem;
+    color: #2c3e50;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ecef;
+    border-radius: 50%;
+}
+
+.device-details {
+    flex: 1;
+}
+
+.device-details h3 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.device-status {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.device-status.online {
+    color: #28a745;
+}
+
+.device-status.offline {
+    color: #dc3545;
+}
+
+.device-ip, .device-last-seen {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.empty-devices {
+    text-align: center;
+    color: #6c757d;
+    padding: 2rem 0;
+}

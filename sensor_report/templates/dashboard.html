@@ -31,6 +31,31 @@
         </div>
     </div>
 
+    <!-- Device Status Panel -->
+    <div class="device-panel">
+        <h2>Device Status</h2>
+        <div class="device-container" id="device-container">
+            <!-- Device status will be displayed here -->
+            {% if device_status %}
+                {% for device_id, status in device_status.items() %}
+                <div class="device-card" id="device-{{ device_id }}">
+                    <div class="device-icon">🖥️</div>
+                    <div class="device-details">
+                        <h3>{{ device_id }}</h3>
+                        <p class="device-status {% if status.status == 'online' %}online{% else %}offline{% endif %}">
+                            Status: {{ status.status }}
+                        </p>
+                        <p class="device-ip">IP: {{ status.ip }}</p>
+                        <p class="device-last-seen">Last seen: {{ status.last_seen }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="empty-devices">No devices connected yet</div>
+            {% endif %}
+        </div>
+    </div>
+
     <!-- Right side - Request Logs -->
     <div class="logs-panel">
         <h2>Request Logs</h2>
