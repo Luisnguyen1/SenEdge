@@ -2,6 +2,9 @@
 
 Hệ thống hỗ trợ mua sắm thông minh tích hợp IoT và AI.
 
+## Quản lý dự án
+- [Sheet quản lý dự án và tiến độ thực hiện](https://docs.google.com/spreadsheets/d/13m0ShLNtGouON7MF4_G_lY2k21fo5KolhyPQXGdVfVA/edit?usp=sharing)
+
 ## Cấu trúc dự án
 
 ```
