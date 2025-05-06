@@ -30,6 +30,7 @@ graph LR
         E1[Web Developer] --> L[Frontend]
         E1 --> M[Backend APIs]
     end
+```
 ## 2. Timeline and Milestones
 
 ### Week 1-2: Setup andand Planning
@@ -285,7 +286,7 @@ graph TD
 - Customer satisfaction > 90%
 - System adoption rate > 80%
 
-## 8. Tools và Resources
+## 8. Tools and Resources
 
 ### Development Tools
 - Git for version control
