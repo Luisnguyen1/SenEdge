@@ -1,17 +1,17 @@
 # Feature: Cashier Queue Estimation
 
-## 1. Tổng quan Tính năng
+## 1. Feature Overview
+This section provides a high-level description of the Cashier Queue Counting feature. It explains the core functionality, which involves using computer vision to automatically count the number of people waiting in line at each checkout counter. This feature aims to optimize customer flow by providing insights into queue lengths, enabling efficient customer direction, and potentially reducing waiting times, ultimately improving customer satisfaction.
 
-Tính năng Cashier Queue Counting sử dụng computer vision để đếm số lượng người trong hàng đợi tại các quầy thanh toán, giúp điều phối khách hàng đến các quầy ít người, từ đó giảm thời gian chờ và tăng sự hài lòng.
-
-## 2. Kiến trúc Tổng thể
+## 2. Overall Architecture
+This diagram illustrates the end-to-end data flow of the Cashier Queue Counting system. It starts with the video input from the cashier cameras, goes through a processing pipeline involving frame extraction, preprocessing, object detection, and post-processing, and finally outputs the queue count, which a recommendation engine can then use to notify customers.
 
 ```mermaid
 flowchart TB
     subgraph "Input"
         A1["Video Feed\n(Cashier Cameras)"]
     end
-    
+
     subgraph "Processing Pipeline"
         B1["Video Frame Extractor"]
         B2["Image Preprocessing\n(Resize 300x300, Normalize)"]
@@ -20,37 +20,39 @@ flowchart TB
         B5["NMS (Non-Max Suppression)"]
         B6["Count Valid Boxes"]
     end
-    
+
     subgraph "Output & Actions"
         C1["Queue Count Result"]
         C2["Recommendation Engine"]
         C3["Customer Notification"]
     end
-    
+
     A1 --> B1
     B1 --> B2
     B2 --> B3
     B3 --> B4
     B4 --> B5
     B5 --> B6
-    
+
     B6 --> C1
     C1 --> C2
     C2 --> C3
-    
+
     classDef input fill:#f9d5e5,stroke:#333,stroke-width:1px
     classDef processing fill:#d5e8f9,stroke:#333,stroke-width:1px
     classDef output fill:#e3f9d5,stroke:#333,stroke-width:1px
-    
+
     class A1 input
     class B1,B2,B3,B4,B5,B6 processing
     class C1,C2,C3 output
 ```
 
-## 3. Chi tiết Các Bước Xử lý
+## 3. Processing Steps Details
+This section breaks down the core processing pipeline into more granular steps, detailing how the video feed is analyzed to arrive at the queue count.
 
-### 3.1. Video Frame Extraction và Preprocessing
+### 3.1. Video Frame Extraction and Preprocessing
 
+This flowchart outlines the initial steps involved in preparing the video frames for object detection. It describes how frames are extracted from the camera feed at a specific rate (3fps), selected for processing, and then undergo several preprocessing steps to ensure optimal performance of the detection model.
 ```mermaid
 flowchart LR
     A["Camera Feed\n(Quầy 1, 2, 3...)"] --> B["Frame Extractor\n(3fps)"]
@@ -81,6 +83,8 @@ flowchart LR
 ```
 
 ### 3.2. Person Detection và Queue Counting
+
+This flowchart details the process of detecting people in the processed frames and determining the queue length. It involves using a MobileNet SSD model for object detection, followed by post-processing steps to filter detections based on class and confidence, apply Non-Max Suppression (NMS) to remove redundant bounding boxes, and finally count the number of valid person detections to determine the queue status (Short, Medium, or Long).
 
 ```mermaid
 flowchart TB
@@ -123,6 +127,8 @@ flowchart TB
 
 ### 3.3. Region of Interest (ROI) Configuration
 
+This flowchart illustrates the importance of configuring a Region of Interest (ROI) within the camera's view. By defining the specific area where queues are expected and excluding irrelevant zones, the accuracy of person detection and queue counting can be significantly improved. It also mentions perspective calibration to further refine the detection area.
+
 ```mermaid
 flowchart TB
     A["Camera Setup"] --> B["ROI Definition"]
@@ -149,7 +155,8 @@ flowchart TB
     class C,D result
 ```
 
-## 4. Sequence Diagram: Luồng Xử lý Đầy đủ
+## 4. Sequence Diagram: Full Processing Flow
+This sequence diagram provides a chronological view of how different components of the system interact to process video frames and provide queue information to the customer. It shows the continuous loop of frame processing, person detection, queue counting, and the interaction with the analytics engine and the RAG Chatbot when a customer requests queue information.
 
 ```mermaid
 sequenceDiagram
@@ -175,13 +182,15 @@ sequenceDiagram
         Analytics->>Analytics: Compare All Queues
     end
     
-    Customer->>Chatbot: "Where should I checkout?"
+    Customer->>Chatbot: "Where should I check out?"
     Chatbot->>Analytics: Request Queue Status
     Analytics->>Chatbot: Queue Lengths & Wait Times
     Chatbot->>Customer: "Quầy 3 đang ít khách nhất (2 phút chờ)"
 ```
 
 ## 5. Recommendation Engine
+
+This flowchart outlines the inputs, processing logic, and outputs of the Recommendation Engine. This component uses the real-time queue length data, historical wait times, and cashier efficiency statistics to analyze queue conditions, predict future wait times, and generate recommendations for both customers (which checkout line to choose) and staff (potential need for more cashiers). It also provides insights for managers to optimize staffing.
 
 ```mermaid
 flowchart TB
@@ -219,6 +228,7 @@ flowchart TB
 ```
 
 ## 6. Wait Time Prediction Model
+
 
 ```mermaid
 flowchart LR
