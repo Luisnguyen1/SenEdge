@@ -225,17 +225,28 @@ sequenceDiagram
 
 ### 3.3.3. Computer Vision System
 
-#### 3.3.3.1. Crowd Density Detection
-- Model: TFLite person detection
-- Input: Camera feed (5fps)
-- Preprocessing: Resize (96x96), normalization
-- Output: Density classification (LOW/MEDIUM/HIGH)
+The Computer Vision System leverages real-time video analytics to provide actionable insights for store optimization. This system is comprised of two key functionalities: Crowd Density Detection and Cashier Queue Estimation, both processed at the edge by a Raspberry Pi to ensure low latency and efficient data handling.
 
-#### 3.3.3.2. Cashier Queue Estimation 
-- Cashier camera feed (3fps)
-- Person detection và counting
-- Wait time prediction (Random Forest)
-- Multi-cashier optimization
+#### 3.3.3.1. Crowd Density Detection
+
+This component is engineered to monitor and analyze customer foot traffic patterns across various zones within the retail environment.
+
+* **Model and Architecture**: The system utilizes a lightweight and efficient TensorFlow Lite person detection model, specifically optimized for edge computing deployments. This model is designed for high-speed inference on resource-constrained devices.
+* **Input and Preprocessing**: Input is sourced from strategically placed cameras, providing a continuous video feed processed at 5 frames per second (fps). Each frame undergoes preprocessing, including resizing to a standardized resolution of $96 \times 96$ pixels and normalization of pixel values to optimize model accuracy.
+* **Detection and Analysis**: The model processes the preprocessed frames to detect and count individuals within predefined zones of interest. The system then translates these counts into a crowd density metric.
+* **Output and Application**: The output is a classification of crowd density for each monitored area, typically categorized as LOW, MEDIUM, or HIGH. This real-time density information is relayed to the store management system, enabling the strategic coordination of sales staff. For instance, personnel can be directed to areas identified as highly crowded to proactively engage with customers, offer assistance, or execute targeted marketing and promotional activities, thereby capitalizing on high-traffic opportunities.
+
+#### 3.3.3.2. Cashier Counter Queue Estimation
+
+This feature focuses on optimizing the checkout process by actively monitoring and managing queue lengths at cashier counters.
+
+* **Model and Architecture**: The Cashier Queue Estimation employs a MobileNet SSD (Single Shot MultiBox Detector) model. This choice is predicated on its balance of accuracy and efficiency in object detection, making it well-suited for real-time person counting in dynamic queue environments.
+* **Input and Processing**: Dedicated cameras positioned to view each cashier counter provide video feeds, processed at 3 fps. The MobileNet SSD model analyzes these feeds to detect and count the number of individuals in each queue.
+* **Queue Analysis and Optimization**: Beyond simple counting, the system analyzes queue lengths over time. This data feeds into a wait time prediction model (e.g., Random Forest, as mentioned in experimental results, though the core detection is MobileNet SSD). The primary operational goal is to minimize customer wait times and reduce congestion.
+* **Output and Application**: The system provides real-time queue counts and predicted wait times for each cashier. This information allows for dynamic resource allocation, such as:
+    * Alerting staff to open additional cashier counters when queue lengths or predicted wait times exceed predefined thresholds.
+    * Distributing customer flow more evenly by guiding customers to less congested counters, potentially via in-store displays or mobile app notifications.
+    This proactive management enhances the shopping experience by streamlining the payment process and minimizing frustration associated with long waits, ultimately contributing to increased customer satisfaction and throughput. The system supports an equitable distribution of workload among active cashiers by providing data to inform decisions on cashier deployment.
 
 ### 3.4. Architecture and Operational Workflow Analysis
 
