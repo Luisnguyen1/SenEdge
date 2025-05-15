@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Indoor Navigation Server",
+			"type": "shell",
+			"command": "cd d:\\IoTChallenge2025\\Map_and_Beacons\\Map && python run.py",
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

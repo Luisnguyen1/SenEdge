@@ -1,7 +1,0 @@
-Flask
-Flask-SocketIO
-Flask-Cors
-numpy
-scipy
-requests
-gunicorn

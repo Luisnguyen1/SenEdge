@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Navigation System</title>
+    <!-- OpenLayers CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.4.0/dist/ol.css">    <style>        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .map-container {
+                height: 450px !important;
+            }
+        }
+        .nav-links {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        .nav-links a {            margin-right: 15px;
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            background-color: #45a049;
+        }
+        .navigation-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 300px;
+            display: none;
+        }
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .nav-header h3 {
+            margin: 0;
+        }
+        .nav-instruction {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .nav-distance {
+            font-size: 14px;
+            color: #666;
+        }
+        .poi-popup {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #cccccc;
+            min-width: 280px;
+            max-width: 350px;
+            z-index: 1001;
+        }
+        .poi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .poi-header h3 {
+            margin: 0;
+        }
+        .category {
+            background-color: #f0f0f0;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #666;
+        }
+        .poi-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .poi-nav-buttons button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .poi-nav-buttons button:last-child {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .input-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }        .map-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #cccccc;
+            font-size: 12px;
+            bottom: 12px;
+            left: -50px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .poi-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        .poi-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .legend {
+            background: rgba(255,255,255,0.8);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .step-counter {
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>    <div class="container">
+        <h1>Indoor Navigation System</h1>
+          <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/navigation">Indoor Navigation</a>
+            <a href="/mobile-map">Mobile Map View</a>
+        </div>
+          <div class="input-section">
+            <h2>Enter Your WiFi Hotspot Name</h2>
+            <input type="text" id="hotspotInput" placeholder="Enter your WiFi hotspot name">
+            <button id="startScanBtn">Start Scanning</button>
+            <div id="statusMessage" class="status">Ready to scan</div>
+            
+            <div style="margin-top: 15px; border-top: 1px solid #ddd; padding-top: 15px;">
+                <h3>Search Points of Interest</h3>
+                <div style="display: flex;">
+                    <input type="text" id="searchInput" placeholder="Search for locations or products..." style="flex-grow: 1;">
+                    <button id="searchBtn" style="margin-left: 10px;">Search</button>
+                </div>
+                <div id="searchResults" style="margin-top: 10px; max-height: 200px; overflow-y: auto; display: none;">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>Map Legend</h3>
+            <div style="display: flex; flex-wrap: wrap;">
+                <div class="poi-item">
+                    <div class="poi-color" style="background-color: #4CAF50;"></div>
+                    <span>Quầy thu ngân</span>
+                </div>
+                <div class="poi-item">
+                    <div class="poi-color" style="background-color: #2196F3;"></div>
+                    <span>Nhà vệ sinh</span>
+                </div>
+                <div class="poi-item">
+                    <div class="poi-color" style="background-color: #f44336;"></div>
+                    <span>Lối ra</span>
+                </div>
+                <div class="poi-item">
+                    <div class="poi-color" style="background-color: #8b4513;"></div>
+                    <span>Kệ hàng</span>
+                </div>
+                <div class="poi-item">
+                    <div class="poi-color" style="background-color: #007bff;"></div>
+                    <span>Vị trí của bạn</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="calibrateBtn">Calibrate Position</button>
+            <button id="clearTraceBtn">Clear Trace</button>
+        </div>
+        
+        <div class="map-section">
+            <h2>Indoor Map</h2>
+            <div class="map-container" id="map">
+                <div class="step-counter">
+                    Steps: <span id="stepCount">0</span>
+                </div>
+                <!-- Map will be rendered here -->
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <h2>Beacon Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Beacon ID</th>
+                        <th>RSSI (dBm)</th>
+                        <th>Estimated Distance (m)</th>
+                    </tr>
+                </thead>
+                <tbody id="beaconData">
+                    <!-- Beacon data will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Load OpenLayers from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@7.4.0/dist/ol.js"></script>      <!-- Load our custom modules -->
+    <script type="module">
+        import { initMap } from '/static/js/map_view.js';
+        
+        let mapView;
+        
+        window.addEventListener('DOMContentLoaded', async () => {
+            console.log('DOM content loaded, initializing map...');
+            
+            // Make sure the map container exists and is properly sized
+            const mapContainer = document.getElementById('map');
+            if (mapContainer) {
+                console.log('Map container found:', mapContainer);
+                
+                // Force correct dimensions
+                mapContainer.style.width = '100%';
+                mapContainer.style.height = '600px';
+            } else {
+                console.error('Map container not found!');
+                return;
+            }
+            
+            // Initialize the map
+            mapView = await initMap('map');
+            
+            try {
+                await mapView.initialize();
+                console.log('Map initialized successfully');
+            } catch (error) {
+                console.error('Error initializing map:', error);
+            }
+            
+            // Set up event handlers
+            document.getElementById('startScanBtn').addEventListener('click', function() {
+                const hotspotName = document.getElementById('hotspotInput').value.trim();
+                if (!hotspotName) {
+                    alert('Please enter a WiFi hotspot name');
+                    return;
+                }
+                
+                startScanning(hotspotName);
+            });
+            
+            document.getElementById('calibrateBtn').addEventListener('click', async function() {
+                const statusMessage = document.getElementById('statusMessage');
+                statusMessage.textContent = 'Calibrating...';
+                
+                const success = await mapView.calibrate();
+                if (success) {
+                    statusMessage.textContent = 'Calibration successful!';
+                } else {
+                    statusMessage.textContent = 'Calibration failed. Make sure beacons are available.';
+                }
+            });
+            
+            document.getElementById('clearTraceBtn').addEventListener('click', function() {
+                mapView.clearTrace();
+            });
+            
+            // Set up search functionality
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                searchPOIs();
+            });
+            
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchPOIs();
+                }
+            });
+            
+            // Set up navigation event listeners
+            document.addEventListener('navigation-started', function(e) {
+                document.getElementById('statusMessage').textContent = `Navigating to: ${e.detail.destination}`;
+            });
+            
+            document.addEventListener('navigation-completed', function() {
+                document.getElementById('statusMessage').textContent = 'You have reached your destination!';
+            });
+            
+            document.addEventListener('navigation-stopped', function() {
+                document.getElementById('statusMessage').textContent = 'Navigation stopped';
+            });
+            
+            // Start polling for updates
+            setInterval(updateBeaconTable, 2000);
+        });
+        
+        function searchPOIs() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResultsContainer = document.getElementById('searchResults');
+            const query = searchInput.value.trim();
+            
+            if (!query || !mapView.poiSystem) {
+                return;
+            }
+            
+            // Perform search using POI system
+            const results = mapView.poiSystem.searchPOIs(query);
+            
+            // Display results
+            searchResultsContainer.style.display = results.length > 0 ? 'block' : 'none';
+            searchResultsContainer.innerHTML = '';
+            
+            if (results.length === 0) {
+                searchResultsContainer.innerHTML = '<p>No results found</p>';
+                return;
+            }
+            
+            // Create results HTML
+            results.forEach(poi => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.style.padding = '8px';
+                resultItem.style.borderBottom = '1px solid #eee';
+                resultItem.style.cursor = 'pointer';
+                
+                resultItem.innerHTML = `
+                    <div style="font-weight: bold;">${poi.name}</div>
+                    <div style="font-size: 12px; color: #666;">${poi.description}</div>
+                `;
+                
+                resultItem.addEventListener('click', function() {
+                    // Navigate to this POI
+                    if (mapView.routingSystem) {
+                        // Get current user position
+                        const userPos = mapView.positionSystem.getCurrentPosition();
+                        
+                        // Clear existing route
+                        mapView.routingSystem.clearRoute();
+                        
+                        // Set start and end points
+                        mapView.routingSystem.setStartPoint([userPos.x, userPos.y]);
+                        mapView.routingSystem.setEndPoint(poi.coordinates);
+                        
+                        // Start navigation
+                        mapView.routingSystem.startNavigation();
+                        
+                        // Hide search results
+                        searchResultsContainer.style.display = 'none';
+                        
+                        // Show navigation instructions
+                        const event = new CustomEvent('navigation-started', { 
+                            detail: { 
+                                destination: poi.name,
+                                instructions: mapView.routingSystem.getInstructions() 
+                            }
+                        });
+                        document.dispatchEvent(event);
+                    }
+                });
+                
+                searchResultsContainer.appendChild(resultItem);
+            });
+        }
+        
+        function startScanning(hotspotName) {
+            // Send hotspot name to server
+            fetch('/set_hotspot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ hotspot_name: hotspotName }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('statusMessage').textContent = data.message;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('statusMessage').textContent = 'Error starting scan';
+            });
+        }
+        
+        function updateBeaconTable() {
+            fetch('/get_position')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('beaconData');
+                tableBody.innerHTML = '';
+                
+                for (const [beaconId, rssi] of Object.entries(data.rssi_values || {})) {
+                    if (beaconId in (data.beacons || {})) {
+                        // Calculate distance
+                        const txPower = -45;
+                        const n = 2.5;
+                        const ratio = rssi / txPower;
+                        let distance;
+                        if (ratio < 1.0) {
+                            distance = Math.pow(ratio, 10);
+                        } else {
+                            distance = Math.pow(10, (txPower - rssi) / (10 * n));
+                        }
+                        
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${beaconId}</td>
+                            <td>${rssi} dBm</td>
+                            <td>${distance.toFixed(2)} m</td>
+                        `;
+                        tableBody.appendChild(row);
+                    }
+                }
+                
+                // Update status message with position
+                if (data.position && data.position.x !== null && data.position.y !== null) {
+                    document.getElementById('statusMessage').textContent = 
+                        `Position found: (${data.position.x.toFixed(2)}, ${data.position.y.toFixed(2)})`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

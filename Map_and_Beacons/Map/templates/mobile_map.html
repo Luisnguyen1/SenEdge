@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Indoor Map</title>
+    <!-- OpenLayers CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.4.0/dist/ol.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .icon-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .icon-button:active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .map-container {
+            position: absolute;
+            top: 56px;
+            left: 0;
+            right: 0;
+            bottom: 60px;
+            background-color: #f9f9f9;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .control-button {
+            background-color: #2196F3;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .status-bar {
+            position: absolute;
+            top: 65px;
+            left: 10px;
+            right: 10px;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            font-size: 14px;
+            text-align: center;
+            z-index: 100;
+            transition: opacity 0.3s ease;
+        }
+        
+        .step-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            font-size: 14px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+        
+        .step-icon {
+            font-size: 16px;
+        }
+        
+        .pulsing-dot {
+            position: absolute;
+            top: 120px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #2196F3;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .dot::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 28px;
+            height: 28px;
+            background-color: rgba(33, 150, 243, 0.3);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        
+        .ol-zoom {
+            left: auto;
+            right: 10px;
+            top: 10px;
+        }
+        
+        .fullscreen-button {
+            position: absolute;
+            bottom: 70px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        /* Add popup styles for POIs */
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #cccccc;
+            bottom: 12px;
+            left: -50px;
+            min-width: 100px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .ol-popup:after, .ol-popup:before {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        
+        .ol-popup:after {
+            border-top-color: white;
+            border-width: 10px;
+            left: 48px;
+            margin-left: -10px;
+        }
+        
+        .ol-popup:before {
+            border-top-color: #cccccc;
+            border-width: 11px;
+            left: 48px;
+            margin-left: -11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Indoor Navigation</h1>
+        <div class="header-actions">
+            <button class="icon-button" id="infoBtn" title="Information">ℹ️</button>
+            <button class="icon-button" id="refreshBtn" title="Refresh">🔄</button>
+        </div>
+    </div>
+    
+    <div id="status" class="status-bar">Ready to navigate</div>
+    
+    <div id="map" class="map-container"></div>
+    
+    <div class="step-counter">
+        <span class="step-icon">👣</span>
+        <span id="steps">0</span>
+    </div>
+    
+    <div class="pulsing-dot" id="centerMap">
+        <div class="dot"></div>
+    </div>
+    
+    <button class="fullscreen-button" id="fullscreenBtn">⛶</button>
+    
+    <div class="controls">
+        <button class="control-button" id="calibrateBtn" title="Calibrate Position">📍</button>
+        <button class="control-button" id="connectBtn" title="Connect WiFi">📡</button>
+        <button class="control-button" id="searchBtn" title="Search">🔍</button>
+        <button class="control-button" id="clearBtn" title="Clear Trace">🗑️</button>
+    </div>
+
+    <!-- Load OpenLayers directly -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@7.4.0/dist/ol.js"></script>
+    
+    <!-- Load our custom modules -->
+    <script type="module">
+        import { initMap } from '/static/js/map_view.js';
+        
+        let mapView;
+        
+        window.addEventListener('DOMContentLoaded', async () => {
+            console.log('DOM content loaded, initializing map...');
+            
+            // Make sure the map container exists and is properly sized
+            const mapContainer = document.getElementById('map');
+            console.log('Map container found:', mapContainer);
+            
+            try {
+                // Initialize the map with proper instantiation
+                mapView = initMap('map');
+                await mapView.initialize();
+                console.log('Map initialized successfully');
+                document.getElementById('status').textContent = 'Map loaded successfully';
+            } catch (error) {
+                console.error('Error initializing map:', error);
+                document.getElementById('status').textContent = 'Error loading map: ' + error.message;
+            }
+            
+            // Set up event handlers
+            document.getElementById('calibrateBtn').addEventListener('click', async function() {
+                const statusElement = document.getElementById('status');
+                statusElement.textContent = 'Calibrating...';
+                statusElement.style.opacity = '1';
+                
+                try {
+                    const success = await mapView.calibrate();
+                    if (success) {
+                        statusElement.textContent = 'Calibration successful!';
+                    } else {
+                        statusElement.textContent = 'Calibration failed. Check beacons.';
+                    }
+                } catch (err) {
+                    statusElement.textContent = 'Calibration error: ' + err.message;
+                }
+            });
+            
+            document.getElementById('clearBtn').addEventListener('click', function() {
+                mapView.clearTrace();
+                document.getElementById('status').textContent = 'Trace cleared';
+                document.getElementById('status').style.opacity = '1';
+            });
+            
+            document.getElementById('connectBtn').addEventListener('click', function() {
+                const hotspotName = prompt('Enter WiFi hotspot name:');
+                if (hotspotName) {
+                    startScanning(hotspotName);
+                }
+            });
+            
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                const searchTerm = prompt('Search for location:');
+                if (searchTerm && mapView.poiSystem) {
+                    const results = mapView.poiSystem.searchPOIs(searchTerm);
+                    if (results.length > 0) {
+                        // Show first result
+                        const poi = results[0];
+                        const userPos = mapView.positionSystem.getCurrentPosition();
+                        
+                        mapView.routingSystem.clearRoute();
+                        mapView.routingSystem.setStartPoint([userPos.x, userPos.y]);
+                        mapView.routingSystem.setEndPoint(poi.coordinates);
+                        mapView.routingSystem.startNavigation();
+                        
+                        document.getElementById('status').textContent = `Navigating to: ${poi.name}`;
+                        document.getElementById('status').style.opacity = '1';
+                    } else {
+                        document.getElementById('status').textContent = 'No locations found';
+                        document.getElementById('status').style.opacity = '1';
+                    }
+                }
+            });
+            
+            // Position updates listener
+            mapView.positionSystem.onStepDetected = function(steps) {
+                document.getElementById('steps').textContent = steps;
+            };
+            
+            // Location pulse dot - center map on user
+            document.getElementById('centerMap').addEventListener('click', function() {
+                const position = mapView.positionSystem.getCurrentPosition();
+                mapView.map.getView().animate({
+                    center: [position.x, position.y],
+                    duration: 500
+                });
+                // Show feedback
+                const statusBar = document.getElementById('status');
+                statusBar.textContent = 'Centering map on your location';
+                statusBar.style.opacity = '1';
+                statusBar.style.backgroundColor = 'rgba(33, 150, 243, 0.2)';
+                setTimeout(() => {
+                    statusBar.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                }, 1000);
+            });
+            
+            // Hide status bar after 5 seconds
+            setTimeout(() => {
+                const statusBar = document.getElementById('status');
+                statusBar.style.opacity = '0';
+                // Show again on hover
+                statusBar.addEventListener('mouseenter', () => {
+                    statusBar.style.opacity = '1';
+                });
+                statusBar.addEventListener('mouseleave', () => {
+                    statusBar.style.opacity = '0';
+                });
+            }, 5000);
+            
+            // Add header button handlers
+            document.getElementById('refreshBtn').addEventListener('click', function() {
+                window.location.reload();
+            });
+            
+            document.getElementById('infoBtn').addEventListener('click', function() {
+                alert('Indoor Navigation System\n\n' +
+                      '📍 - Calibrate your position\n' +
+                      '📡 - Connect to WiFi for beacon data\n' +
+                      '🔍 - Search for locations\n' +
+                      '🗑️ - Clear your movement trace\n\n' +
+                      'Tap the blue dot to center the map on your location.');
+            });
+            
+            // Fullscreen button handler
+            document.getElementById('fullscreenBtn').addEventListener('click', function() {
+                const mapElement = document.getElementById('map');
+                
+                if (!document.fullscreenElement) {
+                    // Enter fullscreen
+                    if (mapElement.requestFullscreen) {
+                        mapElement.requestFullscreen();
+                    } else if (mapElement.webkitRequestFullscreen) {
+                        mapElement.webkitRequestFullscreen();
+                    } else if (mapElement.msRequestFullscreen) {
+                        mapElement.msRequestFullscreen();
+                    }
+                    document.getElementById('fullscreenBtn').textContent = '⛶';
+                } else {
+                    // Exit fullscreen
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    document.getElementById('fullscreenBtn').textContent = '⛶';
+                }
+            });
+            
+            // Handle fullscreen changes
+            document.addEventListener('fullscreenchange', updateFullscreenButton);
+            document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+            document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+            document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+            
+            function updateFullscreenButton() {
+                if (document.fullscreenElement) {
+                    document.getElementById('fullscreenBtn').textContent = '⛫';
+                } else {
+                    document.getElementById('fullscreenBtn').textContent = '⛶';
+                }
+            }
+        });
+        
+        function startScanning(hotspotName) {
+            // Send hotspot name to server
+            fetch('/set_hotspot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ hotspot_name: hotspotName }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').textContent = data.message;
+                document.getElementById('status').style.opacity = '1';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').textContent = 'Error connecting to WiFi';
+                document.getElementById('status').style.opacity = '1';
+            });
+        }
+    </script>
+</body>
+</html>
