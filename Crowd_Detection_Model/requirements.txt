@@ -1,0 +1,6 @@
+tensorflow>=2.13.0
+tensorflow-hub>=0.14.0
+numpy>=1.23.0
+h5py>=3.8.0
+pillow>=9.5.0
+matplotlib>=3.7.0
