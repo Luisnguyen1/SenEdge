@@ -1,11 +1,11 @@
 flask==2.3.3
 pymongo==4.6.0
 python-dotenv==1.0.0
-numpy<2.0.0
-torch==2.0.1
-huggingface_hub==0.16.4
-transformers==4.30.2
-sentence-transformers==2.2.2
+numpy<2
+torch
+huggingface_hub
+transformers
+sentence-transformers
 google-generativeai==0.3.1
 nltk
 scikit-learn

@@ -14,11 +14,11 @@
 #include "person_detect_model_data.h"
 
 // WiFi credentials - replace with your own
-const char* ssid = "Phuong Uyen";
-const char* password = "manh123@123";
+const char* ssid = "manh";
+const char* password = "123456654321";
 
 // API endpoint for sending the image
-const char* apiEndpoint = "http://192.168.1.188:7860/api/camera-image";
+const char* apiEndpoint = "http://192.168.255.22:7860/api/camera-image";
 
 // Device identifier
 const char* deviceId = "ESP32CAM-1";
@@ -155,8 +155,8 @@ void loop() {
   }
   
   // Wait 5 seconds before taking the next photo
-  Serial.println("Waiting 5 seconds for next photo...");
-  delay(5000);
+  Serial.println("Waiting 10 seconds for next photo...");
+  delay(10000);
 }
 
 bool initCamera() {

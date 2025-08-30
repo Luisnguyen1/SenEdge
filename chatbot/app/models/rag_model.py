@@ -7,12 +7,17 @@ from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
 import torch
 import google.generativeai as genai
+from datetime import datetime
 
 
 FULL_MODEL_AVAILABLE = True
 
 class RAGChatbot:
     def __init__(self):
+        # Thêm conversation history
+        self.conversation_history = []
+        self.max_history_length = 3  # Số lượng tin nhắn tối đa được lưu
+        
         # MongoDB connection
         self.mongodb_uri = os.getenv('MONGODB_URI', 'mongodb+srv://admin:vanmanh@sudo-code-nhom1.dmiub.mongodb.net/?retryWrites=true&w=majority&appName=Sudo-code-nhom1')
         try:
@@ -38,7 +43,7 @@ class RAGChatbot:
                 if self.gemini_api_key:
                     genai.configure(api_key=self.gemini_api_key)
                     # Sử dụng phiên bản Gemini mới
-                    self.generation_model = genai.GenerativeModel('gemini-1.5-pro')
+                    self.generation_model = genai.GenerativeModel('gemini-2.0-flash')
                     print("Gemini model initialized")
                 else:
                     print("WARNING: GEMINI_API_KEY not found in environment variables")
@@ -65,6 +70,73 @@ class RAGChatbot:
             print(f"Embedding error: {e}")
             return None
     
+    def _summarize_content(self, content, is_query=True):
+        """
+        Sử dụng LLM để tóm tắt nội dung trước khi lưu vào history
+        """
+        if not hasattr(self, 'generation_model') or self.generation_model is None:
+            return content
+            
+        try:
+            if is_query:
+                prompt = f"""
+Hãy tóm tắt câu hỏi sau của người dùng thành một câu ngắn gọn, súc tích nhưng vẫn giữ được ý chính và các từ khóa quan trọng. 
+Chỉ trả về câu tóm tắt, không cần giải thích.
+
+Câu hỏi cần tóm tắt: {content}
+
+Tóm tắt:
+"""
+            else:
+                prompt = f"""
+Hãy tóm tắt câu trả lời sau thành 1-2 câu ngắn gọn, súc tích, giữ lại những thông tin quan trọng nhất.
+Chỉ trả về câu tóm tắt, không cần giải thích.
+
+Nội dung cần tóm tắt: {content}
+
+Tóm tắt:
+"""
+            
+            response = self.generation_model.generate_content(prompt)
+            if hasattr(response, 'text'):
+                return response.text.strip()
+            elif hasattr(response, 'parts'):
+                return response.parts[0].text.strip()
+            else:
+                return str(response).strip()
+                
+        except Exception as e:
+            print(f"Error summarizing content: {e}")
+            return content
+
+    def _add_to_history(self, role, content):
+        """Add a message to conversation history with summarization"""
+        # Tóm tắt nội dung trước khi lưu
+        is_query = (role == "user")
+        summarized_content = self._summarize_content(content, is_query)
+        
+        self.conversation_history.append({
+            "role": role,
+            "content": summarized_content,
+            "timestamp": datetime.now().isoformat(),
+            "full_content": content  # Lưu cả nội dung gốc
+        })
+        
+        # Giữ history trong giới hạn
+        if len(self.conversation_history) > self.max_history_length:
+            self.conversation_history.pop(0)
+
+    def _get_conversation_context(self):
+        """Format conversation history into a context string"""
+        if not self.conversation_history:
+            return ""
+            
+        context = "\nLịch sử hội thoại gần đây:\n"
+        for msg in self.conversation_history:
+            role = "Người dùng" if msg["role"] == "user" else "Trợ lý"
+            context += f"{role}: {msg['content']}\n"
+        return context
+
     def _calculate_cosine_similarity(self, vec1, vec2):
         """Calculate cosine similarity between two vectors"""
         if not vec1 or not vec2:
@@ -111,8 +183,7 @@ class RAGChatbot:
             
             # Sắp xếp kết quả theo similarity giảm dần
             results.sort(key=lambda x: x["similarity"], reverse=True)
-            
-            # Giới hạn số lượng kết quả
+              # Giới hạn số lượng kết quả
             return results[:limit]
         except Exception as e:
             print(f"Vector search error: {e}")
@@ -124,7 +195,12 @@ class RAGChatbot:
             return []
         
         try:
-            documents = list(self.documents_collection.find({"product_id": {"$in": product_ids}}))
+            # Lấy tất cả các trường quan trọng từ documents
+            documents = list(self.documents_collection.find(
+                {"product_id": {"$in": product_ids}},
+                {"text": 1, "product_id": 1, "metadata": 1, "_id": 0}
+            ))
+            print(f"Raw documents from MongoDB: {json.dumps(documents, indent=2, ensure_ascii=False)}")
             return documents
         except Exception as e:
             print(f"Error retrieving documents: {e}")
@@ -135,34 +211,98 @@ class RAGChatbot:
         if not documents:
             return "Không tìm thấy thông tin liên quan."
             
-        context = "Thông tin sản phẩm liên quan:\n\n"
+        context = ""
         
-        for i, doc in enumerate(documents):
-            context += f"--- Sản phẩm {i+1} ---\n"
-            context += doc.get("text", "Không có thông tin") + "\n\n"
+        for doc in documents:
+            if not doc.get("text"):
+                continue
+                
+            text = doc["text"]
             
+            # Tìm các thông tin cơ bản
+            name = ""
+            price = ""
+            specs = {}
+            description = ""
+            
+            lines = text.split('\n')
+            in_description = False
+            
+            for line in lines:
+                line = line.strip()
+                if line.startswith("Tên sản phẩm:"):
+                    name = line.split(":", 1)[1].strip()
+                elif line.startswith("price:"):
+                    price = line.split(":", 1)[1].strip()
+                elif "Thông số kỹ thuật:" in line:
+                    # Lấy 4-5 thông số quan trọng nhất
+                    important_specs = ["Công suất", "Sải cánh", "Tốc độ gió", "Bảo hành"]
+                    for spec in important_specs:
+                        for l in lines:
+                            if spec in l and ":" in l:
+                                key, value = l.split(":", 1)
+                                specs[key.strip("- ")] = value.strip()
+                                break
+                elif "Mô tả sản phẩm:" in line or "Giới thiệu:" in line:
+                    in_description = True
+                elif in_description and line and not any(x in line for x in ["---", "Thông tin bổ sung:", "Thông số kỹ thuật:"]):
+                    description += line + " "
+            
+            # Format ngắn gọn
+            context += f"{name}"
+            if price:
+                context += f" - Giá: {price}"
+            context += "\n"
+            
+            if specs:
+                context += "Thông số: "
+                context += ", ".join([f"{k}: {v}" for k, v in specs.items()])
+                context += "\n"
+            
+            # Thêm mô tả ngắn gọn (2-3 câu đầu tiên)
+            if description:
+                sentences = description.split('.')
+                short_desc = '.'.join(sentences[:3]) + '.'
+                context += f"Mô tả: {short_desc}\n"
+            
+            context += "---\n"
+        
         return context
     
     def generate_response(self, query, context):
         """Generate a response using Gemini based on the query and context"""
+        print("Nội dung context:", context)
         if not hasattr(self, 'generation_model') or self.generation_model is None:
             return f"Gemini LLM không khả dụng. Câu hỏi: '{query}'. Đây là thông tin tìm được: {context}"
             
         try:
+            # Thêm conversation history vào prompt
+            conversation_context = self._get_conversation_context()
+            
             # Create prompt for Gemini with context
             prompt = f"""
-Bạn là một trợ lý hỗ trợ thông tin sản phẩm thông minh. Hãy trả lời câu hỏi dưới đây dựa trên thông tin sản phẩm được cung cấp. 
-Nếu không có thông tin đầy đủ, hãy nói rằng bạn không có đủ thông tin và đề xuất người dùng cung cấp thêm chi tiết.
+Bạn là một trợ lý AI chuyên nghiệp, thân thiện và hiểu biết sâu về các sản phẩm điện máy. Nhiệm vụ của bạn là trả lời câu hỏi của người dùng dựa trên thông tin sản phẩm dưới đây.
 
-Trả lời bằng tiếng Việt, thân thiện và đầy đủ.
+Hãy thực hiện các bước sau:
+1. Phân tích rõ câu hỏi của người dùng để hiểu đúng nhu cầu (ví dụ: tính năng, công suất, độ bền, giá trị sử dụng...).
+2. Tìm và chọn lọc những chi tiết liên quan trong phần thông số kỹ thuật và mô tả sản phẩm.
+3. Trả lời một cách tự nhiên, dễ hiểu, chuyên nghiệp và đầy đủ, giúp người dùng dễ dàng ra quyết định mua hàng.
+4. Nếu thông tin chưa đủ để trả lời chính xác, hãy lịch sự thông báo điều đó và đề xuất người dùng cung cấp thêm chi tiết cụ thể hơn.
 
-THÔNG TIN SẢN PHẨM:
+Lưu ý:
+- Ưu tiên trình bày các lợi ích nổi bật, ưu điểm thực tế của sản phẩm.
+- Dùng văn phong thân thiện nhưng vẫn giữ sự chuyên nghiệp.
+- Trả lời bằng tiếng Việt.
+
+Thông tin sản phẩm phù hợp với người dùng đã tìm được trong database:
 {context}
 
-CÂU HỎI: {query}
+Câu hỏi của người dùng:
+{query}
 
-TRẢ LỜI:
+Trả lời:
 """
+
             response = self.generation_model.generate_content(prompt)
             
             # Xử lý các định dạng phản hồi khác nhau tùy thuộc vào phiên bản API
@@ -188,12 +328,21 @@ TRẢ LỜI:
         """
         # Basic fallback response if model or MongoDB is not available
         if not FULL_MODEL_AVAILABLE or not hasattr(self, 'model_initialized') or not self.model_initialized:
-            return f"Xin chào! Tôi hiện đang chạy ở chế độ cơ bản vì các thành phần RAG chưa được cài đặt đầy đủ. Câu hỏi của bạn là: '{query}'."
+            response = f"Xin chào! Tôi hiện đang chạy ở chế độ cơ bản vì các thành phần RAG chưa được cài đặt đầy đủ. Câu hỏi của bạn là: '{query}'."
+            self._add_to_history("user", query)
+            self._add_to_history("assistant", response)
+            return response
             
         if not hasattr(self, 'mongo_connected') or not self.mongo_connected:
-            return f"Tôi không thể kết nối với cơ sở dữ liệu MongoDB. Vui lòng kiểm tra kết nối của bạn. Câu hỏi của bạn là: '{query}'."
+            response = f"Tôi không thể kết nối với cơ sở dữ liệu MongoDB. Vui lòng kiểm tra kết nối của bạn. Câu hỏi của bạn là: '{query}'."
+            self._add_to_history("user", query)
+            self._add_to_history("assistant", response)
+            return response
         
         try:
+            # Lưu câu hỏi vào history
+            self._add_to_history("user", query)
+            
             # Step 1: Embed the query
             print(f"Embedding query: {query}")
             query_embedding = self._embed_text(query)
@@ -209,13 +358,16 @@ TRẢ LỜI:
             product_ids = [result["product_id"] for result in search_results]
             print(f"Retrieving details for products: {product_ids}")
             documents = self.get_document_details(product_ids)
-            
+            print(f"Retrieved documents: {documents}")
             # Step 4: Format context for Gemini
             context = self.format_context(documents)
             
             # Step 5: Generate response with Gemini
             print("Generating response with Gemini...")
             response = self.generate_response(query, context)
+            
+            # Lưu câu trả lời vào history
+            self._add_to_history("assistant", response)
             
             return response
         except Exception as e:

@@ -41,24 +41,102 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    height: 100vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-.chat-container {
+
+/* Main layout: sidebar + chat */
+.main-layout {
     width: 90%;
-    max-width: 800px;
+    max-width: 1100px;
     height: 80vh;
-    background-color: var(--chat-bg);
-    border-radius: 12px;
-    box-shadow: 0 5px 15px var(--shadow-color);
+    background: var(--chat-bg);
+    border-radius: 16px;
+    box-shadow: 0 5px 24px var(--shadow-color);
+    display: flex;
+    overflow: hidden;
+    margin: auto;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 320px;
+    min-width: 220px;
+    max-width: 340px;
+    background: var(--background-color);
+    border-right: 1.5px solid var(--border-color);
     display: flex;
     flex-direction: column;
+    transition: width 0.3s, min-width 0.3s, max-width 0.3s, left 0.3s;
+    z-index: 2;
+}
+.sidebar.closed {
+    width: 0;
+    min-width: 0;
+    max-width: 0;
     overflow: hidden;
-    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+    border-right: none;
+}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 18px 12px 18px;
+    font-weight: 500;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+#sidebar-toggle {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+#sidebar-toggle:hover {
+    background: var(--hover-color);
+}
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 0 10px 0;
+    list-style: none;
+}
+.chat-history li {
+    padding: 12px 24px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: background 0.2s;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.chat-history li:hover, .chat-history li.active {
+    background: var(--hover-color);
+    color: var(--primary-color);
+}
+
+/* Chat area styles */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--chat-bg);
+    transition: background 0.3s;
 }
 
 .chat-header {
@@ -178,14 +256,9 @@ body {
     align-items: center;
     background-color: var(--input-bg);
     border-radius: 24px;
-    border: 1px solid var(--border-color);
+    border: none;
     padding: 8px 16px;
     transition: border-color 0.3s;
-}
-
-.input-wrapper:focus-within {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(85, 132, 231, 0.2);
 }
 
 textarea {
@@ -300,14 +373,48 @@ textarea::placeholder {
 }
 
 /* Responsive design */
-@media (max-width: 600px) {
-    .chat-container {
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
         width: 100%;
         height: 100vh;
         border-radius: 0;
     }
-    
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 10;
+        box-shadow: 2px 0 8px var(--shadow-color);
+    }
+    .sidebar.closed {
+        left: -340px;
+    }
+    .chat-area {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-layout {
+        flex-direction: column;
+        width: 100vw;
+        height: 60vh;
+        border-radius: 0;
+    }
+    .sidebar {
+        width: 80vw;
+        min-width: 0;
+        max-width: 100vw;
+    }
+    .sidebar.closed {
+        left: -100vw;
+    }
+    .chat-area {
+        width: 100vw;
+    }
     .message {
-        max-width: 90%;
+        max-width: 95%;
     }
 }

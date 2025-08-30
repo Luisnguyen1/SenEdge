@@ -4,11 +4,11 @@
 #include <math.h>
 
 // WiFi credentials for your local network
-const char* ssid = "Phuong Uyen";      // Change to your WiFi SSID
-const char* password = "manh123@123";  // Change to your WiFi password
+const char* ssid = "5TL";      // Change to your WiFi SSID
+const char* password = "21161cl4";  // Change to your WiFi password
 
 // Server settings
-const char* serverUrl = "http://192.168.1.188:5000";  // Change to your server IP
+const char* serverUrl = "http://192.168.1.12:5000";  // Change to your server IP
 
 // ESP identifier - change this for each beacon
 const char* beaconId = "beacon2";  // Change to "beacon1", "beacon2", "beacon3", etc.
