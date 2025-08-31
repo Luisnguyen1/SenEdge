@@ -89,6 +89,7 @@ def upload_data_to_mongodb():
                     document = {
                         "text": product_text,
                         "product_id": product_id,
+                        "image_urls": product.get('image_urls', []),  # Lưu image_urls riêng biệt
                         "metadata": {
                             **product,  # Lưu toàn bộ dữ liệu gốc của sản phẩm vào metadata
                             "source": "product_data",

@@ -93,21 +93,42 @@ def chat():
         customized_query = customize_prompt(query, style, length, language)
         
         # Get response from RAG model
-        response = rag.get_response(customized_query)
+        response_data = rag.get_response(customized_query)
+        
+        # Handle both old format (string) and new format (dict)
+        if isinstance(response_data, dict):
+            response = response_data.get("response", "")
+            navigation = response_data.get("navigation")
+            product_images = response_data.get("product_images", [])
+        else:
+            # Backward compatibility - old format returns string
+            response = response_data
+            navigation = None
+            product_images = []
         
         processing_time = time.time() - start_time
         
         # Generate quick replies based on response
         quick_replies = generate_quick_replies(response, language)
         
-        return jsonify({
+        result = {
             "query": query,
             "response": response,
             "success": True,
             "processing_time_ms": round(processing_time * 1000),
             "quick_replies": quick_replies,
             "files_processed": len(files)
-        })
+        }
+        
+        # Add navigation info if available
+        if navigation:
+            result["navigation"] = navigation
+            
+        # Add product images if available
+        if product_images:
+            result["product_images"] = product_images
+        
+        return jsonify(result)
         
     except Exception as e:
         print(f"Error in chat endpoint: {str(e)}")

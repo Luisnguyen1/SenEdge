@@ -360,11 +360,16 @@ document.addEventListener('DOMContentLoaded', function() {
             hideTypingIndicator();
             
             if (data.success) {
-                addMessage({
+                // Add bot response with product images if available
+                const messageData = {
                     text: data.response,
                     sender: 'bot',
-                    timestamp: new Date()
-                });
+                    timestamp: new Date(),
+                    navigation: data.navigation, // Add navigation data
+                    product_images: data.product_images || [] // Add product images
+                };
+                
+                addMessage(messageData);
                 
                 // Show quick replies if available
                 if (data.quick_replies) {
@@ -392,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function addMessage(messageData) {
-        const { text, sender, files = [], timestamp = new Date(), error = false } = messageData;
+        const { text, sender, files = [], timestamp = new Date(), error = false, navigation = null, product_images = [] } = messageData;
         
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${sender}-message`;
@@ -430,6 +435,83 @@ document.addEventListener('DOMContentLoaded', function() {
         
         messageContent.appendChild(messageText);
         
+        // Add product images if available (only for bot messages)
+        if (sender === 'bot' && product_images && product_images.length > 0) {
+            const productImagesDiv = document.createElement('div');
+            productImagesDiv.className = 'product-images';
+            productImagesDiv.innerHTML = '<h4>Sản phẩm liên quan:</h4>';
+            
+            const imagesGrid = document.createElement('div');
+            imagesGrid.className = 'images-grid';
+            
+            product_images.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                // Add click functionality if product_url exists
+                const hasUrl = product.product_url && product.product_url.trim() !== '';
+                if (hasUrl) {
+                    productCard.style.cursor = 'pointer';
+                    productCard.setAttribute('data-product-url', product.product_url);
+                    productCard.setAttribute('title', 'Click để xem chi tiết sản phẩm');
+                }
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image_url}" alt="${product.name}" loading="lazy" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;">
+                            <i class="fas fa-image"></i>
+                            <span>Không thể tải ảnh</span>
+                        </div>
+                        ${hasUrl ? '<div class="product-overlay"><i class="fas fa-external-link-alt"></i></div>' : ''}
+                    </div>
+                    <div class="product-info">
+                        <h5 class="product-name">${product.name}</h5>
+                        <p class="product-price">${product.price}</p>
+                    </div>
+                `;
+                
+                // Add click event listener
+                if (hasUrl) {
+                    productCard.addEventListener('click', () => {
+                        handleProductClick(product.product_url, product.name);
+                    });
+                }
+                
+                imagesGrid.appendChild(productCard);
+            });
+            
+            productImagesDiv.appendChild(imagesGrid);
+            messageContent.appendChild(productImagesDiv);
+        }
+        
+        // Add navigation suggestion if available (only for bot messages)
+        if (sender === 'bot' && navigation) {
+            const navigationDiv = document.createElement('div');
+            navigationDiv.className = 'navigation-suggestion';
+            navigationDiv.innerHTML = `
+                <div class="navigation-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Dẫn đường đến sản phẩm</span>
+                </div>
+                <div class="navigation-content">
+                    <div class="navigation-info">
+                        <strong>Kệ ${navigation.shelf_id}</strong> - ${navigation.category}
+                        <br>
+                        <span class="navigation-products">${navigation.products.join(', ')}</span>
+                        <br>
+                        <small class="navigation-position">Vị trí: ${navigation.position}</small>
+                    </div>
+                    <button class="navigation-btn" onclick="window.open('${navigation.navigation_url}', '_blank')">
+                        <i class="fas fa-route"></i>
+                        Dẫn đường
+                    </button>
+                </div>
+            `;
+            messageContent.appendChild(navigationDiv);
+        }
+        
         const messageTime = document.createElement('div');
         messageTime.className = 'message-time';
         messageTime.textContent = formatTime(timestamp);
@@ -452,12 +534,51 @@ document.addEventListener('DOMContentLoaded', function() {
         isTyping = true;
         typingIndicator.style.display = 'flex';
         updateAIStatus('typing');
+        
+        // Add typing bubble to chat
+        addTypingBubble();
     }
     
     function hideTypingIndicator() {
         isTyping = false;
         typingIndicator.style.display = 'none';
         updateAIStatus('online');
+        
+        // Remove typing bubble from chat
+        removeTypingBubble();
+    }
+    
+    function addTypingBubble() {
+        // Remove existing typing bubble if any
+        removeTypingBubble();
+        
+        const typingBubble = document.createElement('div');
+        typingBubble.className = 'message bot-message typing-bubble';
+        typingBubble.id = 'typing-bubble';
+        
+        const messageContent = document.createElement('div');
+        messageContent.className = 'message-content';
+        
+        const typingAnimation = document.createElement('div');
+        typingAnimation.className = 'typing-animation';
+        typingAnimation.innerHTML = `
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        `;
+        
+        messageContent.appendChild(typingAnimation);
+        typingBubble.appendChild(messageContent);
+        
+        chatMessages.appendChild(typingBubble);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function removeTypingBubble() {
+        const existingBubble = document.getElementById('typing-bubble');
+        if (existingBubble) {
+            existingBubble.remove();
+        }
     }
     
     function showQuickReplies(replies) {
@@ -993,11 +1114,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
-            const messages = Array.from(chatMessages.children).map(msg => ({
-                sender: msg.classList.contains('user-message') ? 'user' : 'bot',
-                text: msg.querySelector('.message-text')?.textContent || '',
-                timestamp: msg.querySelector('.message-time')?.textContent || new Date().toLocaleTimeString()
-            }));
+            const messages = Array.from(chatMessages.children).map(msg => {
+                const messageData = {
+                    sender: msg.classList.contains('user-message') ? 'user' : 'bot',
+                    text: msg.querySelector('.message-text')?.textContent || '',
+                    timestamp: msg.querySelector('.message-time')?.textContent || new Date().toLocaleTimeString()
+                };
+                
+                // Extract product images if available
+                const productImagesDiv = msg.querySelector('.product-images');
+                if (productImagesDiv) {
+                    const productCards = productImagesDiv.querySelectorAll('.product-card');
+                    const product_images = Array.from(productCards).map(card => {
+                        const img = card.querySelector('.product-image img');
+                        const name = card.querySelector('.product-name')?.textContent || '';
+                        const price = card.querySelector('.product-price')?.textContent || '';
+                        const product_url = card.getAttribute('data-product-url') || '';
+                        return {
+                            name: name,
+                            price: price,
+                            image_url: img ? img.src : '',
+                            product_url: product_url
+                        };
+                    });
+                    if (product_images.length > 0) {
+                        messageData.product_images = product_images;
+                    }
+                }
+                
+                return messageData;
+            });
             
             let sessions = [];
             try {
@@ -1079,7 +1225,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     addMessage({
                         text: msg.text,
                         sender: msg.sender,
-                        timestamp: new Date()
+                        timestamp: new Date(),
+                        product_images: msg.product_images || []
                     });
                 });
             } else {
@@ -1175,6 +1322,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 hideModal(helpModal);
             }
         });
+    }
+    
+    // Function to handle product click
+    function handleProductClick(productUrl, productName) {
+        try {
+            // Validate URL
+            if (!productUrl || productUrl.trim() === '') {
+                showToast('Không có liên kết sản phẩm', 'warning');
+                return;
+            }
+            
+            // Ensure URL has protocol
+            let url = productUrl.trim();
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            
+            // Show confirmation toast
+            showToast(`Đang mở trang sản phẩm: ${productName}`, 'info');
+            
+            // Open in new tab
+            window.open(url, '_blank', 'noopener,noreferrer');
+            
+        } catch (error) {
+            console.error('Error opening product URL:', error);
+            showToast('Không thể mở liên kết sản phẩm', 'error');
+        }
     }
     
     // Global functions for HTML onclick events
