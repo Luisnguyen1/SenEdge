@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="uc.module.setup.componentSetup.com.silabs.ss.framework.project.toolchain.core.default#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:12.2.1.20221205.gcc" propertyScope="project">
+  <folder name="aiml_2.1.1">
+    <folder name="src">
+      <folder name="drivers">
+        <folder name="arducam">
+          <file name="sl_ml_arducam.c" uri="studio:/sdk/extension/aiml-extension/src/drivers/arducam/sl_ml_arducam.c"/>
+          <file name="sl_ml_arducam_m_2mp_driver.c" uri="studio:/sdk/extension/aiml-extension/src/drivers/arducam/sl_ml_arducam_m_2mp_driver.c"/>
+          <file name="sl_ml_ov2640.c" uri="studio:/sdk/extension/aiml-extension/src/drivers/arducam/sl_ml_ov2640.c"/>
+        </folder>
+      </folder>
+      <folder name="utils">
+        <folder name="jlink_stream">
+          <file name="sl_ml_jlink_stream.cc" uri="studio:/sdk/extension/aiml-extension/src/utils/jlink_stream/sl_ml_jlink_stream.cc"/>
+          <file name="sl_ml_jlink_stream_internal.cc" uri="studio:/sdk/extension/aiml-extension/src/utils/jlink_stream/sl_ml_jlink_stream_internal.cc"/>
+        </folder>
+      </folder>
+      <file name="sl_ml_image_feature_generation.cc" uri="studio:/sdk/extension/aiml-extension/src/sl_ml_image_feature_generation.cc"/>
+      <file name="sl_ml_image_feature_generation_init.cc" uri="studio:/sdk/extension/aiml-extension/src/sl_ml_image_feature_generation_init.cc"/>
+      <file name="sl_tflite_micro_init.cc" uri="studio:/sdk/extension/aiml-extension/src/sl_tflite_micro_init.cc"/>
+    </folder>
+    <folder name="inc">
+      <folder name="drivers">
+        <folder name="arducam">
+          <file name="sl_ml_arducam.h" uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam/sl_ml_arducam.h"/>
+          <file name="sl_ml_arducam_types.h" uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam/sl_ml_arducam_types.h"/>
+          <file name="sl_ml_arducam_config.h" uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam/sl_ml_arducam_config.h"/>
+          <file name="sl_ml_arducam_m_2mp_driver.h" uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam/sl_ml_arducam_m_2mp_driver.h"/>
+          <file name="sl_ml_ov2640.h" uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam/sl_ml_ov2640.h"/>
+          <file name="sl_ml_ov2640_regs.h" uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam/sl_ml_ov2640_regs.h"/>
+        </folder>
+      </folder>
+      <folder name="utils">
+        <folder name="jlink_stream">
+          <file name="sl_ml_jlink_stream.hpp" uri="studio:/sdk/extension/aiml-extension/inc/utils/jlink_stream/sl_ml_jlink_stream.hpp"/>
+          <file name="sl_ml_jlink_stream_interface.hpp" uri="studio:/sdk/extension/aiml-extension/inc/utils/jlink_stream/sl_ml_jlink_stream_interface.hpp"/>
+          <file name="sl_ml_jlink_stream_internal.hpp" uri="studio:/sdk/extension/aiml-extension/inc/utils/jlink_stream/sl_ml_jlink_stream_internal.hpp"/>
+        </folder>
+      </folder>
+      <file name="sl_ml_image_feature_generation.h" uri="studio:/sdk/extension/aiml-extension/inc/sl_ml_image_feature_generation.h"/>
+      <file name="sl_tflite_micro_init.h" uri="studio:/sdk/extension/aiml-extension/inc/sl_tflite_micro_init.h"/>
+      <file name="sl_tflite_micro_debug_log.h" uri="studio:/sdk/extension/aiml-extension/inc/sl_tflite_micro_debug_log.h"/>
+    </folder>
+    <folder name="siliconlabs">
+      <file name="debug_log.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/debug_log.cc"/>
+      <file name="add.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/add.cc"/>
+      <file name="conv.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/conv.cc"/>
+      <file name="depthwise_conv.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/depthwise_conv.cc"/>
+      <file name="fully_connected.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/fully_connected.cc"/>
+      <file name="mul.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/mul.cc"/>
+      <file name="pooling.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/pooling.cc"/>
+      <file name="transpose_conv.cc" uri="studio:/sdk/extension/aiml-extension/siliconlabs/transpose_conv.cc"/>
+    </folder>
+    <folder name="flatbuffers">
+      <folder name="include">
+        <folder name="flatbuffers">
+          <file name="allocator.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/allocator.h"/>
+          <file name="array.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/array.h"/>
+          <file name="base.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/base.h"/>
+          <file name="buffer.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/buffer.h"/>
+          <file name="buffer_ref.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/buffer_ref.h"/>
+          <file name="default_allocator.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/default_allocator.h"/>
+          <file name="detached_buffer.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/detached_buffer.h"/>
+          <file name="flatbuffer_builder.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/flatbuffer_builder.h"/>
+          <file name="flatbuffers.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/flatbuffers.h"/>
+          <file name="flexbuffers.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/flexbuffers.h"/>
+          <file name="stl_emulation.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/stl_emulation.h"/>
+          <file name="string.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/string.h"/>
+          <file name="struct.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/struct.h"/>
+          <file name="table.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/table.h"/>
+          <file name="util.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/util.h"/>
+          <file name="vector.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/vector.h"/>
+          <file name="vector_downward.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/vector_downward.h"/>
+          <file name="verifier.h" uri="studio:/sdk/extension/aiml-extension/flatbuffers/include/flatbuffers/verifier.h"/>
+        </folder>
+      </folder>
+    </folder>
+    <folder name="gemmlowp">
+      <folder name="fixedpoint">
+        <file name="fixedpoint.h" uri="studio:/sdk/extension/aiml-extension/gemmlowp/fixedpoint/fixedpoint.h"/>
+        <file name="fixedpoint_neon.h" uri="studio:/sdk/extension/aiml-extension/gemmlowp/fixedpoint/fixedpoint_neon.h"/>
+        <file name="fixedpoint_sse.h" uri="studio:/sdk/extension/aiml-extension/gemmlowp/fixedpoint/fixedpoint_sse.h"/>
+      </folder>
+      <folder name="internal">
+        <file name="detect_platform.h" uri="studio:/sdk/extension/aiml-extension/gemmlowp/internal/detect_platform.h"/>
+      </folder>
+    </folder>
+    <folder name="ruy">
+      <folder name="ruy">
+        <folder name="profiler">
+          <file name="instrumentation.h" uri="studio:/sdk/extension/aiml-extension/ruy/ruy/profiler/instrumentation.h"/>
+        </folder>
+      </folder>
+    </folder>
+    <folder name="third_party">
+      <folder name="tflite-micro">
+        <folder name="tensorflow">
+          <folder name="lite">
+            <folder name="c">
+              <file name="builtin_op_data.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/c/builtin_op_data.h"/>
+              <file name="c_api_types.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/c/c_api_types.h"/>
+              <file name="common.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/c/common.h"/>
+            </folder>
+            <folder name="core">
+              <folder name="api">
+                <file name="error_reporter.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/api/error_reporter.h"/>
+                <file name="flatbuffer_conversions.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h"/>
+                <file name="op_resolver.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/api/op_resolver.h"/>
+                <file name="tensor_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/api/tensor_utils.h"/>
+              </folder>
+              <folder name="c">
+                <file name="builtin_op_data.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/c/builtin_op_data.h"/>
+                <file name="c_api_types.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/c/c_api_types.h"/>
+                <file name="common.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/c/common.h"/>
+              </folder>
+              <file name="macros.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/core/macros.h"/>
+            </folder>
+            <folder name="kernels">
+              <folder name="internal">
+                <folder name="optimized">
+                  <file name="neon_check.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/optimized/neon_check.h"/>
+                </folder>
+                <folder name="reference">
+                  <folder name="integer_ops">
+                    <file name="add.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/add.h"/>
+                    <file name="conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/conv.h"/>
+                    <file name="depthwise_conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/depthwise_conv.h"/>
+                    <file name="fully_connected.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/fully_connected.h"/>
+                    <file name="l2normalization.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/l2normalization.h"/>
+                    <file name="logistic.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/logistic.h"/>
+                    <file name="mean.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/mean.h"/>
+                    <file name="mul.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/mul.h"/>
+                    <file name="pooling.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/pooling.h"/>
+                    <file name="tanh.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/tanh.h"/>
+                    <file name="transpose_conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/integer_ops/transpose_conv.h"/>
+                  </folder>
+                  <file name="add.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/add.h"/>
+                  <file name="add_n.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/add_n.h"/>
+                  <file name="arg_min_max.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/arg_min_max.h"/>
+                  <file name="batch_matmul.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/batch_matmul.h"/>
+                  <file name="batch_to_space_nd.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/batch_to_space_nd.h"/>
+                  <file name="binary_function.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/binary_function.h"/>
+                  <file name="broadcast_args.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/broadcast_args.h"/>
+                  <file name="broadcast_to.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/broadcast_to.h"/>
+                  <file name="ceil.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/ceil.h"/>
+                  <file name="comparisons.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/comparisons.h"/>
+                  <file name="concatenation.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/concatenation.h"/>
+                  <file name="conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/conv.h"/>
+                  <file name="cumsum.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/cumsum.h"/>
+                  <file name="depth_to_space.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/depth_to_space.h"/>
+                  <file name="depthwiseconv_float.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/depthwiseconv_float.h"/>
+                  <file name="depthwiseconv_uint8.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/depthwiseconv_uint8.h"/>
+                  <file name="dequantize.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/dequantize.h"/>
+                  <file name="div.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/div.h"/>
+                  <file name="elu.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/elu.h"/>
+                  <file name="exp.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/exp.h"/>
+                  <file name="fill.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/fill.h"/>
+                  <file name="floor.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/floor.h"/>
+                  <file name="floor_div.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/floor_div.h"/>
+                  <file name="floor_mod.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/floor_mod.h"/>
+                  <file name="fully_connected.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/fully_connected.h"/>
+                  <file name="hard_swish.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/hard_swish.h"/>
+                  <file name="l2normalization.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/l2normalization.h"/>
+                  <file name="leaky_relu.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/leaky_relu.h"/>
+                  <file name="log_softmax.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/log_softmax.h"/>
+                  <file name="logistic.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/logistic.h"/>
+                  <file name="lstm_cell.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/lstm_cell.h"/>
+                  <file name="maximum_minimum.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/maximum_minimum.h"/>
+                  <file name="mul.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h"/>
+                  <file name="neg.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/neg.h"/>
+                  <file name="pad.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/pad.h"/>
+                  <file name="pooling.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/pooling.h"/>
+                  <file name="portable_tensor_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/portable_tensor_utils.h"/>
+                  <file name="portable_tensor_utils_impl.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/portable_tensor_utils_impl.h"/>
+                  <file name="prelu.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/prelu.h"/>
+                  <file name="process_broadcast_shapes.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/process_broadcast_shapes.h"/>
+                  <file name="quantize.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/quantize.h"/>
+                  <file name="reduce.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/reduce.h"/>
+                  <file name="requantize.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/requantize.h"/>
+                  <file name="resize_bilinear.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/resize_bilinear.h"/>
+                  <file name="resize_nearest_neighbor.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/resize_nearest_neighbor.h"/>
+                  <file name="round.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/round.h"/>
+                  <file name="select.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/select.h"/>
+                  <file name="slice.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/slice.h"/>
+                  <file name="softmax.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/softmax.h"/>
+                  <file name="space_to_batch_nd.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/space_to_batch_nd.h"/>
+                  <file name="space_to_depth.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/space_to_depth.h"/>
+                  <file name="strided_slice.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/strided_slice.h"/>
+                  <file name="sub.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h"/>
+                  <file name="tanh.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/tanh.h"/>
+                  <file name="transpose.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/transpose.h"/>
+                  <file name="transpose_conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/reference/transpose_conv.h"/>
+                </folder>
+                <file name="common.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/common.h"/>
+                <file name="compatibility.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/compatibility.h"/>
+                <file name="cppmath.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/cppmath.h"/>
+                <file name="max.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/max.h"/>
+                <file name="min.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/min.h"/>
+                <file name="portable_tensor.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/portable_tensor.h"/>
+                <file name="portable_tensor_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/portable_tensor_utils.h"/>
+                <file name="quantization_util.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/quantization_util.h"/>
+                <file name="runtime_shape.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/runtime_shape.h"/>
+                <file name="strided_slice_logic.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/strided_slice_logic.h"/>
+                <file name="tensor_ctypes.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/tensor_ctypes.h"/>
+                <file name="types.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/internal/types.h"/>
+              </folder>
+              <file name="kernel_util.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/kernel_util.h"/>
+              <file name="op_macros.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/op_macros.h"/>
+              <file name="padding.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/kernels/padding.h"/>
+            </folder>
+            <folder name="micro">
+              <folder name="arena_allocator">
+                <file name="ibuffer_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/ibuffer_allocator.h"/>
+                <file name="non_persistent_arena_buffer_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/non_persistent_arena_buffer_allocator.h"/>
+                <file name="persistent_arena_buffer_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/persistent_arena_buffer_allocator.h"/>
+                <file name="recording_single_arena_buffer_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/recording_single_arena_buffer_allocator.h"/>
+                <file name="single_arena_buffer_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/arena_allocator/single_arena_buffer_allocator.h"/>
+              </folder>
+              <folder name="kernels">
+                <folder name="cmsis_nn">
+                  <file name="softmax.cc" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/cmsis_nn/softmax.cc"/>
+                  <file name="svdf.cc" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/cmsis_nn/svdf.cc"/>
+                  <file name="unidirectional_sequence_lstm.cc" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/cmsis_nn/unidirectional_sequence_lstm.cc"/>
+                </folder>
+                <file name="activation_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/activation_utils.h"/>
+                <file name="activations.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/activations.h"/>
+                <file name="add.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/add.h"/>
+                <file name="circular_buffer.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/circular_buffer.h"/>
+                <file name="circular_buffer_flexbuffers_generated_data.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/circular_buffer_flexbuffers_generated_data.h"/>
+                <file name="conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/conv.h"/>
+                <file name="conv_test.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/conv_test.h"/>
+                <file name="depthwise_conv.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/depthwise_conv.h"/>
+                <file name="dequantize.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/dequantize.h"/>
+                <file name="detection_postprocess_flexbuffers_generated_data.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/detection_postprocess_flexbuffers_generated_data.h"/>
+                <file name="ethosu.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/ethosu.h"/>
+                <file name="fully_connected.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/fully_connected.h"/>
+                <file name="hard_swish.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/hard_swish.h"/>
+                <file name="kernel_runner.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/kernel_runner.h"/>
+                <file name="kernel_util.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/kernel_util.h"/>
+                <file name="leaky_relu.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/leaky_relu.h"/>
+                <file name="logical.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/logical.h"/>
+                <file name="logistic.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/logistic.h"/>
+                <file name="lstm_eval.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/lstm_eval.h"/>
+                <file name="lstm_eval_test.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/lstm_eval_test.h"/>
+                <file name="lstm_shared.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/lstm_shared.h"/>
+                <file name="micro_ops.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/micro_ops.h"/>
+                <file name="micro_tensor_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/micro_tensor_utils.h"/>
+                <file name="mul.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/mul.h"/>
+                <file name="pad.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/pad.h"/>
+                <file name="pooling.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/pooling.h"/>
+                <file name="prelu.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/prelu.h"/>
+                <file name="quantize.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/quantize.h"/>
+                <file name="reduce.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/reduce.h"/>
+                <file name="softmax.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/softmax.h"/>
+                <file name="sub.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/sub.h"/>
+                <file name="svdf.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/svdf.h"/>
+                <file name="unidirectional_sequence_lstm.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/kernels/unidirectional_sequence_lstm.h"/>
+              </folder>
+              <folder name="memory_planner">
+                <file name="greedy_memory_planner.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/memory_planner/greedy_memory_planner.h"/>
+                <file name="linear_memory_planner.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/memory_planner/linear_memory_planner.h"/>
+                <file name="memory_plan_struct.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/memory_planner/memory_plan_struct.h"/>
+                <file name="micro_memory_planner.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/memory_planner/micro_memory_planner.h"/>
+                <file name="non_persistent_buffer_planner_shim.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/memory_planner/non_persistent_buffer_planner_shim.h"/>
+              </folder>
+              <folder name="tflite_bridge">
+                <file name="flatbuffer_conversions_bridge.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/tflite_bridge/flatbuffer_conversions_bridge.h"/>
+                <file name="micro_error_reporter.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/tflite_bridge/micro_error_reporter.h"/>
+              </folder>
+              <file name="compatibility.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/compatibility.h"/>
+              <file name="debug_log.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/debug_log.h"/>
+              <file name="fake_micro_context.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/fake_micro_context.h"/>
+              <file name="flatbuffer_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/flatbuffer_utils.h"/>
+              <file name="memory_helpers.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/memory_helpers.h"/>
+              <file name="micro_allocation_info.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_allocation_info.h"/>
+              <file name="micro_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_allocator.h"/>
+              <file name="micro_arena_constants.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_arena_constants.h"/>
+              <file name="micro_common.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_common.h"/>
+              <file name="micro_context.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_context.h"/>
+              <file name="micro_graph.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_graph.h"/>
+              <file name="micro_interpreter.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_interpreter.h"/>
+              <file name="micro_log.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_log.h"/>
+              <file name="micro_mutable_op_resolver.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h"/>
+              <file name="micro_op_resolver.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_op_resolver.h"/>
+              <file name="micro_profiler.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_profiler.h"/>
+              <file name="micro_profiler_interface.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_profiler_interface.h"/>
+              <file name="micro_resource_variable.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_resource_variable.h"/>
+              <file name="micro_string.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_string.h"/>
+              <file name="micro_time.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_time.h"/>
+              <file name="micro_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/micro_utils.h"/>
+              <file name="mock_micro_graph.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/mock_micro_graph.h"/>
+              <file name="recording_micro_allocator.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/recording_micro_allocator.h"/>
+              <file name="recording_micro_interpreter.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/recording_micro_interpreter.h"/>
+              <file name="system_setup.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/system_setup.h"/>
+              <file name="test_helper_custom_ops.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/test_helper_custom_ops.h"/>
+              <file name="test_helpers.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/micro/test_helpers.h"/>
+            </folder>
+            <folder name="schema">
+              <file name="schema_generated.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/schema/schema_generated.h"/>
+              <file name="schema_utils.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/schema/schema_utils.h"/>
+            </folder>
+            <file name="builtin_op_data.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/builtin_op_data.h"/>
+            <file name="builtin_ops.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/builtin_ops.h"/>
+            <file name="context_util.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/context_util.h"/>
+            <file name="portable_type_to_tflitetype.h" uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro/tensorflow/lite/portable_type_to_tflitetype.h"/>
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+    <folder name="lib">
+      <folder name="gcc">
+        <folder name="cortex-m33">
+          <file name="libtflm.a" uri="studio:/sdk/extension/aiml-extension/lib/gcc/cortex-m33/libtflm.a"/>
+        </folder>
+      </folder>
+    </folder>
+  </folder>
+  <folder name="simplicity_sdk_2025.6.1">
+    <folder name="platform">
+      <folder name="Device">
+        <folder name="SiliconLabs">
+          <folder name="EFR32MG26">
+            <folder name="Source">
+              <file name="startup_efr32mg26.c" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Source/startup_efr32mg26.c"/>
+              <file name="system_efr32mg26.c" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Source/system_efr32mg26.c"/>
+            </folder>
+            <folder name="Include">
+              <file name="efr32mg26b510f3200im68.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26b510f3200im68.h"/>
+              <file name="efr32mg26_acmp.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_acmp.h"/>
+              <file name="efr32mg26_aes.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_aes.h"/>
+              <file name="efr32mg26_amuxcp.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_amuxcp.h"/>
+              <file name="efr32mg26_buram.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_buram.h"/>
+              <file name="efr32mg26_burtc.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_burtc.h"/>
+              <file name="efr32mg26_cmu.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_cmu.h"/>
+              <file name="efr32mg26_dcdc.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_dcdc.h"/>
+              <file name="efr32mg26_devinfo.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_devinfo.h"/>
+              <file name="efr32mg26_dma_descriptor.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_dma_descriptor.h"/>
+              <file name="efr32mg26_dpll.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_dpll.h"/>
+              <file name="efr32mg26_emu.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_emu.h"/>
+              <file name="efr32mg26_eusart.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_eusart.h"/>
+              <file name="efr32mg26_fsrco.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_fsrco.h"/>
+              <file name="efr32mg26_gpcrc.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_gpcrc.h"/>
+              <file name="efr32mg26_gpio.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_gpio.h"/>
+              <file name="efr32mg26_gpio_port.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_gpio_port.h"/>
+              <file name="efr32mg26_hfrco.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_hfrco.h"/>
+              <file name="efr32mg26_hfxo.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_hfxo.h"/>
+              <file name="efr32mg26_i2c.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_i2c.h"/>
+              <file name="efr32mg26_iadc.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_iadc.h"/>
+              <file name="efr32mg26_icache.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_icache.h"/>
+              <file name="efr32mg26_keyscan.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_keyscan.h"/>
+              <file name="efr32mg26_lcd.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_lcd.h"/>
+              <file name="efr32mg26_lcdrf.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_lcdrf.h"/>
+              <file name="efr32mg26_ldma.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_ldma.h"/>
+              <file name="efr32mg26_ldmaxbar.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_ldmaxbar.h"/>
+              <file name="efr32mg26_ldmaxbar_defines.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_ldmaxbar_defines.h"/>
+              <file name="efr32mg26_letimer.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_letimer.h"/>
+              <file name="efr32mg26_lfrco.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_lfrco.h"/>
+              <file name="efr32mg26_lfxo.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_lfxo.h"/>
+              <file name="efr32mg26_mailbox.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_mailbox.h"/>
+              <file name="efr32mg26_mpahbram.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_mpahbram.h"/>
+              <file name="efr32mg26_msc.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_msc.h"/>
+              <file name="efr32mg26_mvp.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_mvp.h"/>
+              <file name="efr32mg26_pcnt.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_pcnt.h"/>
+              <file name="efr32mg26_prs.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_prs.h"/>
+              <file name="efr32mg26_prs_signals.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_prs_signals.h"/>
+              <file name="efr32mg26_semailbox.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_semailbox.h"/>
+              <file name="efr32mg26_smu.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_smu.h"/>
+              <file name="efr32mg26_syscfg.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_syscfg.h"/>
+              <file name="efr32mg26_sysrtc.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_sysrtc.h"/>
+              <file name="efr32mg26_timer.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_timer.h"/>
+              <file name="efr32mg26_ulfrco.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_ulfrco.h"/>
+              <file name="efr32mg26_usart.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_usart.h"/>
+              <file name="efr32mg26_vdac.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_vdac.h"/>
+              <file name="efr32mg26_wdog.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/efr32mg26_wdog.h"/>
+              <file name="em_device.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/em_device.h"/>
+              <file name="system_efr32mg26.h" uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include/system_efr32mg26.h"/>
+            </folder>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="common">
+        <folder name="inc">
+          <file name="sl_atomic.h" uri="studio:/sdk/platform/common/inc/sl_atomic.h"/>
+          <file name="sl_bit.h" uri="studio:/sdk/platform/common/inc/sl_bit.h"/>
+          <file name="sl_code_classification.h" uri="studio:/sdk/platform/common/inc/sl_code_classification.h"/>
+          <file name="sli_code_classification.h" uri="studio:/sdk/platform/common/inc/sli_code_classification.h"/>
+          <file name="sl_enum.h" uri="studio:/sdk/platform/common/inc/sl_enum.h"/>
+          <file name="sl_assert.h" uri="studio:/sdk/platform/common/inc/sl_assert.h"/>
+          <file name="sl_common.h" uri="studio:/sdk/platform/common/inc/sl_common.h"/>
+          <file name="sl_compiler.h" uri="studio:/sdk/platform/common/inc/sl_compiler.h"/>
+          <file name="sl_core.h" uri="studio:/sdk/platform/common/inc/sl_core.h"/>
+          <file name="sl_string.h" uri="studio:/sdk/platform/common/inc/sl_string.h"/>
+          <file name="sl_slist.h" uri="studio:/sdk/platform/common/inc/sl_slist.h"/>
+          <file name="sl_status.h" uri="studio:/sdk/platform/common/inc/sl_status.h"/>
+        </folder>
+        <folder name="src">
+          <file name="sl_assert.c" uri="studio:/sdk/platform/common/src/sl_assert.c"/>
+          <file name="sl_core_cortexm.c" uri="studio:/sdk/platform/common/src/sl_core_cortexm.c"/>
+          <file name="sl_string.c" uri="studio:/sdk/platform/common/src/sl_string.c"/>
+          <file name="sl_syscalls.c" uri="studio:/sdk/platform/common/src/sl_syscalls.c"/>
+          <file name="sl_slist.c" uri="studio:/sdk/platform/common/src/sl_slist.c"/>
+        </folder>
+      </folder>
+      <folder name="service">
+        <folder name="clock_manager">
+          <folder name="src">
+            <file name="sl_clock_manager.c" uri="studio:/sdk/platform/service/clock_manager/src/sl_clock_manager.c"/>
+            <file name="sli_clock_manager_hal.h" uri="studio:/sdk/platform/service/clock_manager/src/sli_clock_manager_hal.h"/>
+            <file name="sl_clock_manager_hal_s2.c" uri="studio:/sdk/platform/service/clock_manager/src/sl_clock_manager_hal_s2.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_clock_manager.h" uri="studio:/sdk/platform/service/clock_manager/inc/sl_clock_manager.h"/>
+            <file name="sli_clock_manager.h" uri="studio:/sdk/platform/service/clock_manager/inc/sli_clock_manager.h"/>
+          </folder>
+        </folder>
+        <folder name="device_manager">
+          <folder name="src">
+            <file name="sl_device_clock.c" uri="studio:/sdk/platform/service/device_manager/src/sl_device_clock.c"/>
+            <file name="sl_device_gpio.c" uri="studio:/sdk/platform/service/device_manager/src/sl_device_gpio.c"/>
+            <file name="sl_device_peripheral.c" uri="studio:/sdk/platform/service/device_manager/src/sl_device_peripheral.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_device_clock.h" uri="studio:/sdk/platform/service/device_manager/inc/sl_device_clock.h"/>
+            <file name="sl_device_gpio.h" uri="studio:/sdk/platform/service/device_manager/inc/sl_device_gpio.h"/>
+            <file name="sl_device_i2c.h" uri="studio:/sdk/platform/service/device_manager/inc/sl_device_i2c.h"/>
+            <file name="sl_device_peripheral.h" uri="studio:/sdk/platform/service/device_manager/inc/sl_device_peripheral.h"/>
+            <file name="sl_device_peripheral_types.h" uri="studio:/sdk/platform/service/device_manager/inc/sl_device_peripheral_types.h"/>
+          </folder>
+          <folder name="clocks">
+            <file name="sl_device_clock_efr32xg26.c" uri="studio:/sdk/platform/service/device_manager/clocks/sl_device_clock_efr32xg26.c"/>
+          </folder>
+          <folder name="devices">
+            <file name="sl_device_peripheral_hal_efr32xg26.c" uri="studio:/sdk/platform/service/device_manager/devices/sl_device_peripheral_hal_efr32xg26.c"/>
+          </folder>
+        </folder>
+        <folder name="device_init">
+          <folder name="inc">
+            <file name="sl_device_init_clocks.h" uri="studio:/sdk/platform/service/device_init/inc/sl_device_init_clocks.h"/>
+            <file name="sl_device_init_dcdc.h" uri="studio:/sdk/platform/service/device_init/inc/sl_device_init_dcdc.h"/>
+            <file name="sl_device_init_hfrco.h" uri="studio:/sdk/platform/service/device_init/inc/sl_device_init_hfrco.h"/>
+            <file name="sl_device_init_hfxo.h" uri="studio:/sdk/platform/service/device_init/inc/sl_device_init_hfxo.h"/>
+            <file name="sl_device_init_lfxo.h" uri="studio:/sdk/platform/service/device_init/inc/sl_device_init_lfxo.h"/>
+          </folder>
+          <folder name="src">
+            <file name="sl_device_init_dcdc_s2.c" uri="studio:/sdk/platform/service/device_init/src/sl_device_init_dcdc_s2.c"/>
+            <file name="sl_device_init_hfrco.c" uri="studio:/sdk/platform/service/device_init/src/sl_device_init_hfrco.c"/>
+            <file name="sl_device_init_hfxo_s2.c" uri="studio:/sdk/platform/service/device_init/src/sl_device_init_hfxo_s2.c"/>
+            <file name="sl_device_init_lfxo_s2.c" uri="studio:/sdk/platform/service/device_init/src/sl_device_init_lfxo_s2.c"/>
+          </folder>
+        </folder>
+        <folder name="hfxo_manager">
+          <folder name="src">
+            <file name="sl_hfxo_manager.c" uri="studio:/sdk/platform/service/hfxo_manager/src/sl_hfxo_manager.c"/>
+            <file name="sl_hfxo_manager_hal_s2.c" uri="studio:/sdk/platform/service/hfxo_manager/src/sl_hfxo_manager_hal_s2.c"/>
+            <file name="sli_hfxo_manager_internal.h" uri="studio:/sdk/platform/service/hfxo_manager/src/sli_hfxo_manager_internal.h"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_hfxo_manager.h" uri="studio:/sdk/platform/service/hfxo_manager/inc/sl_hfxo_manager.h"/>
+            <file name="sli_hfxo_manager.h" uri="studio:/sdk/platform/service/hfxo_manager/inc/sli_hfxo_manager.h"/>
+          </folder>
+        </folder>
+        <folder name="interrupt_manager">
+          <folder name="inc">
+            <folder name="arm">
+              <file name="cmsis_nvic_virtual.h" uri="studio:/sdk/platform/service/interrupt_manager/inc/arm/cmsis_nvic_virtual.h"/>
+            </folder>
+            <file name="sl_interrupt_manager.h" uri="studio:/sdk/platform/service/interrupt_manager/inc/sl_interrupt_manager.h"/>
+          </folder>
+          <folder name="src">
+            <file name="sli_interrupt_manager.h" uri="studio:/sdk/platform/service/interrupt_manager/src/sli_interrupt_manager.h"/>
+            <file name="sl_interrupt_manager_cortexm.c" uri="studio:/sdk/platform/service/interrupt_manager/src/sl_interrupt_manager_cortexm.c"/>
+          </folder>
+        </folder>
+        <folder name="iostream">
+          <folder name="src">
+            <file name="sl_iostream.c" uri="studio:/sdk/platform/service/iostream/src/sl_iostream.c"/>
+            <file name="sl_iostream_eusart.c" uri="studio:/sdk/platform/service/iostream/src/sl_iostream_eusart.c"/>
+            <file name="sl_iostream_retarget_stdio.c" uri="studio:/sdk/platform/service/iostream/src/sl_iostream_retarget_stdio.c"/>
+            <file name="sl_iostream_uart.c" uri="studio:/sdk/platform/service/iostream/src/sl_iostream_uart.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_iostream.h" uri="studio:/sdk/platform/service/iostream/inc/sl_iostream.h"/>
+            <file name="sli_iostream.h" uri="studio:/sdk/platform/service/iostream/inc/sli_iostream.h"/>
+            <file name="sl_iostream_eusart.h" uri="studio:/sdk/platform/service/iostream/inc/sl_iostream_eusart.h"/>
+            <file name="sl_iostream_uart.h" uri="studio:/sdk/platform/service/iostream/inc/sl_iostream_uart.h"/>
+            <file name="sli_iostream_uart.h" uri="studio:/sdk/platform/service/iostream/inc/sli_iostream_uart.h"/>
+          </folder>
+        </folder>
+        <folder name="memory_manager">
+          <folder name="src">
+            <file name="sl_memory_manager.c" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager.c"/>
+            <file name="sl_memory_manager_dynamic_reservation.c" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager_dynamic_reservation.c"/>
+            <file name="sli_memory_manager_common.c" uri="studio:/sdk/platform/service/memory_manager/src/sli_memory_manager_common.c"/>
+            <file name="sl_memory_manager_retarget.c" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager_retarget.c"/>
+            <file name="sli_memory_manager.h" uri="studio:/sdk/platform/service/memory_manager/src/sli_memory_manager.h"/>
+            <file name="sl_memory_manager_cpp.cpp" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager_cpp.cpp"/>
+            <file name="sl_memory_manager_pool_common.c" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager_pool_common.c"/>
+            <file name="sl_memory_manager_pool.c" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager_pool.c"/>
+            <file name="sl_memory_manager_region.c" uri="studio:/sdk/platform/service/memory_manager/src/sl_memory_manager_region.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_memory_manager.h" uri="studio:/sdk/platform/service/memory_manager/inc/sl_memory_manager.h"/>
+            <file name="sl_memory_manager_region.h" uri="studio:/sdk/platform/service/memory_manager/inc/sl_memory_manager_region.h"/>
+            <file name="sli_memory_manager_retention_control.h" uri="studio:/sdk/platform/service/memory_manager/inc/sli_memory_manager_retention_control.h"/>
+          </folder>
+        </folder>
+        <folder name="power_manager">
+          <folder name="src">
+            <folder name="common">
+              <file name="sl_power_manager_common.c" uri="studio:/sdk/platform/service/power_manager/src/common/sl_power_manager_common.c"/>
+              <file name="sl_power_manager_em4.c" uri="studio:/sdk/platform/service/power_manager/src/common/sl_power_manager_em4.c"/>
+            </folder>
+            <folder name="sleep_loop">
+              <file name="sl_power_manager.c" uri="studio:/sdk/platform/service/power_manager/src/sleep_loop/sl_power_manager.c"/>
+              <file name="sl_power_manager_debug.c" uri="studio:/sdk/platform/service/power_manager/src/sleep_loop/sl_power_manager_debug.c"/>
+              <file name="sl_power_manager_hal_s2.c" uri="studio:/sdk/platform/service/power_manager/src/sleep_loop/sl_power_manager_hal_s2.c"/>
+              <file name="sli_power_manager_private.h" uri="studio:/sdk/platform/service/power_manager/src/sleep_loop/sli_power_manager_private.h"/>
+            </folder>
+          </folder>
+          <folder name="inc">
+            <file name="sl_power_manager.h" uri="studio:/sdk/platform/service/power_manager/inc/sl_power_manager.h"/>
+            <file name="sl_power_manager_debug.h" uri="studio:/sdk/platform/service/power_manager/inc/sl_power_manager_debug.h"/>
+            <file name="sli_power_manager.h" uri="studio:/sdk/platform/service/power_manager/inc/sli_power_manager.h"/>
+          </folder>
+        </folder>
+        <folder name="sl_main">
+          <folder name="src">
+            <file name="sl_main_init.c" uri="studio:/sdk/platform/service/sl_main/src/sl_main_init.c"/>
+            <file name="sl_main_init_memory.c" uri="studio:/sdk/platform/service/sl_main/src/sl_main_init_memory.c"/>
+            <file name="sli_main_init_memory.h" uri="studio:/sdk/platform/service/sl_main/src/sli_main_init_memory.h"/>
+            <file name="sl_main_process_action.c" uri="studio:/sdk/platform/service/sl_main/src/sl_main_process_action.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_main_init.h" uri="studio:/sdk/platform/service/sl_main/inc/sl_main_init.h"/>
+            <file name="sl_main_init_memory.h" uri="studio:/sdk/platform/service/sl_main/inc/sl_main_init_memory.h"/>
+            <file name="sl_main_process_action.h" uri="studio:/sdk/platform/service/sl_main/inc/sl_main_process_action.h"/>
+          </folder>
+          <folder name="sl_system_compatibility">
+            <folder name="src">
+              <file name="sl_system_compatibility.c" uri="studio:/sdk/platform/service/sl_main/sl_system_compatibility/src/sl_system_compatibility.c"/>
+            </folder>
+            <folder name="inc">
+              <file name="sl_system_init.h" uri="studio:/sdk/platform/service/sl_main/sl_system_compatibility/inc/sl_system_init.h"/>
+              <file name="sl_system_process_action.h" uri="studio:/sdk/platform/service/sl_main/sl_system_compatibility/inc/sl_system_process_action.h"/>
+            </folder>
+          </folder>
+        </folder>
+        <folder name="sleeptimer">
+          <folder name="src">
+            <file name="sl_sleeptimer.c" uri="studio:/sdk/platform/service/sleeptimer/src/sl_sleeptimer.c"/>
+            <file name="sl_sleeptimer_hal_sysrtc.c" uri="studio:/sdk/platform/service/sleeptimer/src/sl_sleeptimer_hal_sysrtc.c"/>
+            <file name="sl_sleeptimer_hal_burtc.c" uri="studio:/sdk/platform/service/sleeptimer/src/sl_sleeptimer_hal_burtc.c"/>
+            <file name="sl_sleeptimer_hal_timer.c" uri="studio:/sdk/platform/service/sleeptimer/src/sl_sleeptimer_hal_timer.c"/>
+            <file name="sli_sleeptimer_hal.h" uri="studio:/sdk/platform/service/sleeptimer/src/sli_sleeptimer_hal.h"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_sleeptimer.h" uri="studio:/sdk/platform/service/sleeptimer/inc/sl_sleeptimer.h"/>
+            <file name="sli_sleeptimer.h" uri="studio:/sdk/platform/service/sleeptimer/inc/sli_sleeptimer.h"/>
+          </folder>
+        </folder>
+        <folder name="udelay">
+          <folder name="src">
+            <file name="sl_udelay.c" uri="studio:/sdk/platform/service/udelay/src/sl_udelay.c"/>
+            <file name="sl_udelay_armv6m_gcc.S" uri="studio:/sdk/platform/service/udelay/src/sl_udelay_armv6m_gcc.S"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_udelay.h" uri="studio:/sdk/platform/service/udelay/inc/sl_udelay.h"/>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="CMSIS">
+        <folder name="Core">
+          <folder name="Include">
+            <file name="cmsis_compiler.h" uri="studio:/sdk/platform/CMSIS/Core/Include/cmsis_compiler.h"/>
+            <file name="cmsis_version.h" uri="studio:/sdk/platform/CMSIS/Core/Include/cmsis_version.h"/>
+            <file name="tz_context.h" uri="studio:/sdk/platform/CMSIS/Core/Include/tz_context.h"/>
+            <file name="cmsis_gcc.h" uri="studio:/sdk/platform/CMSIS/Core/Include/cmsis_gcc.h"/>
+            <file name="core_cm33.h" uri="studio:/sdk/platform/CMSIS/Core/Include/core_cm33.h"/>
+            <file name="mpu_armv8.h" uri="studio:/sdk/platform/CMSIS/Core/Include/mpu_armv8.h"/>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="compute">
+        <folder name="util">
+          <folder name="src">
+            <file name="sl_compute_util.c" uri="studio:/sdk/platform/compute/util/src/sl_compute_util.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_compute_util.h" uri="studio:/sdk/platform/compute/util/inc/sl_compute_util.h"/>
+          </folder>
+        </folder>
+        <folder name="driver">
+          <folder name="mvp">
+            <folder name="src">
+              <file name="sl_mvp.c" uri="studio:/sdk/platform/compute/driver/mvp/src/sl_mvp.c"/>
+              <file name="sl_mvp_program_area.c" uri="studio:/sdk/platform/compute/driver/mvp/src/sl_mvp_program_area.c"/>
+              <file name="sl_mvp_util.c" uri="studio:/sdk/platform/compute/driver/mvp/src/sl_mvp_util.c"/>
+              <file name="sl_mvp_hal_efr32.c" uri="studio:/sdk/platform/compute/driver/mvp/src/sl_mvp_hal_efr32.c"/>
+            </folder>
+            <folder name="inc">
+              <file name="sl_mvp.h" uri="studio:/sdk/platform/compute/driver/mvp/inc/sl_mvp.h"/>
+              <file name="sl_mvp_program_area.h" uri="studio:/sdk/platform/compute/driver/mvp/inc/sl_mvp_program_area.h"/>
+              <file name="sl_mvp_types.h" uri="studio:/sdk/platform/compute/driver/mvp/inc/sl_mvp_types.h"/>
+              <file name="sl_mvp_util.h" uri="studio:/sdk/platform/compute/driver/mvp/inc/sl_mvp_util.h"/>
+              <file name="sl_mvp_hal.h" uri="studio:/sdk/platform/compute/driver/mvp/inc/sl_mvp_hal.h"/>
+            </folder>
+          </folder>
+        </folder>
+        <folder name="math">
+          <folder name="src">
+            <file name="sl_math_matrix.c" uri="studio:/sdk/platform/compute/math/src/sl_math_matrix.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_math_matrix.h" uri="studio:/sdk/platform/compute/math/inc/sl_math_matrix.h"/>
+            <file name="sl_math_types.h" uri="studio:/sdk/platform/compute/math/inc/sl_math_types.h"/>
+          </folder>
+          <folder name="mvp">
+            <folder name="src">
+              <file name="sl_math_mvp_util.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_util.c"/>
+              <file name="sl_math_mvp_complex_matrix_mult.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_complex_matrix_mult.c"/>
+              <file name="sl_math_mvp_complex_vector_conjugate.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_complex_vector_conjugate.c"/>
+              <file name="sl_math_mvp_complex_vector_dot_product.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_complex_vector_dot_product.c"/>
+              <file name="sl_math_mvp_complex_vector_mult.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_complex_vector_mult.c"/>
+              <file name="sl_math_mvp_complex_vector_magnitude_squared.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_complex_vector_magnitude_squared.c"/>
+              <file name="sl_math_mvp_matrix_add.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_matrix_add.c"/>
+              <file name="sl_math_mvp_matrix_sub.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_matrix_sub.c"/>
+              <file name="sl_math_mvp_matrix_mult.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_matrix_mult.c"/>
+              <file name="sl_math_mvp_matrix_vector_mult.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_matrix_vector_mult.c"/>
+              <file name="sl_math_mvp_matrix_scale.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_matrix_scale.c"/>
+              <file name="sl_math_mvp_matrix_transpose.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_matrix_transpose.c"/>
+              <file name="sl_math_mvp_vector_abs.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_abs.c"/>
+              <file name="sl_math_mvp_vector_add.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_add.c"/>
+              <file name="sl_math_mvp_vector_clamp.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_clamp.c"/>
+              <file name="sl_math_mvp_vector_clip.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_clip.c"/>
+              <file name="sl_math_mvp_vector_copy.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_copy.c"/>
+              <file name="sl_math_mvp_vector_dot_product.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_dot_product.c"/>
+              <file name="sl_math_mvp_vector_fill.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_fill.c"/>
+              <file name="sl_math_mvp_vector_mult.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_mult.c"/>
+              <file name="sl_math_mvp_vector_negate.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_negate.c"/>
+              <file name="sl_math_mvp_vector_offset.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_offset.c"/>
+              <file name="sl_math_mvp_vector_scale.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_scale.c"/>
+              <file name="sl_math_mvp_vector_sub.c" uri="studio:/sdk/platform/compute/math/mvp/src/sl_math_mvp_vector_sub.c"/>
+            </folder>
+            <folder name="inc">
+              <file name="sl_math_mvp.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp.h"/>
+              <file name="sl_math_mvp_util.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_util.h"/>
+              <file name="sl_math_mvp_complex_matrix_mult.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_complex_matrix_mult.h"/>
+              <file name="sl_math_mvp_complex_vector_conjugate.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_complex_vector_conjugate.h"/>
+              <file name="sl_math_mvp_complex_vector_dot_product.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_complex_vector_dot_product.h"/>
+              <file name="sl_math_mvp_complex_vector_mult.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_complex_vector_mult.h"/>
+              <file name="sl_math_mvp_complex_vector_magnitude_squared.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_complex_vector_magnitude_squared.h"/>
+              <file name="sl_math_mvp_matrix_add.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_matrix_add.h"/>
+              <file name="sl_math_mvp_matrix_sub.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_matrix_sub.h"/>
+              <file name="sl_math_mvp_matrix_mult.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_matrix_mult.h"/>
+              <file name="sl_math_mvp_matrix_vector_mult.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_matrix_vector_mult.h"/>
+              <file name="sl_math_mvp_matrix_scale.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_matrix_scale.h"/>
+              <file name="sl_math_mvp_matrix_transpose.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_matrix_transpose.h"/>
+              <file name="sl_math_mvp_vector_abs.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_abs.h"/>
+              <file name="sl_math_mvp_vector_add.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_add.h"/>
+              <file name="sl_math_mvp_vector_clamp.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_clamp.h"/>
+              <file name="sl_math_mvp_vector_clip.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_clip.h"/>
+              <file name="sl_math_mvp_vector_copy.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_copy.h"/>
+              <file name="sl_math_mvp_vector_dot_product.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_dot_product.h"/>
+              <file name="sl_math_mvp_vector_fill.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_fill.h"/>
+              <file name="sl_math_mvp_vector_mult.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_mult.h"/>
+              <file name="sl_math_mvp_vector_negate.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_negate.h"/>
+              <file name="sl_math_mvp_vector_offset.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_offset.h"/>
+              <file name="sl_math_mvp_vector_scale.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_scale.h"/>
+              <file name="sl_math_mvp_vector_sub.h" uri="studio:/sdk/platform/compute/math/mvp/inc/sl_math_mvp_vector_sub.h"/>
+            </folder>
+          </folder>
+        </folder>
+        <folder name="nn">
+          <folder name="mvp">
+            <folder name="src">
+              <file name="sl_mvp_ml_add.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_add.c"/>
+              <file name="sl_mvp_ml_conv2d.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_conv2d.c"/>
+              <file name="sl_mvp_ml_depthwise_conv2d.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_depthwise_conv2d.c"/>
+              <file name="sl_mvp_ml_fully_connected.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_fully_connected.c"/>
+              <file name="sl_mvp_ml_mul.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_mul.c"/>
+              <file name="sl_mvp_ml_pooling.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_pooling.c"/>
+              <file name="sl_mvp_ml_transpose_conv2d.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sl_mvp_ml_transpose_conv2d.c"/>
+              <file name="sli_mvp_ml_depthwise_conv2d.cc" uri="studio:/sdk/platform/compute/nn/mvp/src/sli_mvp_ml_depthwise_conv2d.cc"/>
+              <file name="sli_mvp_ml_depthwise_conv2d_opt.c" uri="studio:/sdk/platform/compute/nn/mvp/src/sli_mvp_ml_depthwise_conv2d_opt.c"/>
+            </folder>
+            <folder name="inc">
+              <file name="sl_mvp_ml.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml.h"/>
+              <file name="sl_mvp_ml_add.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_add.h"/>
+              <file name="sl_mvp_ml_conv2d.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_conv2d.h"/>
+              <file name="sl_mvp_ml_depthwise_conv2d.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_depthwise_conv2d.h"/>
+              <file name="sl_mvp_ml_fully_connected.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_fully_connected.h"/>
+              <file name="sl_mvp_ml_mul.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_mul.h"/>
+              <file name="sl_mvp_ml_pooling.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_pooling.h"/>
+              <file name="sl_mvp_ml_transpose_conv2d.h" uri="studio:/sdk/platform/compute/nn/mvp/inc/sl_mvp_ml_transpose_conv2d.h"/>
+            </folder>
+          </folder>
+          <folder name="src">
+            <file name="sl_nn_util.c" uri="studio:/sdk/platform/compute/nn/src/sl_nn_util.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_nn_util.h" uri="studio:/sdk/platform/compute/nn/inc/sl_nn_util.h"/>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="driver">
+        <folder name="debug">
+          <folder name="src">
+            <file name="sl_debug_swo.c" uri="studio:/sdk/platform/driver/debug/src/sl_debug_swo.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_debug_swo.h" uri="studio:/sdk/platform/driver/debug/inc/sl_debug_swo.h"/>
+          </folder>
+        </folder>
+        <folder name="gpio">
+          <folder name="src">
+            <file name="sl_gpio.c" uri="studio:/sdk/platform/driver/gpio/src/sl_gpio.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_gpio.h" uri="studio:/sdk/platform/driver/gpio/inc/sl_gpio.h"/>
+          </folder>
+        </folder>
+        <folder name="i2cspm">
+          <folder name="src">
+            <file name="sl_i2cspm.c" uri="studio:/sdk/platform/driver/i2cspm/src/sl_i2cspm.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_i2cspm.h" uri="studio:/sdk/platform/driver/i2cspm/inc/sl_i2cspm.h"/>
+          </folder>
+        </folder>
+        <folder name="leddrv">
+          <folder name="src">
+            <file name="sl_led.c" uri="studio:/sdk/platform/driver/leddrv/src/sl_led.c"/>
+            <file name="sl_simple_led.c" uri="studio:/sdk/platform/driver/leddrv/src/sl_simple_led.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_led.h" uri="studio:/sdk/platform/driver/leddrv/inc/sl_led.h"/>
+            <file name="sl_simple_led.h" uri="studio:/sdk/platform/driver/leddrv/inc/sl_simple_led.h"/>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="emdrv">
+        <folder name="dmadrv">
+          <folder name="src">
+            <file name="dmadrv.c" uri="studio:/sdk/platform/emdrv/dmadrv/src/dmadrv.c"/>
+          </folder>
+          <folder name="inc">
+            <folder name="s2_signals">
+              <file name="dmadrv_signals.h" uri="studio:/sdk/platform/emdrv/dmadrv/inc/s2_signals/dmadrv_signals.h"/>
+            </folder>
+            <file name="dmadrv.h" uri="studio:/sdk/platform/emdrv/dmadrv/inc/dmadrv.h"/>
+          </folder>
+        </folder>
+        <folder name="common">
+          <folder name="inc">
+            <file name="ecode.h" uri="studio:/sdk/platform/emdrv/common/inc/ecode.h"/>
+          </folder>
+        </folder>
+        <folder name="spidrv">
+          <folder name="src">
+            <file name="spidrv.c" uri="studio:/sdk/platform/emdrv/spidrv/src/spidrv.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="spidrv.h" uri="studio:/sdk/platform/emdrv/spidrv/inc/spidrv.h"/>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="emlib">
+        <folder name="src">
+          <file name="em_burtc.c" uri="studio:/sdk/platform/emlib/src/em_burtc.c"/>
+          <file name="em_cmu.c" uri="studio:/sdk/platform/emlib/src/em_cmu.c"/>
+          <file name="em_emu.c" uri="studio:/sdk/platform/emlib/src/em_emu.c"/>
+          <file name="em_eusart.c" uri="studio:/sdk/platform/emlib/src/em_eusart.c"/>
+          <file name="em_gpio.c" uri="studio:/sdk/platform/emlib/src/em_gpio.c"/>
+          <file name="em_i2c.c" uri="studio:/sdk/platform/emlib/src/em_i2c.c"/>
+          <file name="em_ldma.c" uri="studio:/sdk/platform/emlib/src/em_ldma.c"/>
+          <file name="em_msc.c" uri="studio:/sdk/platform/emlib/src/em_msc.c"/>
+          <file name="em_prs.c" uri="studio:/sdk/platform/emlib/src/em_prs.c"/>
+          <file name="em_system.c" uri="studio:/sdk/platform/emlib/src/em_system.c"/>
+          <file name="em_timer.c" uri="studio:/sdk/platform/emlib/src/em_timer.c"/>
+          <file name="em_usart.c" uri="studio:/sdk/platform/emlib/src/em_usart.c"/>
+        </folder>
+        <folder name="inc">
+          <file name="em_burtc.h" uri="studio:/sdk/platform/emlib/inc/em_burtc.h"/>
+          <file name="em_chip.h" uri="studio:/sdk/platform/emlib/inc/em_chip.h"/>
+          <file name="em_cmu.h" uri="studio:/sdk/platform/emlib/inc/em_cmu.h"/>
+          <file name="em_cmu_compat.h" uri="studio:/sdk/platform/emlib/inc/em_cmu_compat.h"/>
+          <file name="sli_em_cmu.h" uri="studio:/sdk/platform/emlib/inc/sli_em_cmu.h"/>
+          <file name="em_assert.h" uri="studio:/sdk/platform/emlib/inc/em_assert.h"/>
+          <file name="em_bus.h" uri="studio:/sdk/platform/emlib/inc/em_bus.h"/>
+          <file name="em_common.h" uri="studio:/sdk/platform/emlib/inc/em_common.h"/>
+          <file name="em_ramfunc.h" uri="studio:/sdk/platform/emlib/inc/em_ramfunc.h"/>
+          <file name="em_version.h" uri="studio:/sdk/platform/emlib/inc/em_version.h"/>
+          <file name="em_core.h" uri="studio:/sdk/platform/emlib/inc/em_core.h"/>
+          <file name="em_core_generic.h" uri="studio:/sdk/platform/emlib/inc/em_core_generic.h"/>
+          <file name="em_emu.h" uri="studio:/sdk/platform/emlib/inc/em_emu.h"/>
+          <file name="em_eusart.h" uri="studio:/sdk/platform/emlib/inc/em_eusart.h"/>
+          <file name="em_eusart_compat.h" uri="studio:/sdk/platform/emlib/inc/em_eusart_compat.h"/>
+          <file name="em_gpio.h" uri="studio:/sdk/platform/emlib/inc/em_gpio.h"/>
+          <file name="em_i2c.h" uri="studio:/sdk/platform/emlib/inc/em_i2c.h"/>
+          <file name="em_ldma.h" uri="studio:/sdk/platform/emlib/inc/em_ldma.h"/>
+          <file name="em_msc.h" uri="studio:/sdk/platform/emlib/inc/em_msc.h"/>
+          <file name="em_msc_compat.h" uri="studio:/sdk/platform/emlib/inc/em_msc_compat.h"/>
+          <file name="em_prs.h" uri="studio:/sdk/platform/emlib/inc/em_prs.h"/>
+          <file name="em_syscfg.h" uri="studio:/sdk/platform/emlib/inc/em_syscfg.h"/>
+          <file name="em_system.h" uri="studio:/sdk/platform/emlib/inc/em_system.h"/>
+          <file name="em_system_generic.h" uri="studio:/sdk/platform/emlib/inc/em_system_generic.h"/>
+          <file name="em_timer.h" uri="studio:/sdk/platform/emlib/inc/em_timer.h"/>
+          <file name="em_usart.h" uri="studio:/sdk/platform/emlib/inc/em_usart.h"/>
+        </folder>
+      </folder>
+      <folder name="peripheral">
+        <folder name="inc">
+          <file name="sl_hal_bus.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_bus.h"/>
+          <file name="sl_hal_eusart.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_eusart.h"/>
+          <file name="sl_hal_gpio.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_gpio.h"/>
+          <file name="sl_hal_prs.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_prs.h"/>
+          <file name="sl_hal_prs_enums.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_prs_enums.h"/>
+          <file name="sl_hal_sysrtc.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_sysrtc.h"/>
+          <file name="sl_hal_sysrtc_compat.h" uri="studio:/sdk/platform/peripheral/inc/sl_hal_sysrtc_compat.h"/>
+          <file name="peripheral_sysrtc.h" uri="studio:/sdk/platform/peripheral/inc/peripheral_sysrtc.h"/>
+          <file name="peripheral_sysrtc_compat.h" uri="studio:/sdk/platform/peripheral/inc/peripheral_sysrtc_compat.h"/>
+        </folder>
+        <folder name="src">
+          <file name="sl_hal_eusart.c" uri="studio:/sdk/platform/peripheral/src/sl_hal_eusart.c"/>
+          <file name="sl_hal_gpio.c" uri="studio:/sdk/platform/peripheral/src/sl_hal_gpio.c"/>
+          <file name="sl_hal_prs.c" uri="studio:/sdk/platform/peripheral/src/sl_hal_prs.c"/>
+          <file name="sl_hal_sysrtc.c" uri="studio:/sdk/platform/peripheral/src/sl_hal_sysrtc.c"/>
+        </folder>
+      </folder>
+    </folder>
+    <folder name="hardware">
+      <folder name="board">
+        <folder name="src">
+          <file name="sl_board_init.c" uri="studio:/sdk/hardware/board/src/sl_board_init.c"/>
+          <file name="sl_board_control_gpio.c" uri="studio:/sdk/hardware/board/src/sl_board_control_gpio.c"/>
+        </folder>
+        <folder name="inc">
+          <file name="sl_board_control.h" uri="studio:/sdk/hardware/board/inc/sl_board_control.h"/>
+          <file name="sl_board_init.h" uri="studio:/sdk/hardware/board/inc/sl_board_init.h"/>
+        </folder>
+      </folder>
+      <folder name="driver">
+        <folder name="configuration_over_swo">
+          <folder name="src">
+            <file name="sl_cos.c" uri="studio:/sdk/hardware/driver/configuration_over_swo/src/sl_cos.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_cos.h" uri="studio:/sdk/hardware/driver/configuration_over_swo/inc/sl_cos.h"/>
+          </folder>
+        </folder>
+        <folder name="mx25_flash_shutdown">
+          <folder name="src">
+            <folder name="sl_mx25_flash_shutdown_eusart">
+              <file name="sl_mx25_flash_shutdown.c" uri="studio:/sdk/hardware/driver/mx25_flash_shutdown/src/sl_mx25_flash_shutdown_eusart/sl_mx25_flash_shutdown.c"/>
+            </folder>
+          </folder>
+          <folder name="inc">
+            <folder name="sl_mx25_flash_shutdown_eusart">
+              <file name="sl_mx25_flash_shutdown.h" uri="studio:/sdk/hardware/driver/mx25_flash_shutdown/inc/sl_mx25_flash_shutdown_eusart/sl_mx25_flash_shutdown.h"/>
+            </folder>
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+    <folder name="util">
+      <folder name="third_party">
+        <folder name="cmsis">
+          <folder name="nn">
+            <folder name="Include">
+              <folder name="Internal">
+                <file name="arm_nn_compiler.h" uri="studio:/sdk/util/third_party/cmsis/nn/Include/Internal/arm_nn_compiler.h"/>
+              </folder>
+              <file name="arm_nn_math_types.h" uri="studio:/sdk/util/third_party/cmsis/nn/Include/arm_nn_math_types.h"/>
+              <file name="arm_nn_tables.h" uri="studio:/sdk/util/third_party/cmsis/nn/Include/arm_nn_tables.h"/>
+              <file name="arm_nn_types.h" uri="studio:/sdk/util/third_party/cmsis/nn/Include/arm_nn_types.h"/>
+              <file name="arm_nnfunctions.h" uri="studio:/sdk/util/third_party/cmsis/nn/Include/arm_nnfunctions.h"/>
+              <file name="arm_nnsupportfunctions.h" uri="studio:/sdk/util/third_party/cmsis/nn/Include/arm_nnsupportfunctions.h"/>
+            </folder>
+            <file name="LICENSE.txt" uri="studio:/sdk/util/third_party/cmsis/nn/LICENSE.txt"/>
+          </folder>
+          <folder name="lib">
+            <folder name="gcc">
+              <folder name="cortex-m33">
+                <file name="libcmsis-nn.a" uri="studio:/sdk/util/third_party/cmsis/lib/gcc/cortex-m33/libcmsis-nn.a"/>
+              </folder>
+            </folder>
+          </folder>
+        </folder>
+        <folder name="printf">
+          <folder name="src">
+            <file name="iostream_printf.c" uri="studio:/sdk/util/third_party/printf/src/iostream_printf.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="iostream_printf.h" uri="studio:/sdk/util/third_party/printf/inc/iostream_printf.h"/>
+          </folder>
+          <file name="printf.c" uri="studio:/sdk/util/third_party/printf/printf.c"/>
+          <file name="printf.h" uri="studio:/sdk/util/third_party/printf/printf.h"/>
+        </folder>
+      </folder>
+    </folder>
+  </folder>
+  <file name="main.c" linked="false" uri="studio:/project/main.c"/>
+  <file name="app.c" linked="false" uri="studio:/project/app.c"/>
+  <file name="image_classifier.cc" linked="false" uri="studio:/project/image_classifier.cc"/>
+  <file name="recognize_commands.cc" linked="false" uri="studio:/project/recognize_commands.cc"/>
+  <file name="app.h" linked="false" uri="studio:/project/app.h"/>
+  <file name="image_classifier.h" linked="false" uri="studio:/project/image_classifier.h"/>
+  <file name="recognize_commands.h" linked="false" uri="studio:/project/recognize_commands.h"/>
+  <file name="readme.md" linked="false" uri="studio:/project/readme.md"/>
+  <excludedPath>simplicity_sdk_2025.6.1/util/third_party/cmsis/nn/LICENSE.txt</excludedPath>
+  <includePath uri="studio:/project/"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/inc/drivers/arducam"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/inc/utils/jlink_stream"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/inc"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/flatbuffers/include"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/gemmlowp"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/ruy"/>
+  <includePath uri="studio:/sdk/extension/aiml-extension/third_party/tflite-micro"/>
+  <includePath uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG26/Include"/>
+  <includePath uri="studio:/sdk/platform/common/inc"/>
+  <includePath uri="studio:/sdk/hardware/board/inc"/>
+  <includePath uri="studio:/sdk/platform/service/clock_manager/inc"/>
+  <includePath uri="studio:/sdk/platform/service/clock_manager/src"/>
+  <includePath uri="studio:/sdk/platform/CMSIS/Core/Include"/>
+  <includePath uri="studio:/sdk/util/third_party/cmsis/nn"/>
+  <includePath uri="studio:/sdk/util/third_party/cmsis/nn/Include"/>
+  <includePath uri="studio:/sdk/platform/compute/util/inc"/>
+  <includePath uri="studio:/sdk/hardware/driver/configuration_over_swo/inc"/>
+  <includePath uri="studio:/sdk/platform/driver/debug/inc"/>
+  <includePath uri="studio:/sdk/platform/service/device_manager/inc"/>
+  <includePath uri="studio:/sdk/platform/service/device_init/inc"/>
+  <includePath uri="studio:/sdk/platform/emdrv/dmadrv/inc"/>
+  <includePath uri="studio:/sdk/platform/emdrv/dmadrv/inc/s2_signals"/>
+  <includePath uri="studio:/sdk/platform/compute/driver/mvp/inc"/>
+  <includePath uri="studio:/sdk/platform/emdrv/common/inc"/>
+  <includePath uri="studio:/sdk/platform/emlib/inc"/>
+  <includePath uri="studio:/sdk/platform/driver/gpio/inc"/>
+  <includePath uri="studio:/sdk/platform/peripheral/inc"/>
+  <includePath uri="studio:/sdk/platform/service/hfxo_manager/inc"/>
+  <includePath uri="studio:/sdk/platform/driver/i2cspm/inc"/>
+  <includePath uri="studio:/sdk/platform/service/interrupt_manager/inc"/>
+  <includePath uri="studio:/sdk/platform/service/interrupt_manager/src"/>
+  <includePath uri="studio:/sdk/platform/service/interrupt_manager/inc/arm"/>
+  <includePath uri="studio:/sdk/platform/service/iostream/inc"/>
+  <includePath uri="studio:/sdk/platform/driver/leddrv/inc"/>
+  <includePath uri="studio:/sdk/platform/compute/math/inc"/>
+  <includePath uri="studio:/sdk/platform/compute/math/mvp/inc"/>
+  <includePath uri="studio:/sdk/platform/service/memory_manager/inc"/>
+  <includePath uri="studio:/sdk/platform/service/memory_manager/src"/>
+  <includePath uri="studio:/sdk/hardware/driver/mx25_flash_shutdown/inc/sl_mx25_flash_shutdown_eusart"/>
+  <includePath uri="studio:/sdk/platform/compute/nn/mvp/inc"/>
+  <includePath uri="studio:/sdk/platform/compute/nn/inc"/>
+  <includePath uri="studio:/sdk/platform/service/power_manager/inc"/>
+  <includePath uri="studio:/sdk/util/third_party/printf"/>
+  <includePath uri="studio:/sdk/util/third_party/printf/inc"/>
+  <includePath uri="studio:/sdk/platform/service/sl_main/inc"/>
+  <includePath uri="studio:/sdk/platform/service/sl_main/src"/>
+  <includePath uri="studio:/sdk/platform/service/sl_main/sl_system_compatibility/inc"/>
+  <includePath uri="studio:/sdk/platform/service/sleeptimer/inc"/>
+  <includePath uri="studio:/sdk/platform/emdrv/spidrv/inc"/>
+  <includePath uri="studio:/sdk/platform/service/udelay/inc"/>
+  <macroDefinition name="DEBUG_EFM"/>
+  <macroDefinition name="TF_LITE_STATIC_MEMORY"/>
+  <macroDefinition name="TF_LITE_MCU_DEBUG_LOG"/>
+  <macroDefinition name="CMSIS_NN"/>
+  <macroDefinition name="EFR32MG26B510F3200IM68"/>
+  <macroDefinition name="SL_CODE_COMPONENT_SYSTEM" value="system"/>
+  <macroDefinition name="HARDWARE_BOARD_DEFAULT_RF_BAND_2400"/>
+  <macroDefinition name="HARDWARE_BOARD_SUPPORTS_1_RF_BAND"/>
+  <macroDefinition name="HARDWARE_BOARD_SUPPORTS_RF_BAND_2400"/>
+  <macroDefinition name="HFXO_FREQ" value="39000000"/>
+  <macroDefinition name="SL_BOARD_NAME" value="&quot;BRD2608A&quot;"/>
+  <macroDefinition name="SL_BOARD_REV" value="&quot;A04&quot;"/>
+  <macroDefinition name="SL_CODE_COMPONENT_CLOCK_MANAGER" value="clock_manager"/>
+  <macroDefinition name="SL_COMPONENT_CATALOG_PRESENT"/>
+  <macroDefinition name="SL_CODE_COMPONENT_DEVICE_PERIPHERAL" value="device_peripheral"/>
+  <macroDefinition name="SL_CODE_COMPONENT_DMADRV" value="dmadrv"/>
+  <macroDefinition name="SL_CODE_COMPONENT_GPIO" value="gpio"/>
+  <macroDefinition name="SL_CODE_COMPONENT_HAL_COMMON" value="hal_common"/>
+  <macroDefinition name="SL_CODE_COMPONENT_HAL_GPIO" value="hal_gpio"/>
+  <macroDefinition name="SL_CODE_COMPONENT_HAL_SYSRTC" value="hal_sysrtc"/>
+  <macroDefinition name="SL_CODE_COMPONENT_INTERRUPT_MANAGER" value="interrupt_manager"/>
+  <macroDefinition name="CMSIS_NVIC_VIRTUAL"/>
+  <macroDefinition name="CMSIS_NVIC_VIRTUAL_HEADER_FILE" value="&quot;cmsis_nvic_virtual.h&quot;"/>
+  <macroDefinition name="SL_CODE_COMPONENT_POWER_MANAGER" value="power_manager"/>
+  <macroDefinition name="SL_CODE_COMPONENT_CORE" value="core"/>
+  <macroDefinition name="SL_CODE_COMPONENT_SLEEPTIMER" value="sleeptimer"/>
+  <macroDefinition name="SL_CODE_COMPONENT_SPIDRV" value="spidrv"/>
+  <libraryFile uri="studio:/sdk/extension/aiml-extension/lib/gcc/cortex-m33/libtflm.a"/>
+  <libraryFile uri="studio:/sdk/util/third_party/cmsis/lib/gcc/cortex-m33/libcmsis-nn.a"/>
+  <libraryFile name="stdc++"/>
+  <libraryFile name="gcc"/>
+  <libraryFile name="c"/>
+  <libraryFile name="m"/>
+  <libraryFile name="nosys"/>
+  <toolOption toolId="toolOption.uc.toolchain" optionId="toolOption.uc.toolchain.cpu" value="cortex-m33"/>
+  <toolOption toolId="toolOption.uc.toolchain" optionId="toolOption.uc.toolchain.fpu" value="fpv5-sp"/>
+  <toolOption toolId="toolOption.uc.toolchain" optionId="toolOption.uc.toolchain.float_abi" value="hard"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.secure_code" value="true"/>
+  <toolOption toolId="toolOption.uc.linker" optionId="toolOption.uc.linker.linkerScript" value="$project/autogen/linkerfile.ld"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.function_sections" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.data_sections" value="true"/>
+  <toolOption toolId="toolOption.uc.linker" optionId="toolOption.uc.linker.nano_c_libs" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.omit_frame_pointer" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.no_exceptions" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.no_rtti" value="true"/>
+  <toolOption toolId="toolOption.uc.linker" optionId="toolOption.uc.linker.generateMapFile" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.c_standard" value="c18"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.cxx_standard" value="c++17"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.warnings.all" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.warnings.extra" value="true"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.warnings.pedantic" value="false"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.warnings.are_errors" value="false"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.optimization" value="size"/>
+  <toolOption toolId="toolOption.uc.compiler" optionId="toolOption.uc.compiler.debug_level" value="default"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.floatingpoint.type" value="floatingpoint.type.hard"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.floatingpoint.enable" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.floatingpoint.type" value="floatingpoint.type.hard"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.floatingpoint.type" value="floatingpoint.type.hard"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.floatingpoint.enable" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.floatingpoint.enable" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.floatingpoint.type" value="floatingpoint.type.hard"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.floatingpoint.type" value="floatingpoint.type.hard"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.floatingpoint.enable" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.floatingpoint.enable" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level" value="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.default"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.misc.dialect" value="gnu.c.compiler.dialect.c18"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.misc.dialect" value="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.misc.dialect.cpp17"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.no_rtti" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.no_exceptions" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.generateSecureCode" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.generateSecureCode" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.optimization.level" value="gnu.c.optimization.level.size"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.optimization.level" value="gnu.cpp.compiler.optimization.level.size"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.optimization.datasect" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.optimization.datasect" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.optimization.functionsects" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.optimization.functionsects" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.optimization.omitframepointer" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.optimization.omitframepointer" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.warnings.allwarn" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="gnu.cpp.compiler.option.warnings.allwarn" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.warnings.extrawarn" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="gnu.cpp.compiler.option.warnings.extrawarn" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.warnings.toerrors" value="false"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="gnu.cpp.compiler.option.warnings.toerrors" value="false"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.warnings.pedantic" value="false"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="gnu.cpp.compiler.option.warnings.pedantic" value="false"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="&quot;${workspace_loc:/${ProjName}/autogen/linkerfile.ld}&quot;"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.clibs" value="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nanospec"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.clibs" value="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nanospec"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.map" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.map" value="true"/>
+  <toolOption toolId="makefile.arm.gcc.compiler" optionId="misc">
+    <toolListOption value="-Wno-unused-parameter"/>
+    <toolListOption value="-Wno-missing-field-initializers"/>
+    <toolListOption value="-mfp16-format=ieee"/>
+    <toolListOption value="-fno-builtin-printf"/>
+    <toolListOption value="-fno-builtin-sprintf"/>
+    <toolListOption value="-fno-lto"/>
+    <toolListOption value="--specs=nano.specs"/>
+  </toolOption>
+  <toolOption toolId="makefile.host.gcc.compiler" optionId="misc">
+    <toolListOption value="-Wno-unused-parameter"/>
+    <toolListOption value="-Wno-missing-field-initializers"/>
+    <toolListOption value="-mfp16-format=ieee"/>
+    <toolListOption value="--specs=nano.specs"/>
+  </toolOption>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
+    <toolListOption value="-Wno-unused-parameter"/>
+    <toolListOption value="-Wno-missing-field-initializers"/>
+    <toolListOption value="-mfp16-format=ieee"/>
+    <toolListOption value="-fno-builtin-printf"/>
+    <toolListOption value="-fno-builtin-sprintf"/>
+    <toolListOption value="-fno-lto"/>
+    <toolListOption value="--specs=nano.specs"/>
+    <toolListOption value="-c"/>
+    <toolListOption value="-fmessage-length=0"/>
+  </toolOption>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base" optionId="com.silabs.gnu.cpp.compiler.option.misc.otherlist">
+    <toolListOption value="-Wno-unused-parameter"/>
+    <toolListOption value="-Wno-missing-field-initializers"/>
+    <toolListOption value="-mfp16-format=ieee"/>
+    <toolListOption value="-fno-lto"/>
+    <toolListOption value="--specs=nano.specs"/>
+    <toolListOption value="-c"/>
+    <toolListOption value="-fmessage-length=0"/>
+  </toolOption>
+  <toolOption toolId="makefile.arm.gcc.linker" optionId="misc">
+    <toolListOption value="-u _printf_float"/>
+    <toolListOption value="-Wl,--wrap=_free_r -Wl,--wrap=_malloc_r -Wl,--wrap=_calloc_r -Wl,--wrap=_realloc_r"/>
+    <toolListOption value="-Wl,--wrap=sl_system_init,--wrap=sl_system_process_action"/>
+    <toolListOption value="-fno-lto"/>
+    <toolListOption value="-Wl,--gc-sections"/>
+  </toolOption>
+  <toolOption toolId="makefile.host.gcc.linker" optionId="misc">
+    <toolListOption value="-u _printf_float"/>
+    <toolListOption value="-Wl,--wrap=_free_r -Wl,--wrap=_malloc_r -Wl,--wrap=_calloc_r -Wl,--wrap=_realloc_r"/>
+    <toolListOption value="-Wl,--wrap=sl_system_init,--wrap=sl_system_process_action"/>
+  </toolOption>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags">
+    <toolListOption value="-u _printf_float"/>
+    <toolListOption value="-Wl,--wrap=_free_r -Wl,--wrap=_malloc_r -Wl,--wrap=_calloc_r -Wl,--wrap=_realloc_r"/>
+    <toolListOption value="-Wl,--wrap=sl_system_init,--wrap=sl_system_process_action"/>
+    <toolListOption value="-fno-lto"/>
+    <toolListOption value="-Wl,--no-warn-rwx-segments"/>
+  </toolOption>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base" optionId="com.silabs.gnu.cpp.link.option.flags">
+    <toolListOption value="-u _printf_float"/>
+    <toolListOption value="-Wl,--wrap=_free_r -Wl,--wrap=_malloc_r -Wl,--wrap=_calloc_r -Wl,--wrap=_realloc_r"/>
+    <toolListOption value="-Wl,--wrap=sl_system_init,--wrap=sl_system_process_action"/>
+    <toolListOption value="-fno-lto"/>
+    <toolListOption value="-Wl,--no-warn-rwx-segments"/>
+  </toolOption>
+  <toolOption toolId="studio.ide.project" optionId="device_opn" value="efr32mg26b510f3200im68"/>
+  <toolOption toolId="makefile.arm.gcc.assembler" optionId="misc">
+    <toolListOption value="-x assembler-with-cpp"/>
+  </toolOption>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.circulardependency" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs" value="false"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.circulardependency" value="true"/>
+</project>

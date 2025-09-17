@@ -1,0 +1,51 @@
+{
+    "CHAR_UUID": "e8e0f616-ff20-48d1-8f60-18f495a44385",
+    "NOTIFY_HANDLE": "0x0021",
+    "beacons": [
+        {
+            "name": "ESP32_BEACON_004",
+            "mac": "80:4B:50:56:A6:91",
+            "notify_handle": "0x0021",
+            "toado": [13, 9],
+            "position": [13, 9],
+            "area": "Central-East Zone",
+            "coverage_radius": 6
+        },
+        {
+            "name": "ESP32_BEACON_005", 
+            "mac": "60:A4:23:C9:85:C1",
+            "notify_handle": "0x0021",
+            "toado": [3, 5],
+            "position": [3, 5],
+            "area": "North-West Zone",
+            "coverage_radius": 6
+        },
+        {
+            "name": "ESP32_BEACON_006",
+            "mac": "80:4B:50:54:91:77",
+            "notify_handle": "0x0021",
+            "toado": [13, 5],
+            "position": [13, 5],
+            "area": "North-East Zone", 
+            "coverage_radius": 6
+        },
+        {
+            "name": "ESP32_BEACON_007",
+            "mac": "80:4B:50:54:96:4A",
+            "notify_handle": "0x0021",
+            "toado": [3, 1],
+            "position": [3, 1],
+            "area": "North-West Corner",
+            "coverage_radius": 5
+        },
+        {
+            "name": "ESP32_BEACON_008",
+            "mac": "34:25:B4:A0:C1:48",
+            "notify_handle": "0x0021",
+            "toado": [14, 1],
+            "position": [14, 1],
+            "area": "North-East Corner",
+            "coverage_radius": 5
+        }
+    ]
+}

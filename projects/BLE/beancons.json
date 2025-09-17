@@ -1,0 +1,16 @@
+{
+    "beacons": [
+        {
+            "mac": "80:4B:50:56:A6:91",
+            "notify_handle": "0x0021"
+        },
+        {
+            "mac": "60:A4:23:C9:85:C1",
+            "notify_handle": "0x0021"
+        },
+        {
+            "mac": "C0:2C:ED:90:AD:A3",
+            "notify_handle": "0x0022"
+        }
+    ]
+}

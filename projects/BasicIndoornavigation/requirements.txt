@@ -1,0 +1,11 @@
+Flask==2.3.3
+Flask-SocketIO==5.3.6
+python-socketio==5.8.0
+python-engineio==4.7.0
+requests==2.31.0
+bleak==0.21.1
+
+# For AI/Computer Vision (optional - for Raspberry Pi)
+# opencv-python==4.8.1.78
+# ultralytics==8.0.196
+# numpy==1.24.3

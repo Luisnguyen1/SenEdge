@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "iot-challenge-2025",
+  "private_key_id": "6b05c4dabb6bed2175843ba8403782c2396dd931",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCqNARqBjgIiU9n\nqAXpxHAephKBV/IJ21vh3TCMvWB8PkyBdbDWjoap3FuKlubhorS/B725Eg1WF7rj\nlIgMm6wu8ekKizpJBEjLxf1pYpxp+fEcLZ26SXLxgdWCh/1zqjAjKPxSHWuupgvp\ntYXLPf7ApTeF6MmzA2VYSBTr+WbaaWjayXqb7DQEye7OW8yhphkWdQvHZXNDlEpk\nz0KNcGLvIuLacNJBqScTcGPrBrzheeCvTS+gQoPxnQPxkbM+2XP4zXWk2R9/lFXY\nWjNojaNodmc/qyJOYRsXBb0nuCPKJwS3cXP/39Yw9e/NiBlaamBYk+aC2KF5e+Om\ncWrwvbmVAgMBAAECggEAAcPfq9h7/51U79FD8Rmyw/lFmzEgoc40P2e+LNIl9wPl\nDTlS59a7OiBpPqBerUZfs395Yzr3B8aKj05SCYzFFgjiOX7E0E8Ku4+bwi+zSZIT\nAw93YaAzYKJ6ZrZ8VWpqwg1Bw07qIqSMM79IhO6+qUbNXZvSw62Bq+Rg0IBZ+w01\nIEmd3N11bqOyXDH3s2R71MLlF4CDnEKtNM2XKPZS/stoxq3NExrNGROynRTIcajq\n6R/gS6llb58r09tlxwEvAaqRfoktwuxIzGYTeWeyvmhoeGjruVh19bVjJHxy82uH\nQ5p7DdOzGlvW0vpOlztWNkWaL0ogw1EvgnAGejjeoQKBgQDjp08IFAE1PCUoaaCL\n8pSWK4Ocp3xQ7eGSpVVNKYf6nzaHS0QytHE3nTkOkVTpI1rj46x9McEfPtEB/nIV\n+piUK41Y2xcdINtKaf1IgDLrhAxrpUbXha0Cx/5JXuTRS0e8iNCz1YY6h+cvSI/o\nMZqnkIZ7mNyVIZUKKgOmXeQLuQKBgQC/ZWtTFkxPukg+VgtEsQH7+55/7LVdTa4l\nzTz0TaDb5o77uuZoOAQBlk8Nvl0B54rfZoNpKHAn7LLahA0LeaCqf7GtIiTVAew/\nx61xsczJ7obHsXi05oPkxMqdpBEuIoll42SdZbQIHXdEixJ4JPJVHX9fR0b7mlaH\nxKuyZqaivQKBgC7ZbJM+Aq2g7giuDCMgzeFFnTUs5pGFEunp6m8Rv/EcuM0I+UTy\nC2aljWtpDy9XXkoNvZ6aEaNLexnM8k+BncrIV7NUiyIsc9SRkVVNRK1hJGk2vyh1\nUxCCddtFkxNbSa0L/t8zbwc2lqYNacggBTK8tGBVKffqzFAmK1AefGLJAoGBAIZI\nBZB5qHiXXXA+thEvjxDXbFCcJnKbuX7UC9vrStx9WfvLGTQteMIUTsp5sI9Rf+FU\n7wWsVWPtcV5WH0DZyJtWk7XAqs63VqU41rtZ3zAdpXodTW69+/NZDj6jiVow6O0P\nKNw1KqY25iK03/RjF5IX6/FQ9MA5fFQs67lyw56RAoGBAKjDeXRrz+4J16nCghWk\nFe7dMqscPr42VIA9x9BrmsljdLFwWzQ+kVfIg9rl7PH6lY3xaEeahB2YaGZRQfNJ\nLjG20OyjvoUYFofnh0/axgOibw9tZmOU8CvjBTZJ5HxUHWlkSKTkrCrVKoYoer9N\n9t8g3yE0SWu4gFTCuJ3sxwy2\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@iot-challenge-2025.iam.gserviceaccount.com",
+  "client_id": "101578364646893766777",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40iot-challenge-2025.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

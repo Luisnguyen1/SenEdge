@@ -1,0 +1,20 @@
+// Auto-generated parameters from TFLite flatbuffers in config directory
+#ifndef SL_TFLITE_MICRO_MODEL_PARAMETERS_H
+#define SL_TFLITE_MICRO_MODEL_PARAMETERS_H
+
+// Definitions generated from "rock_paper_scissors.tflite"'
+#define SL_TFLITE_MODEL_AVERAGE_WINDOW_DURATION_MS 500
+#define SL_TFLITE_MODEL_CLASSES {"rock", "paper", "scissor", "_unknown_"}
+#define SL_TFLITE_MODEL_DATE "2022-05-03T15:55:13.369Z"
+#define SL_TFLITE_MODEL_DETECTION_THRESHOLD 175
+#define SL_TFLITE_MODEL_HASH "98d61f12a1193cae1cc479fea98bdf8d"
+#define SL_TFLITE_MODEL_MINIMUM_COUNT 2
+#define SL_TFLITE_MODEL_NAME "rock_paper_scissors"
+#define SL_TFLITE_MODEL_RUNTIME_MEMORY_SIZE 137176
+#define SL_TFLITE_MODEL_SAMPLEWISE_NORM_MEAN_AND_STD true
+#define SL_TFLITE_MODEL_SAMPLEWISE_NORM_RESCALE 0.0f
+#define SL_TFLITE_MODEL_SUPPRESSION_COUNT 1
+#define SL_TFLITE_MODEL_VERSION 1
+
+
+#endif // SL_TFLITE_MICRO_MODEL_PARAMETERS_H

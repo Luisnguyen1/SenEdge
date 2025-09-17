@@ -1,0 +1,39 @@
+# Raspberry Pi Optimized Requirements
+# ===================================
+
+# Core ML libraries (lightweight versions)
+torch  # CPU-only version
+torchvision
+numpy     # Stable version for ARM
+opencv-python
+
+# Clustering & analysis
+scikit-learn  # Lighter version
+scipy
+
+# System monitoring
+psutil
+
+# Image processing
+Pillow
+# Optional for advanced features (comment out if memory constrained)
+# matplotlib==3.6.3
+# seaborn==0.12.2
+
+# YOLOv5 dependencies
+PyYAML
+tqdm
+requests
+
+# Note: Install with: pip3 install -r requirements_rpi.txt --extra-index-url https://download.pytorch.org/whl/cpu
+
+flask 
+
+matplotlib
+
+pandas
+
+ultralytics
+
+
+seaborn
