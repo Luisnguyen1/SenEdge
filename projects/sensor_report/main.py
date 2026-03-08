@@ -309,5 +309,5 @@ if __name__ == '__main__':
     # os.makedirs('static/css', exist_ok=True)
     # os.makedirs('static/js', exist_ok=True)
     
-    logger.info("Starting IoT Challenge 2025 server on port 7860...")
+    logger.info("Starting SenEdge server on port 7860...")
     socketio.run(app, host='0.0.0.0', port=7860, debug=True, allow_unsafe_werkzeug=True)

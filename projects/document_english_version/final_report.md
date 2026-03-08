@@ -1,7 +1,7 @@
 # Research and Development of the AIoT Retail Assistant System
 ## A Solution for Optimizing Smart Store Operations and Shopping Experience
 
-**SGTeam - IoT Challenge 2025**  
+**SenEdge – Intelligent Sensing for Smart Retail**  
 *Research and Development Report*
 
 ## Abstract
@@ -20,7 +20,7 @@ This report presents a comprehensive study on the AIoT Retail Assistant system's
 ## 1. Introduction and Overview
 
 ### 1.1. Project Background
-As part of the IoT Challenge 2025 competition, the SGTeam proposes an integrated AIoT solution to address challenges in the retail sector. The project focuses on building an intelligent system capable of optimizing the shopping experience and enhancing store operational efficiency by applying advanced technologies such as IoT, AI, and edge computing..
+As part of the SenEdge project, SenEdge proposes an integrated AIoT solution to address challenges in the retail sector. The project focuses on building an intelligent system capable of optimizing the shopping experience and enhancing store operational efficiency by applying advanced technologies such as IoT, AI, and edge computing..
 
 ### 1.2. Core Modules
 - Intelligent Consultation Chatbot (RAG-based)

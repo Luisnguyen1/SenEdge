@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Demo script for SGTeam Dashboard Firebase Push Notifications
+Demo script for SenEdge Dashboard Firebase Push Notifications
 This script demonstrates the complete workflow:
 1. Login to dashboard
 2. Register for notifications  
@@ -13,14 +13,14 @@ import json
 import time
 import sys
 
-class SGTeamDemo:
+class SenEdgeDemo:
     def __init__(self, base_url="http://localhost:5000"):
         self.base_url = base_url
         self.session = requests.Session()
         
     def demo_workflow(self):
         """Complete demo workflow"""
-        print("🚀 SGTeam Dashboard Firebase Push Notification Demo")
+        print("🚀 SenEdge Dashboard Firebase Push Notification Demo")
         print("=" * 60)
         
         print("\n📋 Demo Steps:")
@@ -32,7 +32,7 @@ class SGTeamDemo:
         
         print("\n" + "=" * 60)
         print("🔑 Login Credentials:")
-        print("   Username: sgteam")
+        print("   Username: senedge")
         print("   Password: quyetthang")
         print("=" * 60)
         
@@ -124,7 +124,7 @@ class SGTeamDemo:
         print("\n🧪 Testing Firebase notification...")
         
         test_data = {
-            'title': '🔔 SGTeam Dashboard Test',
+            'title': '🔔 SenEdge Dashboard Test',
             'body': 'This is a test notification from the dashboard demo script!'
         }
         
@@ -175,7 +175,7 @@ class SGTeamDemo:
         print("   • Multi-device notification support")
 
 if __name__ == '__main__':
-    demo = SGTeamDemo()
+    demo = SenEdgeDemo()
     
     try:
         demo.demo_workflow()

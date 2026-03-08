@@ -1,7 +1,7 @@
 # Nghiên cứu và Phát triển Hệ thống IoT-AI Retail Assistant: 
 # Giải pháp Tối ưu hóa Trải nghiệm Mua sắm và Vận hành Cửa hàng Thông minh
 
-**SGTeam - IoT Challenge 2025**  
+**SenEdge – Intelligent Sensing for Smart Retail**  
 *Báo cáo Nghiên cứu và Triển khai*
 
 ## Tóm tắt (Abstract)
@@ -20,7 +20,7 @@ Báo cáo này trình bày một nghiên cứu toàn diện về việc thiết 
 ## 1. Giới thiệu và Tổng quan
 
 ### 1.1. Bối cảnh Dự án
-Trong khuôn khổ cuộc thi IoT Challenge 2025, nhóm SGTeam đề xuất một giải pháp tích hợp IoT-AI nhằm giải quyết các thách thức trong lĩnh vực bán lẻ. Dự án tập trung vào việc xây dựng một hệ thống thông minh có khả năng tối ưu hóa trải nghiệm mua sắm và nâng cao hiệu quả vận hành cửa hàng thông qua việc ứng dụng các công nghệ tiên tiến như IoT, AI, và edge computing.
+Nhóm SenEdge đề xuất dự án **SenEdge – Intelligent Sensing for Smart Retail**, một giải pháp tích hợp IoT-AI nhằm giải quyết các thách thức trong lĩnh vực bán lẻ. Dự án tập trung vào việc xây dựng một hệ thống thông minh có khả năng tối ưu hóa trải nghiệm mua sắm và nâng cao hiệu quả vận hành cửa hàng thông qua việc ứng dụng các công nghệ tiên tiến như IoT, AI, và edge computing.
 
 ### 1.2. Mục tiêu Nghiên cứu
 Nghiên cứu này đặt ra ba mục tiêu chính:

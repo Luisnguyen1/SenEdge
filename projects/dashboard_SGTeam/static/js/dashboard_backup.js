@@ -169,7 +169,7 @@ class DashboardManager {
         const notification = payload.notification || {};
         const data = payload.data || {};
         
-        const title = notification.title || 'SGTeam Security Alert';
+        const title = notification.title || 'SenEdge Security Alert';
         const body = notification.body || 'Glass break detected!';
         
         // Show browser notification if permission granted
@@ -178,7 +178,7 @@ class DashboardManager {
                 body: body,
                 icon: '/static/favicon.svg',
                 badge: '/static/favicon.svg',
-                tag: data.type || 'sgteam-alert',
+                tag: data.type || 'senedge-alert',
                 requireInteraction: true,
                 data: data
             };
@@ -663,7 +663,7 @@ class DashboardManager {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    title: '🎉 Chào mừng đến SGTeam Dashboard!',
+                    title: '🎉 Chào mừng đến SenEdge Dashboard!',
                     body: 'Thông báo đã được kích hoạt thành công. Bạn sẽ nhận được cảnh báo kính vỡ và các thông báo bảo mật quan trọng.'
                 })
             });
@@ -1042,7 +1042,7 @@ class DashboardManager {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    title: '🎉 Chào mừng đến SGTeam Dashboard!',
+                    title: '🎉 Chào mừng đến SenEdge Dashboard!',
                     body: 'Thông báo bảo mật đã được kích hoạt thành công. Bạn sẽ nhận được cảnh báo kính vỡ và các thông báo quan trọng khác.'
                 })
             });
@@ -1758,6 +1758,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.checkNotifications = () => dashboard.checkNotificationStatus();
     window.requestNotifications = () => dashboard.requestNotificationPermissionAfterLogin();
     
-    console.log('✅ SGTeam Dashboard initialized successfully');
+    console.log('✅ SenEdge Dashboard initialized successfully');
     console.log('🔔 FCM token auto-update enabled');
 });

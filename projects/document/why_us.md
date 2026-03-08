@@ -1,12 +1,12 @@
-Collecting workspace information# Phân tích Giải pháp IoT-AI Retail Assistant của SGTeam
+Collecting workspace information# Phân tích Giải pháp SenEdge – Intelligent Sensing for Smart Retail
 
-Sau khi xem xét toàn bộ dự án của bạn, tôi có thể cung cấp phân tích chi tiết về lợi ích của dự án SGTeam so với phương án truyền thống trong vận hành trung tâm thương mại.
+Sau khi xem xét toàn bộ dự án của bạn, tôi có thể cung cấp phân tích chi tiết về lợi ích của dự án SenEdge so với phương án truyền thống trong vận hành trung tâm thương mại.
 
-## Lý do owner nên chọn dự án của SGTeam
+## Lý do owner nên chọn dự án SenEdge
 
 ### 1. Giải pháp toàn diện và tích hợp
 
-SGTeam cung cấp một hệ sinh thái hoàn chỉnh kết hợp ba module chính:
+SenEdge cung cấp một hệ sinh thái hoàn chỉnh kết hợp ba module chính:
 - **RAG Chatbot thông minh** - hỗ trợ khách hàng tìm sản phẩm
 - **Hệ thống định vị trong nhà** - dẫn đường chính xác đến sản phẩm
 - **Phân tích đám đông và quản lý hàng đợi** - tối ưu hóa trải nghiệm thanh toán
@@ -23,11 +23,11 @@ Dự án sử dụng kiến trúc hiện đại bao gồm:
 
 Cho phép khả năng mở rộng và bảo trì dễ dàng hơn so với các hệ thống monolithic truyền thống.
 
-## So sánh giữa phương án của SGTeam và phương án truyền thống
+## So sánh giữa phương án SenEdge và phương án truyền thống
 
 ### Chi phí triển khai
 
-| Tiêu chí | Phương án SGTeam | Phương án Truyền thống |
+| Tiêu chí | Phương án SenEdge | Phương án Truyền thống |
 |----------|------------------|------------------------|
 | Chi phí phần cứng ban đầu | Trung bình - cao (35% tổng chi phí) | Thấp - trung bình |
 | Chi phí phần mềm | 25% tổng chi phí, một lần | Chi phí license định kỳ |
@@ -37,7 +37,7 @@ Cho phép khả năng mở rộng và bảo trì dễ dàng hơn so với các h
 
 ### Lợi ích kinh tế
 
-| Tiêu chí | Phương án SGTeam | Phương án Truyền thống |
+| Tiêu chí | Phương án SenEdge | Phương án Truyền thống |
 |----------|------------------|------------------------|
 | Giảm chi phí vận hành | 40% tổng lợi ích | Thấp hơn (10-15%) |
 | Tăng doanh số | 35% tổng lợi ích | Thấp hơn (5-10%) |
@@ -45,7 +45,7 @@ Cho phép khả năng mở rộng và bảo trì dễ dàng hơn so với các h
 
 ### Hiệu quả hoạt động
 
-| Tiêu chí | Phương án SGTeam | Phương án Truyền thống |
+| Tiêu chí | Phương án SenEdge | Phương án Truyền thống |
 |----------|------------------|------------------------|
 | Độ chính xác chatbot | 92% | 85% hoặc không có |
 | Độ chính xác định vị | ±1.8m | ±2.5m hoặc không có |
@@ -62,7 +62,7 @@ Phương án truyền thống:
 - Không có tích hợp giữa tìm kiếm thông tin và dẫn đường
 - Không tối ưu hóa quầy thanh toán dựa trên tình trạng thời gian thực
 
-SGTeam giải quyết:
+SenEdge giải quyết:
 - Giảm 28% thời gian tìm kiếm sản phẩm
 - Tăng 15% tỷ lệ conversion
 - Giảm 35% số lần hỏi nhân viên
@@ -74,7 +74,7 @@ Phương án truyền thống:
 - Không dự đoán được thời gian chờ
 - Không có cơ chế tự động phân bổ nguồn lực
 
-SGTeam giải quyết:
+SenEdge giải quyết:
 - Giảm 22% thời gian chờ trung bình
 - Giảm 30% số lượng than phiền
 - Tăng 12% throughput tại quầy
@@ -86,7 +86,7 @@ Phương án truyền thống:
 - Phân tích thường là retrospective, không real-time
 - Ít khả năng dự đoán xu hướng
 
-SGTeam giải quyết:
+SenEdge giải quyết:
 - Phân tích real-time với độ trễ dưới 200ms
 - Độ chính xác phát hiện đám đông lên đến 94%
 - Tạo insights kinh doanh từ dữ liệu tích hợp
@@ -98,17 +98,17 @@ Phương án truyền thống:
 - Cần thay thế toàn bộ khi có công nghệ mới
 - Tốn kém trong việc nâng cấp
 
-SGTeam giải quyết:
+SenEdge giải quyết:
 - Kiến trúc microservices cho phép cập nhật từng phần
 - Dễ dàng thêm module mới (như AR/VR)
 - Tối ưu hóa liên tục thông qua machine learning
 
 ## Kết luận
 
-SGTeam cung cấp một giải pháp vượt trội với:
+SenEdge cung cấp một giải pháp vượt trội với:
 - ROI cao hơn (đầu tư ban đầu cao nhưng lợi ích dài hạn lớn)
 - Trải nghiệm khách hàng tốt hơn đáng kể
 - Hiệu quả vận hành cao hơn nhờ tự động hóa và AI
 - Khả năng phát triển trong tương lai
 
-Việc triển khai dự án SGTeam sẽ giúp trung tâm thương mại không chỉ giải quyết các vấn đề hiện tại mà còn xây dựng nền tảng vững chắc cho sự phát triển trong tương lai, đặc biệt là trong môi trường thương mại điện tử cạnh tranh ngày càng cao.
+Việc triển khai dự án SenEdge sẽ giúp trung tâm thương mại không chỉ giải quyết các vấn đề hiện tại mà còn xây dựng nền tảng vững chắc cho sự phát triển trong tương lai, đặc biệt là trong môi trường thương mại điện tử cạnh tranh ngày càng cao.

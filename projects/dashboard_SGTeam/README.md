@@ -1,4 +1,4 @@
-# SGTeam Dashboard
+# SenEdge Dashboard
 
 A professional real-time dashboard for monitoring Chat Bot, Indo6. **Run the application**
    ```bash
@@ -9,7 +9,7 @@ A professional real-time dashboard for monitoring Chat Bot, Indo6. **Run the app
    Open your browser and navigate to: `http://localhost:5000`
 
 8. **Enable push notifications**
-   - Login with credentials: `sgteam` / `quyetthang`
+   - Login with credentials: `senedge` / `quyetthang`
    - Allow notification permission when prompted
    - Test notifications with: `python test_notifications.py`gation, and Security systems with 3D visualization using Flask and Three.js.
 
@@ -335,7 +335,7 @@ This project is licensed under the MIT License. See LICENSE file for details.
 
 For technical support or questions:
 - Create an issue in the repository
-- Email: support@sgteam.dev
+- Email: support@senedge.dev
 - Documentation: [Project Wiki]
 
 ---

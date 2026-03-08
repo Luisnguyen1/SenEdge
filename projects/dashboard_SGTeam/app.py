@@ -594,7 +594,7 @@ def test_firebase_notification():
         
         data = request.get_json()
         title = data.get('title', 'Test Notification')
-        body = data.get('body', 'This is a test notification from SGTeam Dashboard')
+        body = data.get('body', 'This is a test notification from SenEdge Dashboard')
         link = data.get('link', 'https://manhteky123-iot-challenge-2025.hf.space')
         
         # Get all active tokens
@@ -1244,7 +1244,7 @@ if __name__ == '__main__':
         db_manager.insert_metric('navigation_metrics', MetricsGenerator.generate_navigation_metrics())
         db_manager.insert_metric('security_metrics', MetricsGenerator.generate_security_metrics())
     
-    logger.info("🚀 SGTeam Dashboard starting...")
+    logger.info("🚀 SenEdge Dashboard starting...")
     logger.info(f"🔔 Firebase notifications: {'✅ Enabled' if firebase_initialized else '❌ Disabled'}")
     
     # Get port from environment variable (for Hugging Face Spaces compatibility)

@@ -1,4 +1,4 @@
-# Dockerfile for SGTeam Dashboard on Hugging Face Spaces
+# Dockerfile for SenEdge Dashboard on Hugging Face Spaces
 FROM python:3.11-slim
 
 # Set working directory

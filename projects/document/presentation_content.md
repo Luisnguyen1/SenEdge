@@ -1,5 +1,5 @@
 # IoT-AI Retail Assistant
-## Intelligent Retail Solution - SGTeam
+## Intelligent Retail Solution - SenEdge
 
 ---
 
@@ -149,7 +149,7 @@
 
 ## Thank You!
 
-### SGTeam - IoT Challenge 2025
+### SenEdge – Intelligent Sensing for Smart Retail
 
 **Contact:**  
-sgteam@iotchallenge.vn
+contact@senedge.dev

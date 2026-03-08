@@ -1,10 +1,5 @@
-# IoT-AI Retail Assistant System
-## Comprehensive Technical Documentation
-
-**SGTeam - IoT Challenge 2025**  
+# SenEdge – Intelligent Sensing for Smart Retail
 *Complete Implementation Guide and Technical Reference*
-
----
 
 ## Table of Contents
 1. [Executive Summary](#1-executive-summary)
@@ -415,8 +410,8 @@ dashboard_SGTeam/
 
 #### 4.2.1 Clone Repository
 ```bash
-git clone https://github.com/IoT-Challenge-2025/icc-25-sgteam.git
-cd icc-25-sgteam/projects
+git clone https://github.com/Luisnguyen1/SenEdge.git
+cd SenEdge/projects
 ```
 
 #### 4.2.2 Environment Setup
@@ -1220,6 +1215,6 @@ For technical support, feature requests, or contributions, please refer to our G
 ---
 
 **Contact Information:**
-- Project Team: SGTeam
+- Project Team: SenEdge
 - Email: luisaccforwork@gmail.com
-- GitHub: https://github.com/IoT-Challenge-2025/icc-25-sgteam
+- GitHub: https://github.com/Luisnguyen1/SenEdge
